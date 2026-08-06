@@ -1,0 +1,378 @@
+/************* NEW form atoms *************/
+
+/////// Input reset
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator { opacity: 0; }
+
+// fieldset
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: $sizing--lrg !important;
+}
+
+//legend
+legend {
+    font: $medium;
+    color: $black;
+    margin-bottom: $sizing--med;
+}
+
+// select placeholder
+option[value=""][disabled] {
+    display: none;
+  }
+  
+//label 
+label {
+    display: inline-block;
+    font-family: $base;
+    font-size: .875rem;
+    font-weight: 400;
+    color: $black;
+
+    &.optional {
+        position: relative;
+        
+        &:after {
+            position: absolute;
+            content: "optional";
+            font-style: italic;
+            font-weight: 400;
+            text-transform: none;
+            left: 105%;
+        }
+    }
+}
+
+//inputs
+input::placeholder, input[type="date"]::placeholder {
+    color: $black;
+}
+
+input, select, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+    appearance: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: $gray-500;
+    //margin: 0 0 2em 0;
+    padding: 0 .5em;
+    height: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    border:  $gray--border; 
+    border-radius: $radius--xsm;
+    
+    &:disabled, :read-only {
+        background: none;
+        border: none;
+        border-bottom: $gray--border;
+        border-radius: 0;
+        cursor: not-allowed;
+
+        &:focus-visible {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    
+    &:focus-visible {
+        border: $gray--border_hover;
+        box-shadow: 0 0 0 .125em $primary-400 inset;
+        outline: $primary-400;
+        }
+
+    &.alternate {
+        padding: 0;
+        border: none;
+        background: none;
+        box-shadow: 0 -.0625rem 0 $gray-UI inset;
+        font-size: 2rem;
+        border-radius: 0;
+
+        &:focus-visible {
+            box-shadow: 0 -.125rem 0 $primary-400 inset;
+            outline: none;
+        }            
+    }
+}
+
+input:disabled {
+    border: none;
+    border-bottom: $gray--border;
+    background: none;
+    border-radius: 0;
+    cursor: not-allowed;
+
+    &:focus-visible {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+textarea {
+    padding-top: .5rem;
+    min-height: 6rem;
+    line-height: 1.5em;
+}
+
+input[type="search"] {
+    background: $white url('../../../public/search.svg') 95% 50% / 1em no-repeat;
+    border-radius: $pill;
+    padding-left: $sizing--med;
+}
+
+input[type="date"] {
+    background: $white url('../../../public/calendar.svg') 95% 50% / 1em no-repeat;
+    cursor: pointer;
+}
+
+input[type="email"] {
+    background: $white url('../../../public/mail.svg') 95% 50% / 1em no-repeat;
+    cursor: pointer;
+}
+
+input[type="tel"] {
+    background: $white url('../../../public/phone.svg') 95% 50% / 1em no-repeat;
+    cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+    width: .75em;
+    height: .75em;
+    margin: .5em .5em 0 0;
+}
+
+input[type="radio"] {
+    -webkit-appearance: radio;
+    appearance: radio;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+}
+
+input[type="checkbox"][disabled]:checked  + label:after {
+    content: '';
+    width: .625em;
+    height: .625em;
+    background: $gray-300;
+    position: absolute;
+    top: .375em;
+    left: .125em;
+    border-radius: .125rem;
+    transition: $transition;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"][disabled]:checked + label, input[type="radio"][disabled] + label {
+    color: $gray-500;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"][disabled] + label:before, input[type="radio"][disabled] + label:before {
+    content: '';
+    background: $gray-200;
+    border: .0625rem solid $gray-300;
+}
+
+input[type="checkbox"][disabled] + label, input[type="radio"][disabled] + label {
+    color: $gray-500;
+    cursor: not-allowed;
+}
+
+input[type="radio"] + label, input[type="checkbox"] + label {
+    @extend p;
+    cursor: pointer;
+    text-transform: none;
+}
+
+select {
+    cursor: pointer;
+    background: $white url('../../../public/chevron-down.svg') 98% 50% / 1rem no-repeat;
+
+    &.alternate {
+        background: url('../../../public/chevron-down.svg') 98% 50% / 1rem no-repeat;;
+    }
+
+    &:disabled {
+        background: none;
+    }
+}
+
+.row {
+    display: flex;
+    column-gap: $sizing--lrg;
+}
+
+.visually-hidden {
+    opacity: 0;
+}
+
+// custom radio and checkboxes
+[type="radio"]:checked,
+[type="radio"]:not(:checked), [type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label, [type="checkbox"]:checked + label,
+[type="checkbox"]:not(:checked) + label {
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    line-height: 1.5em;
+    display: inline-block;
+    color: $gray-500;
+}
+
+[type="radio"]:checked + label,[type="checkbox"]:checked + label {
+    color: $primary-400;
+    transition: $transition;
+}
+
+[type="radio"]:not(:checked) + label:before,[type="checkbox"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .25rem;
+    width: .875em;
+    height: .875em;
+    border: $gray--border;
+    border-radius: $radius--sm;
+    background: $white;
+}
+
+[type="radio"]:checked + label:before, [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .25em;
+    width: .875em;
+    height: .875em;
+    border: $gray--border_hover;
+    border-radius: $radius--sm;
+    background: $white;
+}
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    border-radius: $pill;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after,
+[type="checkbox"]:not(:checked) + label:after {
+    content: '';
+    width: .625em;
+    height: .625em;
+    background: $primary-400;
+    position: absolute;
+    top: .375em;
+    left: .125em;
+    transition: $transition;
+}
+
+[type="checkbox"]:checked + label:after,
+[type="checkbox"]:not(:checked) + label:after {
+    border-radius: .125rem;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    border-radius: $pill;
+}
+
+[type="radio"]:not(:checked) + label:after, [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked + label:after, [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+} 
+
+/* Tooltip */
+
+.tooltip {
+    box-shadow: none;
+    
+    svg {
+        position: relative;
+        top: -.5rem;
+        margin: 0;
+        width: .75rem;
+        height: .75rem;
+    }
+
+    &:hover {
+        color: $primary-600;
+        box-shadow: none;
+    }
+}
+
+[data-has-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip],
+[data-tooltip]:after {
+    //visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    box-sizing: inherit;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+[data-tooltip] {
+    transition: $transition;
+    bottom: 150%;
+    text-transform: none;
+    font: $nav;
+    padding: $sizing--med;
+    border-radius: $radius--sm;
+    background-color: $white;
+    color: $gray-500;
+    box-shadow: $boxShadow--med;
+    white-space: nowrap;
+}
+
+[data-tooltip]:after {
+    content: '';
+    display: inline-block;
+    border-left: .5em solid transparent;
+    border-right: .5em solid transparent;
+    bottom: -.5em;
+    border-top: .5em solid #fff;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+}
+
+[data-has-tooltip]:focus [data-tooltip],
+[data-has-tooltip]:focus [data-tooltip]:after,
+[data-has-tooltip]:hover [data-tooltip],
+[data-has-tooltip]:hover [data-tooltip]:after,
+[data-has-tooltip]:active [data-tooltip],
+[data-has-tooltip]:active [data-tooltip]:after {
+    //visibility: visible;
+    opacity: 1;
+}

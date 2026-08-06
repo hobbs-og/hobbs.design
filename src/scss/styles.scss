@@ -1,0 +1,21 @@
+﻿/*@import 'node_modules/bourbon/core/bourbon.scss';
+@import 'node_modules/normalize-scss/sass/normalize';*/
+
+@import 'partials/base/colors.scss';
+@import 'partials/base/variables';
+@import 'partials/base/typography';
+
+
+@import 'partials/base/buttons.scss';
+@import 'partials/base/chips.scss';
+@import 'partials/base/alerts.scss';
+@import 'partials/base/forms';
+@import 'partials/base/tables';
+@import 'partials/base/accessibility';
+
+
+
+@import 'partials/layout/grid';
+@import 'partials/layout/header';
+@import 'partials/layout/navigation';
+@import 'partials/layout/footer';

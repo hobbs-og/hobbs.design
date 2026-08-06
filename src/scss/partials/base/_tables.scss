@@ -1,0 +1,40 @@
+/* Table */
+
+table {
+    width: 100%;
+    max-width: 100%;
+    background: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+
+    tr {
+        box-shadow: 0 -1rem 0 $gray-UI inset;
+        border-color: transparent;
+
+        th  {
+            border-color: transparent;
+        }
+        
+        td {
+            padding: .5rem 1rem;
+            border-color: transparent;
+            font: $nav;
+        }
+
+        &:hover {
+            color: $white;
+            background-color: $gray-UI;
+        }
+    }
+
+    thead {
+        color: $black;
+        font: $xsmall;
+
+        tr:hover {
+            color: $black;
+            background: none;
+        }
+    }
+}

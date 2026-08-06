@@ -1,0 +1,44 @@
+# ---- Secrets ----
+# Never commit credentials. Config is loaded from the environment.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.php
+config.local.php
+
+# ---- OS / editor noise ----
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.vscode/
+.claude/settings.local.json
+
+# ---- Dependencies ----
+node_modules/
+
+# ---- Archived previous version (kept on disk, not in history) ----
+_V4.0/
+
+# ---- Pre-optimization image originals (local safety copy) ----
+_image-originals/
+
+# ---- Source design files ----
+mocks/*.psd
+*.psd
+*.ai
+*.sketch
+*.fig
+
+# ---- Build noise ----
+*.css.map
+*.log
+
+# ---- Scratch / experiments ----
+test.php
+test_mail.php
+send_mail_test.php
+curl_test.php
+test.html
+grid.html

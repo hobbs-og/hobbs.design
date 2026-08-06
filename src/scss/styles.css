@@ -1,0 +1,3224 @@
+@charset "UTF-8";
+/*@import 'node_modules/bourbon/core/bourbon.scss';
+@import 'node_modules/normalize-scss/sass/normalize';*/
+@import url("https://use.typekit.net/fmz3nok.css");
+@import url("https://use.typekit.net/tfl0fpb.css");
+html {
+  background: #f8f8f8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+section {
+  scroll-behavior: auto;
+}
+
+/* 12px */
+/*    14px */
+/*     16px */
+/*   24px */
+/*   32px */
+/*   40px */
+/*   48px */
+/*   64px */
+/* sizing */
+/* radius */
+/* transition */
+/* Shapes */
+/* Filters */
+/* Screen Sizes */
+/* Box shadows */
+/* box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+.case-back {
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+  position: relative;
+}
+body.home:before {
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-image: url(/images/bkgd-home-hero.png);
+  background-size: cover;
+  filter: saturate(0);
+  z-index: -1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*---------------------------
+
+Hero Section
+
+---------------------------*/
+.new-hero {
+  padding-top: 3rem;
+  background: #111111;
+}
+.new-hero .padding-bottom-48 {
+  padding-bottom: 3rem;
+}
+.new-hero h1 {
+  color: #ffffff;
+  padding: 3rem 0;
+}
+.new-hero .border-top {
+  border-top: 0.0625rem solid #555555;
+}
+
+.heroHome {
+  position: relative;
+  padding-bottom: 10vh;
+}
+.heroHome:before {
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-image: url(/images/bkgd-home-hero-2.png);
+  background-size: cover;
+  z-index: -1;
+}
+.heroHome h1 {
+  padding: 20vh 0 10vh;
+  text-transform: none;
+  color: #ffffff;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(4rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: clamp(4rem, 8vw, 6rem);
+}
+@media screen and (max-width: 1024px) {
+  .heroHome h1 {
+    padding: 0 0 0;
+  }
+}
+.heroHome p, .heroHome input[type=radio] + label, .heroHome input[type=checkbox] + label {
+  color: #ffffff;
+}
+.heroHome .dek {
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 50ch;
+}
+
+.section-bkgd {
+  background: #ffffff;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .section-bkgd {
+    border-bottom: none;
+  }
+}
+
+/*--------------------------------
+
+work
+
+---------------------------------*/
+.padding-top {
+  padding-top: 2rem;
+}
+
+.swiss h4 {
+  margin: 0;
+}
+
+/*--------------------------------
+
+componentCard
+
+---------------------------------*/
+.componentCard {
+  top: 0;
+  transition: all 300ms ease;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.componentCard img {
+  margin-bottom: 1.5rem;
+}
+.componentCard-featured p, .componentCard-featured input[type=radio] + label, .componentCard-featured input[type=checkbox] + label {
+  padding-top: 1.5rem;
+  font-size: 0.875rem;
+  color: rgba(15, 15, 15, 0.7);
+}
+.componentCard-featured img {
+  filter: saturate(0);
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+}
+.componentCard-featured:hover {
+  transition: all 300ms ease;
+}
+.componentCard-featured:hover .underline {
+  box-shadow: 0 0.125rem 0 #ffffff;
+}
+.componentCard-featured:hover img {
+  box-sizing: border-box;
+  filter: none;
+  box-shadow: 0 0 0 0.25rem #e4e6dd, 0 0 3rem rgb(15, 15, 15);
+}
+.componentCard .largeIcon {
+  min-width: 3rem;
+  height: 3rem;
+}
+.componentCard .icon {
+  width: 100%;
+  height: auto;
+  max-width: 1.5rem;
+}
+.componentCard-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+.componentCard-header img {
+  width: 100%;
+  height: auto;
+  max-width: 1.5rem;
+}
+
+/*--------------------------------
+
+Resume
+
+---------------------------------*/
+.resume .columns--twelve {
+  margin: 2.5rem auto;
+}
+.resume .gig .meta {
+  font-size: 0.875rem;
+}
+.resume .gig h3 {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #313638;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.resume .gig ul li {
+  position: relative;
+  text-wrap: balance;
+  padding-left: 1rem;
+}
+.resume .gig ul li:before {
+  content: "";
+  background: #E12A09;
+  position: absolute;
+  width: 0.5rem;
+  height: 0.125rem;
+  left: 0;
+  top: 0.75rem;
+}
+
+/*------------------------
+------------------------
+
+New
+
+------------------------
+------------------------*/
+.project .align {
+  gap: 0 3rem;
+  grid-template-rows: max-content;
+}
+
+.project.project-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.project img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.project img.square {
+  aspect-ratio: 1;
+  /* square images */
+}
+.project .heading-small {
+  color: #E12A09;
+  text-transform: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(15, 15, 15, 0.7);
+}
+.project:hover h3 {
+  color: #E12A09;
+}
+.project:hover p, .project:hover input[type=radio] + label, .project:hover input[type=checkbox] + label {
+  color: rgb(15, 15, 15);
+}
+.project:hover .border-top-1 {
+  box-shadow: 0 0.25rem 0 inset #E12A09;
+}
+
+.mugshot {
+  width: 100%;
+  height: 100%;
+  max-width: 8rem;
+  max-height: 8rem;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: saturate(0);
+}
+
+.mug {
+  max-width: 10rem;
+  margin-left: auto;
+}
+
+.border-top-1 {
+  border-top: 0.0625rem solid #C8A4A4;
+  padding-top: 1.5rem;
+}
+
+.border-top-4 {
+  border-top: 0.25rem solid #777777;
+  padding-top: 1.5rem;
+}
+
+.image-border {
+  background: #ffffff;
+  border: 0.0625rem solid #C8A4A4;
+  margin-bottom: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .new.index-hero-width {
+    padding: 0;
+  }
+}
+.new .flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.new .hero-card {
+  min-height: 50vh;
+  box-shadow: 0 0 0 2.9365rem #e4e6dd, 0 0 0 3rem #313638;
+}
+.new .hero-card h1,
+.new .hero-card p,
+.new .hero-card input[type=radio] + label,
+.new .hero-card input[type=checkbox] + label {
+  color: rgba(15, 15, 15, 0.7);
+}
+.new .columns--twelve {
+  gap: 1.5rem 3rem;
+}
+.new .columns--twelve.hero {
+  min-height: 50vh;
+  box-shadow: 0 0 0 2.9365rem #e4e6dd, 0 0 0 3rem #313638;
+}
+.new .columns--twelve.hero h1,
+.new .columns--twelve.hero p,
+.new .columns--twelve.hero input[type=radio] + label,
+.new .columns--twelve.hero input[type=checkbox] + label {
+  color: rgba(15, 15, 15, 0.7);
+}
+@media only screen and (max-width: 767px) {
+  .new .columns--twelve.hero {
+    min-height: 60vh;
+    padding: 1rem 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .new .columns--twelve.hero .visually-hidden {
+    display: none !important;
+  }
+}
+.new .columns--twelve.hero h1 {
+  text-transform: uppercase;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 800;
+  line-height: clamp(2.5rem, 4vw, 5rem);
+}
+.new .columns--twelve.hero .tag {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+.new .columns--twelve.hero .tag.dek {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+.new .columns--twelve.hero .v-type {
+  position: relative;
+  top: 0;
+  left: 100%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  font-size: 4rem;
+  line-height: 120%;
+  white-space: nowrap;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+@media only screen and (max-width: 767px) {
+  .new .columns--twelve.hero .v-type {
+    font-size: 2.5rem;
+  }
+}
+.new .columns--twelve.hero .v-type span {
+  display: block;
+}
+.new .columns--twelve.hero .v-type .line-1 {
+  color: #BCDADE;
+}
+.new .columns--twelve.hero .v-type .line-2 {
+  color: #C8A4A4;
+}
+.new .columns--twelve.hero .v-type .line-3 {
+  color: #A59D9A;
+}
+.new .columns--twelve.hero .v-type.tertiary {
+  color: #8A0002;
+}
+.new .columns--twelve.hero-index {
+  background: #313638;
+  box-shadow: 0 0 0 3rem #313638;
+}
+.new .columns--twelve.hero-index h1,
+.new .columns--twelve.hero-index p,
+.new .columns--twelve.hero-index input[type=radio] + label,
+.new .columns--twelve.hero-index input[type=checkbox] + label {
+  color: #e4e6dd;
+}
+.new .columns--twelve.hero-primary {
+  background: #E12A09;
+  box-shadow: 0 0 0 3rem #E12A09;
+}
+.new .columns--twelve.hero-primary h1,
+.new .columns--twelve.hero-primary p,
+.new .columns--twelve.hero-primary input[type=radio] + label,
+.new .columns--twelve.hero-primary input[type=checkbox] + label {
+  color: #e4e6dd;
+}
+.new .columns--twelve.hero-secondary {
+  background: #BCDADE;
+  box-shadow: 0 0 0 3rem #BCDADE;
+}
+.new .columns--twelve.hero-secondary h1,
+.new .columns--twelve.hero-secondary p,
+.new .columns--twelve.hero-secondary input[type=radio] + label,
+.new .columns--twelve.hero-secondary input[type=checkbox] + label,
+.new .columns--twelve.hero-secondary .v-type {
+  color: #8A0002;
+}
+.new .columns--twelve.hero-tertiary {
+  background: #C8A4A4;
+  box-shadow: 0 0 0 3rem #C8A4A4;
+}
+.new .columns--twelve.hero-tertiary h1,
+.new .columns--twelve.hero-tertiary p,
+.new .columns--twelve.hero-tertiary input[type=radio] + label,
+.new .columns--twelve.hero-tertiary input[type=checkbox] + label,
+.new .columns--twelve.hero-tertiary .v-type {
+  color: #8A0002;
+}
+.new .section-heading {
+  padding: 3rem 0;
+}
+.new .section-heading.border-bottom {
+  border-bottom: 0.0625rem solid #C8A4A4;
+}
+.new .small-header {
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-transform: capitalize;
+  color: #E12A09;
+  margin-bottom: 0.5rem;
+}
+.new .small-header.regular {
+  font-weight: 400;
+  color: rgba(15, 15, 15, 0.7);
+}
+.new .small-header:before {
+  background: #313638;
+}
+.new h2 {
+  margin: 0;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+}
+.new .header-row {
+  position: relative;
+}
+.new .header-row:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  background: #E12A09;
+  bottom: 0.125rem;
+}
+.new ul li {
+  position: relative;
+  text-wrap: balance;
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+.new ul li:before {
+  content: "";
+  background: #E12A09;
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  left: 0;
+  top: 0.5rem;
+}
+.new h3 {
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #313638;
+  margin-bottom: 1.5rem;
+}
+.new h3.h3-featured {
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.new h3.red {
+  font-weight: 700;
+  color: #E12A09;
+}
+.new h3 .dark {
+  font-weight: 700;
+  color: #313638;
+}
+.new h3.pullquote {
+  padding: 3rem 0;
+  margin: 0;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 3vw, 4rem);
+  font-weight: 700;
+  line-height: clamp(2.5rem, 4vw, 5rem);
+  border-top: 0.0625rem solid #C8A4A4;
+  border-bottom: 0.0625rem solid #C8A4A4;
+}
+.new p, .new input[type=radio] + label, .new input[type=checkbox] + label,
+.new li {
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgba(15, 15, 15, 0.7);
+}
+.new .padding-top-24 {
+  padding-top: 1.5rem;
+}
+.new .padding-top-48 {
+  padding-top: 3rem;
+}
+.new .pb-0 {
+  padding-bottom: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .max-width-mobile {
+    max-width: 25%;
+  }
+}
+
+.padding-top-24 {
+  padding-top: 1.5rem;
+}
+
+/*--------------------------------
+
+Grid border
+
+---------------------------------*/
+.gridLines {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  left: 2.5rem;
+  padding-top: 0;
+  top: 0;
+  width: calc(100% - 5rem);
+}
+.gridLines.z-index-negative-1 {
+  z-index: -1;
+}
+.gridLines div {
+  border-left: 0.0625rem solid #cccccc;
+  height: 100%;
+}
+@media only screen and (max-width: 767px) {
+  .gridLines {
+    display: none !important;
+  }
+}
+
+.gridLines-hero {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  left: 2.5rem;
+  padding-top: 0;
+  top: 0;
+  width: calc(100% - 5rem);
+  border-right: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+.gridLines-hero div {
+  border-left: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+}
+@media only screen and (max-width: 767px) {
+  .gridLines-hero {
+    display: none !important;
+  }
+}
+
+/*--------------------------------
+
+Interstitial
+
+---------------------------------*/
+.interstitial {
+  position: relative;
+  background: #E12A09;
+  color: #ffffff;
+}
+
+.alignMiddle {
+  align-items: center;
+}
+
+.alignStart {
+  align-items: start;
+}
+
+.alignEnd {
+  align-items: end;
+}
+
+.alignBaseline {
+  align-items: baseline;
+}
+
+/*--------------------------------
+
+Grid Example
+
+---------------------------------*/
+.grid .columns--twelve {
+  text-align: center;
+  max-width: none;
+}
+.grid .columns--twelve.subgrid > div {
+  display: grid;
+  grid-template-columns: subgrid;
+  background: #ffffff;
+  border: 0.0625rem solid rgba(15, 15, 15, 0.4);
+  padding: 1rem 0;
+}
+.grid .columns--twelve.subgrid > div > div {
+  display: grid;
+  grid-template-columns: subgrid;
+  background: #ffffff;
+  border: 0.0625rem solid rgba(15, 15, 15, 0.4);
+  padding: 1rem 0;
+}
+.grid .columns--twelve.subgrid > div > div > div {
+  display: grid;
+  grid-template-columns: subgrid;
+  background: #ffffff;
+  border: 0.0625rem solid rgba(15, 15, 15, 0.4);
+  padding: 1rem 0;
+}
+.grid .columns--twelve.subgrid > div > div > div > div {
+  display: grid;
+  grid-template-columns: subgrid;
+  background: #ffffff;
+  border: 0.0625rem solid rgba(15, 15, 15, 0.4);
+  padding: 1rem 0;
+}
+
+.placeholder {
+  width: 100%;
+  padding: 15rem 0;
+  background: #dddddd;
+  border: 0.0625rem solid #cccccc;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .visually-hidden-mobile {
+    display: none !important;
+  }
+}
+
+.image-blur {
+  filter: blur(8px);
+  position: relative;
+}
+.image-blur:after {
+  position: absolute;
+  content: "Testing";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.margin-zero {
+  margin: 0 !important;
+}
+
+.margin-bottom-zero {
+  margin-bottom: 0 !important;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 0.5rem !important;
+}
+
+.margin-bottom-16 {
+  margin-bottom: 1rem !important;
+}
+
+.margin-bottom-24 {
+  margin-bottom: 1.5rem !important;
+}
+
+.margin-bottom-48 {
+  margin-bottom: 3rem !important;
+}
+
+.margin-bottom-xxlg {
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile-margin-bottom-24 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.padding-end {
+  padding-bottom: 3rem !important;
+}
+
+.vertical-type {
+  position: relative;
+  top: 0;
+  left: 100%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  font-size: 5.5rem;
+  line-height: 120%;
+  white-space: nowrap;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+@media only screen and (max-width: 767px) {
+  .vertical-type {
+    font-size: 2.5rem;
+  }
+}
+.vertical-type span {
+  display: block;
+}
+.vertical-type span.line-1 {
+  color: #BCDADE;
+}
+.vertical-type span.line-2 {
+  color: #C8A4A4;
+}
+.vertical-type span.line-3 {
+  color: #A59D9A;
+}
+
+.onyx {
+  color: #313638;
+}
+
+.type-color-gray {
+  color: #A59D9A;
+}
+
+.flex-align-right {
+  align-items: end;
+}
+
+.drop-cap p::first-letter, .drop-cap input[type=radio] + label::first-letter, .drop-cap input[type=checkbox] + label::first-letter {
+  font-size: 5rem;
+  /* Makes the first letter 4 times the size of the base font */
+  line-height: 0.9;
+  /* Adjusts the line height to prevent excessive spacing */
+  float: left;
+  /* Floats the letter to the left, allowing text to wrap around it */
+  margin-right: 0.5rem;
+  /* Adds a small margin to the right of the drop cap */
+  font-weight: 800;
+  /* Makes the first letter bold */
+  color: #E12A09;
+  /* Sets the color of the drop cap */
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dek {
+  padding-top: 1rem;
+  color: #313638;
+}
+
+.sticky {
+  position: sticky;
+  top: 3rem;
+}
+
+.square {
+  aspect-ratio: 1;
+  /* square images */
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.gig-listing {
+  padding-bottom: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid #C8A4A4;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/*
+---------------------------------------------------------
+------------ Parallax And Updates -----------------------
+---------------------------------------------------------
+*/
+.parallax-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.parallax-section-hero {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  height: 64vh;
+}
+@media only screen and (max-width: 767px) {
+  .parallax-section {
+    height: 20vh;
+  }
+}
+
+/* Layer positions */
+.parallax-layer {
+  position: relative;
+  z-index: 1;
+}
+.parallax-layer img {
+  filter: drop-shadow(1rem 2rem 10rem rgba(0, 0, 0, 0.2));
+}
+
+.foreground {
+  margin-top: -25%;
+}
+
+.background {
+  margin-top: -15%;
+}
+
+.update {
+  background: #f8f8f8;
+}
+.update .navigation {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: #f8f8f8;
+}
+.update .navigation nav a:last-child {
+  margin: 0;
+}
+.update .background-primary {
+  background: #E12A09;
+  height: 70vh;
+}
+.update .background-secondary {
+  background: rgb(36, 207, 228);
+  height: 70vh;
+}
+.update h1 {
+  font-size: 4.5rem;
+  line-height: 5rem;
+}
+.update .img-after {
+  position: relative;
+}
+.update .img-after:after {
+  position: absolute;
+  content: "";
+  top: 1.5rem;
+  left: 1.5rem;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #000;
+}
+.update .hero-index {
+  position: relative;
+  z-index: 2;
+  box-shadow: 3rem 0 6rem rgba(15, 15, 15, 0.4);
+}
+.update .meta {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #5D6C73;
+  padding-top: 1rem;
+  border-top: 0.0625rem solid #5D6C73;
+}
+.update #purpose {
+  height: 100vh;
+}
+.update .h1, .update .h4, .update .h3, .update .h2 {
+  text-transform: capitalize;
+  color: #777777;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  text-wrap: balance;
+}
+.update .h1 span, .update .h4 span, .update .h3 span, .update .h2 span {
+  color: rgb(15, 15, 15);
+  font-weight: 900;
+}
+@media (max-width: 768px) {
+  .update .h1, .update .h4, .update .h3, .update .h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+.update .h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.update .h2 span {
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .update .h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+.update .h3 {
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.update .h3.black {
+  color: rgb(15, 15, 15);
+}
+@media (max-width: 768px) {
+  .update .h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+.update .h4 {
+  color: rgb(15, 15, 15);
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.update .h4.primary {
+  color: #E12A09;
+}
+.update .display {
+  color: #5D6C73;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  font-size: 8rem;
+  line-height: 8.5rem;
+}
+.update .project img.drop-shadow {
+  filter: drop-shadow(1rem 2rem 4rem rgba(15, 15, 15, 0.2));
+  position: relative;
+  transition: all 300ms ease;
+  left: 0;
+  top: 0;
+}
+.update .project:hover img.drop-shadow {
+  filter: drop-shadow(1rem 2rem 4rem rgba(15, 15, 15, 0.3));
+  transition: all 300ms ease;
+  left: 1rem;
+  top: 1rem;
+}
+.update h2 {
+  margin: 0;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-transform: none;
+  color: #313638;
+}
+.update p, .update input[type=radio] + label, .update input[type=checkbox] + label {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #777777;
+}
+
+.case-study-card {
+  position: relative;
+  background: #ffffff;
+  color: rgba(15, 15, 15, 0.7);
+  box-shadow: 0 0 0 1.5rem #ffffff;
+}
+@media only screen and (max-width: 767px) {
+  .case-study-card {
+    height: auto;
+    box-shadow: 0 0 0 1rem #ffffff;
+    top: -0.5rem;
+  }
+  .case-study-card.columns--twelve {
+    gap: 1rem !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .case-study-card h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+.case-study-card .title {
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 800;
+  margin: 3rem 0;
+}
+.case-study-card p, .case-study-card input[type=radio] + label, .case-study-card input[type=checkbox] + label {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  margin: 0;
+  font-weight: 400;
+}
+.case-study-card .company {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8A0002;
+  letter-spacing: 0.25rem;
+}
+@media only screen and (max-width: 767px) {
+  .case-study-card .visually-hidden {
+    display: none !important;
+  }
+}
+
+.parallax-section.green {
+  background: linear-gradient(43deg, rgba(45, 216, 51, 0.3) -11.95%, rgba(208, 237, 13, 0.3) 87.77%), radial-gradient(47.08% 34.57% at 75.91% 75.39%, #78C520 0%, #A0D669 100%);
+}
+
+.divider-line {
+  position: relative;
+  width: 100%;
+  height: 0.0625rem;
+  background: #C8A4A4;
+}
+.divider-line:before {
+  content: "";
+  position: absolute;
+  background: #E12A09;
+  border-right: 0.25rem solid #f8f8f8;
+  width: 1.5rem;
+  height: 0.0625rem;
+  left: 0;
+}
+
+.navWrapper {
+  position: sticky;
+  z-index: 9999;
+  top: 0;
+  background: none;
+  height: 5rem;
+  padding-top: 0 !important;
+}
+
+.project-hero-index {
+  height: 50vh;
+  overflow: hidden;
+}
+
+.margin-top-48 {
+  margin-top: 3rem;
+}
+
+.margin-top-96 {
+  margin-top: 6rem;
+}
+
+.margin-top-192 {
+  margin-top: 12rem;
+}
+
+.margin-top-240 {
+  margin-top: 15rem;
+}
+
+.project-index-link,
+.project-index-link * {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#contact-resume .project-index-link {
+  margin-bottom: 1.5rem;
+}
+
+.project-index-link {
+  padding: 2.5rem 0;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+.project-index-link h3 {
+  margin-bottom: 0.5rem;
+}
+.project-index-link img {
+  transition: all 300ms ease;
+  border-radius: 0.5rem;
+  filter: grayscale(1) drop-shadow(0 0 0 rgba(0, 0, 0, 0.1)) drop-shadow(0 0 0 rgba(0, 0, 0, 0.2));
+}
+.project-index-link .ghost {
+  position: relative;
+  color: #f8f8f8;
+  padding: 2rem 0;
+  transition: all 300ms ease;
+  display: flex;
+  gap: 0.5rem;
+}
+.project-index-link .ghost:after {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  content: "";
+  transition: all 300ms ease;
+  width: 0;
+  height: 0.0625rem;
+  background: #E12A09;
+}
+@media (max-width: 768px) {
+  .project-index-link .ghost {
+    display: none;
+  }
+}
+.project-index-link:hover {
+  transition: all 300ms ease;
+}
+.project-index-link:hover .ghost {
+  color: #E12A09;
+  gap: 1rem;
+}
+.project-index-link:hover .divider-line {
+  background: #E12A09;
+}
+.project-index-link:hover h3 {
+  color: #E12A09;
+}
+.project-index-link:hover img {
+  border-radius: 0;
+  transition: all 300ms ease;
+  filter: grayscale(0) drop-shadow(1rem 2rem 4rem rgba(0, 0, 0, 0.1));
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.TL-DR {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.font-size-24 {
+  font-size: 1.5rem;
+  color: rgba(15, 15, 15, 0.7);
+}
+
+#navMobile .navMobile__sheet {
+  display: none;
+}
+
+#contact-mail,
+#contact-linkedin,
+#contact-resume {
+  display: flex;
+  gap: 1rem;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  border: 0.0625rem solid #E12A09;
+  border-radius: 16px;
+  justify-content: center;
+}
+#contact-mail img,
+#contact-linkedin img,
+#contact-resume img {
+  width: 1.5rem;
+  height: auto;
+}
+@media (max-width: 768px) {
+  #contact-mail,
+  #contact-linkedin,
+  #contact-resume {
+    margin: 0;
+  }
+}
+
+/* Case overlay */
+/* OVERLAY ROOT */
+#case-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+/* NO FADE — remove the competing animation */
+#case-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 200ms linear;
+}
+
+/* SHEET (the only thing that really animates) */
+#case-overlay-inner-wrapper {
+  background: #f8f8f8;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 420ms cubic-bezier(0.32, 0.72, 0, 1);
+  /* 👈 key */
+  will-change: transform;
+}
+
+/* OPEN STATE */
+#case-overlay.is-open {
+  pointer-events: auto;
+}
+
+#case-overlay.is-open::before {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+}
+
+#case-overlay.is-open #case-overlay-inner-wrapper {
+  transform: translateX(0);
+}
+
+.case-back {
+  position: sticky;
+  top: 0;
+  display: flex;
+  z-index: 9999;
+  width: 100%;
+  padding: 2.5rem 0;
+  background: #f8f8f8;
+  color: #313638;
+  text-align: left;
+}
+@media screen and (max-width: 1024px) {
+  .case-back {
+    padding: 1rem 0;
+  }
+}
+
+h2.intro {
+  color: rgba(15, 15, 15, 0.7);
+  line-height: 2rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 0.5rem 3rem;
+}
+.content h3 {
+  margin-bottom: 0;
+}
+
+.hero-index-img {
+  position: relative;
+  height: auto;
+  aspect-ratio: 4/3;
+}
+
+.hero-case-study-img {
+  position: relative;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.index-hero-h1 {
+  padding-top: 16vh;
+  color: #313638;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 6vw, 6.5rem) !important;
+  line-height: 1.08 !important;
+}
+.index-hero-h1 span {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(15, 15, 15, 0.7);
+  font-weight: 400;
+}
+
+/* -------------------
+CSS Parallax 
+---------------------*/
+:root {
+  --parallax-1: -8%; /* deepest background */
+  --parallax-2: -16%;
+  --parallax-3: -24%;
+  --parallax-4: -32%;
+  --parallax-5: -40%;
+  --parallax-6: -64%;
+  --parallax-7: -80%;
+  --parallax-8: -96%; /* closest foreground */
+}
+
+.parallax-img.layer-1 {
+  --parallax-amount: var(--parallax-1);
+}
+
+.parallax-img.layer-2 {
+  --parallax-amount: var(--parallax-2);
+}
+
+.parallax-img.layer-3 {
+  --parallax-amount: var(--parallax-3);
+}
+
+.parallax-img.layer-4 {
+  --parallax-amount: var(--parallax-4);
+}
+
+.parallax-img.layer-5 {
+  --parallax-amount: var(--parallax-5);
+}
+
+.parallax-img.layer-6 {
+  --parallax-amount: var(--parallax-6);
+}
+
+.parallax-img.layer-7 {
+  --parallax-amount: var(--parallax-7);
+}
+
+.parallax-img.layer-8 {
+  --parallax-amount: var(--parallax-8);
+}
+
+@keyframes parallax-shift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--parallax-amount));
+  }
+}
+.parallax-img {
+  position: absolute;
+  width: 100%;
+  top: 3rem;
+  animation: parallax-shift linear both;
+  animation-timeline: scroll(root);
+  filter: drop-shadow(2rem 2rem 4rem rgba(0, 0, 0, 0.1)) drop-shadow(2rem 2rem 6rem rgba(0, 0, 0, 0.2));
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.headshot {
+  border-radius: 2rem;
+}
+
+.index-section {
+  display: grid;
+  row-gap: 6rem !important;
+}
+
+.case-study {
+  padding-top: 3rem !important;
+  row-gap: 6vh !important;
+}
+
+.case-study-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  display: grid;
+  row-gap: 8rem !important;
+}
+
+.pullquote {
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap-style: balance;
+}
+
+.margin-top-96 {
+  margin-top: 6rem !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  text-wrap-style: pretty;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* 10px / 12px */
+/* 14px / 20px */
+/* 14px / 20x */
+/* 12px / 16px */
+/* 16px / 24px */
+/* 24px / 32px */
+/* 32px / 40px */
+/* 48px / 56px */
+/* 64px / 72px */
+/* 136px . 144px */
+/* 224px / 224px */
+.underline {
+  display: inline;
+  box-shadow: 0 -0.0625rem 0 #E12A09 inset;
+}
+.underline.logo {
+  box-shadow: 0 -0.75rem 0 rgba(225, 42, 9, 0.4) inset;
+  font-size: 1.5rem;
+}
+.underline.logo span {
+  font-weight: 700;
+}
+@media screen and (max-width: 1024px) {
+  .underline {
+    box-shadow: 0 -0.0625rem 0 #ffffff inset;
+  }
+}
+.underline {
+  color: #313638;
+  transition: all 300ms ease;
+}
+.underline.reversed {
+  color: #e4e6dd;
+}
+.underline.reversed:hover {
+  color: #ffffff;
+}
+.underline:hover {
+  color: #E12A09;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+sup {
+  position: relative;
+  bottom: 1ex;
+}
+
+sub {
+  position: relative;
+  bottom: -1ex;
+}
+
+em {
+  font-style: italic;
+}
+em.caption {
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+body {
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+b {
+  font-weight: 700;
+}
+
+a {
+  color: #E12A09;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #313638;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 2.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(15, 15, 15, 0.7);
+}
+
+h3 {
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: rgb(15, 15, 15);
+}
+
+h4 {
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+p, input[type=radio] + label, input[type=checkbox] + label {
+  margin: 0;
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: rgba(15, 15, 15, 0.7);
+}
+p.medium, input[type=radio] + label.medium, input[type=checkbox] + label.medium {
+  font: 400 1.5rem/2.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  /* 24px / 32px */
+  margin-bottom: 0;
+}
+
+.meta {
+  color: #333333;
+  text-transform: capitalize;
+  line-height: 1.25rem;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 0;
+}
+ul li,
+ol li {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+ul li:before,
+ol li:before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0;
+  width: 1rem;
+  height: 0.0625rem;
+  background: #ffffff;
+}
+
+/*-------------------------------- 
+
+main-header
+
+---------------------------------*/
+.topRow {
+  margin-top: 2.5rem;
+}
+.topRow h4 {
+  color: rgba(15, 15, 15, 0.7);
+}
+.topRow p, .topRow input[type=radio] + label, .topRow input[type=checkbox] + label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #777777;
+}
+@media screen and (max-width: 1024px) {
+  .topRow .right {
+    text-align: left;
+  }
+}
+
+/*------------------------------------
+
+section-header 
+
+-------------------------------------*/
+.section-header {
+  position: relative;
+  color: #313638;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 3rem;
+}
+.section-header .hed {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.section-header .hed.lowercase {
+  text-transform: none;
+}
+.section-header .line {
+  background: rgb(15, 15, 15);
+  height: 0.0625rem;
+  flex: 1;
+}
+
+/*------------------------------------
+
+project 
+
+-------------------------------------*/
+.project {
+  position: relative;
+  transition: all 300ms ease;
+}
+@media screen and (max-width: 1024px) {
+  .project {
+    border-bottom: 0.0625rem solid #cccccc;
+    padding-bottom: 1rem;
+  }
+}
+.project p, .project input[type=radio] + label, .project input[type=checkbox] + label {
+  color: rgba(15, 15, 15, 0.7);
+  margin-bottom: 1rem;
+}
+.project p.featured, .project input[type=radio] + label.featured, .project input[type=checkbox] + label.featured {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.project .badge {
+  padding: 0.25rem 0.5rem;
+  background: #E12A09;
+  color: #fff2f0;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  display: inline;
+}
+.project:hover {
+  transition: all 300ms ease;
+}
+.project:hover:before {
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+.project:hover .underline {
+  color: #E12A09;
+}
+.project:hover img {
+  filter: none;
+}
+
+/*------------------------------------
+
+content blocks 
+
+-------------------------------------*/
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/*------
+--
+-
+-
+-
+-
+-
+-
+
+-
+--
+-
+-
+
+Refactored below
+
+-
+-
+-
+
+-
+-
+-
+-
+-
+*/
+/*------------------------------------
+
+index--
+       sections 
+
+-------------------------------------*/
+.hero-index-h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-top: 16vh;
+  height: 72vh;
+  text-wrap-style: balance;
+}
+.hero-index-h1 span {
+  color: rgba(15, 15, 15, 0.7);
+  font-weight: 400;
+}
+
+.hero-case-study-h1 {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 16rem !important;
+}
+@media screen and (max-width: 1024px) {
+  .hero-case-study-h1 {
+    min-height: auto;
+  }
+}
+.hero-case-study-h1 {
+  text-wrap-style: balance;
+}
+.hero-case-study-h1 .hero-title-line-two {
+  color: rgba(15, 15, 15, 0.7);
+  font-weight: 400;
+}
+
+.section-heading {
+  margin-bottom: 6rem;
+}
+
+.intro {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: rgba(15, 15, 15, 0.7);
+  text-wrap-style: balance;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
+
+button[type=submit] {
+  background: #E12A09;
+  color: #ffffff;
+  height: 3rem;
+  line-height: 3rem;
+  margin-top: 1.5rem;
+}
+
+.text-link, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a, input[type=radio] + label a, input[type=checkbox] + label a {
+  display: inline-block;
+  padding: 0 0 0.5rem 0;
+  margin-top: 1.5rem;
+  transition: all 300ms ease;
+}
+.text-link:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, p a:hover, input[type=radio] + label a:hover, input[type=checkbox] + label a:hover {
+  color: #313638;
+}
+
+/******** NEW buttons *********/
+.button {
+  text-align: center;
+  color: #E12A09;
+  cursor: pointer;
+  transition: all 300ms ease;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #E12A09;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 0;
+  min-height: 3rem;
+  display: inline-block;
+}
+.button:hover {
+  background: #6C0112;
+}
+.button svg {
+  margin: 0 0.5rem 0 0;
+}
+.button.icon--only {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+.button.icon--only svg {
+  position: relative;
+  top: calc(50% - 0.5rem);
+  left: calc(50% - 0.5rem);
+  margin: 0;
+}
+.button-secondary {
+  background: #ffffff;
+  color: #EC6942;
+}
+.button-secondary--utility {
+  border-radius: 0.5rem;
+  color: #777777;
+  height: 3rem;
+}
+.button-secondary--utility-function {
+  height: 2rem;
+  font-size: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+.button-secondary--utility:hover {
+  background: #777777;
+  border-color: #777777;
+  color: #ffffff;
+  box-shadow: none;
+}
+.button-secondary--utility:hover svg {
+  fill: none;
+}
+.button-secondary:hover {
+  color: #E12A09;
+  transition: all 300ms ease;
+}
+.button-secondary:hover svg {
+  fill: #FCC09B;
+}
+.button.green {
+  background: rgb(36, 207, 228);
+}
+.button.green:hover {
+  background: rgb(8, 62, 34);
+}
+.button.purple {
+  background: #E12A09;
+}
+.button.purple:hover {
+  background: #EC6942;
+}
+.button.delete {
+  background: rgb(208, 0, 0);
+}
+.button.delete:hover {
+  background: rgb(126, 0, 0);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 1rem;
+  color: #ffffff;
+  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 100rem;
+  white-space: nowrap;
+}
+.chip--1 {
+  background: rgb(102, 106, 16);
+}
+.chip--2 {
+  background: rgb(208, 0, 0);
+}
+.chip--3 {
+  background: #E12A09;
+}
+.chip--4 {
+  background: #EC6942;
+}
+.chip--5 {
+  background: rgb(36, 207, 228);
+}
+.chip--6 {
+  background: #ffffff;
+  color: #777777;
+}
+
+.alert {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 1rem 1rem 0;
+  color: #ffffff;
+  background: rgb(208, 0, 0);
+  border-radius: 1rem;
+  box-shadow: 0.25rem 0.5rem 1.5rem rgba(33, 34, 31, 0.24);
+}
+.alert svg {
+  margin-left: 0.5rem;
+}
+.alert .error {
+  background: rgb(208, 0, 0);
+}
+.alert .warning {
+  color: rgb(15, 15, 15);
+  background: rgb(255, 170, 0);
+}
+.alert .success {
+  background: rgb(0, 123, 49);
+}
+
+/************* NEW form atoms *************/
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 1.5rem !important;
+}
+
+legend {
+  font: 400 1.25rem/1.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(15, 15, 15);
+  margin-bottom: 1rem;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgb(15, 15, 15);
+}
+label.optional {
+  position: relative;
+}
+label.optional:after {
+  position: absolute;
+  content: "optional";
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  left: 105%;
+}
+
+input::-moz-placeholder, input[type=date]::-moz-placeholder {
+  color: rgb(15, 15, 15);
+}
+
+input::placeholder, input[type=date]::placeholder {
+  color: rgb(15, 15, 15);
+}
+
+input, select, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+       user-select: text;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #777777;
+  padding: 0 0.5em;
+  height: 3rem;
+  line-height: 3rem;
+  width: 100%;
+  border: 0.0625rem solid #cccccc;
+  border-radius: 0.25rem;
+}
+input :-moz-read-only, select :-moz-read-only, textarea :-moz-read-only {
+  background: none;
+  border: none;
+  border-bottom: 0.0625rem solid #cccccc;
+  border-radius: 0;
+  cursor: not-allowed;
+}
+input:disabled, input :read-only, select:disabled, select :read-only, textarea:disabled, textarea :read-only {
+  background: none;
+  border: none;
+  border-bottom: 0.0625rem solid #cccccc;
+  border-radius: 0;
+  cursor: not-allowed;
+}
+input :-moz-read-only:focus-visible, select :-moz-read-only:focus-visible, textarea :-moz-read-only:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+input:disabled:focus-visible, input :read-only:focus-visible, select:disabled:focus-visible, select :read-only:focus-visible, textarea:disabled:focus-visible, textarea :read-only:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  border: 0.0625rem solid #EC6942;
+  box-shadow: 0 0 0 0.125em #EC6942 inset;
+  outline: #EC6942;
+}
+input.alternate, select.alternate, textarea.alternate {
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  font-size: 2rem;
+  border-radius: 0;
+}
+input.alternate:focus-visible, select.alternate:focus-visible, textarea.alternate:focus-visible {
+  box-shadow: 0 -0.125rem 0 #EC6942 inset;
+  outline: none;
+}
+
+input:disabled {
+  border: none;
+  border-bottom: 0.0625rem solid #cccccc;
+  background: none;
+  border-radius: 0;
+  cursor: not-allowed;
+}
+input:disabled:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+textarea {
+  padding-top: 0.5rem;
+  min-height: 6rem;
+  line-height: 1.5em;
+}
+
+input[type=search] {
+  background: #ffffff url("../../../public/search.svg") 95% 50%/1em no-repeat;
+  border-radius: 100rem;
+  padding-left: 1rem;
+}
+
+input[type=date] {
+  background: #ffffff url("../../../public/calendar.svg") 95% 50%/1em no-repeat;
+  cursor: pointer;
+}
+
+input[type=email] {
+  background: #ffffff url("../../../public/mail.svg") 95% 50%/1em no-repeat;
+  cursor: pointer;
+}
+
+input[type=tel] {
+  background: #ffffff url("../../../public/phone.svg") 95% 50%/1em no-repeat;
+  cursor: pointer;
+}
+
+input[type=radio], input[type=checkbox] {
+  cursor: pointer;
+  width: 0.75em;
+  height: 0.75em;
+  margin: 0.5em 0.5em 0 0;
+}
+
+input[type=radio] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+       appearance: radio;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+       appearance: checkbox;
+}
+
+input[type=checkbox][disabled]:checked + label:after {
+  content: "";
+  width: 0.625em;
+  height: 0.625em;
+  background: #cccccc;
+  position: absolute;
+  top: 0.375em;
+  left: 0.125em;
+  border-radius: 0.125rem;
+  transition: all 300ms ease;
+  cursor: not-allowed;
+}
+
+input[type=checkbox][disabled]:checked + label, input[type=radio][disabled] + label {
+  color: #777777;
+  cursor: not-allowed;
+}
+
+input[type=checkbox][disabled] + label:before, input[type=radio][disabled] + label:before {
+  content: "";
+  background: #dddddd;
+  border: 0.0625rem solid #cccccc;
+}
+
+input[type=checkbox][disabled] + label, input[type=radio][disabled] + label {
+  color: #777777;
+  cursor: not-allowed;
+}
+
+input[type=radio] + label, input[type=checkbox] + label {
+  cursor: pointer;
+  text-transform: none;
+}
+
+select {
+  cursor: pointer;
+  background: #ffffff url("../../../public/chevron-down.svg") 98% 50%/1rem no-repeat;
+}
+select.alternate {
+  background: url("../../../public/chevron-down.svg") 98% 50%/1rem no-repeat;
+}
+select:disabled {
+  background: none;
+}
+
+.row {
+  display: flex;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
+.visually-hidden {
+  opacity: 0;
+}
+
+[type=radio]:checked,
+[type=radio]:not(:checked), [type=checkbox]:checked,
+[type=checkbox]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+[type=radio]:checked + label,
+[type=radio]:not(:checked) + label, [type=checkbox]:checked + label,
+[type=checkbox]:not(:checked) + label {
+  position: relative;
+  padding-left: 1.5em;
+  cursor: pointer;
+  line-height: 1.5em;
+  display: inline-block;
+  color: #777777;
+}
+
+[type=radio]:checked + label, [type=checkbox]:checked + label {
+  color: #EC6942;
+  transition: all 300ms ease;
+}
+
+[type=radio]:not(:checked) + label:before, [type=checkbox]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.875em;
+  height: 0.875em;
+  border: 0.0625rem solid #cccccc;
+  border-radius: 0.5rem;
+  background: #ffffff;
+}
+
+[type=radio]:checked + label:before, [type=checkbox]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 0.875em;
+  height: 0.875em;
+  border: 0.0625rem solid #EC6942;
+  border-radius: 0.5rem;
+  background: #ffffff;
+}
+
+[type=radio]:checked + label:before,
+[type=radio]:not(:checked) + label:before {
+  border-radius: 100rem;
+}
+
+[type=radio]:checked + label:after,
+[type=radio]:not(:checked) + label:after, [type=checkbox]:checked + label:after,
+[type=checkbox]:not(:checked) + label:after {
+  content: "";
+  width: 0.625em;
+  height: 0.625em;
+  background: #EC6942;
+  position: absolute;
+  top: 0.375em;
+  left: 0.125em;
+  transition: all 300ms ease;
+}
+
+[type=checkbox]:checked + label:after,
+[type=checkbox]:not(:checked) + label:after {
+  border-radius: 0.125rem;
+}
+
+[type=radio]:checked + label:after,
+[type=radio]:not(:checked) + label:after {
+  border-radius: 100rem;
+}
+
+[type=radio]:not(:checked) + label:after, [type=checkbox]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type=radio]:checked + label:after, [type=checkbox]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Tooltip */
+.tooltip {
+  box-shadow: none;
+}
+.tooltip svg {
+  position: relative;
+  top: -0.5rem;
+  margin: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.tooltip:hover {
+  color: #C11406;
+  box-shadow: none;
+}
+
+[data-has-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip],
+[data-tooltip]:after {
+  opacity: 0;
+  position: absolute;
+  box-sizing: inherit;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+[data-tooltip] {
+  transition: all 300ms ease;
+  bottom: 150%;
+  text-transform: none;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #777777;
+  box-shadow: 0.25rem 0.5rem 1.5rem rgba(33, 34, 31, 0.24);
+  white-space: nowrap;
+}
+
+[data-tooltip]:after {
+  content: "";
+  display: inline-block;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  bottom: -0.5em;
+  border-top: 0.5em solid #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+[data-has-tooltip]:focus [data-tooltip],
+[data-has-tooltip]:focus [data-tooltip]:after,
+[data-has-tooltip]:hover [data-tooltip],
+[data-has-tooltip]:hover [data-tooltip]:after,
+[data-has-tooltip]:active [data-tooltip],
+[data-has-tooltip]:active [data-tooltip]:after {
+  opacity: 1;
+}
+
+/* Table */
+table {
+  width: 100%;
+  max-width: 100%;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
+}
+table tr {
+  box-shadow: 0 -1rem 0 #909090 inset;
+  border-color: transparent;
+}
+table tr th {
+  border-color: transparent;
+}
+table tr td {
+  padding: 0.5rem 1rem;
+  border-color: transparent;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+table tr:hover {
+  color: #ffffff;
+  background-color: #909090;
+}
+table thead {
+  color: rgb(15, 15, 15);
+  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+}
+table thead tr:hover {
+  color: rgb(15, 15, 15);
+  background: none;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main #hero {
+  padding-top: 4rem;
+}
+@media screen and (max-width: 1024px) {
+  main span:empty {
+    display: none;
+  }
+  main div:empty {
+    display: none;
+  }
+}
+
+nav, section, #case-overlay-inner-wrapper {
+  padding: 3rem;
+}
+@media screen and (max-width: 1024px) {
+  nav, section, #case-overlay-inner-wrapper {
+    padding: 1.5rem;
+  }
+  nav span:empty, section span:empty, #case-overlay-inner-wrapper span:empty {
+    display: none;
+  }
+  nav div:empty, section div:empty, #case-overlay-inner-wrapper div:empty {
+    display: none;
+  }
+}
+
+#case-overlay-inner-wrapper {
+  background: #f8f8f8;
+}
+
+#case-overlay-inner-wrapper {
+  min-height: 100vh;
+  padding: 0 3rem;
+}
+@media screen and (max-width: 1024px) {
+  #case-overlay-inner-wrapper {
+    padding: 0 1.5rem;
+  }
+}
+
+.columns--one, .columns--eleven, .columns--ten, .columns--nine, .columns--eight, .columns--seven, .columns--six, .columns--five, .columns--four, .columns--three, .columns--two {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 1.5rem 3rem;
+}
+@media screen and (max-width: 600px) {
+  .columns--one, .columns--eleven, .columns--ten, .columns--nine, .columns--eight, .columns--seven, .columns--six, .columns--five, .columns--four, .columns--three, .columns--two {
+    grid-gap: 1rem;
+  }
+}
+
+.columns--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.columns--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.columns--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.columns--five {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.columns--six {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.columns--seven {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.columns--eight {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.columns--nine {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.columns--ten {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.columns--eleven {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.span--1 {
+  grid-column: span 1/auto;
+}
+
+.span--2 {
+  grid-column: span 2/auto;
+}
+
+.span--3 {
+  grid-column: span 3/auto;
+}
+
+.span--4 {
+  grid-column: span 4/auto;
+}
+
+.span--5 {
+  grid-column: span 5/auto;
+}
+
+.span--6 {
+  grid-column: span 6/auto;
+}
+
+.span--7 {
+  grid-column: span 7/auto;
+}
+
+.span--8 {
+  grid-column: span 8/auto;
+}
+
+.span--9 {
+  grid-column: span 9/auto;
+}
+
+.span--10 {
+  grid-column: span 10/auto;
+}
+
+.span--11 {
+  grid-column: span 11/auto;
+}
+
+.span--12 {
+  grid-column: span 12/auto;
+}
+
+.align {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 1.5rem 3rem;
+}
+
+.columns--twelve {
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem 3rem;
+  max-width: 90rem;
+}
+.columns--twelve > div {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 1.5rem 3rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .columns--twelve {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .columns--twelve .span--1, .columns--twelve .span--2, .columns--twelve .span--3, .columns--twelve .span--4 {
+    grid-column: span 2/auto;
+  }
+  .columns--twelve .span--1 .columns--one, .columns--twelve .span--1 .columns--two, .columns--twelve .span--1 .columns--three, .columns--twelve .span--1 .columns--four, .columns--twelve .span--1 .columns--five, .columns--twelve .span--1 .columns--six, .columns--twelve .span--1 .columns--seven, .columns--twelve .span--1 .columns--eight, .columns--twelve .span--1 .columns--nine, .columns--twelve .span--1 .columns--ten, .columns--twelve .span--1 .columns--eleven, .columns--twelve .span--2 .columns--one, .columns--twelve .span--2 .columns--two, .columns--twelve .span--2 .columns--three, .columns--twelve .span--2 .columns--four, .columns--twelve .span--2 .columns--five, .columns--twelve .span--2 .columns--six, .columns--twelve .span--2 .columns--seven, .columns--twelve .span--2 .columns--eight, .columns--twelve .span--2 .columns--nine, .columns--twelve .span--2 .columns--ten, .columns--twelve .span--2 .columns--eleven, .columns--twelve .span--3 .columns--one, .columns--twelve .span--3 .columns--two, .columns--twelve .span--3 .columns--three, .columns--twelve .span--3 .columns--four, .columns--twelve .span--3 .columns--five, .columns--twelve .span--3 .columns--six, .columns--twelve .span--3 .columns--seven, .columns--twelve .span--3 .columns--eight, .columns--twelve .span--3 .columns--nine, .columns--twelve .span--3 .columns--ten, .columns--twelve .span--3 .columns--eleven, .columns--twelve .span--4 .columns--one, .columns--twelve .span--4 .columns--two, .columns--twelve .span--4 .columns--three, .columns--twelve .span--4 .columns--four, .columns--twelve .span--4 .columns--five, .columns--twelve .span--4 .columns--six, .columns--twelve .span--4 .columns--seven, .columns--twelve .span--4 .columns--eight, .columns--twelve .span--4 .columns--nine, .columns--twelve .span--4 .columns--ten, .columns--twelve .span--4 .columns--eleven {
+    grid-template-columns: 1fr;
+  }
+  .columns--twelve .span--1 .columns--two, .columns--twelve .span--1 .columns--three, .columns--twelve .span--1 .columns--four, .columns--twelve .span--2 .columns--two, .columns--twelve .span--2 .columns--three, .columns--twelve .span--2 .columns--four, .columns--twelve .span--3 .columns--two, .columns--twelve .span--3 .columns--three, .columns--twelve .span--3 .columns--four, .columns--twelve .span--4 .columns--two, .columns--twelve .span--4 .columns--three, .columns--twelve .span--4 .columns--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .columns--twelve .span--1 .columns--two .span--all, .columns--twelve .span--1 .columns--three .span--all, .columns--twelve .span--1 .columns--four .span--all, .columns--twelve .span--2 .columns--two .span--all, .columns--twelve .span--2 .columns--three .span--all, .columns--twelve .span--2 .columns--four .span--all, .columns--twelve .span--3 .columns--two .span--all, .columns--twelve .span--3 .columns--three .span--all, .columns--twelve .span--3 .columns--four .span--all, .columns--twelve .span--4 .columns--two .span--all, .columns--twelve .span--4 .columns--three .span--all, .columns--twelve .span--4 .columns--four .span--all {
+    grid-column: span 2/auto;
+  }
+  .columns--twelve .span--5, .columns--twelve .span--6, .columns--twelve .span--7 {
+    grid-column: span 3/auto;
+  }
+  .columns--twelve .span--5 .columns--five, .columns--twelve .span--5 .columns--six, .columns--twelve .span--5 .columns--seven, .columns--twelve .span--6 .columns--five, .columns--twelve .span--6 .columns--six, .columns--twelve .span--6 .columns--seven, .columns--twelve .span--7 .columns--five, .columns--twelve .span--7 .columns--six, .columns--twelve .span--7 .columns--seven {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .columns--twelve .span--5 .columns--five .span--all, .columns--twelve .span--5 .columns--six .span--all, .columns--twelve .span--5 .columns--seven .span--all, .columns--twelve .span--6 .columns--five .span--all, .columns--twelve .span--6 .columns--six .span--all, .columns--twelve .span--6 .columns--seven .span--all, .columns--twelve .span--7 .columns--five .span--all, .columns--twelve .span--7 .columns--six .span--all, .columns--twelve .span--7 .columns--seven .span--all {
+    grid-column: span 2/auto;
+  }
+  .columns--twelve .span--8, .columns--twelve .span--9, .columns--twelve .span--10, .columns--twelve .span--11 {
+    grid-column: span 4/auto;
+  }
+  .columns--twelve .span--8 .columns--eight, .columns--twelve .span--8 .columns--nine, .columns--twelve .span--8 .columns--ten, .columns--twelve .span--8 .columns--eleven, .columns--twelve .span--9 .columns--eight, .columns--twelve .span--9 .columns--nine, .columns--twelve .span--9 .columns--ten, .columns--twelve .span--9 .columns--eleven, .columns--twelve .span--10 .columns--eight, .columns--twelve .span--10 .columns--nine, .columns--twelve .span--10 .columns--ten, .columns--twelve .span--10 .columns--eleven, .columns--twelve .span--11 .columns--eight, .columns--twelve .span--11 .columns--nine, .columns--twelve .span--11 .columns--ten, .columns--twelve .span--11 .columns--eleven {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .columns--twelve .span--8 .columns--eight .span--all, .columns--twelve .span--8 .columns--nine .span--all, .columns--twelve .span--8 .columns--ten .span--all, .columns--twelve .span--8 .columns--eleven .span--all, .columns--twelve .span--9 .columns--eight .span--all, .columns--twelve .span--9 .columns--nine .span--all, .columns--twelve .span--9 .columns--ten .span--all, .columns--twelve .span--9 .columns--eleven .span--all, .columns--twelve .span--10 .columns--eight .span--all, .columns--twelve .span--10 .columns--nine .span--all, .columns--twelve .span--10 .columns--ten .span--all, .columns--twelve .span--10 .columns--eleven .span--all, .columns--twelve .span--11 .columns--eight .span--all, .columns--twelve .span--11 .columns--nine .span--all, .columns--twelve .span--11 .columns--ten .span--all, .columns--twelve .span--11 .columns--eleven .span--all {
+    grid-column: span 4/auto;
+  }
+  .columns--twelve .span--12 {
+    grid-column: span 6/auto;
+  }
+  .columns--twelve .span--12 .columns--twelve {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .columns--twelve .span--12 .columns--twelve .span--all {
+    grid-column: span 6/auto;
+  }
+  .columns--twelve .span--all {
+    grid-column: span 6/auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .columns--twelve {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  .columns--twelve .span--all {
+    grid-column: 1;
+  }
+  .columns--twelve .span--1, .columns--twelve .span--2, .columns--twelve .span--3, .columns--twelve .span--4, .columns--twelve .span--5, .columns--twelve .span--6, .columns--twelve .span--7, .columns--twelve .span--8, .columns--twelve .span--9, .columns--twelve .span--10, .columns--twelve .span--11, .columns--twelve .span--12, .columns--twelve .span--all {
+    grid-column: 1;
+  }
+  .columns--twelve .span--1 .columns--one, .columns--twelve .span--1 .columns--two, .columns--twelve .span--1 .columns--three, .columns--twelve .span--1 .columns--four, .columns--twelve .span--1 .columns--five, .columns--twelve .span--1 .columns--six, .columns--twelve .span--1 .columns--seven, .columns--twelve .span--1 .columns--eight, .columns--twelve .span--1 .columns--nine, .columns--twelve .span--1 .columns--ten, .columns--twelve .span--1 .columns--eleven, .columns--twelve .span--1 .columns--two, .columns--twelve .span--1 .columns--three, .columns--twelve .span--1 .columns--four, .columns--twelve .span--1 .columns--five, .columns--twelve .span--1 .columns--six, .columns--twelve .span--1 .columns--seven, .columns--twelve .span--1 .columns--eight, .columns--twelve .span--1 .columns--nine, .columns--twelve .span--1 .columns--ten, .columns--twelve .span--1 .columns--eleven, .columns--twelve .span--1 .columns--twelve, .columns--twelve .span--2 .columns--one, .columns--twelve .span--2 .columns--two, .columns--twelve .span--2 .columns--three, .columns--twelve .span--2 .columns--four, .columns--twelve .span--2 .columns--five, .columns--twelve .span--2 .columns--six, .columns--twelve .span--2 .columns--seven, .columns--twelve .span--2 .columns--eight, .columns--twelve .span--2 .columns--nine, .columns--twelve .span--2 .columns--ten, .columns--twelve .span--2 .columns--eleven, .columns--twelve .span--2 .columns--two, .columns--twelve .span--2 .columns--three, .columns--twelve .span--2 .columns--four, .columns--twelve .span--2 .columns--five, .columns--twelve .span--2 .columns--six, .columns--twelve .span--2 .columns--seven, .columns--twelve .span--2 .columns--eight, .columns--twelve .span--2 .columns--nine, .columns--twelve .span--2 .columns--ten, .columns--twelve .span--2 .columns--eleven, .columns--twelve .span--2 .columns--twelve, .columns--twelve .span--3 .columns--one, .columns--twelve .span--3 .columns--two, .columns--twelve .span--3 .columns--three, .columns--twelve .span--3 .columns--four, .columns--twelve .span--3 .columns--five, .columns--twelve .span--3 .columns--six, .columns--twelve .span--3 .columns--seven, .columns--twelve .span--3 .columns--eight, .columns--twelve .span--3 .columns--nine, .columns--twelve .span--3 .columns--ten, .columns--twelve .span--3 .columns--eleven, .columns--twelve .span--3 .columns--two, .columns--twelve .span--3 .columns--three, .columns--twelve .span--3 .columns--four, .columns--twelve .span--3 .columns--five, .columns--twelve .span--3 .columns--six, .columns--twelve .span--3 .columns--seven, .columns--twelve .span--3 .columns--eight, .columns--twelve .span--3 .columns--nine, .columns--twelve .span--3 .columns--ten, .columns--twelve .span--3 .columns--eleven, .columns--twelve .span--3 .columns--twelve, .columns--twelve .span--4 .columns--one, .columns--twelve .span--4 .columns--two, .columns--twelve .span--4 .columns--three, .columns--twelve .span--4 .columns--four, .columns--twelve .span--4 .columns--five, .columns--twelve .span--4 .columns--six, .columns--twelve .span--4 .columns--seven, .columns--twelve .span--4 .columns--eight, .columns--twelve .span--4 .columns--nine, .columns--twelve .span--4 .columns--ten, .columns--twelve .span--4 .columns--eleven, .columns--twelve .span--4 .columns--two, .columns--twelve .span--4 .columns--three, .columns--twelve .span--4 .columns--four, .columns--twelve .span--4 .columns--five, .columns--twelve .span--4 .columns--six, .columns--twelve .span--4 .columns--seven, .columns--twelve .span--4 .columns--eight, .columns--twelve .span--4 .columns--nine, .columns--twelve .span--4 .columns--ten, .columns--twelve .span--4 .columns--eleven, .columns--twelve .span--4 .columns--twelve, .columns--twelve .span--5 .columns--one, .columns--twelve .span--5 .columns--two, .columns--twelve .span--5 .columns--three, .columns--twelve .span--5 .columns--four, .columns--twelve .span--5 .columns--five, .columns--twelve .span--5 .columns--six, .columns--twelve .span--5 .columns--seven, .columns--twelve .span--5 .columns--eight, .columns--twelve .span--5 .columns--nine, .columns--twelve .span--5 .columns--ten, .columns--twelve .span--5 .columns--eleven, .columns--twelve .span--5 .columns--two, .columns--twelve .span--5 .columns--three, .columns--twelve .span--5 .columns--four, .columns--twelve .span--5 .columns--five, .columns--twelve .span--5 .columns--six, .columns--twelve .span--5 .columns--seven, .columns--twelve .span--5 .columns--eight, .columns--twelve .span--5 .columns--nine, .columns--twelve .span--5 .columns--ten, .columns--twelve .span--5 .columns--eleven, .columns--twelve .span--5 .columns--twelve, .columns--twelve .span--6 .columns--one, .columns--twelve .span--6 .columns--two, .columns--twelve .span--6 .columns--three, .columns--twelve .span--6 .columns--four, .columns--twelve .span--6 .columns--five, .columns--twelve .span--6 .columns--six, .columns--twelve .span--6 .columns--seven, .columns--twelve .span--6 .columns--eight, .columns--twelve .span--6 .columns--nine, .columns--twelve .span--6 .columns--ten, .columns--twelve .span--6 .columns--eleven, .columns--twelve .span--6 .columns--two, .columns--twelve .span--6 .columns--three, .columns--twelve .span--6 .columns--four, .columns--twelve .span--6 .columns--five, .columns--twelve .span--6 .columns--six, .columns--twelve .span--6 .columns--seven, .columns--twelve .span--6 .columns--eight, .columns--twelve .span--6 .columns--nine, .columns--twelve .span--6 .columns--ten, .columns--twelve .span--6 .columns--eleven, .columns--twelve .span--6 .columns--twelve, .columns--twelve .span--7 .columns--one, .columns--twelve .span--7 .columns--two, .columns--twelve .span--7 .columns--three, .columns--twelve .span--7 .columns--four, .columns--twelve .span--7 .columns--five, .columns--twelve .span--7 .columns--six, .columns--twelve .span--7 .columns--seven, .columns--twelve .span--7 .columns--eight, .columns--twelve .span--7 .columns--nine, .columns--twelve .span--7 .columns--ten, .columns--twelve .span--7 .columns--eleven, .columns--twelve .span--7 .columns--two, .columns--twelve .span--7 .columns--three, .columns--twelve .span--7 .columns--four, .columns--twelve .span--7 .columns--five, .columns--twelve .span--7 .columns--six, .columns--twelve .span--7 .columns--seven, .columns--twelve .span--7 .columns--eight, .columns--twelve .span--7 .columns--nine, .columns--twelve .span--7 .columns--ten, .columns--twelve .span--7 .columns--eleven, .columns--twelve .span--7 .columns--twelve, .columns--twelve .span--8 .columns--one, .columns--twelve .span--8 .columns--two, .columns--twelve .span--8 .columns--three, .columns--twelve .span--8 .columns--four, .columns--twelve .span--8 .columns--five, .columns--twelve .span--8 .columns--six, .columns--twelve .span--8 .columns--seven, .columns--twelve .span--8 .columns--eight, .columns--twelve .span--8 .columns--nine, .columns--twelve .span--8 .columns--ten, .columns--twelve .span--8 .columns--eleven, .columns--twelve .span--8 .columns--two, .columns--twelve .span--8 .columns--three, .columns--twelve .span--8 .columns--four, .columns--twelve .span--8 .columns--five, .columns--twelve .span--8 .columns--six, .columns--twelve .span--8 .columns--seven, .columns--twelve .span--8 .columns--eight, .columns--twelve .span--8 .columns--nine, .columns--twelve .span--8 .columns--ten, .columns--twelve .span--8 .columns--eleven, .columns--twelve .span--8 .columns--twelve, .columns--twelve .span--9 .columns--one, .columns--twelve .span--9 .columns--two, .columns--twelve .span--9 .columns--three, .columns--twelve .span--9 .columns--four, .columns--twelve .span--9 .columns--five, .columns--twelve .span--9 .columns--six, .columns--twelve .span--9 .columns--seven, .columns--twelve .span--9 .columns--eight, .columns--twelve .span--9 .columns--nine, .columns--twelve .span--9 .columns--ten, .columns--twelve .span--9 .columns--eleven, .columns--twelve .span--9 .columns--two, .columns--twelve .span--9 .columns--three, .columns--twelve .span--9 .columns--four, .columns--twelve .span--9 .columns--five, .columns--twelve .span--9 .columns--six, .columns--twelve .span--9 .columns--seven, .columns--twelve .span--9 .columns--eight, .columns--twelve .span--9 .columns--nine, .columns--twelve .span--9 .columns--ten, .columns--twelve .span--9 .columns--eleven, .columns--twelve .span--9 .columns--twelve, .columns--twelve .span--10 .columns--one, .columns--twelve .span--10 .columns--two, .columns--twelve .span--10 .columns--three, .columns--twelve .span--10 .columns--four, .columns--twelve .span--10 .columns--five, .columns--twelve .span--10 .columns--six, .columns--twelve .span--10 .columns--seven, .columns--twelve .span--10 .columns--eight, .columns--twelve .span--10 .columns--nine, .columns--twelve .span--10 .columns--ten, .columns--twelve .span--10 .columns--eleven, .columns--twelve .span--10 .columns--two, .columns--twelve .span--10 .columns--three, .columns--twelve .span--10 .columns--four, .columns--twelve .span--10 .columns--five, .columns--twelve .span--10 .columns--six, .columns--twelve .span--10 .columns--seven, .columns--twelve .span--10 .columns--eight, .columns--twelve .span--10 .columns--nine, .columns--twelve .span--10 .columns--ten, .columns--twelve .span--10 .columns--eleven, .columns--twelve .span--10 .columns--twelve, .columns--twelve .span--11 .columns--one, .columns--twelve .span--11 .columns--two, .columns--twelve .span--11 .columns--three, .columns--twelve .span--11 .columns--four, .columns--twelve .span--11 .columns--five, .columns--twelve .span--11 .columns--six, .columns--twelve .span--11 .columns--seven, .columns--twelve .span--11 .columns--eight, .columns--twelve .span--11 .columns--nine, .columns--twelve .span--11 .columns--ten, .columns--twelve .span--11 .columns--eleven, .columns--twelve .span--11 .columns--two, .columns--twelve .span--11 .columns--three, .columns--twelve .span--11 .columns--four, .columns--twelve .span--11 .columns--five, .columns--twelve .span--11 .columns--six, .columns--twelve .span--11 .columns--seven, .columns--twelve .span--11 .columns--eight, .columns--twelve .span--11 .columns--nine, .columns--twelve .span--11 .columns--ten, .columns--twelve .span--11 .columns--eleven, .columns--twelve .span--11 .columns--twelve, .columns--twelve .span--12 .columns--one, .columns--twelve .span--12 .columns--two, .columns--twelve .span--12 .columns--three, .columns--twelve .span--12 .columns--four, .columns--twelve .span--12 .columns--five, .columns--twelve .span--12 .columns--six, .columns--twelve .span--12 .columns--seven, .columns--twelve .span--12 .columns--eight, .columns--twelve .span--12 .columns--nine, .columns--twelve .span--12 .columns--ten, .columns--twelve .span--12 .columns--eleven, .columns--twelve .span--12 .columns--two, .columns--twelve .span--12 .columns--three, .columns--twelve .span--12 .columns--four, .columns--twelve .span--12 .columns--five, .columns--twelve .span--12 .columns--six, .columns--twelve .span--12 .columns--seven, .columns--twelve .span--12 .columns--eight, .columns--twelve .span--12 .columns--nine, .columns--twelve .span--12 .columns--ten, .columns--twelve .span--12 .columns--eleven, .columns--twelve .span--12 .columns--twelve, .columns--twelve .span--all .columns--one, .columns--twelve .span--all .columns--two, .columns--twelve .span--all .columns--three, .columns--twelve .span--all .columns--four, .columns--twelve .span--all .columns--five, .columns--twelve .span--all .columns--six, .columns--twelve .span--all .columns--seven, .columns--twelve .span--all .columns--eight, .columns--twelve .span--all .columns--nine, .columns--twelve .span--all .columns--ten, .columns--twelve .span--all .columns--eleven, .columns--twelve .span--all .columns--two, .columns--twelve .span--all .columns--three, .columns--twelve .span--all .columns--four, .columns--twelve .span--all .columns--five, .columns--twelve .span--all .columns--six, .columns--twelve .span--all .columns--seven, .columns--twelve .span--all .columns--eight, .columns--twelve .span--all .columns--nine, .columns--twelve .span--all .columns--ten, .columns--twelve .span--all .columns--eleven, .columns--twelve .span--all .columns--twelve {
+    grid-template-columns: 1fr;
+  }
+  .columns--twelve .span--1 .columns--one .span--all, .columns--twelve .span--1 .columns--two .span--all, .columns--twelve .span--1 .columns--three .span--all, .columns--twelve .span--1 .columns--four .span--all, .columns--twelve .span--1 .columns--five .span--all, .columns--twelve .span--1 .columns--six .span--all, .columns--twelve .span--1 .columns--seven .span--all, .columns--twelve .span--1 .columns--eight .span--all, .columns--twelve .span--1 .columns--nine .span--all, .columns--twelve .span--1 .columns--ten .span--all, .columns--twelve .span--1 .columns--eleven .span--all, .columns--twelve .span--1 .columns--two .span--all, .columns--twelve .span--1 .columns--three .span--all, .columns--twelve .span--1 .columns--four .span--all, .columns--twelve .span--1 .columns--five .span--all, .columns--twelve .span--1 .columns--six .span--all, .columns--twelve .span--1 .columns--seven .span--all, .columns--twelve .span--1 .columns--eight .span--all, .columns--twelve .span--1 .columns--nine .span--all, .columns--twelve .span--1 .columns--ten .span--all, .columns--twelve .span--1 .columns--eleven .span--all, .columns--twelve .span--1 .columns--twelve .span--all, .columns--twelve .span--2 .columns--one .span--all, .columns--twelve .span--2 .columns--two .span--all, .columns--twelve .span--2 .columns--three .span--all, .columns--twelve .span--2 .columns--four .span--all, .columns--twelve .span--2 .columns--five .span--all, .columns--twelve .span--2 .columns--six .span--all, .columns--twelve .span--2 .columns--seven .span--all, .columns--twelve .span--2 .columns--eight .span--all, .columns--twelve .span--2 .columns--nine .span--all, .columns--twelve .span--2 .columns--ten .span--all, .columns--twelve .span--2 .columns--eleven .span--all, .columns--twelve .span--2 .columns--two .span--all, .columns--twelve .span--2 .columns--three .span--all, .columns--twelve .span--2 .columns--four .span--all, .columns--twelve .span--2 .columns--five .span--all, .columns--twelve .span--2 .columns--six .span--all, .columns--twelve .span--2 .columns--seven .span--all, .columns--twelve .span--2 .columns--eight .span--all, .columns--twelve .span--2 .columns--nine .span--all, .columns--twelve .span--2 .columns--ten .span--all, .columns--twelve .span--2 .columns--eleven .span--all, .columns--twelve .span--2 .columns--twelve .span--all, .columns--twelve .span--3 .columns--one .span--all, .columns--twelve .span--3 .columns--two .span--all, .columns--twelve .span--3 .columns--three .span--all, .columns--twelve .span--3 .columns--four .span--all, .columns--twelve .span--3 .columns--five .span--all, .columns--twelve .span--3 .columns--six .span--all, .columns--twelve .span--3 .columns--seven .span--all, .columns--twelve .span--3 .columns--eight .span--all, .columns--twelve .span--3 .columns--nine .span--all, .columns--twelve .span--3 .columns--ten .span--all, .columns--twelve .span--3 .columns--eleven .span--all, .columns--twelve .span--3 .columns--two .span--all, .columns--twelve .span--3 .columns--three .span--all, .columns--twelve .span--3 .columns--four .span--all, .columns--twelve .span--3 .columns--five .span--all, .columns--twelve .span--3 .columns--six .span--all, .columns--twelve .span--3 .columns--seven .span--all, .columns--twelve .span--3 .columns--eight .span--all, .columns--twelve .span--3 .columns--nine .span--all, .columns--twelve .span--3 .columns--ten .span--all, .columns--twelve .span--3 .columns--eleven .span--all, .columns--twelve .span--3 .columns--twelve .span--all, .columns--twelve .span--4 .columns--one .span--all, .columns--twelve .span--4 .columns--two .span--all, .columns--twelve .span--4 .columns--three .span--all, .columns--twelve .span--4 .columns--four .span--all, .columns--twelve .span--4 .columns--five .span--all, .columns--twelve .span--4 .columns--six .span--all, .columns--twelve .span--4 .columns--seven .span--all, .columns--twelve .span--4 .columns--eight .span--all, .columns--twelve .span--4 .columns--nine .span--all, .columns--twelve .span--4 .columns--ten .span--all, .columns--twelve .span--4 .columns--eleven .span--all, .columns--twelve .span--4 .columns--two .span--all, .columns--twelve .span--4 .columns--three .span--all, .columns--twelve .span--4 .columns--four .span--all, .columns--twelve .span--4 .columns--five .span--all, .columns--twelve .span--4 .columns--six .span--all, .columns--twelve .span--4 .columns--seven .span--all, .columns--twelve .span--4 .columns--eight .span--all, .columns--twelve .span--4 .columns--nine .span--all, .columns--twelve .span--4 .columns--ten .span--all, .columns--twelve .span--4 .columns--eleven .span--all, .columns--twelve .span--4 .columns--twelve .span--all, .columns--twelve .span--5 .columns--one .span--all, .columns--twelve .span--5 .columns--two .span--all, .columns--twelve .span--5 .columns--three .span--all, .columns--twelve .span--5 .columns--four .span--all, .columns--twelve .span--5 .columns--five .span--all, .columns--twelve .span--5 .columns--six .span--all, .columns--twelve .span--5 .columns--seven .span--all, .columns--twelve .span--5 .columns--eight .span--all, .columns--twelve .span--5 .columns--nine .span--all, .columns--twelve .span--5 .columns--ten .span--all, .columns--twelve .span--5 .columns--eleven .span--all, .columns--twelve .span--5 .columns--two .span--all, .columns--twelve .span--5 .columns--three .span--all, .columns--twelve .span--5 .columns--four .span--all, .columns--twelve .span--5 .columns--five .span--all, .columns--twelve .span--5 .columns--six .span--all, .columns--twelve .span--5 .columns--seven .span--all, .columns--twelve .span--5 .columns--eight .span--all, .columns--twelve .span--5 .columns--nine .span--all, .columns--twelve .span--5 .columns--ten .span--all, .columns--twelve .span--5 .columns--eleven .span--all, .columns--twelve .span--5 .columns--twelve .span--all, .columns--twelve .span--6 .columns--one .span--all, .columns--twelve .span--6 .columns--two .span--all, .columns--twelve .span--6 .columns--three .span--all, .columns--twelve .span--6 .columns--four .span--all, .columns--twelve .span--6 .columns--five .span--all, .columns--twelve .span--6 .columns--six .span--all, .columns--twelve .span--6 .columns--seven .span--all, .columns--twelve .span--6 .columns--eight .span--all, .columns--twelve .span--6 .columns--nine .span--all, .columns--twelve .span--6 .columns--ten .span--all, .columns--twelve .span--6 .columns--eleven .span--all, .columns--twelve .span--6 .columns--two .span--all, .columns--twelve .span--6 .columns--three .span--all, .columns--twelve .span--6 .columns--four .span--all, .columns--twelve .span--6 .columns--five .span--all, .columns--twelve .span--6 .columns--six .span--all, .columns--twelve .span--6 .columns--seven .span--all, .columns--twelve .span--6 .columns--eight .span--all, .columns--twelve .span--6 .columns--nine .span--all, .columns--twelve .span--6 .columns--ten .span--all, .columns--twelve .span--6 .columns--eleven .span--all, .columns--twelve .span--6 .columns--twelve .span--all, .columns--twelve .span--7 .columns--one .span--all, .columns--twelve .span--7 .columns--two .span--all, .columns--twelve .span--7 .columns--three .span--all, .columns--twelve .span--7 .columns--four .span--all, .columns--twelve .span--7 .columns--five .span--all, .columns--twelve .span--7 .columns--six .span--all, .columns--twelve .span--7 .columns--seven .span--all, .columns--twelve .span--7 .columns--eight .span--all, .columns--twelve .span--7 .columns--nine .span--all, .columns--twelve .span--7 .columns--ten .span--all, .columns--twelve .span--7 .columns--eleven .span--all, .columns--twelve .span--7 .columns--two .span--all, .columns--twelve .span--7 .columns--three .span--all, .columns--twelve .span--7 .columns--four .span--all, .columns--twelve .span--7 .columns--five .span--all, .columns--twelve .span--7 .columns--six .span--all, .columns--twelve .span--7 .columns--seven .span--all, .columns--twelve .span--7 .columns--eight .span--all, .columns--twelve .span--7 .columns--nine .span--all, .columns--twelve .span--7 .columns--ten .span--all, .columns--twelve .span--7 .columns--eleven .span--all, .columns--twelve .span--7 .columns--twelve .span--all, .columns--twelve .span--8 .columns--one .span--all, .columns--twelve .span--8 .columns--two .span--all, .columns--twelve .span--8 .columns--three .span--all, .columns--twelve .span--8 .columns--four .span--all, .columns--twelve .span--8 .columns--five .span--all, .columns--twelve .span--8 .columns--six .span--all, .columns--twelve .span--8 .columns--seven .span--all, .columns--twelve .span--8 .columns--eight .span--all, .columns--twelve .span--8 .columns--nine .span--all, .columns--twelve .span--8 .columns--ten .span--all, .columns--twelve .span--8 .columns--eleven .span--all, .columns--twelve .span--8 .columns--two .span--all, .columns--twelve .span--8 .columns--three .span--all, .columns--twelve .span--8 .columns--four .span--all, .columns--twelve .span--8 .columns--five .span--all, .columns--twelve .span--8 .columns--six .span--all, .columns--twelve .span--8 .columns--seven .span--all, .columns--twelve .span--8 .columns--eight .span--all, .columns--twelve .span--8 .columns--nine .span--all, .columns--twelve .span--8 .columns--ten .span--all, .columns--twelve .span--8 .columns--eleven .span--all, .columns--twelve .span--8 .columns--twelve .span--all, .columns--twelve .span--9 .columns--one .span--all, .columns--twelve .span--9 .columns--two .span--all, .columns--twelve .span--9 .columns--three .span--all, .columns--twelve .span--9 .columns--four .span--all, .columns--twelve .span--9 .columns--five .span--all, .columns--twelve .span--9 .columns--six .span--all, .columns--twelve .span--9 .columns--seven .span--all, .columns--twelve .span--9 .columns--eight .span--all, .columns--twelve .span--9 .columns--nine .span--all, .columns--twelve .span--9 .columns--ten .span--all, .columns--twelve .span--9 .columns--eleven .span--all, .columns--twelve .span--9 .columns--two .span--all, .columns--twelve .span--9 .columns--three .span--all, .columns--twelve .span--9 .columns--four .span--all, .columns--twelve .span--9 .columns--five .span--all, .columns--twelve .span--9 .columns--six .span--all, .columns--twelve .span--9 .columns--seven .span--all, .columns--twelve .span--9 .columns--eight .span--all, .columns--twelve .span--9 .columns--nine .span--all, .columns--twelve .span--9 .columns--ten .span--all, .columns--twelve .span--9 .columns--eleven .span--all, .columns--twelve .span--9 .columns--twelve .span--all, .columns--twelve .span--10 .columns--one .span--all, .columns--twelve .span--10 .columns--two .span--all, .columns--twelve .span--10 .columns--three .span--all, .columns--twelve .span--10 .columns--four .span--all, .columns--twelve .span--10 .columns--five .span--all, .columns--twelve .span--10 .columns--six .span--all, .columns--twelve .span--10 .columns--seven .span--all, .columns--twelve .span--10 .columns--eight .span--all, .columns--twelve .span--10 .columns--nine .span--all, .columns--twelve .span--10 .columns--ten .span--all, .columns--twelve .span--10 .columns--eleven .span--all, .columns--twelve .span--10 .columns--two .span--all, .columns--twelve .span--10 .columns--three .span--all, .columns--twelve .span--10 .columns--four .span--all, .columns--twelve .span--10 .columns--five .span--all, .columns--twelve .span--10 .columns--six .span--all, .columns--twelve .span--10 .columns--seven .span--all, .columns--twelve .span--10 .columns--eight .span--all, .columns--twelve .span--10 .columns--nine .span--all, .columns--twelve .span--10 .columns--ten .span--all, .columns--twelve .span--10 .columns--eleven .span--all, .columns--twelve .span--10 .columns--twelve .span--all, .columns--twelve .span--11 .columns--one .span--all, .columns--twelve .span--11 .columns--two .span--all, .columns--twelve .span--11 .columns--three .span--all, .columns--twelve .span--11 .columns--four .span--all, .columns--twelve .span--11 .columns--five .span--all, .columns--twelve .span--11 .columns--six .span--all, .columns--twelve .span--11 .columns--seven .span--all, .columns--twelve .span--11 .columns--eight .span--all, .columns--twelve .span--11 .columns--nine .span--all, .columns--twelve .span--11 .columns--ten .span--all, .columns--twelve .span--11 .columns--eleven .span--all, .columns--twelve .span--11 .columns--two .span--all, .columns--twelve .span--11 .columns--three .span--all, .columns--twelve .span--11 .columns--four .span--all, .columns--twelve .span--11 .columns--five .span--all, .columns--twelve .span--11 .columns--six .span--all, .columns--twelve .span--11 .columns--seven .span--all, .columns--twelve .span--11 .columns--eight .span--all, .columns--twelve .span--11 .columns--nine .span--all, .columns--twelve .span--11 .columns--ten .span--all, .columns--twelve .span--11 .columns--eleven .span--all, .columns--twelve .span--11 .columns--twelve .span--all, .columns--twelve .span--12 .columns--one .span--all, .columns--twelve .span--12 .columns--two .span--all, .columns--twelve .span--12 .columns--three .span--all, .columns--twelve .span--12 .columns--four .span--all, .columns--twelve .span--12 .columns--five .span--all, .columns--twelve .span--12 .columns--six .span--all, .columns--twelve .span--12 .columns--seven .span--all, .columns--twelve .span--12 .columns--eight .span--all, .columns--twelve .span--12 .columns--nine .span--all, .columns--twelve .span--12 .columns--ten .span--all, .columns--twelve .span--12 .columns--eleven .span--all, .columns--twelve .span--12 .columns--two .span--all, .columns--twelve .span--12 .columns--three .span--all, .columns--twelve .span--12 .columns--four .span--all, .columns--twelve .span--12 .columns--five .span--all, .columns--twelve .span--12 .columns--six .span--all, .columns--twelve .span--12 .columns--seven .span--all, .columns--twelve .span--12 .columns--eight .span--all, .columns--twelve .span--12 .columns--nine .span--all, .columns--twelve .span--12 .columns--ten .span--all, .columns--twelve .span--12 .columns--eleven .span--all, .columns--twelve .span--12 .columns--twelve .span--all, .columns--twelve .span--all .columns--one .span--all, .columns--twelve .span--all .columns--two .span--all, .columns--twelve .span--all .columns--three .span--all, .columns--twelve .span--all .columns--four .span--all, .columns--twelve .span--all .columns--five .span--all, .columns--twelve .span--all .columns--six .span--all, .columns--twelve .span--all .columns--seven .span--all, .columns--twelve .span--all .columns--eight .span--all, .columns--twelve .span--all .columns--nine .span--all, .columns--twelve .span--all .columns--ten .span--all, .columns--twelve .span--all .columns--eleven .span--all, .columns--twelve .span--all .columns--two .span--all, .columns--twelve .span--all .columns--three .span--all, .columns--twelve .span--all .columns--four .span--all, .columns--twelve .span--all .columns--five .span--all, .columns--twelve .span--all .columns--six .span--all, .columns--twelve .span--all .columns--seven .span--all, .columns--twelve .span--all .columns--eight .span--all, .columns--twelve .span--all .columns--nine .span--all, .columns--twelve .span--all .columns--ten .span--all, .columns--twelve .span--all .columns--eleven .span--all, .columns--twelve .span--all .columns--twelve .span--all {
+    grid-column: span 1/auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .columns--twelve .span--all {
+    grid-column: span 12/auto;
+  }
+  .columns--one .span--all, .columns--two .span--all, .columns--three .span--all, .columns--four .span--all, .columns--five .span--all, .columns--six .span--all, .columns--seven .span--all, .columns--eight .span--all, .columns--nine .span--all, .columns--ten .span--all, .columns--eleven .span--all {
+    grid-column: span 1/auto;
+  }
+  .columns--two .span--all {
+    grid-column: span 2/auto;
+  }
+  .columns--three .span--all {
+    grid-column: span 3/auto;
+  }
+  .columns--four .span--all {
+    grid-column: span 4/auto;
+  }
+  .columns--five .span--all {
+    grid-column: span 5/auto;
+  }
+  .columns--six .span--all {
+    grid-column: span 6/auto;
+  }
+  .columns--seven .span--all {
+    grid-column: span 7/auto;
+  }
+  .columns--eight .span--all {
+    grid-column: span 8/auto;
+  }
+  .columns--nine .span--all {
+    grid-column: span 9/auto;
+  }
+  .columns--ten .span--all {
+    grid-column: span 10/auto;
+  }
+  .columns--eleven .span--all {
+    grid-column: span 11/auto;
+  }
+}
+.page-end {
+  margin-bottom: 100vh;
+  padding-bottom: 3rem;
+}
+@media only screen and (max-width: 1024px) {
+  .page-end {
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.navigation {
+  backdrop-filter: blur(0.5rem);
+  background: #e4e6dd;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media screen and (max-width: 1024px) {
+  .navigation {
+    background: #313638;
+  }
+  .navigation.nav-mobile-case-study {
+    background: #ffffff;
+  }
+  .navigation.nav-mobile-interior {
+    background: #e4e6dd;
+  }
+  .navigation.nav-mobile-secondary {
+    background: #BCDADE;
+  }
+  .navigation.nav-mobile-tertiary {
+    background: #C8A4A4;
+  }
+}
+.navigation nav {
+  align-items: baseline;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+@media screen and (max-width: 1024px) {
+  .navigation nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.navigation nav .logo {
+  margin-right: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+.navigation nav a {
+  font-size: 0.875rem;
+  color: #5D6C73;
+  text-transform: lowercase;
+  text-decoration: none;
+  margin-right: auto;
+}
+@media screen and (max-width: 1024px) {
+  .navigation nav a {
+    font-size: 0.875rem;
+    margin-right: 0;
+    color: #ffffff;
+  }
+  .navigation nav a.nav-mobile-case-study {
+    color: rgb(15, 15, 15);
+  }
+  .navigation nav a.underline {
+    box-shadow: 0 -0.0625rem 0 #E12A09 inset;
+  }
+}
+.navigation nav a img {
+  width: 100%;
+}
+.navigation nav a.right {
+  text-align: right;
+}
+@media screen and (max-width: 1024px) {
+  .navigation nav a.right {
+    text-align: left;
+    margin: 0;
+  }
+}
+.navigation nav a.center {
+  text-align: center;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .navigation nav a.center {
+    text-align: left;
+    margin: 0;
+  }
+}
+.navigation nav a:hover {
+  color: #E12A09;
+}
+.navigation nav a:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+@media screen and (max-width: 1024px) {
+  .navigation nav a:last-child {
+    margin: 0;
+  }
+}
+
+header {
+  position: relative;
+}
+
+.header-contact-info {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.header-contact-info .underline {
+  font-weight: 400;
+}
+
+/* Hidden SVG used for down arrows */
+svg[hidden] {
+  display: none;
+  position: absolute;
+}
+
+.topNav {
+  width: 100vw;
+  background: #ffffff;
+}
+.topNav ul, .topNav li {
+  padding: 0;
+}
+.topNav ul ul:after, .topNav ul li:after, .topNav li ul:after, .topNav li li:after {
+  display: none;
+}
+.topNav .clicky-menu {
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 540px) {
+  .topNav .clicky-menu {
+    display: flex;
+  }
+}
+.topNav .clicky-menu {
+  /* General link styling */
+}
+.topNav .clicky-menu a, .topNav .clicky-menu button {
+  margin: 0.5rem;
+  padding: 1rem;
+  background: transparent;
+  color: rgb(15, 15, 15);
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+.topNav .clicky-menu a:hover, .topNav .clicky-menu button:hover {
+  background: #ffffff;
+}
+.topNav .clicky-menu a:focus, .topNav .clicky-menu button:focus {
+  outline: 0.125em dotted purple;
+  outline-offset: -0.125em;
+}
+.topNav .clicky-menu {
+  /* Top Level Items */
+}
+.topNav .clicky-menu > li {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+.topNav .clicky-menu > li > a, .topNav .clicky-menu .clicky-menu > li > button {
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 0;
+  font-size: inherit;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* Icon */
+.clicky-menu svg {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+}
+
+.clicky-menu [aria-expanded=true] svg {
+  transform: scaleY(-1);
+}
+
+/* Submenu Styles */
+.clicky-menu ul {
+  min-width: 100%;
+  width: 12em;
+  margin-top: 0.25em;
+  padding: 0;
+  list-style: none;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+@media (min-width: 540px) {
+  .clicky-menu {
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+/* Responsive Submenu Behavior */
+.clicky-menu ul[aria-hidden=false] {
+  position: static;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+@media (min-width: 540px) {
+  .clicky-menu ul[aria-hidden=false] {
+    position: absolute;
+    width: auto;
+  }
+}
+/* Submenu Links */
+.clicky-menu ul a {
+  display: block;
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+}
+
+@media (min-width: 540px) {
+  .clicky-menu ul a {
+    padding: 0.375em 1em;
+    white-space: nowrap;
+  }
+}
+.navMobileBar {
+  display: none;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1.5rem 3rem;
+  background: #f8f8f8;
+}
+nav .desktop {
+  margin: 0 auto;
+  max-width: 90rem;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+@media (max-width: 768px) {
+  nav .desktop {
+    display: none;
+  }
+}
+nav .desktop .nav-items {
+  display: flex;
+  gap: 4rem;
+}
+nav .desktop .nav-items a {
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: #313638;
+}
+nav .desktop .nav-items a:hover {
+  color: #E12A09;
+}
+
+@media (max-width: 768px) {
+  .navMobileBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 4000;
+    background: #f8f8f8;
+  }
+  #navMobileToggle {
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 0.375rem;
+  }
+  #navMobileToggle span {
+    display: block;
+    width: 1.75rem;
+    height: 0.0625rem;
+    background: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navMobile {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 3500;
+  }
+  #navMobile .navMobile__sheet {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #f8f8f8;
+    padding: 1rem;
+    padding-top: 4.5rem;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #navMobile a {
+    display: block;
+    padding: 14px 0;
+    font-size: 18px;
+    color: rgb(15, 15, 15);
+    text-decoration: none;
+  }
+  body.nav-mobile-open #navMobile {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  body.nav-mobile-open #navMobile .navMobile__sheet {
+    transform: translateY(0);
+  }
+  body.nav-mobile-open #navMobileToggle span:nth-child(1) {
+    background: rgb(15, 15, 15);
+    transform: rotate(45deg) translate(0.4375rem, 0.3125rem);
+  }
+  body.nav-mobile-open #navMobileToggle span:nth-child(2) {
+    opacity: 0;
+  }
+  body.nav-mobile-open #navMobileToggle span:nth-child(3) {
+    background: rgb(15, 15, 15);
+    transform: rotate(-45deg) translate(0.3125rem, -0.1875rem);
+  }
+}
+.navLeft {
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: sticky;
+  top: 3rem;
+}
+.navLeft.info {
+  gap: 1.5rem;
+}
+.navLeft.info a {
+  margin-right: auto;
+}
+@media (max-width: 1024px) {
+  .navLeft {
+    display: none;
+  }
+}
+.navLeft a {
+  font-size: 0.875rem;
+  color: rgba(15, 15, 15, 0.7);
+}
+.navLeft a:hover {
+  color: #E12A09;
+}
+.navLeft .nav--container {
+  position: sticky;
+  top: 0;
+}
+.navLeft .nav--container .nav--header { /* Header */
+  padding: 1rem 0 1rem 1rem;
+  box-shadow: 0 -0.0625rem 0 #909090 inset;
+}
+.navLeft .nav--container .nav--header img {
+  margin: 0 0 1rem 0;
+  height: 2rem;
+}
+.navLeft .nav--container .nav--header h1 {
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+.navLeft .nav--container .nav--items { /* Navigation Link List */
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.navLeft .nav--container .nav--items h4 {
+  padding: 1rem 0 0.5rem 1rem;
+  margin: 0;
+  box-shadow: 0 -0.0625rem 0 #909090 inset;
+}
+.navLeft .nav--container .nav--items a {
+  color: #777777;
+  width: 100%;
+}
+.navLeft .nav--container .nav--items li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0 0 1rem;
+  height: 3rem;
+  line-height: 3rem;
+  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  cursor: pointer;
+}
+.navLeft .nav--container .nav--items li svg {
+  margin-right: 0.5rem;
+}
+.navLeft .nav--container .nav--items li.system {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.navLeft .nav--container .nav--items li:after {
+  content: none;
+}
+.navLeft .nav--container .nav--items li:hover, .navLeft .nav--container .nav--items li.active {
+  box-shadow: 0.25rem 0 0 #E12A09 inset, 0 -0.0625rem 0 #909090 inset;
+  background: #ffffff;
+  transition: all 300ms ease;
+}
+.navLeft .nav--container .nav--items li:hover svg, .navLeft .nav--container .nav--items li.active svg {
+  stroke: #E12A09;
+  fill: #FCC09B;
+}
+.navLeft .nav--container .nav--items li:hover a, .navLeft .nav--container .nav--items li.active a {
+  color: #E12A09;
+  font-weight: 500;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu {
+  padding: 0.5rem 0;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu ul {
+  position: relative;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu a {
+  margin-bottom: 0.5rem;
+  color: rgb(15, 15, 15);
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem {
+  padding: 0.25rem 0 0.25rem 0.5rem;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem a {
+  color: #777777;
+  font-size: 0.75rem;
+  text-transform: none;
+}
+.navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem a:hover {
+  color: #EC6942;
+}
+
+.navFloat {
+  padding: 0 1.5rem 0 0;
+  background: transparent;
+  box-shadow: none;
+  grid-column: span 3;
+  height: 80vh;
+}
+.navFloat .nav--container {
+  position: sticky;
+  top: 5rem;
+}
+.navFloat .nav--container .nav--items {
+  padding: 1.5rem 1rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 2rem 2rem 6rem rgba(145, 139, 150, 0.24);
+  border: 0.0625rem solid #dddddd;
+}
+.navFloat .nav--container .nav--items .nav--item {
+  height: 3rem;
+  line-height: 3rem !important;
+  padding-left: 1rem;
+  transition: all 300ms ease;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-radius: 100rem;
+  color: #777777;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+}
+.navFloat .nav--container .nav--items .nav--item svg {
+  margin-right: 0.5rem;
+}
+.navFloat .nav--container .nav--items .nav--item.active, .navFloat .nav--container .nav--items .nav--item:hover {
+  transition: all 300ms ease;
+  background: #EC6942;
+  color: #ffffff;
+}
+
+footer {
+  position: fixed;
+  padding: 3rem;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  bottom: 0;
+  font-size: 1rem;
+}
+@media only screen and (max-width: 1024px) {
+  footer {
+    position: relative;
+    height: auto;
+    padding: 1.5rem 1rem;
+    z-index: 0;
+  }
+}
+footer .flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+footer .heading {
+  text-transform: uppercase;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 800;
+  line-height: clamp(2.5rem, 4vw, 7rem);
+}
+footer .contact {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1024px) {
+  footer .contact {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  footer .copyright {
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */
