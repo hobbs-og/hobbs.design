@@ -1,0 +1,49 @@
+// ============================================================
+// SEMANTIC — TYPE
+// ============================================================
+//
+// Sizes are named for the role they play, not for a t-shirt size.
+// "heading-lg" survives a redesign; "3xl" does not.
+//
+// Hierarchy on this site is built through size and opacity, never
+// through hue or weight shifts. The weight tokens are deliberately
+// few, and display weight is reserved for the hero.
+// ============================================================
+
+// primitives are imported once by tokens.scss
+
+:root {
+
+    // ---------- Family ----------
+    --text-family-display:       #{$font-family-grotesk-display};
+    --text-family-body:          #{$font-family-grotesk-text};
+
+    // ---------- Size ----------
+    // Fluid at the top of the scale, fixed below, because hero type
+    // needs to respond to viewport and body copy does not.
+    --text-size-display:         clamp(2.75rem, 6vw, 6.5rem);
+    --text-size-heading-lg:      clamp(2rem, 3vw, 4rem);
+    --text-size-heading-md:      #{$font-size-600};
+    --text-size-heading-sm:      #{$font-size-400};
+    --text-size-body-lg:         #{$font-size-400};
+    --text-size-body:            #{$font-size-300};
+    --text-size-caption:         #{$font-size-200};
+    --text-size-nav:             #{$font-size-200};
+    --text-size-label:           #{$font-size-100};
+
+    // ---------- Weight ----------
+    --text-weight-body:          #{$font-weight-400};
+    --text-weight-emphasis:      #{$font-weight-500};
+    --text-weight-heading:       #{$font-weight-600};
+    --text-weight-display:       #{$font-weight-800};
+
+    // ---------- Line height ----------
+    --text-leading-display:      #{$line-height-100};
+    --text-leading-heading:      #{$line-height-200};
+    --text-leading-body:         #{$line-height-300};
+
+    // ---------- Measure ----------
+    // Line length caps. Long-form copy stops being readable past ~75ch.
+    --text-measure-body:         65ch;
+    --text-measure-lead:         50ch;
+}

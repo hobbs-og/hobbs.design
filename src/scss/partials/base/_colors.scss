@@ -125,9 +125,10 @@ $hero-case-study-background: $white;
 $hero-case-study-type-color: $secondary-onyx;
 $hero-background-light-blue: $secondary-blue-light;
 
-html {
-    background: $background-html;
-}
+// NOTE: the `html { background: $background-html; }` rule that used to
+// live here has moved to _variables.scss. This file is now variables only,
+// so it can be imported by the token layer without emitting CSS twice.
+// Compiled output is unchanged.
 
 
 

@@ -1,0 +1,24 @@
+// ============================================================
+// hobbs.design — design tokens
+// ============================================================
+//
+// Compiles standalone to tokens.css so it can be linked ahead of
+// styles.css without touching the existing build. Nothing in the
+// current stylesheet changes, and nothing breaks.
+//
+//   sass src/scss/tokens.scss src/scss/tokens.css --style=expanded --no-source-map
+//
+// Layers:
+//   primitives  raw values, no meaning
+//   semantic    roles, pointing at primitives
+//   component   not built yet, see docs/design-tokens.md
+// ============================================================
+
+// Primitives are imported once, here. The semantic partials below
+// rely on that, the same way the existing styles.scss imports
+// _colors.scss once for everything downstream.
+@import 'tokens/primitives';
+
+@import 'tokens/semantic-color';
+@import 'tokens/semantic-type';
+@import 'tokens/semantic-space';
