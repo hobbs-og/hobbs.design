@@ -19,6 +19,12 @@
   grid-template-columns: 1fr;
 }
 
+/* A statement hero carries a full sentence, so it gets a wider
+   measure than the split hero's short title. */
+.index-hero--statement .index-hero__title {
+  max-width: 24ch;
+}
+
 .index-hero__eyebrow {
   font-size: var(--text-size-ui);
   line-height: var(--text-leading-ui);
