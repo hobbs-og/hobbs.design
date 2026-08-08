@@ -1,0 +1,41 @@
+/* ============================================================
+   atoms/chip.css — small informational label
+   Neutral by default, feedback variants for status. No red:
+   the accent is reserved for links and CTAs, and a chip is
+   neither. Variants swap custom properties, never rules.
+   ============================================================ */
+
+.chip {
+  --_bg: var(--chip-color-background);
+  --_text: var(--chip-color-text);
+  --_border: var(--chip-color-border);
+
+  display: inline-flex;
+  align-items: center;
+  padding: var(--chip-space-inset-y) var(--chip-space-inset-x);
+  background: var(--_bg);
+  color: var(--_text);
+  border: var(--border-width-hairline) solid var(--_border);
+  border-radius: var(--chip-radius-default);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  white-space: nowrap;
+}
+
+.chip--success {
+  --_bg: var(--chip-color-success-background);
+  --_text: var(--chip-color-success-text);
+  --_border: transparent;
+}
+
+.chip--warning {
+  --_bg: var(--chip-color-warning-background);
+  --_text: var(--chip-color-warning-text);
+  --_border: transparent;
+}
+
+.chip--error {
+  --_bg: var(--chip-color-error-background);
+  --_text: var(--chip-color-error-text);
+  --_border: transparent;
+}

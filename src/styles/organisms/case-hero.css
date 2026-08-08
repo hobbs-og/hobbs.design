@@ -1,0 +1,87 @@
+/* ============================================================
+   organisms/case-hero.css — case study opener
+   Default runs on the card surface; --inverse swaps to onyx
+   with knockout text. The variant changes four custom
+   properties and never touches a rule.
+   ============================================================ */
+
+.case-hero {
+  --_bg: var(--case-hero-color-background);
+  --_title: var(--case-hero-color-title);
+  --_lead: var(--case-hero-color-lead);
+  --_meta: var(--case-hero-color-meta);
+
+  background: var(--_bg);
+  padding: var(--case-hero-space-inset-y) var(--space-section-x);
+}
+
+.case-hero--inverse {
+  --_bg: var(--case-hero-color-inverse-background);
+  --_title: var(--case-hero-color-inverse-title);
+  --_lead: var(--case-hero-color-inverse-lead);
+  --_meta: var(--case-hero-color-inverse-meta);
+}
+
+.case-hero__kicker {
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--_meta);
+  margin-block-end: var(--space-sm);
+}
+
+.case-hero__title {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-xl);
+  font-weight: var(--text-weight-heading);
+  line-height: var(--text-leading-heading-xl);
+  color: var(--_title);
+  max-width: 20ch;
+}
+
+.case-hero__lead {
+  font-size: var(--text-size-body-lg);
+  line-height: var(--text-leading-body-lg);
+  color: var(--_lead);
+  max-width: 44ch;
+  margin-block-start: var(--space-md);
+}
+
+.case-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--case-hero-space-gap);
+  margin-block-start: var(--space-xl);
+  padding: 0;
+  list-style: none;
+}
+
+.case-hero__meta dt {
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  color: var(--_meta);
+}
+
+.case-hero__meta dd {
+  margin: 0;
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--_title);
+}
+
+/* Links inside the inverse hero can't use the reds. */
+.case-hero--inverse a {
+  color: var(--text-color-knockout);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 767px) {
+  .case-hero {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .case-hero__title {
+    font-size: var(--text-size-heading-lg);
+    line-height: var(--text-leading-heading-lg);
+  }
+}

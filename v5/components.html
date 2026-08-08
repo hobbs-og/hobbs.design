@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Components — hobbs.design v5</title>
+  <meta name="description" content="The component layer of the hobbs.design rebuild: heroes, project rows, form fields, and chips, all built on semantic tokens.">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="../dist/tokens.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+  <style>
+    /* Page-local specimen styles only. Semantic tokens only. */
+    .spec {
+      border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+      padding-block: var(--space-xl);
+    }
+    .spec__label {
+      font-family: var(--text-family-mono);
+      font-size: var(--text-size-caption);
+      line-height: var(--text-leading-caption);
+      color: var(--text-color-subtle);
+      display: block;
+      margin-block-end: var(--space-sm);
+    }
+    .spec__frame {
+      border: var(--border-width-hairline) solid var(--border-color-default);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <a class="site-nav__logo" href="index.html">Mark Hobbs<span class="visually-hidden">, foundations home</span></a>
+    <nav class="site-nav__links" aria-label="Primary">
+      <a href="index.html">Foundations</a>
+      <a href="components.html" aria-current="page">Components</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <section class="index-hero" aria-labelledby="hero-title">
+        <div>
+          <p class="index-hero__eyebrow">hobbs.design v5 · components</p>
+          <h1 class="index-hero__title" id="hero-title">Built to be adopted.</h1>
+          <p class="index-hero__lead">
+            This page is the component layer running live. The hero you're
+            reading is the index-hero organism. Everything below consumes
+            semantic tokens, and nothing reaches past them.
+          </p>
+          <div class="index-hero__actions">
+            <a class="cta cta--display" href="#case-hero">See the case hero →</a>
+          </div>
+        </div>
+        <div class="index-hero__media" aria-hidden="true">
+          <img src="../images/Terafina/index-terafina.png" alt="" loading="eager">
+        </div>
+      </section>
+
+      <section class="spec" id="case-hero" aria-labelledby="case-hero-heading">
+        <h2 id="case-hero-heading">Case study hero</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          Two surfaces, one component. The inverse variant swaps four custom
+          properties and touches no rules. Muted text on onyx uses a
+          70% knockout that measures 6.6:1.
+        </p>
+
+        <div style="margin-block-start: var(--space-xl);" class="stack">
+          <div class="spec__frame">
+            <span class="spec__label" style="padding: var(--space-sm) var(--space-sm) 0; display: block;">case-hero · default</span>
+            <div class="case-hero">
+              <p class="case-hero__kicker">Union Home Mortgage</p>
+              <h3 class="case-hero__title">A design system for a team of backend engineers.</h3>
+              <p class="case-hero__lead">The emphasis was on making the system
+              easy to adopt. Something the team could rely on, not something
+              they had to interpret.</p>
+              <dl class="case-hero__meta">
+                <div><dt>Role</dt><dd>Design lead</dd></div>
+                <div><dt>Scope</dt><dd>UI kit, WCAG tooling</dd></div>
+                <div><dt>Outcome</dt><dd>Adopted without a handoff doc</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="spec__frame">
+            <span class="spec__label" style="padding: var(--space-sm) var(--space-sm) 0; display: block;">case-hero · inverse</span>
+            <div class="case-hero case-hero--inverse">
+              <p class="case-hero__kicker">Terafina, Inc.</p>
+              <h3 class="case-hero__title">Clarity was missing at every level.</h3>
+              <p class="case-hero__lead">A rebuild that started at atomic
+              elements and let the decisions scale. Completion rates
+              improved 12%.</p>
+              <dl class="case-hero__meta">
+                <div><dt>Role</dt><dd>Product designer</dd></div>
+                <div><dt>Scope</dt><dd>White-label system</dd></div>
+                <div><dt>Outcome</dt><dd>+12% completion</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="spec" aria-labelledby="form-heading">
+        <h2 id="form-heading">Contact form</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          Labels stay visible, errors are announced through
+          aria-describedby, and the error message spells out the word
+          instead of leaning on red alone.
+        </p>
+
+        <form class="grid" style="margin-block-start: var(--space-xl);" action="../send_mail.php" method="post" novalidate>
+          <div class="field span-4">
+            <label class="field__label" for="demo-name">Name</label>
+            <input class="field__control" id="demo-name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="field span-4">
+            <label class="field__label" for="demo-email">Email</label>
+            <input class="field__control" id="demo-email" name="email" type="email" autocomplete="email" aria-invalid="true" aria-describedby="demo-email-error">
+            <p class="field__error" id="demo-email-error">Enter an email address with an @ in it.</p>
+          </div>
+          <div class="field span-4">
+            <label class="field__label" for="demo-company">Company <span class="optional">(optional)</span></label>
+            <input class="field__control" id="demo-company" name="company" type="text" autocomplete="organization">
+            <p class="field__help" id="demo-company-help">Helps me read up before we talk.</p>
+          </div>
+          <div class="field span-12">
+            <label class="field__label" for="demo-message">Message</label>
+            <textarea class="field__control" id="demo-message" name="message" rows="4"></textarea>
+          </div>
+          <div class="span-12">
+            <button class="button" type="submit">Send message</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="spec" aria-labelledby="chips-heading">
+        <h2 id="chips-heading">Chips</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          Informational labels. Neutral by default, feedback tints for
+          status. No red: the accent belongs to links and CTAs, and a chip
+          is neither.
+        </p>
+        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+          <span class="chip">Design systems</span>
+          <span class="chip">Accessibility</span>
+          <span class="chip">Front-end</span>
+          <span class="chip chip--success">Shipped</span>
+          <span class="chip chip--warning">In review</span>
+          <span class="chip chip--error">Blocked</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Three token layers. Subatomic holds the raw values, semantic names the roles, components consume them.</p>
+    <p><a href="index.html">Foundations</a></p>
+  </footer>
+</body>
+</html>

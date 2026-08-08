@@ -6,7 +6,8 @@
       "body":       { "$value": "{color.content.body}",     "$type": "color" },
       "subtle":     { "$value": "{color.content.subtle}",   "$type": "color" },
       "disabled":   { "$value": "{color.content.disabled}", "$type": "color" },
-      "knockout":   { "$value": "{color.content.knockout}", "$type": "color" },
+      "knockout":       { "$value": "{color.content.knockout}", "$type": "color" },
+      "knockout-muted": { "$value": "{color.content.knockout-muted}", "$type": "color" },
       "link":       { "$value": "{color.brand.primary.600}", "$type": "color" },
       "link-hover": { "$value": "{color.brand.primary.700}", "$type": "color" },
       "link-large": { "$value": "{color.brand.primary.500}", "$type": "color" }

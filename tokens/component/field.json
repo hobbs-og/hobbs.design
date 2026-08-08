@@ -1,0 +1,26 @@
+{
+  "field": {
+    "color": {
+      "background":   { "$value": "{surface.color.card}",        "$type": "color" },
+      "text":         { "$value": "{text.color.default}",        "$type": "color" },
+      "label":        { "$value": "{text.color.heading}",        "$type": "color" },
+      "placeholder":  { "$value": "{text.color.subtle}",         "$type": "color" },
+      "help":         { "$value": "{text.color.subtle}",         "$type": "color" },
+      "border":       { "$value": "{border.color.default}",      "$type": "color" },
+      "border-hover": { "$value": "{border.color.strong}",       "$type": "color" },
+      "border-focus": { "$value": "{border.color.focus}",        "$type": "color" },
+      "border-error": { "$value": "{feedback.color.error}",      "$type": "color" },
+      "error":        { "$value": "{feedback.color.error-text}", "$type": "color" }
+    },
+    "space": {
+      "inset-x": { "$value": "{space.sm}", "$type": "dimension" },
+      "stack":   { "$value": "{space.xs}", "$type": "dimension" }
+    },
+    "size": {
+      "height": { "$value": "{space.xl}", "$type": "dimension" }
+    },
+    "radius": {
+      "default": { "$value": "{radius.sm}", "$type": "dimension" }
+    }
+  }
+}

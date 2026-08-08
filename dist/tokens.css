@@ -4,6 +4,7 @@
 
 :root {
   --color-content-knockout: #f8f8f8;
+  --color-content-knockout-muted: rgba(248, 248, 248, 0.7);
   --color-content-default: #313638;
   --color-content-headline: #0f0f0f;
   --color-content-body: rgba(15, 15, 15, 0.7);
@@ -109,6 +110,7 @@
   --text-color-subtle: var(--color-content-subtle);
   --text-color-disabled: var(--color-content-disabled);
   --text-color-knockout: var(--color-content-knockout);
+  --text-color-knockout-muted: var(--color-content-knockout-muted);
   --text-color-link: var(--color-brand-primary-600);
   --text-color-link-hover: var(--color-brand-primary-700);
   --text-color-link-large: var(--color-brand-primary-500);
@@ -197,6 +199,42 @@
   --button-space-inset-y: var(--space-sm);
   --button-space-inset-x: var(--space-md);
   --button-radius-default: var(--radius-sm);
+  --case-hero-color-background: var(--surface-color-card);
+  --case-hero-color-title: var(--text-color-heading);
+  --case-hero-color-lead: var(--text-color-body);
+  --case-hero-color-meta: var(--text-color-subtle);
+  --case-hero-color-inverse-background: var(--surface-color-inverse);
+  --case-hero-color-inverse-title: var(--text-color-knockout);
+  --case-hero-color-inverse-lead: var(--text-color-knockout-muted);
+  --case-hero-color-inverse-meta: var(--text-color-knockout-muted);
+  --case-hero-space-inset-y: var(--space-3xl);
+  --case-hero-space-gap: var(--space-grid-column-gap);
+  --chip-color-background: var(--surface-color-card);
+  --chip-color-text: var(--text-color-default);
+  --chip-color-border: var(--border-color-default);
+  --chip-color-success-background: var(--feedback-color-success-bg);
+  --chip-color-success-text: var(--feedback-color-success-text);
+  --chip-color-warning-background: var(--feedback-color-warning-bg);
+  --chip-color-warning-text: var(--feedback-color-warning-text);
+  --chip-color-error-background: var(--feedback-color-error-bg);
+  --chip-color-error-text: var(--feedback-color-error-text);
+  --chip-space-inset-y: var(--space-xs);
+  --chip-space-inset-x: var(--space-sm);
+  --chip-radius-default: var(--radius-round);
+  --field-color-background: var(--surface-color-card);
+  --field-color-text: var(--text-color-default);
+  --field-color-label: var(--text-color-heading);
+  --field-color-placeholder: var(--text-color-subtle);
+  --field-color-help: var(--text-color-subtle);
+  --field-color-border: var(--border-color-default);
+  --field-color-border-hover: var(--border-color-strong);
+  --field-color-border-focus: var(--border-color-focus);
+  --field-color-border-error: var(--feedback-color-error);
+  --field-color-error: var(--feedback-color-error-text);
+  --field-space-inset-x: var(--space-sm);
+  --field-space-stack: var(--space-xs);
+  --field-size-height: var(--space-xl);
+  --field-radius-default: var(--radius-sm);
   --nav-color-background: var(--surface-color-page);
   --nav-color-link: var(--text-color-default);
   --nav-color-link-hover: var(--text-color-heading);

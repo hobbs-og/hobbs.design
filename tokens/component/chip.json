@@ -1,0 +1,22 @@
+{
+  "chip": {
+    "color": {
+      "background": { "$value": "{surface.color.card}",  "$type": "color" },
+      "text":       { "$value": "{text.color.default}",  "$type": "color" },
+      "border":     { "$value": "{border.color.default}", "$type": "color" },
+      "success-background": { "$value": "{feedback.color.success-bg}",   "$type": "color" },
+      "success-text":       { "$value": "{feedback.color.success-text}", "$type": "color" },
+      "warning-background": { "$value": "{feedback.color.warning-bg}",   "$type": "color" },
+      "warning-text":       { "$value": "{feedback.color.warning-text}", "$type": "color" },
+      "error-background":   { "$value": "{feedback.color.error-bg}",     "$type": "color" },
+      "error-text":         { "$value": "{feedback.color.error-text}",   "$type": "color" }
+    },
+    "space": {
+      "inset-y": { "$value": "{space.xs}", "$type": "dimension" },
+      "inset-x": { "$value": "{space.sm}", "$type": "dimension" }
+    },
+    "radius": {
+      "default": { "$value": "{radius.round}", "$type": "dimension" }
+    }
+  }
+}

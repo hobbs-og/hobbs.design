@@ -1,0 +1,74 @@
+/* ============================================================
+   organisms/index-hero.css — homepage opening statement
+   Semantic tokens only; the hero is typography and space, so
+   component tokens would add names without adding meaning.
+
+   Text left at roughly 40%, media right at 60%. Without media
+   the statement takes the full measure.
+   ============================================================ */
+
+.index-hero {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--space-grid-row-gap) var(--space-grid-column-gap);
+  align-items: center;
+  padding-block: var(--space-3xl);
+}
+
+.index-hero--statement {
+  grid-template-columns: 1fr;
+}
+
+.index-hero__eyebrow {
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--text-color-subtle);
+  margin-block-end: var(--space-sm);
+}
+
+.index-hero__title {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-display);
+  font-weight: var(--text-weight-display);
+  line-height: var(--text-leading-display);
+  color: var(--text-color-default);
+  max-width: 16ch;
+}
+
+.index-hero__lead {
+  font-size: var(--text-size-body-lg);
+  line-height: var(--text-leading-body-lg);
+  color: var(--text-color-body);
+  max-width: 44ch;
+  margin-block-start: var(--space-md);
+}
+
+.index-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-block-start: var(--space-lg);
+}
+
+.index-hero__media img {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .index-hero__title {
+    font-size: var(--text-size-heading-xl);
+    line-height: var(--text-leading-heading-xl);
+  }
+}
+
+@media (max-width: 767px) {
+  .index-hero {
+    grid-template-columns: 1fr;
+    padding-block: var(--space-2xl);
+  }
+
+  .index-hero__title {
+    font-size: var(--text-size-display-sm);
+    line-height: var(--text-leading-display-sm);
+  }
+}

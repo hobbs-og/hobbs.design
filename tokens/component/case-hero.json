@@ -1,0 +1,18 @@
+{
+  "case-hero": {
+    "color": {
+      "background": { "$value": "{surface.color.card}", "$type": "color" },
+      "title":      { "$value": "{text.color.heading}", "$type": "color" },
+      "lead":       { "$value": "{text.color.body}",    "$type": "color" },
+      "meta":       { "$value": "{text.color.subtle}",  "$type": "color" },
+      "inverse-background": { "$value": "{surface.color.inverse}",     "$type": "color" },
+      "inverse-title":      { "$value": "{text.color.knockout}",       "$type": "color" },
+      "inverse-lead":       { "$value": "{text.color.knockout-muted}", "$type": "color" },
+      "inverse-meta":       { "$value": "{text.color.knockout-muted}", "$type": "color" }
+    },
+    "space": {
+      "inset-y": { "$value": "{space.3xl}",            "$type": "dimension" },
+      "gap":     { "$value": "{space.grid-column-gap}", "$type": "dimension" }
+    }
+  }
+}

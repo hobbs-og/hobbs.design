@@ -1,7 +1,8 @@
 {
   "color": {
     "content": {
-      "knockout": { "$value": "#f8f8f8", "$type": "color" },
+      "knockout":       { "$value": "#f8f8f8", "$type": "color" },
+      "knockout-muted": { "$value": "#f8f8f8b3", "$type": "color" },
       "default":  { "$value": "#313638", "$type": "color" },
       "headline": { "$value": "#0f0f0f", "$type": "color" },
       "body":     { "$value": "#0f0f0fb3", "$type": "color" },

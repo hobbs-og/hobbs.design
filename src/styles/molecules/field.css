@@ -1,0 +1,87 @@
+/* ============================================================
+   molecules/field.css — label + control + help/error text
+   Labels are always visible. Errors are tied to their control
+   with aria-describedby and never rely on color alone.
+
+   Markup:
+     <div class="field">
+       <label class="field__label" for="email">Email</label>
+       <input class="field__control" id="email" type="email"
+              aria-describedby="email-error">
+       <p class="field__error" id="email-error">Enter an email…</p>
+     </div>
+   ============================================================ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-space-stack);
+}
+
+.field__label {
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  font-weight: var(--text-weight-emphasis);
+  color: var(--field-color-label);
+}
+
+.field__label .optional {
+  font-weight: var(--text-weight-body);
+  color: var(--field-color-help);
+}
+
+.field__control {
+  width: 100%;
+  min-height: var(--field-size-height);
+  padding-inline: var(--field-space-inset-x);
+  background: var(--field-color-background);
+  color: var(--field-color-text);
+  border: var(--border-width-hairline) solid var(--field-color-border);
+  border-radius: var(--field-radius-default);
+  font-size: var(--text-size-body);
+  line-height: var(--text-leading-body);
+}
+
+textarea.field__control {
+  padding-block: var(--field-space-stack);
+  resize: vertical;
+}
+
+.field__control::placeholder {
+  color: var(--field-color-placeholder);
+  opacity: 1;
+}
+
+.field__control:hover {
+  border-color: var(--field-color-border-hover);
+}
+
+.field__control:focus-visible {
+  border-color: var(--field-color-border-focus);
+  outline: var(--border-width-focus) solid var(--border-color-focus);
+  outline-offset: var(--border-width-focus);
+}
+
+.field__help {
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  color: var(--field-color-help);
+}
+
+/* Error state: border, message, and an icon-free prefix so the
+   failure reads without color. */
+.field--error .field__control,
+.field__control[aria-invalid='true'] {
+  border-color: var(--field-color-border-error);
+}
+
+.field__error {
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  color: var(--field-color-error);
+}
+
+.field__error::before {
+  content: 'Error: ';
+  font-weight: var(--text-weight-emphasis);
+}
