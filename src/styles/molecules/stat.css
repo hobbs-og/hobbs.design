@@ -15,9 +15,12 @@
    grid below it collapses on small screens; the rule must not,
    or the bar would break into stacked pieces.
 
-   The trail segment pulls left by one column gap so the two
-   colours meet cleanly. Without that, the grid's gutter would
-   show through as a break in the middle of the bar.
+   The colour changes on the divider between the first and second
+   stat. Both segments reach half a column gap past their own
+   track edge, which is the same half-gap offset the dividers
+   themselves use below, so the handoff lands on that vertical
+   line by construction rather than by coincidence. Change the
+   gap token and all three stay together.
    ============================================================ */
 
 .stat-band {
@@ -37,12 +40,13 @@
 
 .stat-band__rule-lead {
   grid-column: span 3;
+  margin-inline-end: calc(-0.5 * var(--space-grid-column-gap));
   background: var(--stat-color-rule-lead);
 }
 
 .stat-band__rule-trail {
   grid-column: 4 / -1;
-  margin-inline-start: calc(-1 * var(--space-grid-column-gap));
+  margin-inline-start: calc(-0.5 * var(--space-grid-column-gap));
   background: var(--stat-color-rule-trail);
 }
 

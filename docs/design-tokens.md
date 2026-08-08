@@ -119,8 +119,13 @@ named thing instead of becoming a loophole.
 The rule redeclares the 12-column grid instead of using the `.grid` utility,
 because the content grid collapses to one column on small screens and the bar
 must not break into stacked pieces. The lead segment spans 3 columns, so the
-split moves by editing one number; the trail runs `4 / -1` and pulls left by
-one column gap so the two colours meet with no break.
+split moves by editing one number.
+
+The colour changes on the divider between the first and second stat, not at a
+track edge. Both segments reach half a column gap past their own track, which
+is the same half-gap offset the dividers use, so the handoff sits on that
+vertical line by construction. Change `--space-grid-column-gap` and the bar,
+the dividers, and the columns all move together.
 
 ---
 
