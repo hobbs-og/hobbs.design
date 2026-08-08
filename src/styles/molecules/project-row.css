@@ -40,9 +40,37 @@
   background: var(--surface-color-card);
 }
 
+/* Index variant: the Swiss work list. A number, the client, a
+   category tag, one sentence, a CTA. No media. */
+.project-row--index {
+  grid-template-columns: var(--space-2xl) 1fr 2fr;
+  align-items: baseline;
+}
+
+.project-row__number {
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--text-color-subtle);
+}
+
+.project-row__tag {
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  text-transform: uppercase;
+  color: var(--text-color-subtle);
+  margin-block-start: var(--space-xs);
+}
+
 @media (max-width: 767px) {
   .project-row {
     grid-template-columns: 1fr;
     gap: var(--project-row-space-gap-row);
+  }
+
+  .project-row--index {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
   }
 }

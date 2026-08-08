@@ -33,6 +33,18 @@
   border-color: currentColor;
 }
 
+/* Solid: the near-black primary. Red stays reserved for the
+   accent; a filled dark button reads calmer at hero scale. */
+.button--solid {
+  --_bg: var(--button-color-solid-background);
+  --_text: var(--button-color-solid-text);
+}
+
+.button--solid:hover,
+.button--solid:active {
+  --_bg: var(--text-color-heading);
+}
+
 .button--quiet:hover {
   --_bg: transparent;
   --_text: var(--button-color-quiet-text-hover);

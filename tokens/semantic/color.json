@@ -39,6 +39,14 @@
       "subtle":  { "$value": "{color.brand.primary.100}", "$type": "color" }
     }
   },
+  "xray": {
+    "color": {
+      "atom":     { "$value": "{color.utility-xray.atom}",     "$type": "color" },
+      "molecule": { "$value": "{color.utility-xray.molecule}", "$type": "color" },
+      "organism": { "$value": "{color.utility-xray.organism}", "$type": "color" },
+      "template": { "$value": "{color.utility-xray.template}", "$type": "color" }
+    }
+  },
   "feedback": {
     "color": {
       "success":      { "$value": "{color.utility.success.default}", "$type": "color" },

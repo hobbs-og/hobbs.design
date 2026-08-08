@@ -1,0 +1,60 @@
+/* ============================================================
+   molecules/stat.css — proof numbers in a full-width band
+   Semantic tokens only. The band is the one place the alt
+   surface earns its keep.
+   ============================================================ */
+
+.stat-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface-color-alt);
+  border-block: var(--border-width-hairline) solid var(--border-color-hairline);
+  padding-inline: var(--space-section-x);
+}
+
+.stat {
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* The first number shares the hero's left edge. */
+.stat:first-child {
+  padding-inline-start: 0;
+}
+
+.stat + .stat {
+  border-inline-start: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
+.stat__value {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-lg);
+  font-weight: var(--text-weight-heading);
+  line-height: var(--text-leading-heading-lg);
+  color: var(--text-color-heading);
+}
+
+.stat__label {
+  margin-block-start: var(--space-xs);
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--text-color-subtle);
+}
+
+@media (max-width: 767px) {
+  .stat-band {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* In a 2x2 band only the right column gets a divider. */
+  .stat + .stat {
+    border-inline-start: none;
+  }
+
+  .stat:nth-child(even) {
+    border-inline-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  }
+
+  .stat:nth-child(n + 3) {
+    border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  }
+}

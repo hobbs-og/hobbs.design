@@ -57,6 +57,12 @@
         "dark":    { "$value": "#7e0000", "$type": "color" }
       }
     },
+    "utility-xray": {
+      "atom":     { "$value": "#3b4ede", "$type": "color" },
+      "molecule": { "$value": "#7a3bde", "$type": "color" },
+      "organism": { "$value": "#00754a", "$type": "color" },
+      "template": { "$value": "#b26e00", "$type": "color" }
+    },
     "border": {
       "hairline": { "$value": "#0f0f0f14", "$type": "color" },
       "default":  { "$value": "#cccccc", "$type": "color" },

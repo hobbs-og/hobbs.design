@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>hobbs.design | Mark Hobbs</title>
-  <meta name="description" content="Mark Hobbs designs product systems that engineers adopt. Design systems, accessibility, and a front end he builds himself, down to the token pipeline.">
+  <meta name="description" content="Mark Hobbs designs at the layer where decisions become tokens, components, and code. Design systems, accessibility, and a front end he builds himself.">
   <meta name="keywords" content="design systems, design engineer, design technologist, product design, UX design, accessibility, design tokens, front-end, component library">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
   <link rel="stylesheet" href="../dist/tokens.css">
@@ -13,145 +13,186 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-nav">
-    <a class="site-nav__logo" href="index.html" aria-current="page">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
+  <header class="site-nav" data-xray="organism · site-nav">
+    <a class="site-nav__logo" href="index.html" aria-current="page" data-xray="atom · logo">hobbs.design<span class="visually-hidden">, home</span></a>
+    <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
       <a href="#work">Work I've Done</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
-      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      <a href="contact.html">Get In Touch</a>
     </nav>
+    <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
+      <button type="button" data-mode="design" aria-pressed="true">Design</button>
+      <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+    </div>
   </header>
 
-  <main id="main">
+  <main id="main" data-xray="template · home">
     <div class="container">
 
-      <section class="index-hero index-hero--statement" aria-labelledby="hero-title">
+      <section class="index-hero index-hero--statement" aria-labelledby="hero-title" data-xray="organism · index-hero">
         <div>
-          <h1 class="index-hero__title" id="hero-title">You can't solve every product problem with process. Some of it is taste.</h1>
+          <p style="margin-block-end: var(--space-md);"><span class="chip chip--status" data-xray="atom · chip">Available for staff-level engagements</span></p>
+          <h1 class="index-hero__title" id="hero-title">Most systems don't break on the whiteboard. They break at the handoff.</h1>
           <p class="index-hero__lead">
-            The rest is knowing how it gets built. I design systems that
-            engineers adopt, and I build the front end myself. This site runs
-            on a token pipeline I wrote, and the repo is public.
+            I design at the layer where decisions become tokens, components,
+            and code. Then I build the systems that keep that translation
+            from falling apart.
           </p>
           <div class="index-hero__actions">
-            <a class="cta cta--display" href="#work">Work I've done →</a>
-            <a class="cta" href="https://github.com/hobbs-og/hobbs.design">Read the source →</a>
+            <a class="button button--solid" href="#work" data-xray="atom · button">View the work</a>
+            <a class="button button--quiet" href="index-more.html" data-xray="atom · button">How I work →</a>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="what-heading">
-        <h2 id="what-heading">I focus on product work<br>where clarity has to be created.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <p class="text-body-lg span-7">
-            Most of the time, the problem isn't a lack of ideas, but a lack of
-            clarity. Too many directions, not enough alignment, and no shared
-            sense of what actually matters. I thrive at the intersection of
-            user behavior, technical constraints, and business goals, where
-            things aren't obvious and rarely line up cleanly.
-          </p>
-          <p class="span-5">
-            My role is to bring structure to that ambiguity. To make decisions
-            visible, simplify what's gotten complicated, and move products
-            forward in a way that holds up when they're actually used.<br>
-            <a class="cta" href="index-more.html">More on How I Work →</a>
-          </p>
+    </div>
+
+    <div class="stat-band" data-xray="organism · stat-band">
+      <div class="stat" data-xray="molecule · stat">
+        <p class="stat__value">18+</p>
+        <p class="stat__label">Years in product design</p>
+      </div>
+      <div class="stat" data-xray="molecule · stat">
+        <p class="stat__value">12%</p>
+        <p class="stat__label">Abandonment reduction, Terafina</p>
+      </div>
+      <div class="stat" data-xray="molecule · stat">
+        <p class="stat__value">3</p>
+        <p class="stat__label">Design systems built from zero</p>
+      </div>
+      <div class="stat" data-xray="molecule · stat">
+        <p class="stat__value">WCAG 2.1</p>
+        <p class="stat__label">Baseline, not an afterthought</p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="how-heading" data-xray="organism · how-i-work">
+        <p class="section-label" data-xray="atom · section-label">01 — How I work</p>
+        <div class="grid" style="margin-block-start: var(--space-lg);">
+          <div class="span-5">
+            <h2 id="how-heading">Structure is the product, before the pixels are.</h2>
+          </div>
+          <div class="span-7 stack--tight" style="align-self: end;">
+            <p>Most of what I get called in for has less to do with new ideas
+            and more to do with structure: no agreed vocabulary for what a
+            component is, no plan for what happens when a token changes
+            upstream, nobody responsible for a pattern once it leaves
+            Figma.</p>
+            <p>I build that structure. Token architecture, component APIs,
+            and the governance that keeps a system from drifting apart after
+            it ships. Accessibility gets built in at that same layer, not
+            added at the end.</p>
+            <p><a class="cta" href="index-more.html">See how it plays out in the work →</a></p>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="work" aria-labelledby="work-heading">
-        <h2 id="work-heading">What that looks like in practice, where clarity, trust, and product decisions actually matter.</h2>
+      <section class="section" id="work" aria-labelledby="work-heading" data-xray="organism · work-index">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md);">
+          <p class="section-label" data-xray="atom · section-label">02 — Selected work</p>
+          <p class="section-label">05 case studies</p>
+        </div>
+        <h2 id="work-heading" style="margin-block-start: var(--space-lg);">Five systems, five different failure modes.</h2>
 
         <div style="margin-block-start: var(--space-2xl);">
 
-          <article class="project-row">
-            <div class="project-row__body stack--tight">
-              <p class="project-row__meta">Terafina · White-label banking</p>
-              <h3 class="project-row__title">Making a complex product easier to use, without pretending it isn't still complex</h3>
-              <p>Improving usability, reducing abandonment, and rebuilding
-              trust in a system shaped by real constraints, not ideal ones.
-              Completion rates improved 12%.</p>
+          <article class="project-row project-row--index" data-xray="molecule · project-row">
+            <p class="project-row__number">01</p>
+            <div>
+              <h3 class="project-row__title">Terafina</h3>
+              <p class="project-row__tag">Fintech · Design system</p>
+            </div>
+            <div class="stack--tight">
+              <p>The product worked. People just didn't trust it enough to
+              finish. I rebuilt the presentation layer from atomic components
+              up, cutting abandonment by 12%.</p>
               <a class="cta" href="terafina.html">View project →</a>
             </div>
-            <div class="project-row__media">
-              <img src="../images/Terafina/index-terafina.png" alt="Terafina account-opening flows across a laptop, tablet, and two phones" loading="lazy">
-            </div>
           </article>
 
-          <article class="project-row">
-            <div class="project-row__body stack--tight">
-              <p class="project-row__meta">Union Home Mortgage · UI kit and design system</p>
-              <h3 class="project-row__title">A design system built for a team of backend engineers</h3>
-              <p>Atomic components, a shared type and color scale, and
-              automated tooling that held every pairing to WCAG contrast.
-              Built to be adopted, not interpreted.</p>
+          <article class="project-row project-row--index" data-xray="molecule · project-row">
+            <p class="project-row__number">02</p>
+            <div>
+              <h3 class="project-row__title">Union Home Mortgage</h3>
+              <p class="project-row__tag">Internal tooling · Design system</p>
+            </div>
+            <div class="stack--tight">
+              <p>The first design system for a team of backend engineers that
+              never had one, built with no design partner in the room.</p>
               <a class="cta" href="fabrication.html">View project →</a>
             </div>
-            <div class="project-row__media">
-              <img src="../images/UHM/index-fabrication.png" alt="Union Home Mortgage internal tool screens on four phones" loading="lazy">
-            </div>
           </article>
 
-          <article class="project-row">
-            <div class="project-row__body stack--tight">
-              <p class="project-row__meta">Proof · Digital identity</p>
-              <h3 class="project-row__title">Sensitive information needs more than security. It needs clarity.</h3>
-              <p>Designing a digital identity MVP that helped people
-              understand what they had, who was asking for it, and what they
-              were choosing to share.</p>
+          <article class="project-row project-row--index" data-xray="molecule · project-row">
+            <p class="project-row__number">03</p>
+            <div>
+              <h3 class="project-row__title">Proof</h3>
+              <p class="project-row__tag">Digital identity</p>
+            </div>
+            <div class="stack--tight">
+              <p>Sensitive information needs more than security. It needs
+              clarity. An MVP for secure, deliberate sharing.</p>
               <a class="cta" href="proof.html">View project →</a>
             </div>
-            <div class="project-row__media">
-              <img src="../images/Proof/directions/index-proof.png" alt="Proof identity app screens showing verification requests" loading="lazy">
-            </div>
           </article>
 
-          <article class="project-row">
-            <div class="project-row__body stack--tight">
-              <p class="project-row__meta">Rümi · Home services</p>
-              <h3 class="project-row__title">Making homeownership feel more manageable, without pretending it's simple</h3>
-              <p>A flexible, personalized experience that helped homeowners
-              understand what needed attention, what could wait, and how to
-              take action when they were ready.</p>
+          <article class="project-row project-row--index" data-xray="molecule · project-row">
+            <p class="project-row__number">04</p>
+            <div>
+              <h3 class="project-row__title">Rümi</h3>
+              <p class="project-row__tag">Product strategy</p>
+            </div>
+            <div class="stack--tight">
+              <p>Making homeownership feel manageable, without pretending
+              it's simple.</p>
               <a class="cta" href="rumi.html">View project →</a>
             </div>
-            <div class="project-row__media">
-              <img src="../images/Rumi/index-rumi.png" alt="Rümi dashboard showing a homeowner's tasks and progress" loading="lazy">
-            </div>
           </article>
 
-          <article class="project-row">
-            <div class="project-row__body stack--tight">
-              <p class="project-row__meta">McGraw Hill Education · Content discovery</p>
-              <h3 class="project-row__title">Simplifying content discovery for educators</h3>
-              <p>Improving how educators and administrators find and access
-              instructional materials, with an emphasis on making the system
-              intuitive and transparent.</p>
-              <a class="cta" href="frictionless.html">View project →</a>
+          <article class="project-row project-row--index" data-xray="molecule · project-row">
+            <p class="project-row__number">05</p>
+            <div>
+              <h3 class="project-row__title">McGraw Hill Education</h3>
+              <p class="project-row__tag">Edtech · IA</p>
             </div>
-            <div class="project-row__media">
-              <img src="../images/Education/index-frictionless.png" alt="McGraw Hill content discovery interface for educators" loading="lazy">
+            <div class="stack--tight">
+              <p>The content was there. Finding it fast was the problem. I
+              restructured navigation for two very different audiences.</p>
+              <a class="cta" href="frictionless.html">View project →</a>
             </div>
           </article>
 
         </div>
       </section>
 
-      <section class="section" id="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">If this resonates,<br>I'd love to have a chat.</h2>
-        <div class="index-hero__actions" style="margin-block-start: var(--space-lg);">
-          <a class="cta cta--display" href="contact.html">Get in touch →</a>
-          <a class="cta" href="resume.html">My resume →</a>
-        </div>
+      <section class="section" id="contact" aria-labelledby="contact-heading" data-xray="organism · contact">
+        <p class="section-label" data-xray="atom · section-label">03 — Contact</p>
+        <h2 id="contact-heading" style="margin-block-start: var(--space-lg);">If this resonates,<br>I'd love to have a chat.</h2>
+        <ul role="list" class="text-mono" style="margin-block-start: var(--space-lg); display: flex; flex-wrap: wrap; gap: var(--space-md);">
+          <li><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></li>
+          <li><a href="https://www.linkedin.com/in/hobbsdesign">/in/hobbsdesign</a></li>
+          <li><a href="resume.html">Resume ↓</a></li>
+          <li><a href="https://github.com/hobbs-og/hobbs.design">Source ↗</a></li>
+        </ul>
       </section>
 
     </div>
   </main>
 
-  <footer class="site-footer">
+  <div class="xray-legend" aria-hidden="true">
+    <span class="legend-atom">Atom</span>
+    <span class="legend-molecule">Molecule</span>
+    <span class="legend-organism">Organism</span>
+    <span class="legend-template">Template</span>
+  </div>
+
+  <footer class="site-footer" data-xray="organism · site-footer">
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+
+  <script src="../src/js/xray.js"></script>
 </body>
 </html>

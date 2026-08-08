@@ -42,6 +42,10 @@
   --color-utility-error-light: #fbe5e5;
   --color-utility-error-default: #d00000;
   --color-utility-error-dark: #7e0000;
+  --color-utility-xray-atom: #3b4ede;
+  --color-utility-xray-molecule: #7a3bde;
+  --color-utility-xray-organism: #00754a;
+  --color-utility-xray-template: #b26e00;
   --color-border-hairline: rgba(15, 15, 15, 0.08);
   --color-border-default: #cccccc;
   --color-border-strong: #909090;
@@ -158,6 +162,10 @@
   --action-color-active: var(--color-brand-primary-800);
   --action-color-accent: var(--color-brand-primary-500);
   --action-color-subtle: var(--color-brand-primary-100);
+  --xray-color-atom: var(--color-utility-xray-atom);
+  --xray-color-molecule: var(--color-utility-xray-molecule);
+  --xray-color-organism: var(--color-utility-xray-organism);
+  --xray-color-template: var(--color-utility-xray-template);
   --feedback-color-success: var(--color-utility-success-default);
   --feedback-color-success-bg: var(--color-utility-success-light);
   --feedback-color-success-text: var(--color-utility-success-dark);
@@ -196,6 +204,8 @@
   --button-color-text: var(--text-color-knockout);
   --button-color-quiet-text: var(--action-color-default);
   --button-color-quiet-text-hover: var(--action-color-hover);
+  --button-color-solid-background: var(--surface-color-inverse);
+  --button-color-solid-text: var(--text-color-knockout);
   --button-space-inset-y: var(--space-sm);
   --button-space-inset-x: var(--space-md);
   --button-radius-default: var(--radius-sm);

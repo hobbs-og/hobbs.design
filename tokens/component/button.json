@@ -6,7 +6,9 @@
       "background-active": { "$value": "{action.color.active}",  "$type": "color" },
       "text":              { "$value": "{text.color.knockout}",  "$type": "color" },
       "quiet-text":        { "$value": "{action.color.default}", "$type": "color" },
-      "quiet-text-hover":  { "$value": "{action.color.hover}",   "$type": "color" }
+      "quiet-text-hover":  { "$value": "{action.color.hover}",   "$type": "color" },
+      "solid-background":  { "$value": "{surface.color.inverse}", "$type": "color" },
+      "solid-text":        { "$value": "{text.color.knockout}",   "$type": "color" }
     },
     "space": {
       "inset-y": { "$value": "{space.sm}", "$type": "dimension" },

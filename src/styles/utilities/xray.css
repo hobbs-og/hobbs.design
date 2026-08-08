@@ -1,0 +1,105 @@
+/* ============================================================
+   utilities/xray.css — the X-ray view
+   Toggling html.xray reveals the atomic structure of the page:
+   every element carrying a data-xray attribute gets a dashed
+   outline and a label naming its layer and component. The
+   labels point at the real classes in src/styles — this is the
+   actual architecture, not an illustration of one.
+   ============================================================ */
+
+/* The toggle. A two-state switch styled as a segmented pill. */
+.xray-toggle {
+  display: inline-flex;
+  border: var(--border-width-hairline) solid var(--border-color-default);
+  border-radius: var(--radius-round);
+  padding: 0.125rem;
+  background: var(--surface-color-card);
+}
+
+.xray-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--text-color-subtle);
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  text-transform: uppercase;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-round);
+  cursor: pointer;
+}
+
+.xray-toggle button[aria-pressed='true'] {
+  background: var(--surface-color-inverse);
+  color: var(--text-color-knockout);
+}
+
+/* The overlay. */
+html.xray [data-xray] {
+  position: relative;
+  outline: var(--border-width-hairline) dashed var(--_xray, var(--border-color-strong));
+  outline-offset: calc(-1 * var(--border-width-hairline));
+}
+
+html.xray [data-xray]::before {
+  content: attr(data-xray);
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 20;
+  padding: 0 var(--space-xs);
+  background: var(--surface-color-card);
+  border: var(--border-width-hairline) dashed var(--_xray, var(--border-color-strong));
+  color: var(--_xray, var(--text-color-subtle));
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+html.xray [data-xray^='atom']     { --_xray: var(--xray-color-atom); }
+html.xray [data-xray^='molecule'] { --_xray: var(--xray-color-molecule); }
+html.xray [data-xray^='organism'] { --_xray: var(--xray-color-organism); }
+html.xray [data-xray^='template'] { --_xray: var(--xray-color-template); }
+
+/* The legend, only while the X-ray is on. */
+.xray-legend {
+  display: none;
+}
+
+html.xray .xray-legend {
+  position: fixed;
+  inset-block-end: var(--space-md);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--surface-color-inverse);
+  color: var(--text-color-knockout);
+  border-radius: var(--radius-round);
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+}
+
+.xray-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.xray-legend span::before {
+  content: '';
+  inline-size: var(--space-xs);
+  block-size: var(--space-xs);
+  border-radius: var(--radius-round);
+  background: var(--_dot);
+}
+
+.xray-legend .legend-atom     { --_dot: var(--xray-color-atom); }
+.xray-legend .legend-molecule { --_dot: var(--xray-color-molecule); }
+.xray-legend .legend-organism { --_dot: var(--xray-color-organism); }
+.xray-legend .legend-template { --_dot: var(--xray-color-template); }

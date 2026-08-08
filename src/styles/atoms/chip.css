@@ -39,3 +39,24 @@
   --_text: var(--chip-color-error-text);
   --_border: transparent;
 }
+
+/* Status chip: availability signal. Mono, uppercase, with a dot
+   so the state doesn't rely on color alone. */
+.chip--status {
+  --_bg: transparent;
+  --_text: var(--chip-color-success-text);
+  --_border: var(--feedback-color-success);
+
+  gap: var(--space-xs);
+  font-family: var(--text-family-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--text-tracking-default);
+}
+
+.chip--status::before {
+  content: '';
+  inline-size: var(--space-xs);
+  block-size: var(--space-xs);
+  border-radius: var(--radius-round);
+  background: var(--feedback-color-success);
+}
