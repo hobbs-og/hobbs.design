@@ -6,14 +6,18 @@
    column gap.
 
    The band opens on the brand's double rule, the same two-color
-   bar that underlines the name on the resume: two segments side
-   by side, the colour changing on a column boundary rather than
-   at an arbitrary point.
+   bar that underlines the name on the resume: one continuous
+   bar whose colour changes on a column boundary rather than at
+   an arbitrary point.
 
    The rule carries its own copy of the 12-column definition so
    the segments stay on the columns at every width. The content
    grid below it collapses on small screens; the rule must not,
    or the bar would break into stacked pieces.
+
+   The trail segment pulls left by one column gap so the two
+   colours meet cleanly. Without that, the grid's gutter would
+   show through as a break in the middle of the bar.
    ============================================================ */
 
 .stat-band {
@@ -37,7 +41,8 @@
 }
 
 .stat-band__rule-trail {
-  grid-column: span 9;
+  grid-column: 4 / -1;
+  margin-inline-start: calc(-1 * var(--space-grid-column-gap));
   background: var(--stat-color-rule-trail);
 }
 

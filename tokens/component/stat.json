@@ -9,7 +9,7 @@
       "rule-trail": { "$value": "{surface.color.inverse}", "$type": "color" }
     },
     "size": {
-      "rule": { "$value": "{spacing.8}", "$type": "dimension" }
+      "rule": { "$value": "{border.width.medium}", "$type": "dimension" }
     },
     "space": {
       "inset-y": { "$value": "{space.lg}", "$type": "dimension" }

@@ -70,7 +70,7 @@
   --container-max-width: 100rem;
   --section-padding: 3rem;
   --stroke-width-hairline: 0.0625rem;
-  --stroke-width-focus: 0.125rem;
+  --stroke-width-medium: 0.125rem;
   --stroke-width-thick: 0.25rem;
   --border-radius-none: 0;
   --border-radius-sm: 0.25rem;
@@ -155,7 +155,8 @@
   --border-color-strong: var(--color-border-strong);
   --border-color-focus: var(--color-border-focus);
   --border-width-hairline: var(--stroke-width-hairline);
-  --border-width-focus: var(--stroke-width-focus);
+  --border-width-medium: var(--stroke-width-medium);
+  --border-width-focus: var(--stroke-width-medium);
   --border-width-thick: var(--stroke-width-thick);
   --action-color-default: var(--color-brand-primary-600);
   --action-color-hover: var(--color-brand-primary-700);
@@ -198,7 +199,6 @@
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
   --radius-round: var(--border-radius-round);
-  --stat-size-rule: var(--spacing-8);
   --button-color-background: var(--action-color-default);
   --button-color-background-hover: var(--action-color-hover);
   --button-color-background-active: var(--action-color-active);
@@ -264,5 +264,6 @@
   --stat-color-divider: var(--border-color-hairline);
   --stat-color-rule-lead: var(--action-color-accent);
   --stat-color-rule-trail: var(--surface-color-inverse);
+  --stat-size-rule: var(--border-width-medium);
   --stat-space-inset-y: var(--space-lg);
 }

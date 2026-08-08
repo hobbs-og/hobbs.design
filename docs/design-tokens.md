@@ -108,18 +108,19 @@ nowhere else — not on borders, icons, or decoration. There is one sanctioned
 exception:
 
 **The brand rule.** The two-color bar that underlines the name on the resume:
-two 8px segments side by side, accent then onyx, with the colour changing on
-a column boundary rather than at an arbitrary point. It carries brand
-identity rather than decoration, so it is allowed to use the accent. It is
-exposed as `--stat-color-rule-lead` / `--stat-color-rule-trail` and drawn by
+a continuous 2px bar, accent then onyx, with the colour changing on a column
+boundary rather than at an arbitrary point. It carries brand identity rather
+than decoration, so it is allowed to use the accent. It is exposed as
+`--stat-color-rule-lead` / `--stat-color-rule-trail` and drawn by
 `.stat-band__rule`. Any future use of this mark should alias those tokens
 rather than reaching for the accent directly, so the exception stays one
 named thing instead of becoming a loophole.
 
 The rule redeclares the 12-column grid instead of using the `.grid` utility,
 because the content grid collapses to one column on small screens and the bar
-must not break into stacked pieces. Segment widths are plain span values
-(`3` and `9`), so the split moves by editing one number.
+must not break into stacked pieces. The lead segment spans 3 columns, so the
+split moves by editing one number; the trail runs `4 / -1` and pulls left by
+one column gap so the two colours meet with no break.
 
 ---
 

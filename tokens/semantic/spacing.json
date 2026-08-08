@@ -25,7 +25,8 @@
   "border": {
     "width": {
       "hairline": { "$value": "{stroke-width.hairline}", "$type": "dimension" },
-      "focus":    { "$value": "{stroke-width.focus}",    "$type": "dimension" },
+      "medium":   { "$value": "{stroke-width.medium}",   "$type": "dimension" },
+      "focus":    { "$value": "{stroke-width.medium}",   "$type": "dimension" },
       "thick":    { "$value": "{stroke-width.thick}",    "$type": "dimension" }
     }
   },
