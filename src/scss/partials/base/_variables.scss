@@ -16,22 +16,10 @@ section {
 // Neue Haas Grotesk and Bely Display
 @import url("https://use.typekit.net/tfl0fpb.css");
 
-$headline: neue-haas-grotesk-display,
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-Roboto,
-Helvetica,
-Arial,
-sans-serif;
-$base: neue-haas-grotesk-text,
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-Roboto,
-Helvetica,
-Arial,
-sans-serif;
+// Font stacks now come from the token pipeline (dist/tokens.css).
+// The raw stacks live in tokens/base/typography.json — nowhere else.
+$headline: var(--text-family-display);
+$base: var(--text-family-base);
 
 
 //size core

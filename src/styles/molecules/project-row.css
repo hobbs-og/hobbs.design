@@ -1,0 +1,48 @@
+/* ============================================================
+   molecules/project-row.css — one project in the work index
+   Full-width horizontal row, asymmetric two-column, hairline top.
+   Consumes project-row tokens (tokens/component/project-row.json).
+   ============================================================ */
+
+.project-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--project-row-space-gap-row) var(--project-row-space-gap-column);
+  padding-block: var(--project-row-space-inset-y);
+  border-block-start: var(--border-width-hairline) solid var(--project-row-color-border);
+}
+
+.project-row__title {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-md);
+  font-weight: var(--text-weight-heading);
+  line-height: var(--text-leading-heading-md);
+  color: var(--project-row-color-title);
+}
+
+.project-row__meta {
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--text-color-subtle);
+  margin-block-start: var(--space-xs);
+}
+
+.project-row__body {
+  color: var(--project-row-color-body);
+}
+
+.project-row__body > * + * {
+  margin-block-start: var(--space-sm);
+}
+
+.project-row__media img {
+  width: 100%;
+  background: var(--surface-color-card);
+}
+
+@media (max-width: 767px) {
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: var(--project-row-space-gap-row);
+  }
+}

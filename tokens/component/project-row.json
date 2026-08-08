@@ -1,0 +1,14 @@
+{
+  "project-row": {
+    "color": {
+      "border": { "$value": "{border.color.hairline}", "$type": "color" },
+      "title":  { "$value": "{text.color.heading}",    "$type": "color" },
+      "body":   { "$value": "{text.color.body}",       "$type": "color" }
+    },
+    "space": {
+      "inset-y":    { "$value": "{space.xl}",              "$type": "dimension" },
+      "gap-column": { "$value": "{space.grid-column-gap}", "$type": "dimension" },
+      "gap-row":    { "$value": "{space.grid-row-gap}",    "$type": "dimension" }
+    }
+  }
+}

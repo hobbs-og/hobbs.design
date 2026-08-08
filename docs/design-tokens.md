@@ -66,11 +66,18 @@ is a bug.
 
 ## Layer 3 — Component (`tokens/component/`)
 
-Per-component tokens, added only once a component has enough variants that the
-semantic layer stops being expressive enough. Every value aliases a semantic
-token. `button.json` is the working example; see
-`src/styles/atoms/button.css` for the consumption pattern — variants swap
-custom properties, never rules.
+Per-component tokens, added only once a component earns them. Every value
+aliases a semantic token.
+
+Built so far: `button.json`, `nav.json`, `project-row.json`. Their CSS lives
+in `src/styles/atoms/button.css`, `src/styles/organisms/nav.css`, and
+`src/styles/molecules/project-row.css`. The consumption pattern is in
+button.css: variants swap custom properties, never rules.
+
+The footer is the counterexample, on purpose. It's built entirely on semantic
+tokens (`src/styles/organisms/footer.css`) because none of its values needed
+a component-level name. That's the test for whether a component gets a token
+file at all.
 
 ---
 
@@ -93,13 +100,20 @@ pairing passes WCAG 2.2 AA:
 
 ---
 
-## Relationship to the legacy Sass token layer
+## Relationship to the legacy Sass layer
 
-`src/scss/tokens/` (the Sass primitives → semantic system) is **frozen**. It
-still compiles `src/scss/tokens.css` for the 17 legacy pages and must not be
-deleted while those pages are live. The JSON pipeline is the source of truth
-for all v5 work; when the rebuilt pages replace the legacy ones, the Sass
-token layer retires with them.
+The live pages now consume the JSON pipeline. All of them link
+`dist/tokens.css` instead of the old Sass-built `tokens.css`, and the Sass
+variables in `partials/base/_colors.scss` and `_variables.scss` alias the
+token custom properties, so the compiled `styles.css` resolves its colors and
+font stacks from `dist/tokens.css` at runtime. Raw values that remain in the
+Sass partials are either legacy-only (the cream and onyx hero colors, the
+black and white alpha scales) or inputs to Sass color functions, which can't
+operate on a `var()`.
+
+`src/scss/tokens/` (the old Sass primitives and semantic files) is retired.
+It stays in the tree for reference until the legacy pages are replaced, but
+nothing links its output anymore.
 
 The pipeline's structure matches `hobbs-og/design-system` on GitHub, so tokens
 can round-trip between the personal site and the white-label system — same

@@ -197,4 +197,16 @@
   --button-space-inset-y: var(--space-sm);
   --button-space-inset-x: var(--space-md);
   --button-radius-default: var(--radius-sm);
+  --nav-color-background: var(--surface-color-page);
+  --nav-color-link: var(--text-color-default);
+  --nav-color-link-hover: var(--text-color-heading);
+  --nav-color-link-current: var(--text-color-heading);
+  --nav-space-inset-y: var(--space-nav-y);
+  --nav-space-inset-x: var(--space-nav-x);
+  --project-row-color-border: var(--border-color-hairline);
+  --project-row-color-title: var(--text-color-heading);
+  --project-row-color-body: var(--text-color-body);
+  --project-row-space-inset-y: var(--space-xl);
+  --project-row-space-gap-column: var(--space-grid-column-gap);
+  --project-row-space-gap-row: var(--space-grid-row-gap);
 }

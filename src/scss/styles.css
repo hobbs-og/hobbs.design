@@ -4,11 +4,8 @@
 @import url("https://use.typekit.net/fmz3nok.css");
 @import url("https://use.typekit.net/tfl0fpb.css");
 html {
-  background: #f8f8f8;
-}
-
-html {
   scroll-behavior: smooth;
+  background: var(--surface-color-page);
 }
 
 body,
@@ -80,17 +77,17 @@ Hero Section
 ---------------------------*/
 .new-hero {
   padding-top: 3rem;
-  background: #111111;
+  background: var(--color-neutral-800);
 }
 .new-hero .padding-bottom-48 {
   padding-bottom: 3rem;
 }
 .new-hero h1 {
-  color: #ffffff;
+  color: var(--color-neutral-100);
   padding: 3rem 0;
 }
 .new-hero .border-top {
-  border-top: 0.0625rem solid #555555;
+  border-top: 0.0625rem solid var(--color-neutral-600);
 }
 
 .heroHome {
@@ -111,8 +108,8 @@ Hero Section
 .heroHome h1 {
   padding: 20vh 0 10vh;
   text-transform: none;
-  color: #ffffff;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-neutral-100);
+  font-family: var(--text-family-display);
   font-size: clamp(4rem, 8vw, 5rem);
   font-weight: 800;
   line-height: clamp(4rem, 8vw, 6rem);
@@ -123,10 +120,10 @@ Hero Section
   }
 }
 .heroHome p, .heroHome input[type=radio] + label, .heroHome input[type=checkbox] + label {
-  color: #ffffff;
+  color: var(--color-neutral-100);
 }
 .heroHome .dek {
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -135,7 +132,7 @@ Hero Section
 }
 
 .section-bkgd {
-  background: #ffffff;
+  background: var(--color-neutral-100);
   position: relative;
 }
 @media screen and (max-width: 1024px) {
@@ -175,18 +172,18 @@ componentCard
 .componentCard-featured p, .componentCard-featured input[type=radio] + label, .componentCard-featured input[type=checkbox] + label {
   padding-top: 1.5rem;
   font-size: 0.875rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .componentCard-featured img {
   filter: saturate(0);
   margin-bottom: 1.5rem;
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 .componentCard-featured:hover {
   transition: all 300ms ease;
 }
 .componentCard-featured:hover .underline {
-  box-shadow: 0 0.125rem 0 #ffffff;
+  box-shadow: 0 0.125rem 0 var(--color-neutral-100);
 }
 .componentCard-featured:hover img {
   box-sizing: border-box;
@@ -241,7 +238,7 @@ Resume
 }
 .resume .gig ul li:before {
   content: "";
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
   position: absolute;
   width: 0.5rem;
   height: 0.125rem;
@@ -267,28 +264,27 @@ New
   gap: 3rem;
 }
 .project img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .project img.square {
   aspect-ratio: 1;
   /* square images */
 }
 .project .heading-small {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   text-transform: none;
   font-size: 0.875rem;
   font-weight: 400;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .project:hover h3 {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .project:hover p, .project:hover input[type=radio] + label, .project:hover input[type=checkbox] + label {
   color: rgb(15, 15, 15);
 }
 .project:hover .border-top-1 {
-  box-shadow: 0 0.25rem 0 inset #E12A09;
+  box-shadow: 0 0.25rem 0 inset var(--color-brand-primary-500);
 }
 
 .mugshot {
@@ -297,8 +293,7 @@ New
   max-width: 8rem;
   max-height: 8rem;
   aspect-ratio: 1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   filter: saturate(0);
 }
 
@@ -313,12 +308,12 @@ New
 }
 
 .border-top-4 {
-  border-top: 0.25rem solid #777777;
+  border-top: 0.25rem solid var(--color-neutral-500);
   padding-top: 1.5rem;
 }
 
 .image-border {
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border: 0.0625rem solid #C8A4A4;
   margin-bottom: 1.5rem;
   border-radius: 1.5rem;
@@ -342,7 +337,7 @@ New
 .new .hero-card p,
 .new .hero-card input[type=radio] + label,
 .new .hero-card input[type=checkbox] + label {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .new .columns--twelve {
   gap: 1.5rem 3rem;
@@ -355,7 +350,7 @@ New
 .new .columns--twelve.hero p,
 .new .columns--twelve.hero input[type=radio] + label,
 .new .columns--twelve.hero input[type=checkbox] + label {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 @media only screen and (max-width: 767px) {
   .new .columns--twelve.hero {
@@ -370,7 +365,7 @@ New
 }
 .new .columns--twelve.hero h1 {
   text-transform: uppercase;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-size: clamp(3rem, 5vw, 6rem);
   font-weight: 800;
   line-height: clamp(2.5rem, 4vw, 5rem);
@@ -381,7 +376,7 @@ New
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 0;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 500;
 }
 .new .columns--twelve.hero .tag.dek {
@@ -390,7 +385,7 @@ New
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 0;
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-weight: 400;
 }
 .new .columns--twelve.hero .v-type {
@@ -402,7 +397,7 @@ New
   font-size: 4rem;
   line-height: 120%;
   white-space: nowrap;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 400;
 }
 @media only screen and (max-width: 767px) {
@@ -436,8 +431,8 @@ New
   color: #e4e6dd;
 }
 .new .columns--twelve.hero-primary {
-  background: #E12A09;
-  box-shadow: 0 0 0 3rem #E12A09;
+  background: var(--color-brand-primary-500);
+  box-shadow: 0 0 0 3rem var(--color-brand-primary-500);
 }
 .new .columns--twelve.hero-primary h1,
 .new .columns--twelve.hero-primary p,
@@ -474,24 +469,24 @@ New
   border-bottom: 0.0625rem solid #C8A4A4;
 }
 .new .small-header {
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1rem;
   text-transform: capitalize;
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   margin-bottom: 0.5rem;
 }
 .new .small-header.regular {
   font-weight: 400;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .new .small-header:before {
   background: #313638;
 }
 .new h2 {
   margin: 0;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.5rem;
@@ -505,7 +500,7 @@ New
   position: absolute;
   width: 100%;
   height: 0.25rem;
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
   bottom: 0.125rem;
 }
 .new ul li {
@@ -516,7 +511,7 @@ New
 }
 .new ul li:before {
   content: "";
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
   position: absolute;
   width: 0.25rem;
   height: 0.25rem;
@@ -524,21 +519,21 @@ New
   top: 0.5rem;
 }
 .new h3 {
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: #313638;
+  color: var(--text-color-default);
   margin-bottom: 1.5rem;
 }
 .new h3.h3-featured {
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-size: 2.5rem;
   line-height: 3rem;
 }
 .new h3.red {
   font-weight: 700;
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .new h3 .dark {
   font-weight: 700;
@@ -547,7 +542,7 @@ New
 .new h3.pullquote {
   padding: 3rem 0;
   margin: 0;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-size: clamp(2rem, 3vw, 4rem);
   font-weight: 700;
   line-height: clamp(2.5rem, 4vw, 5rem);
@@ -556,10 +551,10 @@ New
 }
 .new p, .new input[type=radio] + label, .new input[type=checkbox] + label,
 .new li {
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-size: 1rem;
   line-height: 1.5rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .new .padding-top-24 {
   padding-top: 1.5rem;
@@ -600,7 +595,7 @@ Grid border
   z-index: -1;
 }
 .gridLines div {
-  border-left: 0.0625rem solid #cccccc;
+  border-left: 0.0625rem solid var(--color-neutral-300);
   height: 100%;
 }
 @media only screen and (max-width: 767px) {
@@ -637,8 +632,8 @@ Interstitial
 ---------------------------------*/
 .interstitial {
   position: relative;
-  background: #E12A09;
-  color: #ffffff;
+  background: var(--color-brand-primary-500);
+  color: var(--color-neutral-100);
 }
 
 .alignMiddle {
@@ -669,28 +664,28 @@ Grid Example
 .grid .columns--twelve.subgrid > div {
   display: grid;
   grid-template-columns: subgrid;
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border: 0.0625rem solid rgba(15, 15, 15, 0.4);
   padding: 1rem 0;
 }
 .grid .columns--twelve.subgrid > div > div {
   display: grid;
   grid-template-columns: subgrid;
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border: 0.0625rem solid rgba(15, 15, 15, 0.4);
   padding: 1rem 0;
 }
 .grid .columns--twelve.subgrid > div > div > div {
   display: grid;
   grid-template-columns: subgrid;
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border: 0.0625rem solid rgba(15, 15, 15, 0.4);
   padding: 1rem 0;
 }
 .grid .columns--twelve.subgrid > div > div > div > div {
   display: grid;
   grid-template-columns: subgrid;
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border: 0.0625rem solid rgba(15, 15, 15, 0.4);
   padding: 1rem 0;
 }
@@ -698,8 +693,8 @@ Grid Example
 .placeholder {
   width: 100%;
   padding: 15rem 0;
-  background: #dddddd;
-  border: 0.0625rem solid #cccccc;
+  background: var(--color-neutral-200);
+  border: 0.0625rem solid var(--color-neutral-300);
   text-align: center;
 }
 
@@ -770,7 +765,7 @@ Grid Example
   font-size: 5.5rem;
   line-height: 120%;
   white-space: nowrap;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 400;
 }
 @media only screen and (max-width: 767px) {
@@ -814,9 +809,9 @@ Grid Example
   /* Adds a small margin to the right of the drop cap */
   font-weight: 800;
   /* Makes the first letter bold */
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   /* Sets the color of the drop cap */
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
 }
 
 .dek {
@@ -832,8 +827,7 @@ Grid Example
 .square {
   aspect-ratio: 1;
   /* square images */
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .gig-listing {
@@ -901,7 +895,7 @@ Grid Example
   margin: 0;
 }
 .update .background-primary {
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
   height: 70vh;
 }
 .update .background-secondary {
@@ -941,8 +935,8 @@ Grid Example
 }
 .update .h1, .update .h4, .update .h3, .update .h2 {
   text-transform: capitalize;
-  color: #777777;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-neutral-500);
+  font-family: var(--text-family-display);
   font-weight: 500;
   font-size: 3rem;
   line-height: 3.5rem;
@@ -987,17 +981,17 @@ Grid Example
 }
 .update .h4 {
   color: rgb(15, 15, 15);
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-base);
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 .update .h4.primary {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .update .display {
   color: #5D6C73;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 200;
   font-size: 8rem;
   line-height: 8.5rem;
@@ -1017,7 +1011,7 @@ Grid Example
 }
 .update h2 {
   margin: 0;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.5rem;
@@ -1027,19 +1021,19 @@ Grid Example
 .update p, .update input[type=radio] + label, .update input[type=checkbox] + label {
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #777777;
+  color: var(--color-neutral-500);
 }
 
 .case-study-card {
   position: relative;
-  background: #ffffff;
-  color: rgba(15, 15, 15, 0.7);
-  box-shadow: 0 0 0 1.5rem #ffffff;
+  background: var(--color-neutral-100);
+  color: var(--text-color-body);
+  box-shadow: 0 0 0 1.5rem var(--color-neutral-100);
 }
 @media only screen and (max-width: 767px) {
   .case-study-card {
     height: auto;
-    box-shadow: 0 0 0 1rem #ffffff;
+    box-shadow: 0 0 0 1rem var(--color-neutral-100);
     top: -0.5rem;
   }
   .case-study-card.columns--twelve {
@@ -1052,7 +1046,7 @@ Grid Example
   }
 }
 .case-study-card .title {
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-size: 2.5rem;
   line-height: 3rem;
   font-weight: 800;
@@ -1067,7 +1061,7 @@ Grid Example
 .case-study-card .company {
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   text-transform: uppercase;
   font-weight: 500;
   color: #8A0002;
@@ -1092,8 +1086,8 @@ Grid Example
 .divider-line:before {
   content: "";
   position: absolute;
-  background: #E12A09;
-  border-right: 0.25rem solid #f8f8f8;
+  background: var(--color-brand-primary-500);
+  border-right: 0.25rem solid var(--surface-color-page);
   width: 1.5rem;
   height: 0.0625rem;
   left: 0;
@@ -1154,7 +1148,7 @@ Grid Example
 }
 .project-index-link .ghost {
   position: relative;
-  color: #f8f8f8;
+  color: var(--surface-color-page);
   padding: 2rem 0;
   transition: all 300ms ease;
   display: flex;
@@ -1168,7 +1162,7 @@ Grid Example
   transition: all 300ms ease;
   width: 0;
   height: 0.0625rem;
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
 }
 @media (max-width: 768px) {
   .project-index-link .ghost {
@@ -1179,14 +1173,14 @@ Grid Example
   transition: all 300ms ease;
 }
 .project-index-link:hover .ghost {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   gap: 1rem;
 }
 .project-index-link:hover .divider-line {
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
 }
 .project-index-link:hover h3 {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .project-index-link:hover img {
   border-radius: 0;
@@ -1210,7 +1204,7 @@ Grid Example
 
 .font-size-24 {
   font-size: 1.5rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 
 #navMobile .navMobile__sheet {
@@ -1224,7 +1218,7 @@ Grid Example
   gap: 1rem;
   margin: 3rem 0;
   padding: 1.5rem;
-  border: 0.0625rem solid #E12A09;
+  border: 0.0625rem solid var(--color-brand-primary-500);
   border-radius: 16px;
   justify-content: center;
 }
@@ -1264,7 +1258,7 @@ Grid Example
 
 /* SHEET (the only thing that really animates) */
 #case-overlay-inner-wrapper {
-  background: #f8f8f8;
+  background: var(--surface-color-page);
   position: absolute;
   top: 0;
   right: 0;
@@ -1296,8 +1290,8 @@ Grid Example
   z-index: 9999;
   width: 100%;
   padding: 2.5rem 0;
-  background: #f8f8f8;
-  color: #313638;
+  background: var(--surface-color-page);
+  color: var(--text-color-default);
   text-align: left;
 }
 @media screen and (max-width: 1024px) {
@@ -1307,7 +1301,7 @@ Grid Example
 }
 
 h2.intro {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   line-height: 2rem;
   font-weight: 400;
   text-wrap: balance;
@@ -1336,7 +1330,7 @@ h2.intro {
 
 .index-hero-h1 {
   padding-top: 16vh;
-  color: #313638;
+  color: var(--text-color-default);
   font-weight: 700;
   font-size: clamp(2.75rem, 6vw, 6.5rem) !important;
   line-height: 1.08 !important;
@@ -1344,7 +1338,7 @@ h2.intro {
 .index-hero-h1 span {
   display: block;
   margin-top: 0.5rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   font-weight: 400;
 }
 
@@ -1438,7 +1432,7 @@ CSS Parallax
 }
 
 .pullquote {
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--text-family-display);
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
@@ -1474,7 +1468,9 @@ body {
 /* 224px / 224px */
 .underline {
   display: inline;
-  box-shadow: 0 -0.0625rem 0 #E12A09 inset;
+  box-shadow: 0 -0.0625rem 0 var(--color-brand-primary-500) inset;
+  color: var(--text-color-default);
+  transition: all 300ms ease;
 }
 .underline.logo {
   box-shadow: 0 -0.75rem 0 rgba(225, 42, 9, 0.4) inset;
@@ -1485,21 +1481,17 @@ body {
 }
 @media screen and (max-width: 1024px) {
   .underline {
-    box-shadow: 0 -0.0625rem 0 #ffffff inset;
+    box-shadow: 0 -0.0625rem 0 var(--color-neutral-100) inset;
   }
-}
-.underline {
-  color: #313638;
-  transition: all 300ms ease;
 }
 .underline.reversed {
   color: #e4e6dd;
 }
 .underline.reversed:hover {
-  color: #ffffff;
+  color: var(--color-neutral-100);
 }
 .underline:hover {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 
 ul,
@@ -1523,13 +1515,13 @@ em {
   font-style: italic;
 }
 em.caption {
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
 }
 
 body {
-  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 }
 
 ul,
@@ -1543,8 +1535,11 @@ b {
 }
 
 a {
-  color: #E12A09;
+  color: var(--text-color-link);
   text-decoration: none;
+}
+a:hover {
+  color: var(--text-color-link-hover);
 }
 
 h1,
@@ -1557,8 +1552,8 @@ h5 {
 }
 
 h1 {
-  color: #313638;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color-default);
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: clamp(3rem, 5vw, 5rem);
   line-height: 1.1;
@@ -1568,11 +1563,11 @@ h2 {
   font-size: clamp(2.5rem, 2.5vw, 3.5rem);
   font-weight: 400;
   line-height: 1.2;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 
 h3 {
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
@@ -1580,33 +1575,33 @@ h3 {
 }
 
 h4 {
-  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 h5 {
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
 }
 
 p, input[type=radio] + label, input[type=checkbox] + label {
   margin: 0;
-  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: rgba(15, 15, 15, 0.7);
+  font: 400 1rem/1.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color-body);
 }
 p.medium, input[type=radio] + label.medium, input[type=checkbox] + label.medium {
-  font: 400 1.5rem/2.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 1.5rem/2.5rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   /* 24px / 32px */
   margin-bottom: 0;
 }
 
 .meta {
-  color: #333333;
+  color: var(--color-neutral-700);
   text-transform: capitalize;
   line-height: 1.25rem;
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -1629,7 +1624,7 @@ ol li:before {
   left: 0;
   width: 1rem;
   height: 0.0625rem;
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 
 /*-------------------------------- 
@@ -1641,12 +1636,12 @@ main-header
   margin-top: 2.5rem;
 }
 .topRow h4 {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .topRow p, .topRow input[type=radio] + label, .topRow input[type=checkbox] + label {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #777777;
+  color: var(--color-neutral-500);
 }
 @media screen and (max-width: 1024px) {
   .topRow .right {
@@ -1661,7 +1656,7 @@ section-header
 -------------------------------------*/
 .section-header {
   position: relative;
-  color: #313638;
+  color: var(--text-color-default);
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -1671,7 +1666,7 @@ section-header
 .section-header .hed {
   font-size: 1rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--color-neutral-100);
 }
 .section-header .hed.lowercase {
   text-transform: none;
@@ -1693,12 +1688,12 @@ project
 }
 @media screen and (max-width: 1024px) {
   .project {
-    border-bottom: 0.0625rem solid #cccccc;
+    border-bottom: 0.0625rem solid var(--color-neutral-300);
     padding-bottom: 1rem;
   }
 }
 .project p, .project input[type=radio] + label, .project input[type=checkbox] + label {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   margin-bottom: 1rem;
 }
 .project p.featured, .project input[type=radio] + label.featured, .project input[type=checkbox] + label.featured {
@@ -1707,9 +1702,9 @@ project
 }
 .project .badge {
   padding: 0.25rem 0.5rem;
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
   color: #fff2f0;
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   display: inline;
 }
 .project:hover {
@@ -1720,7 +1715,7 @@ project
   opacity: 1;
 }
 .project:hover .underline {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .project:hover img {
   filter: none;
@@ -1779,7 +1774,7 @@ index--
   text-wrap-style: balance;
 }
 .hero-index-h1 span {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   font-weight: 400;
 }
 
@@ -1787,17 +1782,15 @@ index--
   display: flex;
   justify-content: space-between;
   row-gap: 16rem !important;
+  text-wrap-style: balance;
 }
 @media screen and (max-width: 1024px) {
   .hero-case-study-h1 {
     min-height: auto;
   }
 }
-.hero-case-study-h1 {
-  text-wrap-style: balance;
-}
 .hero-case-study-h1 .hero-title-line-two {
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   font-weight: 400;
 }
 
@@ -1808,7 +1801,7 @@ index--
 .intro {
   font-size: 1.5rem;
   line-height: 2rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
   text-wrap-style: balance;
 }
 
@@ -1817,12 +1810,12 @@ button {
   background: none;
   padding: 0;
   margin: 0;
-  color: #ffffff;
+  color: var(--color-neutral-100);
 }
 
 button[type=submit] {
-  background: #E12A09;
-  color: #ffffff;
+  background: var(--action-color-default);
+  color: var(--color-neutral-100);
   height: 3rem;
   line-height: 3rem;
   margin-top: 1.5rem;
@@ -1835,17 +1828,17 @@ button[type=submit] {
   transition: all 300ms ease;
 }
 .text-link:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, p a:hover, input[type=radio] + label a:hover, input[type=checkbox] + label a:hover {
-  color: #313638;
+  color: var(--text-color-default);
 }
 
 /******** NEW buttons *********/
 .button {
   text-align: center;
-  color: #E12A09;
+  color: var(--action-color-default);
   cursor: pointer;
   transition: all 300ms ease;
   border-radius: 0.25rem;
-  border: 0.0625rem solid #E12A09;
+  border: 0.0625rem solid var(--action-color-default);
   font-size: 1rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
@@ -1854,7 +1847,7 @@ button[type=submit] {
   display: inline-block;
 }
 .button:hover {
-  background: #6C0112;
+  background: var(--color-brand-primary-900);
 }
 .button svg {
   margin: 0 0.5rem 0 0;
@@ -1871,33 +1864,33 @@ button[type=submit] {
   margin: 0;
 }
 .button-secondary {
-  background: #ffffff;
-  color: #EC6942;
+  background: var(--color-neutral-100);
+  color: var(--color-brand-primary-400);
 }
 .button-secondary--utility {
   border-radius: 0.5rem;
-  color: #777777;
+  color: var(--color-neutral-500);
   height: 3rem;
 }
 .button-secondary--utility-function {
   height: 2rem;
-  font-size: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 }
 .button-secondary--utility:hover {
-  background: #777777;
-  border-color: #777777;
-  color: #ffffff;
+  background: var(--color-neutral-500);
+  border-color: var(--color-neutral-500);
+  color: var(--color-neutral-100);
   box-shadow: none;
 }
 .button-secondary--utility:hover svg {
   fill: none;
 }
 .button-secondary:hover {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   transition: all 300ms ease;
 }
 .button-secondary:hover svg {
-  fill: #FCC09B;
+  fill: var(--color-brand-primary-200);
 }
 .button.green {
   background: rgb(36, 207, 228);
@@ -1906,16 +1899,16 @@ button[type=submit] {
   background: rgb(8, 62, 34);
 }
 .button.purple {
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
 }
 .button.purple:hover {
-  background: #EC6942;
+  background: var(--color-brand-primary-400);
 }
 .button.delete {
-  background: rgb(208, 0, 0);
+  background: var(--feedback-color-error);
 }
 .button.delete:hover {
-  background: rgb(126, 0, 0);
+  background: var(--feedback-color-error-text);
 }
 
 .chip {
@@ -1923,8 +1916,8 @@ button[type=submit] {
   align-items: center;
   justify-content: center;
   padding: 0.375rem 1rem;
-  color: #ffffff;
-  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-neutral-100);
+  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-radius: 100rem;
@@ -1934,20 +1927,20 @@ button[type=submit] {
   background: rgb(102, 106, 16);
 }
 .chip--2 {
-  background: rgb(208, 0, 0);
+  background: var(--feedback-color-error);
 }
 .chip--3 {
-  background: #E12A09;
+  background: var(--color-brand-primary-500);
 }
 .chip--4 {
-  background: #EC6942;
+  background: var(--color-brand-primary-400);
 }
 .chip--5 {
   background: rgb(36, 207, 228);
 }
 .chip--6 {
-  background: #ffffff;
-  color: #777777;
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-500);
 }
 
 .alert {
@@ -1955,8 +1948,8 @@ button[type=submit] {
   align-items: center;
   padding: 1rem;
   margin: 1rem 1rem 1rem 0;
-  color: #ffffff;
-  background: rgb(208, 0, 0);
+  color: var(--color-neutral-100);
+  background: var(--feedback-color-error);
   border-radius: 1rem;
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(33, 34, 31, 0.24);
 }
@@ -1964,14 +1957,14 @@ button[type=submit] {
   margin-left: 0.5rem;
 }
 .alert .error {
-  background: rgb(208, 0, 0);
+  background: var(--feedback-color-error);
 }
 .alert .warning {
   color: rgb(15, 15, 15);
-  background: rgb(255, 170, 0);
+  background: var(--feedback-color-warning);
 }
 .alert .success {
-  background: rgb(0, 123, 49);
+  background: var(--feedback-color-success);
 }
 
 /************* NEW form atoms *************/
@@ -1991,7 +1984,7 @@ fieldset {
 }
 
 legend {
-  font: 400 1.25rem/1.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 1.25rem/1.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   color: rgb(15, 15, 15);
   margin-bottom: 1rem;
 }
@@ -2002,7 +1995,7 @@ option[value=""][disabled] {
 
 label {
   display: inline-block;
-  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   color: rgb(15, 15, 15);
@@ -2019,50 +2012,31 @@ label.optional:after {
   left: 105%;
 }
 
-input::-moz-placeholder, input[type=date]::-moz-placeholder {
-  color: rgb(15, 15, 15);
-}
-
 input::placeholder, input[type=date]::placeholder {
   color: rgb(15, 15, 15);
 }
 
 input, select, textarea {
   -webkit-user-select: text;
-  -moz-user-select: text;
-       user-select: text;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  user-select: text;
+  appearance: none;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  color: #777777;
+  color: var(--color-neutral-500);
   padding: 0 0.5em;
   height: 3rem;
   line-height: 3rem;
   width: 100%;
-  border: 0.0625rem solid #cccccc;
+  border: 0.0625rem solid var(--color-neutral-300);
   border-radius: 0.25rem;
-}
-input :-moz-read-only, select :-moz-read-only, textarea :-moz-read-only {
-  background: none;
-  border: none;
-  border-bottom: 0.0625rem solid #cccccc;
-  border-radius: 0;
-  cursor: not-allowed;
 }
 input:disabled, input :read-only, select:disabled, select :read-only, textarea:disabled, textarea :read-only {
   background: none;
   border: none;
-  border-bottom: 0.0625rem solid #cccccc;
+  border-bottom: 0.0625rem solid var(--color-neutral-300);
   border-radius: 0;
   cursor: not-allowed;
-}
-input :-moz-read-only:focus-visible, select :-moz-read-only:focus-visible, textarea :-moz-read-only:focus-visible {
-  border: none;
-  outline: none;
-  box-shadow: none;
 }
 input:disabled:focus-visible, input :read-only:focus-visible, select:disabled:focus-visible, select :read-only:focus-visible, textarea:disabled:focus-visible, textarea :read-only:focus-visible {
   border: none;
@@ -2070,26 +2044,26 @@ input:disabled:focus-visible, input :read-only:focus-visible, select:disabled:fo
   box-shadow: none;
 }
 input:focus-visible, select:focus-visible, textarea:focus-visible {
-  border: 0.0625rem solid #EC6942;
-  box-shadow: 0 0 0 0.125em #EC6942 inset;
-  outline: #EC6942;
+  border: 0.0625rem solid var(--color-brand-primary-400);
+  box-shadow: 0 0 0 0.125em var(--color-brand-primary-400) inset;
+  outline: var(--color-brand-primary-400);
 }
 input.alternate, select.alternate, textarea.alternate {
   padding: 0;
   border: none;
   background: none;
-  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  box-shadow: 0 -0.0625rem 0 var(--color-neutral-400) inset;
   font-size: 2rem;
   border-radius: 0;
 }
 input.alternate:focus-visible, select.alternate:focus-visible, textarea.alternate:focus-visible {
-  box-shadow: 0 -0.125rem 0 #EC6942 inset;
+  box-shadow: 0 -0.125rem 0 var(--color-brand-primary-400) inset;
   outline: none;
 }
 
 input:disabled {
   border: none;
-  border-bottom: 0.0625rem solid #cccccc;
+  border-bottom: 0.0625rem solid var(--color-neutral-300);
   background: none;
   border-radius: 0;
   cursor: not-allowed;
@@ -2107,23 +2081,23 @@ textarea {
 }
 
 input[type=search] {
-  background: #ffffff url("../../../public/search.svg") 95% 50%/1em no-repeat;
+  background: var(--color-neutral-100) url("../../../public/search.svg") 95% 50%/1em no-repeat;
   border-radius: 100rem;
   padding-left: 1rem;
 }
 
 input[type=date] {
-  background: #ffffff url("../../../public/calendar.svg") 95% 50%/1em no-repeat;
+  background: var(--color-neutral-100) url("../../../public/calendar.svg") 95% 50%/1em no-repeat;
   cursor: pointer;
 }
 
 input[type=email] {
-  background: #ffffff url("../../../public/mail.svg") 95% 50%/1em no-repeat;
+  background: var(--color-neutral-100) url("../../../public/mail.svg") 95% 50%/1em no-repeat;
   cursor: pointer;
 }
 
 input[type=tel] {
-  background: #ffffff url("../../../public/phone.svg") 95% 50%/1em no-repeat;
+  background: var(--color-neutral-100) url("../../../public/phone.svg") 95% 50%/1em no-repeat;
   cursor: pointer;
 }
 
@@ -2136,21 +2110,19 @@ input[type=radio], input[type=checkbox] {
 
 input[type=radio] {
   -webkit-appearance: radio;
-  -moz-appearance: radio;
-       appearance: radio;
+  appearance: radio;
 }
 
 input[type=checkbox] {
   -webkit-appearance: checkbox;
-  -moz-appearance: checkbox;
-       appearance: checkbox;
+  appearance: checkbox;
 }
 
 input[type=checkbox][disabled]:checked + label:after {
   content: "";
   width: 0.625em;
   height: 0.625em;
-  background: #cccccc;
+  background: var(--color-neutral-300);
   position: absolute;
   top: 0.375em;
   left: 0.125em;
@@ -2160,18 +2132,18 @@ input[type=checkbox][disabled]:checked + label:after {
 }
 
 input[type=checkbox][disabled]:checked + label, input[type=radio][disabled] + label {
-  color: #777777;
+  color: var(--color-neutral-500);
   cursor: not-allowed;
 }
 
 input[type=checkbox][disabled] + label:before, input[type=radio][disabled] + label:before {
   content: "";
-  background: #dddddd;
-  border: 0.0625rem solid #cccccc;
+  background: var(--color-neutral-200);
+  border: 0.0625rem solid var(--color-neutral-300);
 }
 
 input[type=checkbox][disabled] + label, input[type=radio][disabled] + label {
-  color: #777777;
+  color: var(--color-neutral-500);
   cursor: not-allowed;
 }
 
@@ -2182,7 +2154,7 @@ input[type=radio] + label, input[type=checkbox] + label {
 
 select {
   cursor: pointer;
-  background: #ffffff url("../../../public/chevron-down.svg") 98% 50%/1rem no-repeat;
+  background: var(--color-neutral-100) url("../../../public/chevron-down.svg") 98% 50%/1rem no-repeat;
 }
 select.alternate {
   background: url("../../../public/chevron-down.svg") 98% 50%/1rem no-repeat;
@@ -2193,8 +2165,7 @@ select:disabled {
 
 .row {
   display: flex;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 
 .visually-hidden {
@@ -2216,11 +2187,11 @@ select:disabled {
   cursor: pointer;
   line-height: 1.5em;
   display: inline-block;
-  color: #777777;
+  color: var(--color-neutral-500);
 }
 
 [type=radio]:checked + label, [type=checkbox]:checked + label {
-  color: #EC6942;
+  color: var(--color-brand-primary-400);
   transition: all 300ms ease;
 }
 
@@ -2231,9 +2202,9 @@ select:disabled {
   top: 0.25rem;
   width: 0.875em;
   height: 0.875em;
-  border: 0.0625rem solid #cccccc;
+  border: 0.0625rem solid var(--color-neutral-300);
   border-radius: 0.5rem;
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 
 [type=radio]:checked + label:before, [type=checkbox]:checked + label:before {
@@ -2243,9 +2214,9 @@ select:disabled {
   top: 0.25em;
   width: 0.875em;
   height: 0.875em;
-  border: 0.0625rem solid #EC6942;
+  border: 0.0625rem solid var(--color-brand-primary-400);
   border-radius: 0.5rem;
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 
 [type=radio]:checked + label:before,
@@ -2259,7 +2230,7 @@ select:disabled {
   content: "";
   width: 0.625em;
   height: 0.625em;
-  background: #EC6942;
+  background: var(--color-brand-primary-400);
   position: absolute;
   top: 0.375em;
   left: 0.125em;
@@ -2278,11 +2249,13 @@ select:disabled {
 
 [type=radio]:not(:checked) + label:after, [type=checkbox]:not(:checked) + label:after {
   opacity: 0;
+  -webkit-transform: scale(0);
   transform: scale(0);
 }
 
 [type=radio]:checked + label:after, [type=checkbox]:checked + label:after {
   opacity: 1;
+  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
@@ -2298,7 +2271,7 @@ select:disabled {
   height: 0.75rem;
 }
 .tooltip:hover {
-  color: #C11406;
+  color: var(--color-brand-primary-600);
   box-shadow: none;
 }
 
@@ -2320,11 +2293,11 @@ select:disabled {
   transition: all 300ms ease;
   bottom: 150%;
   text-transform: none;
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #ffffff;
-  color: #777777;
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-500);
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(33, 34, 31, 0.24);
   white-space: nowrap;
 }
@@ -2360,7 +2333,7 @@ table {
   display: table;
 }
 table tr {
-  box-shadow: 0 -1rem 0 #909090 inset;
+  box-shadow: 0 -1rem 0 var(--color-neutral-400) inset;
   border-color: transparent;
 }
 table tr th {
@@ -2369,15 +2342,15 @@ table tr th {
 table tr td {
   padding: 0.5rem 1rem;
   border-color: transparent;
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 }
 table tr:hover {
-  color: #ffffff;
-  background-color: #909090;
+  color: var(--color-neutral-100);
+  background-color: var(--color-neutral-400);
 }
 table thead {
   color: rgb(15, 15, 15);
-  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 500 0.625rem/0.75rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 }
 table thead tr:hover {
   color: rgb(15, 15, 15);
@@ -2427,7 +2400,7 @@ nav, section, #case-overlay-inner-wrapper {
 }
 
 #case-overlay-inner-wrapper {
-  background: #f8f8f8;
+  background: var(--surface-color-page);
 }
 
 #case-overlay-inner-wrapper {
@@ -2688,7 +2661,7 @@ nav, section, #case-overlay-inner-wrapper {
     background: #313638;
   }
   .navigation.nav-mobile-case-study {
-    background: #ffffff;
+    background: var(--color-neutral-100);
   }
   .navigation.nav-mobile-interior {
     background: #e4e6dd;
@@ -2727,13 +2700,13 @@ nav, section, #case-overlay-inner-wrapper {
   .navigation nav a {
     font-size: 0.875rem;
     margin-right: 0;
-    color: #ffffff;
+    color: var(--color-neutral-100);
   }
   .navigation nav a.nav-mobile-case-study {
     color: rgb(15, 15, 15);
   }
   .navigation nav a.underline {
-    box-shadow: 0 -0.0625rem 0 #E12A09 inset;
+    box-shadow: 0 -0.0625rem 0 var(--color-brand-primary-500) inset;
   }
 }
 .navigation nav a img {
@@ -2759,7 +2732,7 @@ nav, section, #case-overlay-inner-wrapper {
   }
 }
 .navigation nav a:hover {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .navigation nav a:last-child {
   margin-left: auto;
@@ -2791,7 +2764,7 @@ svg[hidden] {
 
 .topNav {
   width: 100vw;
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 .topNav ul, .topNav li {
   padding: 0;
@@ -2804,14 +2777,13 @@ svg[hidden] {
   margin: 0;
   padding: 0;
   list-style: none;
+  /* General link styling */
+  /* Top Level Items */
 }
 @media (min-width: 540px) {
   .topNav .clicky-menu {
     display: flex;
   }
-}
-.topNav .clicky-menu {
-  /* General link styling */
 }
 .topNav .clicky-menu a, .topNav .clicky-menu button {
   margin: 0.5rem;
@@ -2822,14 +2794,11 @@ svg[hidden] {
   border-radius: 0.5rem;
 }
 .topNav .clicky-menu a:hover, .topNav .clicky-menu button:hover {
-  background: #ffffff;
+  background: var(--color-neutral-100);
 }
 .topNav .clicky-menu a:focus, .topNav .clicky-menu button:focus {
   outline: 0.125em dotted purple;
   outline-offset: -0.125em;
-}
-.topNav .clicky-menu {
-  /* Top Level Items */
 }
 .topNav .clicky-menu > li {
   position: relative;
@@ -2911,7 +2880,7 @@ nav {
   top: 0;
   z-index: 10;
   padding: 1.5rem 3rem;
-  background: #f8f8f8;
+  background: var(--surface-color-page);
 }
 nav .desktop {
   margin: 0 auto;
@@ -2932,11 +2901,11 @@ nav .desktop .nav-items {
   gap: 4rem;
 }
 nav .desktop .nav-items a {
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #313638;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color-default);
 }
 nav .desktop .nav-items a:hover {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 
 @media (max-width: 768px) {
@@ -2951,7 +2920,7 @@ nav .desktop .nav-items a:hover {
     justify-content: space-between;
     padding: 0 1rem;
     z-index: 4000;
-    background: #f8f8f8;
+    background: var(--surface-color-page);
   }
   #navMobileToggle {
     width: 3rem;
@@ -2989,7 +2958,7 @@ nav .desktop .nav-items a:hover {
     left: 0;
     right: 0;
     top: 0;
-    background: #f8f8f8;
+    background: var(--surface-color-page);
     padding: 1rem;
     padding-top: 4.5rem;
     transform: translateY(100%);
@@ -3042,10 +3011,10 @@ nav .desktop .nav-items a:hover {
 }
 .navLeft a {
   font-size: 0.875rem;
-  color: rgba(15, 15, 15, 0.7);
+  color: var(--text-color-body);
 }
 .navLeft a:hover {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
 }
 .navLeft .nav--container {
   position: sticky;
@@ -3053,21 +3022,21 @@ nav .desktop .nav-items a:hover {
 }
 .navLeft .nav--container .nav--header { /* Header */
   padding: 1rem 0 1rem 1rem;
-  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  box-shadow: 0 -0.0625rem 0 var(--color-neutral-400) inset;
 }
 .navLeft .nav--container .nav--header img {
   margin: 0 0 1rem 0;
   height: 2rem;
 }
 .navLeft .nav--container .nav--header h1 {
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   padding: 0;
   margin: 0;
 }
 .navLeft .nav--container .nav--items { /* Navigation Link List */
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -3075,10 +3044,10 @@ nav .desktop .nav-items a:hover {
 .navLeft .nav--container .nav--items h4 {
   padding: 1rem 0 0.5rem 1rem;
   margin: 0;
-  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  box-shadow: 0 -0.0625rem 0 var(--color-neutral-400) inset;
 }
 .navLeft .nav--container .nav--items a {
-  color: #777777;
+  color: var(--color-neutral-500);
   width: 100%;
 }
 .navLeft .nav--container .nav--items li {
@@ -3088,7 +3057,7 @@ nav .desktop .nav-items a:hover {
   padding: 0 0 0 1rem;
   height: 3rem;
   line-height: 3rem;
-  box-shadow: 0 -0.0625rem 0 #909090 inset;
+  box-shadow: 0 -0.0625rem 0 var(--color-neutral-400) inset;
   cursor: pointer;
 }
 .navLeft .nav--container .nav--items li svg {
@@ -3102,16 +3071,16 @@ nav .desktop .nav-items a:hover {
   content: none;
 }
 .navLeft .nav--container .nav--items li:hover, .navLeft .nav--container .nav--items li.active {
-  box-shadow: 0.25rem 0 0 #E12A09 inset, 0 -0.0625rem 0 #909090 inset;
-  background: #ffffff;
+  box-shadow: 0.25rem 0 0 var(--color-brand-primary-500) inset, 0 -0.0625rem 0 var(--color-neutral-400) inset;
+  background: var(--color-neutral-100);
   transition: all 300ms ease;
 }
 .navLeft .nav--container .nav--items li:hover svg, .navLeft .nav--container .nav--items li.active svg {
-  stroke: #E12A09;
-  fill: #FCC09B;
+  stroke: var(--color-brand-primary-500);
+  fill: var(--color-brand-primary-200);
 }
 .navLeft .nav--container .nav--items li:hover a, .navLeft .nav--container .nav--items li.active a {
-  color: #E12A09;
+  color: var(--color-brand-primary-500);
   font-weight: 500;
 }
 .navLeft .nav--container .nav--items .navLeft--subMenu {
@@ -3123,19 +3092,19 @@ nav .desktop .nav-items a:hover {
 .navLeft .nav--container .nav--items .navLeft--subMenu a {
   margin-bottom: 0.5rem;
   color: rgb(15, 15, 15);
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
 .navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem {
   padding: 0.25rem 0 0.25rem 0.5rem;
 }
 .navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem a {
-  color: #777777;
+  color: var(--color-neutral-500);
   font-size: 0.75rem;
   text-transform: none;
 }
 .navLeft .nav--container .nav--items .navLeft--subMenu .navLeft--subItem a:hover {
-  color: #EC6942;
+  color: var(--color-brand-primary-400);
 }
 
 .navFloat {
@@ -3151,10 +3120,10 @@ nav .desktop .nav-items a:hover {
 }
 .navFloat .nav--container .nav--items {
   padding: 1.5rem 1rem;
-  background: #ffffff;
+  background: var(--color-neutral-100);
   border-radius: 1rem;
   box-shadow: 2rem 2rem 6rem rgba(145, 139, 150, 0.24);
-  border: 0.0625rem solid #dddddd;
+  border: 0.0625rem solid var(--color-neutral-200);
 }
 .navFloat .nav--container .nav--items .nav--item {
   height: 3rem;
@@ -3165,17 +3134,17 @@ nav .desktop .nav-items a:hover {
   align-items: center;
   margin-bottom: 0.5rem;
   border-radius: 100rem;
-  color: #777777;
-  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #ffffff;
+  color: var(--color-neutral-500);
+  font: 400 0.875rem/1.25rem neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-neutral-100);
 }
 .navFloat .nav--container .nav--items .nav--item svg {
   margin-right: 0.5rem;
 }
 .navFloat .nav--container .nav--items .nav--item.active, .navFloat .nav--container .nav--items .nav--item:hover {
   transition: all 300ms ease;
-  background: #EC6942;
-  color: #ffffff;
+  background: var(--color-brand-primary-400);
+  color: var(--color-neutral-100);
 }
 
 footer {
@@ -3202,7 +3171,7 @@ footer .flex-column {
 }
 footer .heading {
   text-transform: uppercase;
-  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-grotesk-display, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-size: clamp(3rem, 5vw, 6rem);
   font-weight: 800;
   line-height: clamp(2.5rem, 4vw, 7rem);
@@ -3221,4 +3190,4 @@ footer .contact {
   footer .copyright {
     margin-left: 0;
   }
-}/*# sourceMappingURL=styles.css.map */
+}

@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "color": {
+      "background":   { "$value": "{surface.color.page}",  "$type": "color" },
+      "link":         { "$value": "{text.color.default}",  "$type": "color" },
+      "link-hover":   { "$value": "{text.color.heading}",  "$type": "color" },
+      "link-current": { "$value": "{text.color.heading}",  "$type": "color" }
+    },
+    "space": {
+      "inset-y": { "$value": "{space.nav-y}", "$type": "dimension" },
+      "inset-x": { "$value": "{space.nav-x}", "$type": "dimension" }
+    }
+  }
+}

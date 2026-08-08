@@ -141,12 +141,15 @@ b {
 }
 
 a {
-    color: $primary;
+    // Body-size links use the 600 red: the 500 measures 4.36:1 on the
+    // page background, just under the 4.5:1 AA threshold. The 500 is
+    // still available for display-scale CTAs via --text-color-link-large.
+    color: var(--text-color-link);
     text-decoration: none;
 
-    // &[href^="mailto"] { 
-    //     color: $primary; 
-    // } 
+    &:hover {
+        color: var(--text-color-link-hover);
+    }
 }
 
 h1,

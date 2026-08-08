@@ -7,7 +7,8 @@ button {
 }
 
 button[type="submit"] {
-    background: $primary;
+    // The 600 red: white text on the 500 measures 4.38:1, under AA.
+    background: var(--action-color-default);
     color: $white;
     height: 3rem;
     line-height: 3rem;
@@ -40,11 +41,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .button {
     text-align: center;
-    color: $primary;
+    color: var(--action-color-default);
     cursor: pointer;
     transition: $transition;
     border-radius: $sizing--xsm;
-    border: .0625rem solid $primary;
+    border: .0625rem solid var(--action-color-default);
     font-size: $size-reg;
     font-weight: $weight--bold;
     padding: $sizing--sm $sizing--med;
