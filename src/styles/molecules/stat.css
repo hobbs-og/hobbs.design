@@ -76,7 +76,9 @@
 }
 
 /* The grid collapses span-3 to half width at tablet (2x2): only the
-   right column keeps its divider, and the second row gains a top rule. */
+   right column keeps its divider, and the second row gains a top rule.
+   The divider moves to the 6/7 boundary, so the rule's handoff moves
+   with it — the bar tracks the columns at every breakpoint. */
 @media (max-width: 1024px) {
   .stat:nth-child(odd) {
     border-inline-start: none;
@@ -87,14 +89,42 @@
   .stat:nth-child(n + 3) {
     border-block-start: var(--border-width-hairline) solid var(--stat-color-divider);
   }
+
+  .stat-band__rule-lead {
+    grid-column: span 6;
+  }
+
+  .stat-band__rule-trail {
+    grid-column: 7 / -1;
+  }
 }
 
-/* Single column on mobile: row rules only. */
+/* Single column on mobile: row rules only, and no vertical divider
+   left for the brand rule to align to. The rule drops to a plain
+   half-and-half split with no gutters: below roughly 624px the
+   eleven column gaps alone exceed the content width, and keeping
+   the twelve-column definition would push the bar past the right
+   gutter. */
 @media (max-width: 767px) {
   .stat + .stat {
     border-inline-start: none;
     margin-inline-start: 0;
     padding-inline-start: 0;
     border-block-start: var(--border-width-hairline) solid var(--stat-color-divider);
+  }
+
+  .stat-band__rule {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+  }
+
+  .stat-band__rule-lead {
+    grid-column: 1;
+    margin-inline-end: 0;
+  }
+
+  .stat-band__rule-trail {
+    grid-column: 2;
+    margin-inline-start: 0;
   }
 }

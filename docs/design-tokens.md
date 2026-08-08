@@ -127,6 +127,21 @@ is the same half-gap offset the dividers use, so the handoff sits on that
 vertical line by construction. Change `--space-grid-column-gap` and the bar,
 the dividers, and the columns all move together.
 
+The handoff follows the divider at every breakpoint, because the divider
+moves:
+
+| Width | Stats | Divider at | Lead spans |
+|---|---|---|---|
+| ≥1025px | 4 across | column 3/4 | 3 |
+| 768–1024px | 2×2 | column 6/7 | 6 |
+| ≤767px | stacked | none | half the bar |
+
+Stacked layouts have no vertical divider to align to, so the rule drops its
+twelve-column definition and splits in half. That is also a hard requirement
+rather than a preference: below roughly 624px the eleven column gaps alone
+(11 × 48px) exceed the available content width, and keeping the twelve-column
+grid pushes the bar past the right gutter.
+
 ---
 
 ## Relationship to the legacy Sass layer
