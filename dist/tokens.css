@@ -198,6 +198,7 @@
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
   --radius-round: var(--border-radius-round);
+  --stat-size-rule: var(--spacing-8);
   --button-color-background: var(--action-color-default);
   --button-color-background-hover: var(--action-color-hover);
   --button-color-background-active: var(--action-color-active);
@@ -257,4 +258,11 @@
   --project-row-space-inset-y: var(--space-xl);
   --project-row-space-gap-column: var(--space-grid-column-gap);
   --project-row-space-gap-row: var(--space-grid-row-gap);
+  --stat-color-background: var(--surface-color-alt);
+  --stat-color-value: var(--text-color-heading);
+  --stat-color-label: var(--text-color-subtle);
+  --stat-color-divider: var(--border-color-hairline);
+  --stat-color-rule-lead: var(--action-color-accent);
+  --stat-color-rule-trail: var(--surface-color-inverse);
+  --stat-space-inset-y: var(--space-lg);
 }

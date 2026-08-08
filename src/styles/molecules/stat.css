@@ -1,22 +1,52 @@
 /* ============================================================
    molecules/stat.css — proof numbers in a full-width band
-   The band background bleeds full width; the stats themselves
-   sit on the page grid (.container > .grid, span-3 each), so
-   the first number shares the hero's left edge and every cell
-   lands on a column. Dividers center in the column gap.
+   The band background bleeds full width; the stats sit on the
+   page grid (.container > .grid, span-3 each), so the first
+   number shares the hero's left edge. Dividers center in the
+   column gap.
+
+   The band opens on the brand's double rule, the same two-color
+   bar that underlines the name on the resume: two segments side
+   by side, the colour changing on a column boundary rather than
+   at an arbitrary point.
+
+   The rule carries its own copy of the 12-column definition so
+   the segments stay on the columns at every width. The content
+   grid below it collapses on small screens; the rule must not,
+   or the bar would break into stacked pieces.
    ============================================================ */
 
 .stat-band {
-  background: var(--surface-color-alt);
-  border-block: var(--border-width-hairline) solid var(--border-color-hairline);
+  background: var(--stat-color-background);
+  border-block-end: var(--border-width-hairline) solid var(--stat-color-divider);
+}
+
+.stat-band__rule {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--space-grid-column-gap);
+}
+
+.stat-band__rule > * {
+  block-size: var(--stat-size-rule);
+}
+
+.stat-band__rule-lead {
+  grid-column: span 3;
+  background: var(--stat-color-rule-lead);
+}
+
+.stat-band__rule-trail {
+  grid-column: span 9;
+  background: var(--stat-color-rule-trail);
 }
 
 .stat {
-  padding-block: var(--space-lg);
+  padding-block: var(--stat-space-inset-y);
 }
 
 .stat + .stat {
-  border-inline-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  border-inline-start: var(--border-width-hairline) solid var(--stat-color-divider);
   margin-inline-start: calc(-0.5 * var(--space-grid-column-gap));
   padding-inline-start: calc(0.5 * var(--space-grid-column-gap));
 }
@@ -26,19 +56,18 @@
   font-size: var(--text-size-heading-lg);
   font-weight: var(--text-weight-heading);
   line-height: var(--text-leading-heading-lg);
-  color: var(--text-color-heading);
+  color: var(--stat-color-value);
 }
 
 .stat__label {
   margin-block-start: var(--space-xs);
   font-size: var(--text-size-ui);
   line-height: var(--text-leading-ui);
-  color: var(--text-color-subtle);
+  color: var(--stat-color-label);
 }
 
-/* The grid collapses span-3 to half width at tablet (2x2): only
-   the right column keeps its divider, and the second row gains a
-   top rule. */
+/* The grid collapses span-3 to half width at tablet (2x2): only the
+   right column keeps its divider, and the second row gains a top rule. */
 @media (max-width: 1024px) {
   .stat:nth-child(odd) {
     border-inline-start: none;
@@ -47,7 +76,7 @@
   }
 
   .stat:nth-child(n + 3) {
-    border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+    border-block-start: var(--border-width-hairline) solid var(--stat-color-divider);
   }
 }
 
@@ -57,6 +86,6 @@
     border-inline-start: none;
     margin-inline-start: 0;
     padding-inline-start: 0;
-    border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+    border-block-start: var(--border-width-hairline) solid var(--stat-color-divider);
   }
 }
