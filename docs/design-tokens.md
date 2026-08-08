@@ -142,6 +142,15 @@ rather than a preference: below roughly 624px the eleven column gaps alone
 (11 × 48px) exceed the available content width, and keeping the twelve-column
 grid pushes the bar past the right gutter.
 
+Both rules of the band run the full width of the device while the stats stay
+inside the container and its max-width. The lower rule gets that for free,
+since the band is a full-width block. The upper rule can't: it has to stay on
+the grid to find the divider. So each segment paints outward past the
+container edge with a pseudo-element and the band clips the excess
+(`overflow-x: clip`, not `hidden`, so it never becomes a scroll container).
+The handoff is unaffected, which is the point — the bar reaches both edges of
+the screen while the colour still changes exactly on the column divider.
+
 ---
 
 ## Relationship to the legacy Sass layer

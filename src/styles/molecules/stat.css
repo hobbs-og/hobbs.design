@@ -26,6 +26,9 @@
 .stat-band {
   background: var(--stat-color-background);
   border-block-end: var(--border-width-hairline) solid var(--stat-color-divider);
+  /* Contains the rule's bleed. `clip` rather than `hidden` so this
+     never becomes a scroll container. */
+  overflow-x: clip;
 }
 
 .stat-band__rule {
@@ -47,6 +50,34 @@
 .stat-band__rule-trail {
   grid-column: 4 / -1;
   margin-inline-start: calc(-0.5 * var(--space-grid-column-gap));
+  background: var(--stat-color-rule-trail);
+}
+
+/* The bar runs the full width of the device while the stats stay on
+   the grid. Each segment paints outward past the container edge with
+   a pseudo-element; the band clips the excess. The handoff is
+   untouched by this, so the colour still changes on the column
+   divider no matter how wide the viewport is. */
+.stat-band__rule-lead,
+.stat-band__rule-trail {
+  position: relative;
+}
+
+.stat-band__rule-lead::before,
+.stat-band__rule-trail::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inline-size: 100vw;
+}
+
+.stat-band__rule-lead::before {
+  inset-inline-end: 100%;
+  background: var(--stat-color-rule-lead);
+}
+
+.stat-band__rule-trail::after {
+  inset-inline-start: 100%;
   background: var(--stat-color-rule-trail);
 }
 
