@@ -69,15 +69,16 @@ is a bug.
 Per-component tokens, added only once a component earns them. Every value
 aliases a semantic token.
 
-Built so far: `button.json`, `nav.json`, `project-row.json`. Their CSS lives
-in `src/styles/atoms/button.css`, `src/styles/organisms/nav.css`, and
-`src/styles/molecules/project-row.css`. The consumption pattern is in
-button.css: variants swap custom properties, never rules.
+Built so far: `button.json`, `nav.json`, `project-row.json`, `chip.json`,
+`field.json`, `case-hero.json`. Their CSS lives under `src/styles/` in
+atoms/, molecules/, and organisms/. The consumption pattern is in
+button.css and case-hero.css: variants swap custom properties, never rules.
 
-The footer is the counterexample, on purpose. It's built entirely on semantic
-tokens (`src/styles/organisms/footer.css`) because none of its values needed
-a component-level name. That's the test for whether a component gets a token
-file at all.
+The footer and the index hero are the counterexamples, on purpose. Both are
+built entirely on semantic tokens because none of their values needed a
+component-level name. That's the test for whether a component gets a token
+file at all. Both demo pages are live: `v5/index.html` for foundations,
+`v5/components.html` for the component layer.
 
 ---
 
