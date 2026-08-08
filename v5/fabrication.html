@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Union Home Mortgage | hobbs.design</title>
+  <meta name="description" content="A UI kit and design system built for a team of backend engineers at Union Home Mortgage. Atomic components, a shared type and color scale, and automated WCAG contrast checks.">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="../dist/tokens.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+    <nav class="site-nav__links" aria-label="Primary">
+      <a href="index.html#work">Work I've Done</a>
+      <a href="../index-more.html">How I Work</a>
+      <a href="../resume.html">My Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="case-hero case-hero--inverse">
+      <p class="case-hero__kicker">Union Home Mortgage · UI kit and design system</p>
+      <h1 class="case-hero__title">The team was building fast. There was no system to support it.</h1>
+      <p class="case-hero__lead">Union Home Mortgage was building a set of
+      internal applications to replace parts of a larger, more complex
+      lending platform. Each tool was being developed independently, with
+      little shared structure across the experience. As the number of
+      applications grew, so did the gaps between them.</p>
+      <dl class="case-hero__meta">
+        <div><dt>Focus</dt><dd>UI kit, design system, WCAG tooling</dd></div>
+        <div><dt>Team</dt><dd>Primarily backend engineers</dd></div>
+        <div><dt>Outcome</dt><dd>Adopted across internal tools</dd></div>
+      </dl>
+    </div>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="uhm-problem">
+        <h2 id="uhm-problem">Consistency didn't exist across the applications.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Interfaces varied widely from one application to
+          another, with no shared patterns for layout, hierarchy, or
+          interaction. For a team made up primarily of backend engineers,
+          usability and presentation weren't a primary focus, leading to
+          inconsistency and added cognitive load for users.</p>
+          <p class="span-5">Without a shared structure, every decision had to
+          be made from scratch. That made the applications harder to build,
+          harder to scale, and ultimately harder to use.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
+          <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">Before the system, the team had been focused on functionality only.</figcaption>
+        </figure>
+
+        <h3 style="margin-block-start: var(--space-xl);">The work focused on creating a system the team could actually use.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The goal was to introduce a shared foundation
+          that would bring consistency to the UI, reduce decision-making
+          overhead, and make it easier to build new applications.</p>
+          <p class="span-5">That meant rethinking the presentation layer,
+          simplifying application flows, and introducing a more flexible
+          system for branding and configuration.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="uhm-approach">
+        <h2 id="uhm-approach">The system needed to be practical, not theoretical.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">I built a UI kit and design system to support
+          real development workflows, focusing on reusable components, clear
+          patterns, and straightforward implementation.</p>
+          <p class="span-5">Working closely with a backend-focused team, the
+          emphasis was on making the system easy to adopt, something the
+          team could rely on, not something they had to interpret.</p>
+        </div>
+
+        <div class="stack" style="margin-block-start: var(--space-xl);">
+          <div class="grid">
+            <p class="span-4">I used a modular, atomic approach, breaking
+            interfaces down into fundamental components to keep them
+            consistent and reusable.</p>
+            <p class="span-4">A twelve-column grid system gave every layout
+            the same structure, organizing content and keeping the
+            applications visually coherent.</p>
+            <p class="span-4">A grotesk sans-serif typeface, chosen for
+            legibility and scalability, established clear typographic
+            hierarchy through data-heavy content.</p>
+          </div>
+          <div class="grid">
+            <p class="span-7">I developed a shared color scale from the
+            brand's primary and secondary colors, with a complementary
+            tertiary palette. I set up automated checks that held every
+            color pairing to the WCAG 2.0 contrast ratio of 4.5:1, so
+            accessibility compliance was enforced by the system rather than
+            left to per-screen judgment.</p>
+          </div>
+          <figure>
+            <img src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+          </figure>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">Clear structure made the applications easier to build, and easier to use.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">Shared components reduced the need to recreate
+          patterns across applications, improving efficiency and
+          alignment.</p>
+          <p class="span-5">Layouts and hierarchy became more predictable,
+          making interfaces easier to scan and understand while creating a
+          more cohesive experience across tools that had previously felt
+          disconnected.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="uhm-outcome">
+        <h2 id="uhm-outcome">The team could now move faster without sacrificing usability.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">With a shared system in place, new applications
+          could be built more efficiently and with greater consistency.</p>
+          <p class="span-5">The experience became easier to navigate and more
+          reliable for internal users, while reducing the effort required
+          from the team to design and build each new tool.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
+        </figure>
+      </section>
+
+      <section class="section" aria-label="Closing thought">
+        <h2>Systems don't just create consistency. They create momentum. Giving the team the foundation they needed made it easier to build better tools.</h2>
+      </section>
+
+      <section class="section" aria-labelledby="uhm-next">
+        <h2 class="visually-hidden" id="uhm-next">Next project</h2>
+        <article class="project-row">
+          <div class="project-row__body stack--tight">
+            <p class="project-row__meta">Next · Proof</p>
+            <h3 class="project-row__title">Sensitive information needs more than security. It needs clarity.</h3>
+            <a class="cta" href="proof.html">View project →</a>
+          </div>
+          <div class="project-row__media">
+            <img src="../images/Proof/directions/index-proof.png" alt="" loading="lazy">
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+    <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
+  </footer>
+</body>
+</html>

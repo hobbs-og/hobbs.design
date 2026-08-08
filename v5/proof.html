@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proof | hobbs.design</title>
+  <meta name="description" content="A digital identity MVP for Alberta residents: secure storage, deliberate sharing, and a cross-platform design system built as an engineering handoff artifact.">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="../dist/tokens.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+    <nav class="site-nav__links" aria-label="Primary">
+      <a href="index.html#work">Work I've Done</a>
+      <a href="../index-more.html">How I Work</a>
+      <a href="../resume.html">My Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="case-hero">
+      <p class="case-hero__kicker">Proof · Digital identity</p>
+      <h1 class="case-hero__title">Personal information is hard to manage. Sharing it safely, and conveniently, is harder.</h1>
+      <p class="case-hero__lead">Proof explored a digital identity product
+      for Alberta residents, built around the idea that people should be
+      able to securely store, access, and share personally identifiable
+      information from the device they already carry.</p>
+      <dl class="case-hero__meta">
+        <div><dt>Focus</dt><dd>MVP, cross-platform design system</dd></div>
+        <div><dt>Platforms</dt><dd>iOS and Android</dd></div>
+        <div><dt>Status</dt><dd>Paused before launch</dd></div>
+      </dl>
+    </div>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="proof-problem">
+        <h2 id="proof-problem">The challenge wasn't storing documents. It was building trust around access.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Paper records are difficult to organize, easy to
+          misplace, and rarely available when people need them most. But
+          putting that information on a phone creates a different kind of
+          problem.</p>
+          <p class="span-5">People needed to feel confident that their
+          identity was secure, that sharing was intentional, and that they
+          could control exactly who had access to what.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/Proof/proof-hero.png" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
+        </figure>
+
+        <h3 style="margin-block-start: var(--space-xl);">Convenience only works when control is obvious.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The experience needed to make sensitive actions
+          feel deliberate. Requests had to be visible, understandable, and
+          easy to approve or deny without making users feel like they were
+          handing over more than they intended.</p>
+          <p class="span-5">This meant designing around trust as much as
+          access.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="proof-mvp">
+        <h2 id="proof-mvp">The first version had to prove the basic value before the bigger vision could work.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">With no directly comparable product to learn
+          from, research focused on understanding how people already managed
+          identity, documents, and proof of ownership in real situations.</p>
+          <p class="span-5">The team looked at existing behaviors around
+          MyAlberta Digital ID and interviewed Albertans to identify
+          practical use cases, including buying a car, getting insurance,
+          and interacting with healthcare providers.</p>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">People needed to know what they had, who could ask for it, and what they were sharing.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The MVP centered on a launchpad experience where
+          users could quickly access documents, trusted contacts,
+          institutions, and incoming requests.</p>
+          <p class="span-5">That foundation gave the product a clear starting
+          point. Show people what they have, what needs attention, and what
+          actions are available.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="proof-sharing">
+        <h2 id="proof-sharing">Sharing sensitive information needed to feel deliberate.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Proof had to support moments where identity and
+          access mattered, including high-stress situations where someone
+          else may need to act on a user's behalf.</p>
+          <p class="span-5">A trusted contact could access delegated
+          credentials, like identification, insurance details, or medical
+          proxy information, when immediate action was needed.</p>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">The product had to make access feel possible without making it feel loose.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">Users could manage who had access to each
+          document and control which fields were shared.</p>
+          <p class="span-5">The sharing flow included intentional
+          confirmation, making sure users understood what they were sharing,
+          who they were sharing it with, and what level of access they were
+          granting.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="proof-system">
+        <h2 id="proof-system">The system needed a visual foundation before it could scale.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Proof needed to feel secure, modern, and easy to
+          understand across platforms. The style guide established the
+          visual foundation for that experience, including color,
+          typography, spacing, button styles, and core tile components.</p>
+          <p class="span-5">The goal was not just visual consistency. It was
+          giving engineering a usable framework for building a product that
+          felt trustworthy from screen to screen.</p>
+        </div>
+
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <img class="span-3" src="../images/Proof/styleguide/1.0 Typography.png" alt="Proof style guide: the typography system" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/1.1 iOS headings.png" alt="Proof style guide: iOS heading specifications" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/1.2 Android headings.png" alt="Proof style guide: Android heading specifications" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/2.0 Colors.png" alt="Proof style guide: the color palette" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/2.1 Primary.png" alt="Proof style guide: primary color definitions" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/2.2 Secondary.png" alt="Proof style guide: secondary color definitions" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/2.3 Tertiary.png" alt="Proof style guide: tertiary color definitions" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/2.6 Grayscale.png" alt="Proof style guide: grayscale definitions" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/4.0 Tiles-1.png" alt="Proof style guide: request tile anatomy" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/4.1 Tile Types.png" alt="Proof style guide: tile types" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/5.0 Buttons.png" alt="Proof style guide: button styles and states" loading="lazy">
+          <img class="span-3" src="../images/Proof/styleguide/6.0 Tabs.png" alt="Proof style guide: tab patterns" loading="lazy">
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">A product about trust can't afford to feel improvised.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The design system helped make the MVP feel
+          cohesive and intentional, even as the product explored unfamiliar
+          behaviors around identity, delegation, and secure sharing.</p>
+          <p class="span-5">For a new concept, that consistency mattered. It
+          made the experience easier to understand and easier to believe
+          in.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="proof-direction">
+        <h2 id="proof-direction">The direction changed when the product started to feel more like content than identity.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Early concepts leaned heavily into education,
+          helping users understand the benefits of digital identity and what
+          the product could do.</p>
+          <p class="span-5">Testing revealed that this made the experience
+          feel too much like a content app. Users expected something more
+          personal, more useful, and more centered around their own
+          identity.</p>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">People weren't asking to be educated. They needed to know what to do next.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The design shifted toward a more profile-centered
+          experience, making functionality more apparent and helping users
+          understand what actions they could take.</p>
+          <p class="span-5">That change brought the product closer to the
+          real user need. Not learning about digital identity in the
+          abstract, but managing identity in practical, everyday
+          situations.</p>
+        </div>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <img class="span-6" src="../images/Proof/directions/concept-2.png" alt="An early Proof direction focused on education and awareness." loading="lazy">
+          <img class="span-6" src="../images/Proof/directions/concept-3.png" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="proof-outcome">
+        <h2 id="proof-outcome">The final direction made identity feel personal, actionable, and easier to manage.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">The refined product brought documents, requests,
+          trusted contacts, institutions, and activity history into a
+          clearer structure.</p>
+          <p class="span-5">Users could respond to credential requests,
+          manage access, review their history, and understand the state of
+          their identity without having to piece the system together
+          themselves.</p>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">The experience worked best when risk was visible and action was clear.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">Sensitive workflows were designed to slow people
+          down just enough to understand what was happening, without making
+          the product feel heavy.</p>
+          <p class="span-5">That balance was the center of the work. Make
+          identity easier to use, but never casual.</p>
+        </div>
+        <figure style="margin-block-start: var(--space-xl);">
+          <img src="../images/Proof/results/four-up.png" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="proof-lesson">
+        <h2 id="proof-lesson">The vision had real potential, but timing changed.</h2>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <p class="span-5">Proof pointed toward a future where people could
+          manage, share, delegate, and use identity documents without
+          relying on paper records or fragmented processes.</p>
+          <p class="span-5">Before the product could launch, priorities
+          shifted and the initiative was paused. The work remained valuable
+          because it explored a problem that still matters. How people
+          safely access and share sensitive information when timing, trust,
+          and control all matter.</p>
+        </div>
+
+        <h3 style="margin-block-start: var(--space-xl);">The product didn't launch, but the problem didn't go away.</h3>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="span-5">The strongest lesson was that digital identity is
+          not just a storage problem. It is a trust problem, a timing
+          problem, and a control problem.</p>
+          <p class="span-5">Design had to make the system feel useful without
+          making it feel risky.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Closing thought">
+        <h2>Trust isn't just security. It's whether people understand what's happening and what they control.</h2>
+      </section>
+
+      <section class="section" aria-labelledby="proof-next">
+        <h2 class="visually-hidden" id="proof-next">Next project</h2>
+        <article class="project-row">
+          <div class="project-row__body stack--tight">
+            <p class="project-row__meta">Next · Rümi</p>
+            <h3 class="project-row__title">Making homeownership feel more manageable, without pretending it's simple</h3>
+            <a class="cta" href="rumi.html">View project →</a>
+          </div>
+          <div class="project-row__media">
+            <img src="../images/Rumi/index-rumi.png" alt="" loading="lazy">
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+    <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
+  </footer>
+</body>
+</html>
