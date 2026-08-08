@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foundations — hobbs.design v5</title>
+  <meta name="description" content="Design token foundations for the hobbs.design rebuild: subatomic values, semantic roles, atomic components, on an 8px grid.">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="../dist/tokens.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+  <style>
+    /* Page-local styles for the specimen UI only. Semantic tokens only. */
+    .site-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-nav-y) var(--space-nav-x);
+      border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
+    }
+    .site-header__logo {
+      font-size: var(--text-size-heading-md);
+      color: var(--text-color-default);
+      text-decoration: none;
+    }
+    .site-header__nav a {
+      margin-inline-start: var(--space-md);
+      font-size: var(--text-size-ui);
+      color: var(--text-color-default);
+    }
+    .spec {
+      border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+      padding-block: var(--space-xl);
+    }
+    .spec__label {
+      font-family: var(--text-family-mono);
+      font-size: var(--text-size-caption);
+      line-height: var(--text-leading-caption);
+      color: var(--text-color-subtle);
+      display: block;
+      margin-block-end: var(--space-sm);
+    }
+    .swatch {
+      border: var(--border-width-hairline) solid var(--border-color-hairline);
+    }
+    .swatch__chip { height: var(--space-2xl); }
+    .swatch__meta {
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--surface-color-card);
+    }
+    .swatch__meta code { font-size: var(--text-size-caption); }
+    .bar {
+      background: var(--action-color-accent);
+      height: var(--space-xs);
+      margin-block-end: var(--space-xs);
+    }
+    .grid-demo > div {
+      background: var(--surface-color-card);
+      border: var(--border-width-hairline) solid var(--border-color-default);
+      padding: var(--space-sm);
+      font-family: var(--text-family-mono);
+      font-size: var(--text-size-caption);
+      color: var(--text-color-subtle);
+      text-align: center;
+    }
+    .site-footer {
+      padding: var(--space-xl) var(--space-section-x);
+      border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+      color: var(--text-color-subtle);
+      font-size: var(--text-size-ui);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="#">Mark Hobbs<span class="visually-hidden"> — home</span></a>
+    <nav class="site-header__nav" aria-label="Primary">
+      <a href="#type">Type</a>
+      <a href="#color">Color</a>
+      <a href="#space">Space</a>
+      <a href="#grid">Grid</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <section class="section" aria-labelledby="hero-heading">
+        <p class="text-ui" style="color: var(--text-color-subtle);">hobbs.design v5 — foundations</p>
+        <h1 id="hero-heading">Subatomic to&nbsp;system.</h1>
+        <div class="grid" style="margin-block-start: var(--space-md);">
+          <p class="text-body-lg span-6">
+            One source of truth. Raw values live in the subatomic layer, semantic roles
+            alias them, components consume roles. Every spacing decision lands on an
+            8px grid, and every color pairing on this page passes WCAG&nbsp;AA.
+            <a class="cta" href="#type">See the type scale →</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="spec" id="type" aria-labelledby="type-heading">
+        <h2 id="type-heading">Typography</h2>
+        <div class="stack" style="margin-block-start: var(--space-xl);">
+          <div>
+            <span class="spec__label">display · 80/88 · heavy · neue-haas-grotesk-display</span>
+            <p class="text-display">Some of it is taste.</p>
+          </div>
+          <div>
+            <span class="spec__label">heading-xl · 56/64 · regular — editorial, calm, never aggressive</span>
+            <p class="text-heading-xl">Systems that hold up under pressure.</p>
+          </div>
+          <div>
+            <span class="spec__label">heading-md · 24/32 · semibold</span>
+            <p class="text-heading-md">Accessibility is how I structure decisions.</p>
+          </div>
+          <div>
+            <span class="spec__label">body-lg · 24/32 · regular</span>
+            <p class="text-body-lg">Large body copy carries introductions and case study leads.</p>
+          </div>
+          <div>
+            <span class="spec__label">body · 16/24 · regular</span>
+            <p>Body copy at sixteen over twenty-four. Hierarchy is built through size and
+            opacity — never through hue, and, with one display exception, never weight.
+            Inline <a href="#type">links are underlined</a>, because color alone is not
+            an affordance.</p>
+          </div>
+          <div>
+            <span class="spec__label">mono · JetBrains Mono — code and specimen labels</span>
+            <p class="text-mono">--text-size-display: var(--typography-font-size-80)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="spec" id="color" aria-labelledby="color-heading">
+        <h2 id="color-heading">Color</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          One accent. The 500 red is display-scale only; body-size links use the 600,
+          which clears 4.5:1 on the page background. Muted text sits at 60% — the old
+          40% failed AA and survives only as <code>disabled</code>.
+        </p>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--action-color-accent);"></div>
+            <div class="swatch__meta"><code>action-color-accent</code><p class="text-caption">#E12A09 · 4.4:1 · large text</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--text-color-link);"></div>
+            <div class="swatch__meta"><code>text-color-link</code><p class="text-caption">#C11406 · 5.9:1 · AA</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--text-color-heading);"></div>
+            <div class="swatch__meta"><code>text-color-heading</code><p class="text-caption">#0F0F0F · 19.5:1 · AAA</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--text-color-body);"></div>
+            <div class="swatch__meta"><code>text-color-body</code><p class="text-caption">70% black · 9.6:1 · AAA</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--text-color-subtle);"></div>
+            <div class="swatch__meta"><code>text-color-subtle</code><p class="text-caption">60% black · 5.0:1 · AA</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--surface-color-page);"></div>
+            <div class="swatch__meta"><code>surface-color-page</code><p class="text-caption">#F8F8F8 · warm near-white</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--surface-color-alt);"></div>
+            <div class="swatch__meta"><code>surface-color-alt</code><p class="text-caption">#FAF9F5 · section alt</p></div>
+          </div>
+          <div class="swatch span-3">
+            <div class="swatch__chip" style="background: var(--surface-color-inverse);"></div>
+            <div class="swatch__meta"><code>surface-color-inverse</code><p class="text-caption">#313638 · hero onyx</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="spec" id="space" aria-labelledby="space-heading">
+        <h2 id="space-heading">Space</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          Strict 8px foundation. No 4s, no 12s — if a gap isn't divisible by eight,
+          it isn't in the system.
+        </p>
+        <div style="margin-block-start: var(--space-xl);">
+          <div class="bar" style="width: var(--space-xs);"></div>
+          <div class="bar" style="width: var(--space-sm);"></div>
+          <div class="bar" style="width: var(--space-md);"></div>
+          <div class="bar" style="width: var(--space-lg);"></div>
+          <div class="bar" style="width: var(--space-xl);"></div>
+          <div class="bar" style="width: var(--space-2xl);"></div>
+          <div class="bar" style="width: var(--space-3xl);"></div>
+          <div class="bar" style="width: var(--space-4xl);"></div>
+          <span class="spec__label" style="margin-block-start: var(--space-sm);">8 · 16 · 24 · 32 · 48 · 64 · 96 · 128</span>
+        </div>
+      </section>
+
+      <section class="spec" id="grid" aria-labelledby="grid-heading">
+        <h2 id="grid-heading">Grid</h2>
+        <div class="grid grid-demo" style="margin-block-start: var(--space-xl);" aria-hidden="true">
+          <div class="span-4">span-4</div><div class="span-4">span-4</div><div class="span-4">span-4</div>
+          <div class="span-5">span-5</div><div class="span-7">span-7</div>
+          <div class="span-12">span-12</div>
+        </div>
+      </section>
+
+      <section class="spec" aria-labelledby="atoms-heading">
+        <h2 id="atoms-heading">Atoms</h2>
+        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
+          <button class="button" type="button">Primary action</button>
+          <button class="button button--quiet" type="button">Quiet action</button>
+          <button class="button" type="button" disabled>Disabled</button>
+          <a class="cta" href="#main">View project →</a>
+          <a class="cta cta--display" href="#main">Get in touch →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built on three token layers: subatomic → semantic → component. Tab through this page — every interactive element has a visible focus state.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "button": {
+    "color": {
+      "background":        { "$value": "{action.color.default}", "$type": "color" },
+      "background-hover":  { "$value": "{action.color.hover}",   "$type": "color" },
+      "background-active": { "$value": "{action.color.active}",  "$type": "color" },
+      "text":              { "$value": "{text.color.knockout}",  "$type": "color" },
+      "quiet-text":        { "$value": "{action.color.default}", "$type": "color" },
+      "quiet-text-hover":  { "$value": "{action.color.hover}",   "$type": "color" }
+    },
+    "space": {
+      "inset-y": { "$value": "{space.sm}", "$type": "dimension" },
+      "inset-x": { "$value": "{space.md}", "$type": "dimension" }
+    },
+    "radius": {
+      "default": { "$value": "{radius.sm}", "$type": "dimension" }
+    }
+  }
+}

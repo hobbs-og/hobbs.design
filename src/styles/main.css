@@ -1,0 +1,27 @@
+/* ============================================================
+   hobbs.design — main stylesheet (v5 architecture)
+   ------------------------------------------------------------
+   Atomic Design, one direction of dependency:
+
+     dist/tokens.css   design tokens (link BEFORE this file)
+     base/             reset + element defaults + a11y foundations
+     atoms/            smallest styled units
+     molecules/        (not built yet — added as components are defined)
+     organisms/        (not built yet)
+     layout/           grid + page scaffolding
+
+   Rules:
+   1. Everything below base/ uses semantic tokens only.
+      A raw hex or rem value outside dist/tokens.css is a bug.
+   2. The accent red is links and CTAs only.
+   3. Hierarchy comes from size and opacity, not hue or weight.
+   ============================================================ */
+
+@import url('base/reset.css');
+@import url('base/global.css');
+
+@import url('atoms/typography.css');
+@import url('atoms/link.css');
+@import url('atoms/button.css');
+
+@import url('layout/grid.css');

@@ -1,0 +1,93 @@
+/* ============================================================
+   atoms/typography.css — the type hierarchy
+   Hierarchy is built through SIZE and OPACITY, never hue.
+   The one weight exception is the display heading.
+   ============================================================ */
+
+/* H1 — hero statement. Massive, heavy, left-aligned. */
+h1,
+.text-display {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-display);
+  font-weight: var(--text-weight-display);
+  line-height: var(--text-leading-display);
+  color: var(--text-color-default);
+}
+
+/* H2 — editorial section heading. Large and calm, regular weight. */
+h2,
+.text-heading-xl {
+  font-family: var(--text-family-base);
+  font-size: var(--text-size-heading-xl);
+  font-weight: var(--text-weight-editorial);
+  line-height: var(--text-leading-heading-xl);
+  color: var(--text-color-body);
+}
+
+/* H3 — card / subsection title. */
+h3,
+.text-heading-md {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-md);
+  font-weight: var(--text-weight-heading);
+  line-height: var(--text-leading-heading-md);
+  color: var(--text-color-heading);
+}
+
+h4,
+.text-heading-sm {
+  font-family: var(--text-family-base);
+  font-size: var(--text-size-body);
+  font-weight: var(--text-weight-heading);
+  line-height: var(--text-leading-body);
+  color: var(--text-color-heading);
+}
+
+.text-body-lg {
+  font-size: var(--text-size-body-lg);
+  line-height: var(--text-leading-body-lg);
+}
+
+.text-ui {
+  font-size: var(--text-size-ui);
+  line-height: var(--text-leading-ui);
+  color: var(--text-color-default);
+}
+
+.text-caption {
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
+  color: var(--text-color-subtle);
+}
+
+code,
+kbd,
+samp,
+.text-mono {
+  font-family: var(--text-family-mono);
+  font-size: 0.875em;
+}
+
+/* Responsive display scale — the 80px hero steps down, keeping
+   line-height on the 8px grid at every breakpoint. */
+@media (max-width: 1024px) {
+  h1,
+  .text-display {
+    font-size: var(--text-size-heading-xl);
+    line-height: var(--text-leading-heading-xl);
+  }
+}
+
+@media (max-width: 767px) {
+  h1,
+  .text-display {
+    font-size: var(--text-size-display-sm);
+    line-height: var(--text-leading-display-sm);
+  }
+
+  h2,
+  .text-heading-xl {
+    font-size: var(--text-size-heading-lg);
+    line-height: var(--text-leading-heading-lg);
+  }
+}

@@ -1,0 +1,38 @@
+/* ============================================================
+   atoms/link.css — the only color pop on the site
+   ============================================================ */
+
+a {
+  color: var(--text-color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-color-link-hover);
+}
+
+/* Inline links inside running text keep an underline —
+   color alone is not a sufficient affordance (WCAG 1.4.1). */
+p a,
+li a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* CTA — standalone action link ("View Project →").
+   Large-scale usage may use the brighter accent via .cta--display. */
+.cta {
+  display: inline-block;
+  font-size: var(--text-size-body);
+  color: var(--text-color-link);
+}
+
+.cta:hover {
+  color: var(--text-color-link-hover);
+}
+
+.cta--display {
+  font-size: var(--text-size-body-lg);
+  line-height: var(--text-leading-body-lg);
+  color: var(--text-color-link-large);
+}

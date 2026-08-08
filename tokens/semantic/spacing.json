@@ -1,0 +1,38 @@
+{
+  "space": {
+    "xs":  { "$value": "{spacing.8}",   "$type": "dimension" },
+    "sm":  { "$value": "{spacing.16}",  "$type": "dimension" },
+    "md":  { "$value": "{spacing.24}",  "$type": "dimension" },
+    "lg":  { "$value": "{spacing.32}",  "$type": "dimension" },
+    "xl":  { "$value": "{spacing.48}",  "$type": "dimension" },
+    "2xl": { "$value": "{spacing.64}",  "$type": "dimension" },
+    "3xl": { "$value": "{spacing.96}",  "$type": "dimension" },
+    "4xl": { "$value": "{spacing.128}", "$type": "dimension" },
+    "section-y":       { "$value": "{section.padding}",   "$type": "dimension" },
+    "section-x":       { "$value": "{section.padding}",   "$type": "dimension" },
+    "nav-y":           { "$value": "{spacing.24}",        "$type": "dimension" },
+    "nav-x":           { "$value": "{spacing.48}",        "$type": "dimension" },
+    "gutter":          { "$value": "{container.gutter}",  "$type": "dimension" },
+    "grid-column-gap": { "$value": "{spacing.gap.xlg}",   "$type": "dimension" },
+    "grid-row-gap":    { "$value": "{spacing.gap.lg}",    "$type": "dimension" },
+    "stack-tight":     { "$value": "{spacing.8}",         "$type": "dimension" },
+    "stack-default":   { "$value": "{spacing.24}",        "$type": "dimension" },
+    "stack-loose":     { "$value": "{spacing.48}",        "$type": "dimension" }
+  },
+  "layout": {
+    "container-max": { "$value": "{container.max-width}", "$type": "dimension" }
+  },
+  "border": {
+    "width": {
+      "hairline": { "$value": "{stroke-width.hairline}", "$type": "dimension" },
+      "focus":    { "$value": "{stroke-width.focus}",    "$type": "dimension" },
+      "thick":    { "$value": "{stroke-width.thick}",    "$type": "dimension" }
+    }
+  },
+  "radius": {
+    "none":  { "$value": "{border-radius.none}",  "$type": "dimension" },
+    "sm":    { "$value": "{border-radius.sm}",    "$type": "dimension" },
+    "md":    { "$value": "{border-radius.md}",    "$type": "dimension" },
+    "round": { "$value": "{border-radius.round}", "$type": "dimension" }
+  }
+}

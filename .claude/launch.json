@@ -2,11 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "candidate-list",
-      "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "cd /private/tmp/bullhorn-claude-preview && exec python3 -m http.server ${PORT:-8741}"],
-      "port": 8741,
-      "autoPort": true
+      "name": "portfolio",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["/private/tmp/claude-501/-Users-markhobbs-Desktop-----portfolio-site/a89c2012-6159-4144-9b1b-521e802865ec/scratchpad/serve.mjs"],
+      "port": 8123
     }
   ]
 }

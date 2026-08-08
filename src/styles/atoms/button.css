@@ -1,0 +1,46 @@
+/* ============================================================
+   atoms/button.css — component tokens in practice
+   The variant swaps custom properties; it never touches rules.
+   ============================================================ */
+
+.button {
+  --_bg: var(--button-color-background);
+  --_text: var(--button-color-text);
+
+  display: inline-block;
+  padding: var(--button-space-inset-y) var(--button-space-inset-x);
+  border: var(--border-width-hairline) solid transparent;
+  border-radius: var(--button-radius-default);
+  background: var(--_bg);
+  color: var(--_text);
+  font-size: var(--text-size-body);
+  line-height: var(--text-leading-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  --_bg: var(--button-color-background-hover);
+}
+
+.button:active {
+  --_bg: var(--button-color-background-active);
+}
+
+.button--quiet {
+  --_bg: transparent;
+  --_text: var(--button-color-quiet-text);
+  border-color: currentColor;
+}
+
+.button--quiet:hover {
+  --_bg: transparent;
+  --_text: var(--button-color-quiet-text-hover);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  --_bg: var(--surface-color-alt);
+  --_text: var(--text-color-disabled);
+  cursor: not-allowed;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "hobbs.design",
+  "version": "5.0.0",
+  "private": true,
+  "description": "Design token pipeline and atomic front-end for hobbs.design",
+  "type": "module",
+  "scripts": {
+    "build:tokens": "style-dictionary build --config style-dictionary.config.mjs",
+    "watch:tokens": "style-dictionary build --config style-dictionary.config.mjs --watch"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

@@ -1,0 +1,69 @@
+/* ============================================================
+   layout/grid.css — 12-column grid on an 8px foundation
+   Full-bleed by default; .container caps very wide screens.
+   ============================================================ */
+
+.container {
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-section-x);
+}
+
+.section {
+  padding-block: var(--space-section-y);
+}
+
+.section--alt {
+  background: var(--surface-color-alt);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-grid-row-gap) var(--space-grid-column-gap);
+}
+
+/* Column spans. Fall to full width on mobile. */
+.span-3  { grid-column: span 3; }
+.span-4  { grid-column: span 4; }
+.span-5  { grid-column: span 5; }
+.span-6  { grid-column: span 6; }
+.span-7  { grid-column: span 7; }
+.span-8  { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+@media (max-width: 1024px) {
+  .span-3,
+  .span-4 { grid-column: span 6; }
+
+  .span-5,
+  .span-6,
+  .span-7,
+  .span-8 { grid-column: span 12; }
+}
+
+/* Single column on mobile — twelve tracks with 48px gaps
+   exceed the viewport and force horizontal overflow. */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-grid-row-gap);
+  }
+
+  .grid > * {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Vertical rhythm — stack utilities on the 8px scale. */
+.stack > * + * {
+  margin-block-start: var(--space-stack-default);
+}
+
+.stack--tight > * + * {
+  margin-block-start: var(--space-stack-tight);
+}
+
+.stack--loose > * + * {
+  margin-block-start: var(--space-stack-loose);
+}
