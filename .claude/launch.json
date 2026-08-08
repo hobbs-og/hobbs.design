@@ -4,7 +4,7 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["/private/tmp/claude-501/-Users-markhobbs-Desktop-----portfolio-site/a89c2012-6159-4144-9b1b-521e802865ec/scratchpad/serve.mjs"],
+      "runtimeArgs": ["tools/serve.mjs"],
       "port": 8123
     }
   ]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get In Touch | hobbs.design</title>
+  <meta name="description" content="Get in touch with Mark Hobbs about product design, design systems, or design engineering work.">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="../dist/tokens.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+    <nav class="site-nav__links" aria-label="Primary">
+      <a href="index.html#work">Work I've Done</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">My Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <section class="index-hero index-hero--statement" aria-labelledby="contact-title">
+        <div>
+          <h1 class="index-hero__title" id="contact-title">Let's talk.</h1>
+          <p class="index-hero__lead">
+            Tell me a little about the work, and I'll get back to you.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Contact form">
+        <form class="grid" method="post" action="../send_mail.php" id="contactForm">
+          <div class="field span-4">
+            <label class="field__label" for="contact-name">Name</label>
+            <input class="field__control" id="contact-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field span-4">
+            <label class="field__label" for="contact-email">Email</label>
+            <input class="field__control" id="contact-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field span-8">
+            <label class="field__label" for="contact-message">Message</label>
+            <textarea class="field__control" id="contact-message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="span-8">
+            <button class="button" type="submit">Send message</button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+    <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
+  </footer>
+</body>
+</html>
