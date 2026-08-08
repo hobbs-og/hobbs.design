@@ -20,6 +20,7 @@ node_modules/
 
 # ---- Archived previous version (kept on disk, not in history) ----
 _V4.0/
+xx_graveyard/
 
 # ---- Pre-optimization image originals (local safety copy) ----
 _image-originals/
