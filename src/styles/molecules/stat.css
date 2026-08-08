@@ -1,28 +1,24 @@
 /* ============================================================
    molecules/stat.css — proof numbers in a full-width band
-   Semantic tokens only. The band is the one place the alt
-   surface earns its keep.
+   The band background bleeds full width; the stats themselves
+   sit on the page grid (.container > .grid, span-3 each), so
+   the first number shares the hero's left edge and every cell
+   lands on a column. Dividers center in the column gap.
    ============================================================ */
 
 .stat-band {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   background: var(--surface-color-alt);
   border-block: var(--border-width-hairline) solid var(--border-color-hairline);
-  padding-inline: var(--space-section-x);
 }
 
 .stat {
-  padding: var(--space-lg) var(--space-md);
-}
-
-/* The first number shares the hero's left edge. */
-.stat:first-child {
-  padding-inline-start: 0;
+  padding-block: var(--space-lg);
 }
 
 .stat + .stat {
   border-inline-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  margin-inline-start: calc(-0.5 * var(--space-grid-column-gap));
+  padding-inline-start: calc(0.5 * var(--space-grid-column-gap));
 }
 
 .stat__value {
@@ -40,21 +36,27 @@
   color: var(--text-color-subtle);
 }
 
-@media (max-width: 767px) {
-  .stat-band {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* In a 2x2 band only the right column gets a divider. */
-  .stat + .stat {
+/* The grid collapses span-3 to half width at tablet (2x2): only
+   the right column keeps its divider, and the second row gains a
+   top rule. */
+@media (max-width: 1024px) {
+  .stat:nth-child(odd) {
     border-inline-start: none;
-  }
-
-  .stat:nth-child(even) {
-    border-inline-start: var(--border-width-hairline) solid var(--border-color-hairline);
+    margin-inline-start: 0;
+    padding-inline-start: 0;
   }
 
   .stat:nth-child(n + 3) {
+    border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  }
+}
+
+/* Single column on mobile: row rules only. */
+@media (max-width: 767px) {
+  .stat + .stat {
+    border-inline-start: none;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
     border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
   }
 }
