@@ -53,6 +53,7 @@
   --color-border-focus: #0f0f0f;
   --duration-fast: 160ms;
   --duration-base: 240ms;
+  --duration-moderate: 300ms;
   --duration-sheet: 420ms;
   --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
@@ -76,6 +77,9 @@
   --container-gutter: 3rem;
   --container-max-width: 100rem;
   --section-padding: 3rem;
+  --control-toggle: 3rem;
+  --control-toggle-bar: 1.75rem;
+  --control-toggle-gap: 0.375rem;
   --stroke-width-hairline: 0.0625rem;
   --stroke-width-medium: 0.125rem;
   --stroke-width-thick: 0.25rem;
@@ -115,6 +119,9 @@
   --typography-line-height-72: 4.5rem;
   --typography-line-height-88: 5.5rem;
   --typography-letter-spacing-0: 0;
+  --control-size-toggle: var(--control-toggle);
+  --control-size-toggle-bar: var(--control-toggle-bar);
+  --control-size-toggle-gap: var(--control-toggle-gap);
   --text-color-heading: var(--color-content-headline);
   --text-color-default: var(--color-content-default);
   --text-color-body: var(--color-content-body);
@@ -187,6 +194,7 @@
   --feedback-color-error-text: var(--color-utility-error-dark);
   --motion-duration-ui: var(--duration-fast);
   --motion-duration-enter: var(--duration-base);
+  --motion-duration-toggle: var(--duration-moderate);
   --motion-duration-sheet: var(--duration-sheet);
   --motion-easing-ui: var(--easing-standard);
   --motion-easing-enter: var(--easing-decelerate);
@@ -214,7 +222,6 @@
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
   --radius-round: var(--border-radius-round);
-  --nav-size-bar-stroke: var(--stroke-width-medium);
   --sheet-size-handle-inline: var(--spacing-40);
   --sheet-size-handle-block: var(--stroke-width-thick);
   --button-color-background: var(--action-color-default);
@@ -273,13 +280,18 @@
   --nav-color-logo-highlight: var(--surface-color-highlight);
   --nav-color-bar: var(--text-color-default);
   --nav-color-panel: var(--surface-color-page);
-  --nav-size-toggle: var(--space-md);
+  --nav-size-toggle: var(--control-size-toggle);
+  --nav-size-bar-inline: var(--control-size-toggle-bar);
+  --nav-size-bar-gap: var(--control-size-toggle-gap);
+  --nav-size-bar-stroke: var(--border-width-hairline);
   --nav-space-inset-y: var(--space-nav-y);
   --nav-space-inset-x: var(--space-nav-x);
   --nav-space-link-gap: var(--space-md);
   --nav-space-panel-gap: var(--space-lg);
   --nav-motion-duration: var(--motion-duration-ui);
   --nav-motion-easing: var(--motion-easing-ui);
+  --nav-motion-toggle-duration: var(--motion-duration-toggle);
+  --nav-motion-toggle-easing: var(--motion-easing-ui);
   --project-row-color-border: var(--border-color-hairline);
   --project-row-color-title: var(--text-color-heading);
   --project-row-color-body: var(--text-color-body);

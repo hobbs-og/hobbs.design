@@ -90,12 +90,22 @@
   flex: none;
 }
 
-/* ---------- Hamburger ---------- */
+/* ---------- Hamburger ----------
+   Sizing is the original's: a 3rem target, 1.75rem bars a hairline
+   thick, 0.375rem apart, aligned to the trailing edge.
+
+   The open state crosses the outer bars and fades the middle one.
+   Rather than the original's hand-tuned translate offsets, each bar
+   travels the distance that actually separates it from the centre,
+   which is one gap plus one stroke. Same result, and it stays right
+   if the sizing tokens change. */
 
 .site-nav__toggle {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: end;
+  gap: var(--nav-size-bar-gap);
   inline-size: var(--nav-size-toggle);
   aspect-ratio: 1;
   padding: 0;
@@ -105,51 +115,41 @@
 }
 
 .site-nav__toggle span {
+  inline-size: var(--nav-size-bar-inline);
   border-block-start: var(--nav-size-bar-stroke) solid var(--nav-color-bar);
-}
-
-/* ---------- Mobile panel ---------- */
-
-.nav-panel {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  inline-size: auto;
-  block-size: auto;
-  max-inline-size: none;
-  max-block-size: none;
-  background: var(--nav-color-panel);
-  color: inherit;
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-
-  opacity: 0;
   transition:
-    opacity var(--nav-motion-duration) var(--nav-motion-easing),
-    display var(--nav-motion-duration) allow-discrete,
-    overlay var(--nav-motion-duration) allow-discrete;
+    transform var(--nav-motion-toggle-duration) var(--nav-motion-toggle-easing),
+    opacity var(--nav-motion-toggle-duration) var(--nav-motion-toggle-easing);
 }
 
-.nav-panel[open] {
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
+.site-nav__toggle[aria-expanded='true'] span:first-child {
+  transform:
+    translateY(calc(var(--nav-size-bar-gap) + var(--nav-size-bar-stroke)))
+    rotate(45deg);
 }
 
-@starting-style {
-  .nav-panel[open] {
-    opacity: 0;
-  }
+.site-nav__toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
 }
 
-.nav-panel__chrome {
-  display: flex;
+.site-nav__toggle[aria-expanded='true'] span:last-child {
+  transform:
+    translateY(calc(-1 * (var(--nav-size-bar-gap) + var(--nav-size-bar-stroke))))
+    rotate(-45deg);
+}
+
+/* ---------- Mobile panel ----------
+   The panel is the sheet organism with the --full modifier, so it
+   inherits the dialog reset, the slide, the timing, and the chrome
+   from organisms/sheet.css. Only what differs lives here.
+
+   The case sheet stacks its chrome on mobile to sit a grab handle
+   above the close button. The nav panel has no handle, and its
+   chrome is a header bar, so it stays a row. */
+
+.sheet--nav .sheet__chrome {
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  padding: var(--nav-space-inset-y) var(--space-md);
-  border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
 }
 
 .nav-panel__links {
@@ -168,6 +168,10 @@
   line-height: var(--text-leading-heading-md);
   color: var(--nav-color-link);
   text-decoration: none;
+}
+
+.nav-panel__links a:hover {
+  color: var(--nav-color-link-hover);
 }
 
 @media (max-width: 47.9375rem) {

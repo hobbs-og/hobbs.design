@@ -13,10 +13,10 @@
    ============================================================ */
 (function () {
   var toggle = document.querySelector('.site-nav__toggle');
-  var panel = document.querySelector('.nav-panel');
+  var panel = document.querySelector('.sheet--nav');
   if (!toggle || !panel || typeof panel.showModal !== 'function') return;
 
-  var closeBtn = panel.querySelector('.nav-panel__close');
+  var closeBtn = panel.querySelector('.sheet__close');
 
   function setExpanded(open) {
     toggle.setAttribute('aria-expanded', String(open));

@@ -12,8 +12,10 @@
       "panel":          { "$value": "{surface.color.page}",  "$type": "color" }
     },
     "size": {
-      "toggle":     { "$value": "{space.md}", "$type": "dimension" },
-      "bar-stroke": { "$value": "{stroke-width.medium}", "$type": "dimension" }
+      "toggle":     { "$value": "{control.size.toggle}",     "$type": "dimension" },
+      "bar-inline": { "$value": "{control.size.toggle-bar}", "$type": "dimension" },
+      "bar-gap":    { "$value": "{control.size.toggle-gap}", "$type": "dimension" },
+      "bar-stroke": { "$value": "{border.width.hairline}",   "$type": "dimension" }
     },
     "space": {
       "inset-y":   { "$value": "{space.nav-y}", "$type": "dimension" },
@@ -22,8 +24,10 @@
       "panel-gap": { "$value": "{space.lg}",    "$type": "dimension" }
     },
     "motion": {
-      "duration": { "$value": "{motion.duration.ui}", "$type": "duration" },
-      "easing":   { "$value": "{motion.easing.ui}",   "$type": "cubicBezier" }
+      "duration":        { "$value": "{motion.duration.ui}",     "$type": "duration" },
+      "easing":          { "$value": "{motion.easing.ui}",       "$type": "cubicBezier" },
+      "toggle-duration": { "$value": "{motion.duration.toggle}", "$type": "duration" },
+      "toggle-easing":   { "$value": "{motion.easing.ui}",       "$type": "cubicBezier" }
     }
   }
 }

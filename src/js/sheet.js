@@ -21,7 +21,9 @@
    - fetching and swapping case study content
    ============================================================ */
 (function () {
-  var sheet = document.querySelector('.sheet');
+  // Scoped to the case variant: the navigation panel is also a
+  // .sheet, and it comes first in the document.
+  var sheet = document.querySelector('.sheet--case');
   if (!sheet || typeof sheet.showModal !== 'function') return;
 
   var body = sheet.querySelector('.sheet__body');

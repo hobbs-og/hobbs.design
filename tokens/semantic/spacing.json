@@ -22,6 +22,13 @@
   "layout": {
     "container-max": { "$value": "{container.max-width}", "$type": "dimension" }
   },
+  "control": {
+    "size": {
+      "toggle":     { "$value": "{control.toggle}",     "$type": "dimension" },
+      "toggle-bar": { "$value": "{control.toggle-bar}", "$type": "dimension" },
+      "toggle-gap": { "$value": "{control.toggle-gap}", "$type": "dimension" }
+    }
+  },
   "border": {
     "width": {
       "hairline": { "$value": "{stroke-width.hairline}", "$type": "dimension" },

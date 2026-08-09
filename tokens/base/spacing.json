@@ -26,6 +26,12 @@
   "section": {
     "padding": { "$value": "48", "$type": "dimension" }
   },
+  "control": {
+    "comment": "Control and icon dimensions. These sit outside the 8px spacing grid on purpose: they size affordances against the hand and the eye, not against layout rhythm.",
+    "toggle":     { "$value": "48", "$type": "dimension" },
+    "toggle-bar": { "$value": "28", "$type": "dimension" },
+    "toggle-gap": { "$value": "6",  "$type": "dimension" }
+  },
   "stroke-width": {
     "hairline": { "$value": "1", "$type": "dimension" },
     "medium":   { "$value": "2", "$type": "dimension" },

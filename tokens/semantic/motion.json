@@ -3,6 +3,7 @@
     "duration": {
       "ui":    { "$value": "{duration.fast}",  "$type": "duration" },
       "enter": { "$value": "{duration.base}",  "$type": "duration" },
+      "toggle": { "$value": "{duration.moderate}", "$type": "duration" },
       "sheet": { "$value": "{duration.sheet}", "$type": "duration" }
     },
     "easing": {

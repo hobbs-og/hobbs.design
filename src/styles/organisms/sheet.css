@@ -152,3 +152,25 @@
     align-self: flex-end;
   }
 }
+
+/* ---------- Full-height variant ----------
+   No peek, square corners, rising from the bottom at every width
+   rather than only on mobile. Used by the navigation panel, which
+   covers the screen outright.
+
+   Declared last on purpose. The mobile block above sets the peek on
+   .sheet at the same specificity, so this has to come after it in
+   source order to win — media queries add no specificity of their
+   own. */
+
+.sheet--full {
+  inset: 0;
+  border-radius: 0;
+  transform: translateY(100%);
+}
+
+@starting-style {
+  .sheet--full[open] {
+    transform: translateY(100%);
+  }
+}
