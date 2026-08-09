@@ -37,20 +37,18 @@
   column-gap: var(--space-grid-column-gap);
 }
 
-.stat-band__rule > * {
-  block-size: var(--stat-size-rule);
-}
-
+/* The segments are rules, so they are drawn as borders rather than
+   boxes given a height. */
 .stat-band__rule-lead {
   grid-column: span 3;
   margin-inline-end: calc(-0.5 * var(--space-grid-column-gap));
-  background: var(--stat-color-rule-lead);
+  border-block-start: var(--stat-size-rule) solid var(--stat-color-rule-lead);
 }
 
 .stat-band__rule-trail {
   grid-column: 4 / -1;
   margin-inline-start: calc(-0.5 * var(--space-grid-column-gap));
-  background: var(--stat-color-rule-trail);
+  border-block-start: var(--stat-size-rule) solid var(--stat-color-rule-trail);
 }
 
 /* The bar runs the full width of the device while the stats stay on
@@ -67,18 +65,18 @@
 .stat-band__rule-trail::after {
   content: '';
   position: absolute;
-  inset-block: 0;
+  inset-block-start: 0;
   inline-size: 100vw;
 }
 
 .stat-band__rule-lead::before {
   inset-inline-end: 100%;
-  background: var(--stat-color-rule-lead);
+  border-block-start: var(--stat-size-rule) solid var(--stat-color-rule-lead);
 }
 
 .stat-band__rule-trail::after {
   inset-inline-start: 100%;
-  background: var(--stat-color-rule-trail);
+  border-block-start: var(--stat-size-rule) solid var(--stat-color-rule-trail);
 }
 
 .stat {
@@ -110,7 +108,7 @@
    right column keeps its divider, and the second row gains a top rule.
    The divider moves to the 6/7 boundary, so the rule's handoff moves
    with it — the bar tracks the columns at every breakpoint. */
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .stat:nth-child(odd) {
     border-inline-start: none;
     margin-inline-start: 0;
@@ -136,7 +134,7 @@
    eleven column gaps alone exceed the content width, and keeping
    the twelve-column definition would push the bar past the right
    gutter. */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .stat + .stat {
     border-inline-start: none;
     margin-inline-start: 0;

@@ -25,6 +25,10 @@
   max-width: 24ch;
 }
 
+.index-hero__status {
+  margin-block-end: var(--space-md);
+}
+
 .index-hero__eyebrow {
   font-size: var(--text-size-ui);
   line-height: var(--text-leading-ui);
@@ -60,14 +64,14 @@
   width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .index-hero__title {
     font-size: var(--text-size-heading-xl);
     line-height: var(--text-leading-heading-xl);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .index-hero {
     grid-template-columns: 1fr;
     padding-block: var(--space-2xl);

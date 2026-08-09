@@ -31,7 +31,7 @@
 
       <section class="index-hero index-hero--statement" aria-labelledby="hero-title" data-xray="organism · index-hero">
         <div>
-          <p style="margin-block-end: var(--space-md);"><span class="chip chip--status" data-xray="atom · chip">Available for staff-level engagements</span></p>
+          <p class="index-hero__status"><span class="chip chip--status" data-xray="atom · chip">Available for staff-level engagements</span></p>
           <h1 class="index-hero__title" id="hero-title">Most systems don't break on the whiteboard. They break at the handoff.</h1>
           <p class="index-hero__lead">
             I design at the layer where decisions become tokens, components,
@@ -77,12 +77,14 @@
     <div class="container">
 
       <section class="section" aria-labelledby="how-heading" data-xray="organism · how-i-work">
-        <p class="section-label" data-xray="atom · section-label">01 — How I work</p>
-        <div class="grid" style="margin-block-start: var(--space-lg);">
+        <div class="section-header">
+          <p class="section-label" data-xray="atom · section-label">01 — How I work</p>
+        </div>
+        <div class="grid">
           <div class="span-5">
             <h2 id="how-heading">Structure is the product, before the pixels are.</h2>
           </div>
-          <div class="span-7 stack--tight" style="align-self: end;">
+          <div class="span-7 stack--tight how-i-work__body">
             <p>Most of what I get called in for has less to do with new ideas
             and more to do with structure: no agreed vocabulary for what a
             component is, no plan for what happens when a token changes
@@ -98,13 +100,13 @@
       </section>
 
       <section class="section" id="work" aria-labelledby="work-heading" data-xray="organism · work-index">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md);">
+        <div class="section-header">
           <p class="section-label" data-xray="atom · section-label">02 — Selected work</p>
           <p class="section-label">05 case studies</p>
         </div>
-        <h2 id="work-heading" style="margin-block-start: var(--space-lg);">Five systems, five different failure modes.</h2>
+        <h2 id="work-heading">Five systems, five different failure modes.</h2>
 
-        <div style="margin-block-start: var(--space-2xl);">
+        <div class="work-index__list">
 
           <article class="project-row project-row--index" data-xray="molecule · project-row">
             <p class="project-row__number">01</p>
@@ -176,9 +178,11 @@
       </section>
 
       <section class="section" id="contact" aria-labelledby="contact-heading" data-xray="organism · contact">
-        <p class="section-label" data-xray="atom · section-label">03 — Contact</p>
-        <h2 id="contact-heading" style="margin-block-start: var(--space-lg);">If this resonates,<br>I'd love to have a chat.</h2>
-        <ul role="list" class="text-mono" style="margin-block-start: var(--space-lg); display: flex; flex-wrap: wrap; gap: var(--space-md);">
+        <div class="section-header">
+          <p class="section-label" data-xray="atom · section-label">03 — Contact</p>
+        </div>
+        <h2 id="contact-heading">If this resonates,<br>I'd love to have a chat.</h2>
+        <ul class="link-list contact__links text-mono" role="list">
           <li><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></li>
           <li><a href="https://www.linkedin.com/in/hobbsdesign">/in/hobbsdesign</a></li>
           <li><a href="resume.html">Resume ↓</a></li>

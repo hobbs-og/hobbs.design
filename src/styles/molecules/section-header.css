@@ -1,0 +1,16 @@
+/* ============================================================
+   molecules/section-header.css — the numbered section opener
+   Carries the section label, optionally a counter opposite it,
+   and owns the space between itself and the heading that
+   follows. Every numbered section on the page uses it, so that
+   gap is one decision rather than a margin repeated per section.
+   ============================================================ */
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-block-end: var(--space-lg);
+}

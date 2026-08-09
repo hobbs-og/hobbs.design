@@ -24,7 +24,7 @@
   color: var(--text-color-heading);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .site-footer {
     padding-inline: var(--space-md);
   }

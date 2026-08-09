@@ -1,0 +1,13 @@
+/* ============================================================
+   molecules/link-list.css — a horizontal run of links
+   Used for the contact details. Wraps rather than truncating,
+   so it degrades on narrow screens without a breakpoint.
+   ============================================================ */
+
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: 0;
+  list-style: none;
+}

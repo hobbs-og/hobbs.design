@@ -1,0 +1,10 @@
+/* ============================================================
+   organisms/contact.css — the closing section
+   Owns the gap between the heading and the contact details. The
+   link list itself carries no outer margin, so it stays reusable
+   anywhere else on the site.
+   ============================================================ */
+
+.contact__links {
+  margin-block-start: var(--space-lg);
+}

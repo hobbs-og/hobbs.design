@@ -32,7 +32,7 @@
 .span-8  { grid-column: span 8; }
 .span-12 { grid-column: span 12; }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .span-3,
   .span-4 { grid-column: span 6; }
 
@@ -44,7 +44,7 @@
 
 /* Single column on mobile — twelve tracks with 48px gaps
    exceed the viewport and force horizontal overflow. */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .grid {
     grid-template-columns: 1fr;
     gap: var(--space-grid-row-gap);

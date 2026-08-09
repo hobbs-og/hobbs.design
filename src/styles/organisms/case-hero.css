@@ -75,7 +75,7 @@
   text-underline-offset: 0.2em;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .case-hero {
     padding: var(--space-2xl) var(--space-md);
   }

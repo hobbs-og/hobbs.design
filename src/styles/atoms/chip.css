@@ -53,10 +53,12 @@
   letter-spacing: var(--text-tracking-default);
 }
 
+/* Sized in em and squared with aspect-ratio, so the dot tracks the
+   label's text size instead of being pinned to one dimension. */
 .chip--status::before {
   content: '';
-  inline-size: var(--space-xs);
-  block-size: var(--space-xs);
+  inline-size: 0.5em;
+  aspect-ratio: 1;
   border-radius: var(--radius-round);
   background: var(--feedback-color-success);
 }

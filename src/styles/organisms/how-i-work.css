@@ -1,0 +1,11 @@
+/* ============================================================
+   organisms/how-i-work.css — the positioning statement
+   A short heading on the left, the argument on the right. The
+   body sits on the heading's baseline block rather than the top
+   of the column, so the two columns end together instead of
+   starting together.
+   ============================================================ */
+
+.how-i-work__body {
+  align-self: end;
+}

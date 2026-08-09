@@ -63,7 +63,7 @@
   margin-block-start: var(--space-xs);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .project-row {
     grid-template-columns: 1fr;
     gap: var(--project-row-space-gap-row);

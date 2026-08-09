@@ -1,0 +1,10 @@
+/* ============================================================
+   organisms/work-index.css — the selected work list
+   A section header, a lead heading, and the run of project rows.
+   The rows carry their own rules and padding; this only owns the
+   space between the heading and the start of the list.
+   ============================================================ */
+
+.work-index__list {
+  margin-block-start: var(--space-2xl);
+}

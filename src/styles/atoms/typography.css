@@ -80,7 +80,7 @@ samp,
 
 /* Responsive display scale — the 80px hero steps down, keeping
    line-height on the 8px grid at every breakpoint. */
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   h1,
   .text-display {
     font-size: var(--text-size-heading-xl);
@@ -88,7 +88,7 @@ samp,
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   h1,
   .text-display {
     font-size: var(--text-size-display-sm);

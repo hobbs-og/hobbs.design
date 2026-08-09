@@ -52,10 +52,12 @@
     visibility 0s linear var(--sheet-motion-duration);
   will-change: transform;
 
-  /* Desktop: slides in from the trailing edge, full height. */
+  /* Desktop: slides in from the trailing edge. Size comes from the
+     insets rather than a width, so the peek is stated once and the
+     panel has no dimension of its own to keep in sync. */
   inset-block: 0;
+  inset-inline-start: var(--sheet-size-peek);
   inset-inline-end: 0;
-  inline-size: calc(100% - var(--sheet-size-peek));
   transform: translateX(100%);
 }
 
@@ -98,13 +100,11 @@
 
 /* Mobile: rises from the bottom, rounded leading corners, and a
    grab handle so the affordance reads the way a sheet should. */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .sheet {
-    inset-block-start: auto;
+    inset-block-start: var(--sheet-size-peek);
     inset-block-end: 0;
     inset-inline: 0;
-    inline-size: 100%;
-    block-size: calc(100% - var(--sheet-size-peek));
     transform: translateY(100%);
     border-start-start-radius: var(--sheet-radius-default);
     border-start-end-radius: var(--sheet-radius-default);
@@ -116,12 +116,13 @@
     padding-inline: var(--space-md);
   }
 
+  /* The grab handle is a rule, so it is drawn as one: a border
+     rather than a box with a height. */
   .sheet__handle {
     display: block;
     inline-size: var(--sheet-size-handle-inline);
-    block-size: var(--sheet-size-handle-block);
+    border-block-start: var(--sheet-size-handle-block) solid var(--sheet-color-handle);
     border-radius: var(--radius-round);
-    background: var(--sheet-color-handle);
   }
 
   .sheet__close {

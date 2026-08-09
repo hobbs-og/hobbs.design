@@ -22,26 +22,19 @@ export default {
   hooks: {
     transforms: {
       // px → rem for dimensions, so user font-size preferences scale the UI.
-      // Breakpoints stay px (media queries), weights and tracking stay unitless.
+      // Breakpoints included: media queries are authored in rem so that
+      // layout responds to text zoom, not just viewport width.
       'size/pxToRem': {
         type: 'value',
         filter: (token) =>
           token.$type === 'dimension' &&
           !token.path.includes('letter-spacing') &&
-          !token.path.includes('breakpoint') &&
           !token.path.includes('font-weight'),
         transform: (token) => {
           const val = parseFloat(token.$value ?? token.value)
           if (isNaN(val)) return token.$value ?? token.value
           return val === 0 ? '0' : `${val / 16}rem`
         },
-      },
-      // Breakpoints emit as px — they document the @media values, which
-      // cannot read custom properties and are duplicated in CSS by hand.
-      'size/breakpointPx': {
-        type: 'value',
-        filter: (token) => token.path.includes('breakpoint'),
-        transform: (token) => `${parseFloat(token.$value ?? token.value)}px`,
       },
     },
   },
@@ -50,7 +43,7 @@ export default {
     // ── CSS custom properties ──────────────────────────────────────────
     css: {
       transformGroup: 'css',
-      transforms: ['attribute/cti', 'name/kebab', 'size/pxToRem', 'size/breakpointPx', 'color/css'],
+      transforms: ['attribute/cti', 'name/kebab', 'size/pxToRem', 'color/css'],
       prefix: '',
       buildPath: 'dist/',
       files: [

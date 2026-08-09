@@ -48,7 +48,7 @@
   text-underline-offset: 0.5em;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .site-nav {
     padding-inline: var(--space-md);
   }
