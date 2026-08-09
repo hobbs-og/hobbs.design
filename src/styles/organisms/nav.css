@@ -139,17 +139,43 @@
 }
 
 /* ---------- Mobile panel ----------
-   The panel is the sheet organism with the --full modifier, so it
-   inherits the dialog reset, the slide, the timing, and the chrome
-   from organisms/sheet.css. Only what differs lives here.
+   The panel reuses the sheet organism for its dialog reset, slide
+   and timing, then overrides where it differs. It stops at the
+   bottom of the header rather than covering it, so the hamburger
+   stays visible and doubles as the close control.
 
-   The case sheet stacks its chrome on mobile to sit a grab handle
-   above the close button. The nav panel has no handle, and its
-   chrome is a header bar, so it stays a row. */
+   That is also why it is opened non-modally: a modal dialog takes
+   the top layer and blocks everything outside it, which would put
+   the header behind the panel and make the hamburger unclickable.
+   Non-modal is the honest shape here anyway. This is a disclosure,
+   not a dialog: the toggle owns aria-expanded and the header stays
+   live behind it. nav.js supplies the Escape handling and focus
+   moves that showModal() would otherwise have given us. */
 
-.sheet--nav .sheet__chrome {
-  flex-direction: row;
-  align-items: center;
+.sheet--nav {
+  /* Meets the bottom of the header exactly. nav.js measures the
+     header and publishes --nav-height, because which child is
+     tallest depends on the breakpoint: the logo's line box on
+     desktop, the taller hamburger target here. The fallback covers
+     the no-JS case and the first paint, and is built from the
+     tokens that actually set the height at this width. */
+  inset-block-start: var(--nav-height, calc(
+    (var(--nav-space-inset-y) * 2) +
+    var(--nav-size-toggle) +
+    var(--border-width-hairline)
+  ));
+  inset-block-end: 0;
+  inset-inline: 0;
+  /* Under the sticky header, over the page. */
+  z-index: 9;
+  border-radius: 0;
+  transform: translateY(100%);
+}
+
+@starting-style {
+  .sheet--nav[open] {
+    transform: translateY(100%);
+  }
 }
 
 .nav-panel__links {
@@ -181,5 +207,15 @@
 
   .site-nav__toggle {
     display: flex;
+  }
+}
+
+/* The panel is a mobile affordance. Past the breakpoint the inline
+   links take over, so it is hidden declaratively rather than
+   relying on the resize listener in nav.js having fired. That
+   listener still runs, to keep aria-expanded honest. */
+@media (min-width: 48rem) {
+  .sheet--nav[open] {
+    display: none;
   }
 }

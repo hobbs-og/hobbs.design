@@ -23,13 +23,13 @@
     // needs to respond to viewport and body copy does not.
     --text-size-display:         clamp(2.75rem, 6vw, 6.5rem);
     --text-size-heading-lg:      clamp(2rem, 3vw, 4rem);
-    --text-size-heading-md:      #{$font-size-600};
-    --text-size-heading-sm:      #{$font-size-400};
-    --text-size-body-lg:         #{$font-size-400};
-    --text-size-body:            #{$font-size-300};
-    --text-size-caption:         #{$font-size-200};
-    --text-size-nav:             #{$font-size-200};
-    --text-size-label:           #{$font-size-100};
+    --text-size-heading-md:      #{$font-size-40};
+    --text-size-heading-sm:      #{$font-size-24};
+    --text-size-body-lg:         #{$font-size-24};
+    --text-size-body:            #{$font-size-16};
+    --text-size-caption:         #{$font-size-14};
+    --text-size-nav:             #{$font-size-14};
+    --text-size-label:           #{$font-size-12};
 
     // ---------- Weight ----------
     --text-weight-body:          #{$font-weight-400};

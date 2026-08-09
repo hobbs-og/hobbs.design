@@ -29,7 +29,8 @@
 
     // ---------- Named roles ----------
     // Vertical rhythm between major page sections
-    --space-section-y:           #{$space-800};
+    --space-section-y:           #{$space-96};
+    --space-section-x:           #{$space-24};
 
     // The twelve-column grid
     --space-grid-column-gap:     #{$space-700};
@@ -40,8 +41,8 @@
     --space-page-inset-mobile:   #{$space-400};
 
     // Navigation
-    --space-nav-y:               #{$space-400};
-    --space-nav-x:               #{$space-700};
+    --space-nav-y:               #{$space-300};
+    --space-nav-x:               #{$space-400};
 
     // Components
     --space-card-inset:          #{$space-400};

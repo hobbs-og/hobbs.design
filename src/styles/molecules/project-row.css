@@ -49,18 +49,18 @@
 
 .project-row__number {
   font-family: var(--text-family-mono);
-  font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-leading-caption);
   color: var(--text-color-subtle);
 }
 
 .project-row__tag {
   font-family: var(--text-family-mono);
-  font-size: var(--text-size-caption);
+  font-size: var(--text-size-ui);
   line-height: var(--text-leading-caption);
   text-transform: uppercase;
   color: var(--text-color-subtle);
-  margin-block-start: var(--space-xs);
+  /* margin-block-start: var(--space-xs); */
 }
 
 @media (max-width: 47.9375rem) {

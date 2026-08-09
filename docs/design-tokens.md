@@ -53,6 +53,7 @@ Roles, named **element-property-role**:
 --surface-color-page
 --border-color-hairline
 --action-color-hover
+--space-section-x
 --space-section-y
 ```
 

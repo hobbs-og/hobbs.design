@@ -31,6 +31,9 @@
 @import url('molecules/section-header.css');
 @import url('molecules/link-list.css');
 
+/* sheet before nav: the navigation panel is a sheet variant, so its
+   overrides have to come after the base it modifies. */
+@import url('organisms/sheet.css');
 @import url('organisms/nav.css');
 @import url('organisms/footer.css');
 @import url('organisms/index-hero.css');
@@ -38,7 +41,6 @@
 @import url('organisms/how-i-work.css');
 @import url('organisms/work-index.css');
 @import url('organisms/contact.css');
-@import url('organisms/sheet.css');
 
 @import url('layout/grid.css');
 @import url('utilities/xray.css');

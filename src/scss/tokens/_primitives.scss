@@ -30,14 +30,15 @@ $font-family-grotesk-display: unquote('neue-haas-grotesk-display, -apple-system,
 $font-family-grotesk-text: unquote('neue-haas-grotesk-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif');
 
 // ---------- Type: size ----------
-$font-size-100: 0.75rem;   // 12
-$font-size-200: 0.875rem;  // 14
-$font-size-300: 1rem;      // 16
-$font-size-400: 1.5rem;    // 24
-$font-size-500: 2rem;      // 32
-$font-size-600: 2.5rem;    // 40
-$font-size-700: 3rem;      // 48
-$font-size-800: 4rem;      // 64
+$font-size-12: 0.75rem;   // 12
+$font-size-14: 0.875rem;  // 14
+$font-size-16: 1rem;      // 16
+$font-size-20: 1.125rem;  // 20
+$font-size-24: 1.5rem;    // 24
+$font-size-32: 2rem;      // 32
+$font-size-40: 2.5rem;    // 40
+$font-size-48: 3rem;      // 48
+$font-size-64: 4rem;      // 64
 
 // ---------- Type: weight ----------
 $font-weight-100: 100;
@@ -49,25 +50,32 @@ $font-weight-800: 800;
 $font-weight-900: 900;
 
 // ---------- Type: line height ----------
-$line-height-100: 1.08;
-$line-height-200: 1.25;
-$line-height-300: 1.5;
+$line-height-16: 1rem;      //16
+$line-height-20: 1.25rem;   //20
+$line-height-24: 1.5rem;    //24
+$line-height-32: 2rem;      //32
+$line-height-40: 2.5rem;    //40
+$line-height-48: 3rem;      //48
+$line-height-64: 4rem;      //64
+$line-height-72: 4.5rem;    //72
+$line-height-80: 5rem;      //80
+$line-height-96: 6rem;      //96
 
 // ---------- Space ----------
 // 4px base. Matches the $sizing--* scale already in use.
 $space-000: 0;
-$space-100: 0.25rem;  // 4
+$space-4: 0.25rem;  // 4
 $space-200: 0.5rem;   // 8
 $space-300: 1rem;     // 16
 $space-400: 1.5rem;   // 24
 $space-500: 2rem;     // 32
 $space-600: 2.5rem;   // 40
 $space-700: 3rem;     // 48
-$space-800: 6rem;     // 96
+$space-96: 6rem;     // 96
 
 // ---------- Border width ----------
 $border-width-100: 0.0625rem; // 1
-$border-width-200: 0.25rem;   // 4
+$border-width-200: 0.125rem;   // 2
 
 // ---------- Radius ----------
 $radius-100: 0.25rem;
