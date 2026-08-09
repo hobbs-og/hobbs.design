@@ -1,72 +1,89 @@
 /* ============================================================
    organisms/sheet.css — case study overlay
-   An iOS-style sheet. It slides in from the trailing edge on
-   desktop and up from the bottom on mobile, leaving a peek of the
-   page behind so it reads as a layer over the work index rather
-   than a new page.
+   A native <dialog> opened with showModal(), which is what gives
+   us the top layer, the backdrop, focus containment, Escape, and
+   focus restoration without writing any of it. The scrim is
+   ::backdrop rather than an element.
 
-   The page underneath keeps its scroll position: sheet.js pins
-   the body while the sheet is open and restores the exact offset
-   on close, so closing returns you to the row you clicked.
+   It slides in from the trailing edge on desktop and up from the
+   bottom on mobile, leaving a peek of the page behind so it reads
+   as a layer over the work index rather than a new page.
 
-   Visibility is animated with `visibility` rather than `display`
-   or the `hidden` attribute, because a display change cannot be
-   transitioned — the delay on close keeps the panel painted until
-   it has finished sliding out.
+   A closed dialog is display:none, which normally kills the exit
+   animation. `transition-behavior: allow-discrete` on display and
+   overlay keeps it painted until the slide finishes, and
+   @starting-style gives it a position to animate in from.
 
    Reduced motion is handled globally in base/reset.css, which
    collapses every transition duration. The sheet still opens and
    closes, it just arrives immediately.
    ============================================================ */
 
-.sheet-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  background: var(--sheet-color-scrim);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
-    visibility 0s linear var(--sheet-motion-duration);
-}
-
-.sheet-scrim.is-open {
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
-    visibility 0s;
-}
-
 .sheet {
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
+  /* Reset the user-agent dialog box so it can be positioned. The
+     size resets matter most: the UA gives dialog width/height of
+     fit-content, which would otherwise win over the insets below
+     and let the panel grow to the height of the case study. */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: none;
+  max-block-size: none;
   background: var(--sheet-color-surface);
-  visibility: hidden;
+  color: inherit;
+
+  position: fixed;
+  /* The UA also sets overflow:auto; only the body should scroll. */
+  overflow: hidden;
   overscroll-behavior: contain;
-  transition:
-    transform var(--sheet-motion-duration) var(--sheet-motion-easing),
-    visibility 0s linear var(--sheet-motion-duration);
   will-change: transform;
 
-  /* Desktop: slides in from the trailing edge. Size comes from the
-     insets rather than a width, so the peek is stated once and the
-     panel has no dimension of its own to keep in sync. */
+  /* Desktop: size comes from the insets rather than a width, so the
+     peek is stated once and the panel has no dimension of its own. */
   inset-block: 0;
   inset-inline-start: var(--sheet-size-peek);
   inset-inline-end: 0;
-  transform: translateX(100%);
-}
 
-.sheet.is-open {
-  visibility: visible;
-  transform: none;
+  transform: translateX(100%);
   transition:
     transform var(--sheet-motion-duration) var(--sheet-motion-easing),
-    visibility 0s;
+    display var(--sheet-motion-duration) allow-discrete,
+    overlay var(--sheet-motion-duration) allow-discrete;
+}
+
+/* `display` lives here, not on .sheet, so the UA's display:none for
+   a closed dialog still applies. */
+.sheet[open] {
+  display: flex;
+  flex-direction: column;
+  transform: none;
+}
+
+@starting-style {
+  .sheet[open] {
+    transform: translateX(100%);
+  }
+}
+
+.sheet::backdrop {
+  background: var(--sheet-color-scrim);
+  opacity: 0;
+  transition:
+    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
+    display var(--sheet-motion-duration) allow-discrete,
+    overlay var(--sheet-motion-duration) allow-discrete;
+}
+
+.sheet[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .sheet[open]::backdrop {
+    opacity: 0;
+  }
 }
 
 /* Chrome stays put while the case study scrolls under it. */
@@ -108,6 +125,12 @@
     transform: translateY(100%);
     border-start-start-radius: var(--sheet-radius-default);
     border-start-end-radius: var(--sheet-radius-default);
+  }
+
+  @starting-style {
+    .sheet[open] {
+      transform: translateY(100%);
+    }
   }
 
   .sheet__chrome {
