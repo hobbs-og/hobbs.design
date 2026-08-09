@@ -1,0 +1,130 @@
+/* ============================================================
+   organisms/sheet.css — case study overlay
+   An iOS-style sheet. It slides in from the trailing edge on
+   desktop and up from the bottom on mobile, leaving a peek of the
+   page behind so it reads as a layer over the work index rather
+   than a new page.
+
+   The page underneath keeps its scroll position: sheet.js pins
+   the body while the sheet is open and restores the exact offset
+   on close, so closing returns you to the row you clicked.
+
+   Visibility is animated with `visibility` rather than `display`
+   or the `hidden` attribute, because a display change cannot be
+   transitioned — the delay on close keeps the panel painted until
+   it has finished sliding out.
+
+   Reduced motion is handled globally in base/reset.css, which
+   collapses every transition duration. The sheet still opens and
+   closes, it just arrives immediately.
+   ============================================================ */
+
+.sheet-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--sheet-color-scrim);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
+    visibility 0s linear var(--sheet-motion-duration);
+}
+
+.sheet-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
+    visibility 0s;
+}
+
+.sheet {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--sheet-color-surface);
+  visibility: hidden;
+  overscroll-behavior: contain;
+  transition:
+    transform var(--sheet-motion-duration) var(--sheet-motion-easing),
+    visibility 0s linear var(--sheet-motion-duration);
+  will-change: transform;
+
+  /* Desktop: slides in from the trailing edge, full height. */
+  inset-block: 0;
+  inset-inline-end: 0;
+  inline-size: calc(100% - var(--sheet-size-peek));
+  transform: translateX(100%);
+}
+
+.sheet.is-open {
+  visibility: visible;
+  transform: none;
+  transition:
+    transform var(--sheet-motion-duration) var(--sheet-motion-easing),
+    visibility 0s;
+}
+
+/* Chrome stays put while the case study scrolls under it. */
+.sheet__chrome {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--sheet-space-inset) var(--space-section-x);
+  background: var(--sheet-color-chrome);
+  border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
+.sheet__handle {
+  display: none;
+}
+
+.sheet__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sheet__body:focus {
+  outline: none;
+}
+
+/* Mobile: rises from the bottom, rounded leading corners, and a
+   grab handle so the affordance reads the way a sheet should. */
+@media (max-width: 767px) {
+  .sheet {
+    inset-block-start: auto;
+    inset-block-end: 0;
+    inset-inline: 0;
+    inline-size: 100%;
+    block-size: calc(100% - var(--sheet-size-peek));
+    transform: translateY(100%);
+    border-start-start-radius: var(--sheet-radius-default);
+    border-start-end-radius: var(--sheet-radius-default);
+  }
+
+  .sheet__chrome {
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-inline: var(--space-md);
+  }
+
+  .sheet__handle {
+    display: block;
+    inline-size: var(--sheet-size-handle-inline);
+    block-size: var(--sheet-size-handle-block);
+    border-radius: var(--radius-round);
+    background: var(--sheet-color-handle);
+  }
+
+  .sheet__close {
+    align-self: flex-end;
+  }
+}

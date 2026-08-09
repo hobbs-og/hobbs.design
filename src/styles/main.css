@@ -7,7 +7,7 @@
      base/             reset + element defaults + a11y foundations
      atoms/            typography, link, button, chip
      molecules/        project-row, field
-     organisms/        nav, footer, index-hero, case-hero
+     organisms/        nav, footer, index-hero, case-hero, sheet
      layout/           grid + page scaffolding
 
    Rules:
@@ -33,6 +33,7 @@
 @import url('organisms/footer.css');
 @import url('organisms/index-hero.css');
 @import url('organisms/case-hero.css');
+@import url('organisms/sheet.css');
 
 @import url('layout/grid.css');
 @import url('utilities/xray.css');

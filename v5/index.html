@@ -116,7 +116,7 @@
               <p>The product worked. People just didn't trust it enough to
               finish. I rebuilt the presentation layer from atomic components
               up, cutting abandonment by 12%.</p>
-              <a class="cta" href="terafina.html">View project →</a>
+              <a class="cta" href="terafina.html" data-sheet="case">View project →</a>
             </div>
           </article>
 
@@ -129,7 +129,7 @@
             <div class="stack--tight">
               <p>The first design system for a team of backend engineers that
               never had one, built with no design partner in the room.</p>
-              <a class="cta" href="fabrication.html">View project →</a>
+              <a class="cta" href="fabrication.html" data-sheet="case">View project →</a>
             </div>
           </article>
 
@@ -142,7 +142,7 @@
             <div class="stack--tight">
               <p>Sensitive information needs more than security. It needs
               clarity. An MVP for secure, deliberate sharing.</p>
-              <a class="cta" href="proof.html">View project →</a>
+              <a class="cta" href="proof.html" data-sheet="case">View project →</a>
             </div>
           </article>
 
@@ -155,7 +155,7 @@
             <div class="stack--tight">
               <p>Making homeownership feel manageable, without pretending
               it's simple.</p>
-              <a class="cta" href="rumi.html">View project →</a>
+              <a class="cta" href="rumi.html" data-sheet="case">View project →</a>
             </div>
           </article>
 
@@ -168,7 +168,7 @@
             <div class="stack--tight">
               <p>The content was there. Finding it fast was the problem. I
               restructured navigation for two very different audiences.</p>
-              <a class="cta" href="frictionless.html">View project →</a>
+              <a class="cta" href="frictionless.html" data-sheet="case">View project →</a>
             </div>
           </article>
 
@@ -189,6 +189,15 @@
     </div>
   </main>
 
+  <div class="sheet-scrim" aria-hidden="true"></div>
+  <aside class="sheet" role="dialog" aria-modal="true" aria-label="Case study" data-xray="organism · sheet">
+    <div class="sheet__chrome">
+      <span class="sheet__handle" aria-hidden="true"></span>
+      <button class="button button--quiet sheet__close" type="button">Close</button>
+    </div>
+    <div class="sheet__body" tabindex="-1"></div>
+  </aside>
+
   <div class="xray-legend" aria-hidden="true">
     <span class="legend-atom">Atom</span>
     <span class="legend-molecule">Molecule</span>
@@ -202,5 +211,6 @@
   </footer>
 
   <script src="../src/js/xray.js"></script>
+  <script src="../src/js/sheet.js"></script>
 </body>
 </html>

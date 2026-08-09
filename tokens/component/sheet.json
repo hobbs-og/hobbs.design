@@ -1,0 +1,25 @@
+{
+  "sheet": {
+    "color": {
+      "surface": { "$value": "{surface.color.page}",    "$type": "color" },
+      "scrim":   { "$value": "{surface.color.overlay}", "$type": "color" },
+      "handle":  { "$value": "{border.color.strong}",   "$type": "color" },
+      "chrome":  { "$value": "{surface.color.page}",    "$type": "color" }
+    },
+    "size": {
+      "peek":          { "$value": "{space.2xl}",        "$type": "dimension" },
+      "handle-inline": { "$value": "{spacing.40}",       "$type": "dimension" },
+      "handle-block":  { "$value": "{stroke-width.thick}", "$type": "dimension" }
+    },
+    "space": {
+      "inset": { "$value": "{space.md}", "$type": "dimension" }
+    },
+    "radius": {
+      "default": { "$value": "{radius.md}", "$type": "dimension" }
+    },
+    "motion": {
+      "duration": { "$value": "{motion.duration.sheet}", "$type": "duration" },
+      "easing":   { "$value": "{motion.easing.sheet}",   "$type": "cubicBezier" }
+    }
+  }
+}

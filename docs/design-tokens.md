@@ -101,6 +101,23 @@ pairing passes WCAG 2.2 AA:
 
 ---
 
+## Motion
+
+`tokens/base/motion.json` holds durations and easing curves; the semantic
+layer names them by intent (`--motion-duration-sheet`, `--motion-easing-ui`).
+Components alias those, so timing is a system decision rather than a number
+typed into a transition.
+
+The sheet easing, `cubic-bezier(0.32, 0.72, 0, 1)`, is carried over from the
+previous site. It is the curve iOS uses for sheet presentation: fast at the
+start, long settle at the end.
+
+Nothing needs a reduced-motion variant, because `base/reset.css` already
+collapses every transition duration under `prefers-reduced-motion: reduce`.
+Components animate normally and that one rule turns it off globally.
+
+---
+
 ## Where the accent is allowed
 
 The rule is that `--action-color-*` belongs to links and CTAs and appears
