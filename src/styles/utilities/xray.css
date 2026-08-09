@@ -34,6 +34,15 @@
   color: var(--text-color-knockout);
 }
 
+/* The toggle is a desktop affordance. Below the mobile breakpoint
+   the header belongs to the logo and the hamburger, and keeping it
+   was pushing the bar wider than the viewport. */
+@media (max-width: 47.9375rem) {
+  .xray-toggle {
+    display: none;
+  }
+}
+
 /* The overlay. */
 html.xray [data-xray] {
   position: relative;

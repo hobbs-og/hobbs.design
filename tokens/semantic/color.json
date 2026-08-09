@@ -19,7 +19,8 @@
       "alt":     { "$value": "{color.background.subtle}",   "$type": "color" },
       "card":    { "$value": "{color.background.surface}",  "$type": "color" },
       "inverse": { "$value": "{color.background.knockout}", "$type": "color" },
-      "overlay": { "$value": "{color.background.overlay}",  "$type": "color" }
+      "overlay": { "$value": "{color.background.overlay}",  "$type": "color" },
+      "highlight": { "$value": "{color.brand.primary-alpha.40}", "$type": "color" }
     }
   },
   "border": {

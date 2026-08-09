@@ -27,6 +27,9 @@
         "700": { "$value": "#a20404", "$type": "color" },
         "800": { "$value": "#82020d", "$type": "color" },
         "900": { "$value": "#6c0112", "$type": "color" }
+      },
+      "primary-alpha": {
+        "40": { "$value": "#e12a0966", "$type": "color" }
       }
     },
     "neutral": {

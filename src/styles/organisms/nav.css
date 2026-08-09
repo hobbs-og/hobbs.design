@@ -1,36 +1,71 @@
 /* ============================================================
    organisms/nav.css — site navigation
-   Sticky, flush to the viewport, three links maximum.
-   Consumes nav component tokens (tokens/component/nav.json).
+   Sticky, with the bar itself full-bleed so its rule reaches both
+   edges of the screen, while its contents sit in the same
+   container as the rest of the page. The header used to run wider
+   than the content below it on screens past the max-width.
+
+   The logo carries the mark from the live site: "hobbs." in bold
+   against "design" in regular, with a marker highlight drawn as
+   an inset shadow. The highlight is sized in em so it stays half
+   the logo's size whatever that size becomes.
+
+   Below the mobile breakpoint the links collapse into a hamburger
+   and a panel. The panel is a native <dialog>, the same as the
+   case study sheet, so Escape, focus containment, and focus
+   restoration come from the platform rather than from script.
    ============================================================ */
 
 .site-nav {
   position: sticky;
   inset-block-start: 0;
   z-index: 10;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-md);
-  padding: var(--nav-space-inset-y) var(--nav-space-inset-x);
   background: var(--nav-color-background);
   border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
 }
 
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nav-space-link-gap);
+  padding-block: var(--nav-space-inset-y);
+}
+
+/* ---------- Logo ---------- */
+
 .site-nav__logo {
   font-size: var(--text-size-heading-md);
   line-height: var(--text-leading-heading-md);
-  color: var(--nav-color-link);
+  color: var(--nav-color-logo);
   text-decoration: none;
+  /* The marker highlight: an inset shadow rising half an em from
+     the baseline edge, so it tracks the type size. */
+  box-shadow: 0 -0.5em 0 var(--nav-color-logo-highlight) inset;
+  transition: color var(--nav-motion-duration) var(--nav-motion-easing);
 }
+
+.site-nav__logo-mark {
+  font-weight: var(--text-weight-brand);
+}
+
+.site-nav__logo:hover {
+  color: var(--nav-color-logo-hover);
+}
+
+/* ---------- Links ---------- */
 
 .site-nav__links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  align-items: center;
+  gap: var(--nav-space-link-gap);
 }
 
 .site-nav__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   font-size: var(--text-size-ui);
   line-height: var(--text-leading-ui);
   color: var(--nav-color-link);
@@ -48,8 +83,99 @@
   text-underline-offset: 0.5em;
 }
 
+/* External-link mark. Sized in em so it matches the label. */
+.site-nav__external {
+  inline-size: 1em;
+  block-size: auto;
+  flex: none;
+}
+
+/* ---------- Hamburger ---------- */
+
+.site-nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  inline-size: var(--nav-size-toggle);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.site-nav__toggle span {
+  border-block-start: var(--nav-size-bar-stroke) solid var(--nav-color-bar);
+}
+
+/* ---------- Mobile panel ---------- */
+
+.nav-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: none;
+  max-block-size: none;
+  background: var(--nav-color-panel);
+  color: inherit;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transition:
+    opacity var(--nav-motion-duration) var(--nav-motion-easing),
+    display var(--nav-motion-duration) allow-discrete,
+    overlay var(--nav-motion-duration) allow-discrete;
+}
+
+.nav-panel[open] {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+}
+
+@starting-style {
+  .nav-panel[open] {
+    opacity: 0;
+  }
+}
+
+.nav-panel__chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--nav-space-inset-y) var(--space-md);
+  border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
+.nav-panel__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nav-space-panel-gap);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.nav-panel__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-md);
+  line-height: var(--text-leading-heading-md);
+  color: var(--nav-color-link);
+  text-decoration: none;
+}
+
 @media (max-width: 47.9375rem) {
-  .site-nav {
-    padding-inline: var(--space-md);
+  .site-nav__links {
+    display: none;
+  }
+
+  .site-nav__toggle {
+    display: flex;
   }
 }

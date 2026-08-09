@@ -21,7 +21,8 @@
       "heading":   { "$value": "{typography.font-weight.semi}",    "$type": "fontWeight" },
       "editorial": { "$value": "{typography.font-weight.regular}", "$type": "fontWeight" },
       "body":      { "$value": "{typography.font-weight.regular}", "$type": "fontWeight" },
-      "emphasis":  { "$value": "{typography.font-weight.medium}",  "$type": "fontWeight" }
+      "emphasis":  { "$value": "{typography.font-weight.medium}",  "$type": "fontWeight" },
+      "brand":     { "$value": "{typography.font-weight.bold}",    "$type": "fontWeight" }
     },
     "leading": {
       "display":    { "$value": "{typography.line-height.88}", "$type": "dimension" },

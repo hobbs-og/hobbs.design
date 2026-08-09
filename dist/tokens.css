@@ -24,6 +24,7 @@
   --color-brand-primary-700: #a20404;
   --color-brand-primary-800: #82020d;
   --color-brand-primary-900: #6c0112;
+  --color-brand-primary-alpha-40: rgba(225, 42, 9, 0.4);
   --color-neutral-100: #ffffff;
   --color-neutral-200: #dddddd;
   --color-neutral-300: #cccccc;
@@ -141,6 +142,7 @@
   --text-weight-editorial: var(--typography-font-weight-regular);
   --text-weight-body: var(--typography-font-weight-regular);
   --text-weight-emphasis: var(--typography-font-weight-medium);
+  --text-weight-brand: var(--typography-font-weight-bold);
   --text-leading-display: var(--typography-line-height-88);
   --text-leading-display-sm: var(--typography-line-height-48);
   --text-leading-heading-xl: var(--typography-line-height-64);
@@ -156,6 +158,7 @@
   --surface-color-card: var(--color-background-surface);
   --surface-color-inverse: var(--color-background-knockout);
   --surface-color-overlay: var(--color-background-overlay);
+  --surface-color-highlight: var(--color-brand-primary-alpha-40);
   --border-color-hairline: var(--color-border-hairline);
   --border-color-default: var(--color-border-default);
   --border-color-strong: var(--color-border-strong);
@@ -211,6 +214,7 @@
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
   --radius-round: var(--border-radius-round);
+  --nav-size-bar-stroke: var(--stroke-width-medium);
   --sheet-size-handle-inline: var(--spacing-40);
   --sheet-size-handle-block: var(--stroke-width-thick);
   --button-color-background: var(--action-color-default);
@@ -264,8 +268,18 @@
   --nav-color-link: var(--text-color-default);
   --nav-color-link-hover: var(--text-color-heading);
   --nav-color-link-current: var(--text-color-heading);
+  --nav-color-logo: var(--text-color-default);
+  --nav-color-logo-hover: var(--action-color-accent);
+  --nav-color-logo-highlight: var(--surface-color-highlight);
+  --nav-color-bar: var(--text-color-default);
+  --nav-color-panel: var(--surface-color-page);
+  --nav-size-toggle: var(--space-md);
   --nav-space-inset-y: var(--space-nav-y);
   --nav-space-inset-x: var(--space-nav-x);
+  --nav-space-link-gap: var(--space-md);
+  --nav-space-panel-gap: var(--space-lg);
+  --nav-motion-duration: var(--motion-duration-ui);
+  --nav-motion-easing: var(--motion-easing-ui);
   --project-row-color-border: var(--border-color-hairline);
   --project-row-color-title: var(--text-color-heading);
   --project-row-color-body: var(--text-color-body);

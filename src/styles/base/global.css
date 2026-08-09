@@ -5,6 +5,16 @@
 
 html {
   background: var(--surface-color-page);
+  /* In-page nav links glide rather than jump. base/reset.css turns
+     this off under prefers-reduced-motion. */
+  scroll-behavior: smooth;
+}
+
+/* Anchor targets clear the sticky header instead of sliding under
+   it. :where() keeps this at zero specificity so anything can
+   override it. */
+:where([id]) {
+  scroll-margin-block-start: var(--space-3xl);
 }
 
 body {
