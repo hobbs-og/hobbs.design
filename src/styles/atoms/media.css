@@ -1,0 +1,12 @@
+/* ============================================================
+   atoms/media.css — framed images in case-study galleries
+   ============================================================ */
+
+.img-frame {
+  display: block;
+  width: 100%;
+  padding: var(--space-md);
+  border: var(--border-width-hairline) solid var(--border-color-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-color-card);
+}

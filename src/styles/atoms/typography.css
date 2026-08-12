@@ -68,8 +68,23 @@ samp,
   font-size: 0.875em;
 }
 
-/* Numbered section eyebrow: "01 — HOW I WORK". Mono and quiet,
-   marking the page's structure the Swiss way. */
+/* Case-study pullquote — a large, bold editorial callout hung in
+   the right-hand columns of a section. Distinct from h3 (the
+   card/subsection title): bigger, heavier, and set to balance
+   rather than wrap ragged. */
+.pullquote {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-lg);
+  font-weight: var(--text-weight-brand);
+  line-height: var(--text-line-height-heading-lg);
+  color: var(--text-color-heading);
+  text-wrap: balance;
+}
+
+/* The eyebrow/kicker treatment: mono and quiet, uppercase, small.
+   Marks numbered sections ("01 — HOW I WORK"), hero eyebrows, and
+   case study kickers alike — one type treatment, reused wherever
+   a line of text sits above a heading and outranks nothing. */
 .section-label {
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);

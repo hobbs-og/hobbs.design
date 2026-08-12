@@ -39,6 +39,7 @@
 .span-6  { grid-column: span 6; }
 .span-7  { grid-column: span 7; }
 .span-8  { grid-column: span 8; }
+.span-10 { grid-column: span 10; }
 .span-12 { grid-column: span 12; }
 
 @media (max-width: 64rem) {
@@ -48,18 +49,46 @@
   .span-5,
   .span-6,
   .span-7,
-  .span-8 { grid-column: span 12; }
+  .span-8,
+  .span-10 { grid-column: span 12; }
+}
+
+/* Subgrid alignment — an item that spans N columns of the parent
+   grid re-exposes those same N tracks to its own children, so a
+   nested span-4 lines up with the outer grid's actual columns
+   instead of splitting evenly across whatever width the item
+   happens to have. Case studies use this to hang asymmetric groups
+   (headings, pullquotes, image pairs) off the same 12-column
+   measure — an item needs both a span-N class (its own size) and
+   .align (subgrids its children) to nest correctly. */
+.align {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: inherit;
+}
+
+/* Empty spacer elements shift a sibling into a later column by
+   occupying the columns before it (see case-study markup). Once
+   the grid collapses below desktop width they have no job left —
+   left unhidden they'd survive as zero-height rows that still eat
+   a row-gap each, stacking up stray whitespace down the page. */
+@media (max-width: 64rem) {
+  :is(.grid, .align) > :is(span, div):empty {
+    display: none;
+  }
 }
 
 /* Single column on mobile — twelve tracks with 48px gaps
    exceed the viewport and force horizontal overflow. */
 @media (max-width: 47.9375rem) {
-  .grid {
+  .grid,
+  .align {
     grid-template-columns: 1fr;
     gap: var(--space-grid-row-gap);
   }
 
-  .grid > * {
+  .grid > *,
+  .align > * {
     grid-column: 1 / -1;
   }
 }
