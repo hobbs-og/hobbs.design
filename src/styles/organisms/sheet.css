@@ -67,6 +67,16 @@
   }
 }
 
+/* Case study: capped at the site's own container width, so reading
+   lines don't stretch past what they'd be anywhere else on the site
+   on very wide viewports. inset-inline-start goes auto — inline-size
+   does the sizing instead of a fixed peek, but the panel stays
+   right-anchored via inset-inline-end. */
+.sheet--case {
+  inset-inline-start: auto;
+  inline-size: min(100% - var(--sheet-size-peek), var(--layout-container-max));
+}
+
 .sheet::backdrop {
   background: var(--sheet-color-scrim);
   opacity: 0;
@@ -122,6 +132,7 @@
     inset-block-start: var(--sheet-size-peek);
     inset-block-end: 0;
     inset-inline: 0;
+    inline-size: auto;
     transform: translateY(100%);
     border-start-start-radius: var(--sheet-radius-default);
     border-start-end-radius: var(--sheet-radius-default);

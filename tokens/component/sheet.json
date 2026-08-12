@@ -4,7 +4,7 @@
       "surface": { "$value": "{surface.color.page}",    "$type": "color" },
       "scrim":   { "$value": "{surface.color.overlay}", "$type": "color" },
       "handle":  { "$value": "{border.color.strong}",   "$type": "color" },
-      "chrome":  { "$value": "{surface.color.page}",    "$type": "color" }
+      "chrome":  { "$value": "{surface.color.card}",    "$type": "color" }
     },
     "size": {
       "peek":          { "$value": "{space.2xl}",          "$type": "dimension" },

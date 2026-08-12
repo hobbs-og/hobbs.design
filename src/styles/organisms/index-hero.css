@@ -54,12 +54,9 @@
   max-width: 24ch;
 }
 
+/* Type treatment lives in .section-label (atoms/typography.css);
+   this just adds the spacing before the hero title. */
 .index-hero__eyebrow {
-  font-family: var(--text-family-mono);
-  font-size: var(--text-size-caption);
-  line-height: var(--text-line-height-caption);
-  text-transform: uppercase;
-  color: var(--text-color-subtle);
   margin-block-end: var(--space-sm);
 }
 

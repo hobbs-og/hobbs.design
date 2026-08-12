@@ -300,7 +300,7 @@
   --sheet-color-surface: var(--surface-color-page);
   --sheet-color-scrim: var(--surface-color-overlay);
   --sheet-color-handle: var(--border-color-strong);
-  --sheet-color-chrome: var(--surface-color-page);
+  --sheet-color-chrome: var(--surface-color-card);
   --sheet-size-peek: var(--space-2xl);
   --sheet-size-handle-inline: var(--control-size-handle);
   --sheet-size-handle-block: var(--border-width-thick);
