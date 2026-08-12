@@ -12,16 +12,21 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-nav">
+  <header class="site-nav" data-xray="organism · site-nav">
     <div class="container site-nav__inner">
-      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
 
-      <nav class="site-nav__links" aria-label="Primary">
+      <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
         <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
       <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
       </nav>
+
+      <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
+        <button type="button" data-mode="design" aria-pressed="true">Design</button>
+        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+      </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span><span></span><span></span>
@@ -219,6 +224,7 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/xray.js"></script>
   <script src="../src/js/nav.js"></script>
 </body>
 </html>
