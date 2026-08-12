@@ -14,6 +14,8 @@ const types = {
   '.woff': 'font/woff', '.woff2': 'font/woff2',
 };
 
+const port = process.env.PORT || 8123;
+
 http.createServer((req, res) => {
   try {
     let path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -27,4 +29,4 @@ http.createServer((req, res) => {
     res.writeHead(404, { 'content-type': 'text/plain' });
     res.end('not found');
   }
-}).listen(8123, () => console.log('serving on :8123'));
+}).listen(port, () => console.log(`serving on :${port}`));
