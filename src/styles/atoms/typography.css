@@ -10,7 +10,7 @@ h1,
   font-family: var(--text-family-display);
   font-size: var(--text-size-display);
   font-weight: var(--text-weight-display);
-  line-height: var(--text-leading-display);
+  line-height: var(--text-line-height-display);
   color: var(--text-color-default);
 }
 
@@ -20,7 +20,7 @@ h2,
   font-family: var(--text-family-base);
   font-size: var(--text-size-heading-xl);
   font-weight: var(--text-weight-editorial);
-  line-height: var(--text-leading-heading-xl);
+  line-height: var(--text-line-height-heading-xl);
   color: var(--text-color-body);
 }
 
@@ -30,7 +30,7 @@ h3,
   font-family: var(--text-family-display);
   font-size: var(--text-size-heading-md);
   font-weight: var(--text-weight-heading);
-  line-height: var(--text-leading-heading-md);
+  line-height: var(--text-line-height-heading-md);
   color: var(--text-color-heading);
 }
 
@@ -39,24 +39,24 @@ h4,
   font-family: var(--text-family-base);
   font-size: var(--text-size-body);
   font-weight: var(--text-weight-heading);
-  line-height: var(--text-leading-body);
+  line-height: var(--text-line-height-body);
   color: var(--text-color-heading);
 }
 
 .text-body-lg {
   font-size: var(--text-size-body-lg);
-  line-height: var(--text-leading-body-lg);
+  line-height: var(--text-line-height-body-lg);
 }
 
 .text-ui {
   font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  line-height: var(--text-line-height-ui);
   color: var(--text-color-default);
 }
 
 .text-caption {
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   color: var(--text-color-subtle);
 }
 
@@ -73,7 +73,7 @@ samp,
 .section-label {
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   text-transform: uppercase;
   color: var(--text-color-subtle);
 }
@@ -84,7 +84,7 @@ samp,
   h1,
   .text-display {
     font-size: var(--text-size-heading-xl);
-    line-height: var(--text-leading-heading-xl);
+    line-height: var(--text-line-height-heading-xl);
   }
 }
 
@@ -92,12 +92,12 @@ samp,
   h1,
   .text-display {
     font-size: var(--text-size-display-sm);
-    line-height: var(--text-leading-display-sm);
+    line-height: var(--text-line-height-display-sm);
   }
 
   h2,
   .text-heading-xl {
     font-size: var(--text-size-heading-lg);
-    line-height: var(--text-leading-heading-lg);
+    line-height: var(--text-line-height-heading-lg);
   }
 }

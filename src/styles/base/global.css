@@ -5,6 +5,7 @@
 
 html {
   background: var(--surface-color-page);
+  color-scheme: light dark;
   /* In-page nav links glide rather than jump. base/reset.css turns
      this off under prefers-reduced-motion. */
   scroll-behavior: smooth;
@@ -21,7 +22,7 @@ body {
   font-family: var(--text-family-base);
   font-size: var(--text-size-body);
   font-weight: var(--text-weight-body);
-  line-height: var(--text-leading-body);
+  line-height: var(--text-line-height-body);
   letter-spacing: var(--text-tracking-default);
   color: var(--text-color-body);
   background: var(--surface-color-page);

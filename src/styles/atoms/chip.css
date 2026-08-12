@@ -18,7 +18,7 @@
   border: var(--border-width-hairline) solid var(--_border);
   border-radius: var(--chip-radius-default);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   white-space: nowrap;
 }
 
@@ -38,27 +38,4 @@
   --_bg: var(--chip-color-error-background);
   --_text: var(--chip-color-error-text);
   --_border: transparent;
-}
-
-/* Status chip: availability signal. Mono, uppercase, with a dot
-   so the state doesn't rely on color alone. */
-.chip--status {
-  --_bg: transparent;
-  --_text: var(--chip-color-success-text);
-  --_border: var(--feedback-color-success);
-
-  gap: var(--space-xs);
-  font-family: var(--text-family-mono);
-  text-transform: uppercase;
-  letter-spacing: var(--text-tracking-default);
-}
-
-/* Sized in em and squared with aspect-ratio, so the dot tracks the
-   label's text size instead of being pinned to one dimension. */
-.chip--status::before {
-  content: '';
-  inline-size: 0.5em;
-  aspect-ratio: 1;
-  border-radius: var(--radius-round);
-  background: var(--feedback-color-success);
 }

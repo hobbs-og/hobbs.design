@@ -24,7 +24,7 @@
       "emphasis":  { "$value": "{typography.font-weight.medium}",  "$type": "fontWeight" },
       "brand":     { "$value": "{typography.font-weight.bold}",    "$type": "fontWeight" }
     },
-    "leading": {
+    "line-height": {
       "display":    { "$value": "{typography.line-height.88}", "$type": "dimension" },
       "display-sm": { "$value": "{typography.line-height.48}", "$type": "dimension" },
       "heading-xl": { "$value": "{typography.line-height.64}", "$type": "dimension" },

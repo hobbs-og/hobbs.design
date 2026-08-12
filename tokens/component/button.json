@@ -11,8 +11,8 @@
       "solid-text":        { "$value": "{text.color.knockout}",   "$type": "color" }
     },
     "space": {
-      "inset-y": { "$value": "{space.sm}", "$type": "dimension" },
-      "inset-x": { "$value": "{space.md}", "$type": "dimension" }
+      "inset-y": { "$value": "{space.xs}", "$type": "dimension" },
+      "inset-x": { "$value": "{space.sm}", "$type": "dimension" }
     },
     "radius": {
       "default": { "$value": "{radius.sm}", "$type": "dimension" }

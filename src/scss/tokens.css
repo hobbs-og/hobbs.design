@@ -48,9 +48,9 @@
   --text-weight-emphasis: 500;
   --text-weight-heading: 600;
   --text-weight-display: 800;
-  --text-leading-display: 1.08;
-  --text-leading-heading: 1.25;
-  --text-leading-body: 1.5;
+  --text-line-height-display: 1.08;
+  --text-line-height-heading: 1.25;
+  --text-line-height-body: 1.5;
   --text-measure-body: 65ch;
   --text-measure-lead: 50ch;
 }

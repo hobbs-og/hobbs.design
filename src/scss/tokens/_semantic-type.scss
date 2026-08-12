@@ -38,9 +38,11 @@
     --text-weight-display:       #{$font-weight-800};
 
     // ---------- Line height ----------
-    --text-leading-display:      #{$line-height-100};
-    --text-leading-heading:      #{$line-height-200};
-    --text-leading-body:         #{$line-height-300};
+    // Named for the px value they resolve to, matching $line-height-* in
+    // _primitives.scss. The old 100/200/300 names were never declared.
+    --text-line-height-display:  #{$line-height-96};
+    --text-line-height-heading:  #{$line-height-48};
+    --text-line-height-body:     #{$line-height-24};
 
     // ---------- Measure ----------
     // Line length caps. Long-form copy stops being readable past ~75ch.

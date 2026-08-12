@@ -11,6 +11,43 @@
  * Watch: npm run watch:tokens
  */
 
+import { formattedVariables, fileHeader } from 'style-dictionary/utils'
+
+// Base color tokens under the `dark` path (tokens/base/color-dark.json) hold
+// the same custom-property names as their light counterparts, so this format
+// emits them as a `prefers-color-scheme: dark` override block. Semantic and
+// component layers reference the base custom properties via var(), so they
+// repaint automatically — nothing downstream needs a dark-specific alias.
+async function cssVariablesWithDarkMode({ dictionary, options, file }) {
+  const isDark = (token) => token.path[0] === 'dark'
+
+  const lightTokens = dictionary.allTokens.filter((token) => !isDark(token))
+  const darkTokens = dictionary.allTokens
+    .filter(isDark)
+    .map((token) => ({ ...token, name: token.name.replace(/^dark-/, '') }))
+
+  const header = await fileHeader({ file })
+
+  const light = formattedVariables({
+    format: 'css',
+    dictionary: { ...dictionary, allTokens: lightTokens },
+    outputReferences: options.outputReferences,
+    usesDtcg: options.usesDtcg,
+  })
+
+  const dark = formattedVariables({
+    format: 'css',
+    dictionary: { ...dictionary, allTokens: darkTokens },
+    formatting: { indentation: '    ' },
+    usesDtcg: options.usesDtcg,
+  })
+
+  return (
+    `${header}:root {\n${light}\n}\n\n` +
+    `@media (prefers-color-scheme: dark) {\n  :root {\n${dark}\n  }\n}\n`
+  )
+}
+
 export default {
   // Order matters for alias resolution: primitives → semantic → component
   source: [
@@ -20,6 +57,9 @@ export default {
   ],
 
   hooks: {
+    formats: {
+      'css/variables-with-dark-mode': cssVariablesWithDarkMode,
+    },
     transforms: {
       // px → rem for dimensions, so user font-size preferences scale the UI.
       // Breakpoints included: media queries are authored in rem so that
@@ -49,7 +89,7 @@ export default {
       files: [
         {
           destination: 'tokens.css',
-          format: 'css/variables',
+          format: 'css/variables-with-dark-mode',
           options: {
             selector: ':root',
             // Semantic vars emit as var(--base-token) chains, so the layer

@@ -23,6 +23,15 @@
   gap: var(--space-grid-row-gap) var(--space-grid-column-gap);
 }
 
+/* Where columns hold text against text, hang them off a shared
+   baseline rather than a shared top edge — a 40px heading and 16px
+   body sit on one line instead of two unrelated cap heights. Opt-in,
+   because an item with no text baselines off its bottom margin edge,
+   which would drop images out of alignment. */
+.grid--baseline {
+  align-items: baseline;
+}
+
 /* Column spans. Fall to full width on mobile. */
 .span-3  { grid-column: span 3; }
 .span-4  { grid-column: span 4; }

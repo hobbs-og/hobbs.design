@@ -22,7 +22,7 @@
   color: var(--text-color-subtle);
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   text-transform: uppercase;
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-round);
@@ -62,7 +62,7 @@ html.xray [data-xray]::before {
   color: var(--_xray, var(--text-color-subtle));
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -91,7 +91,7 @@ html.xray .xray-legend {
   border-radius: var(--radius-round);
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
 }
 
 .xray-legend span {
