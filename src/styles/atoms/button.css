@@ -66,6 +66,24 @@
   --_text: var(--button-color-text);
 }
 
+/* Bare: no fill, no border, no inset — for a button that has to sit
+   flush against its surroundings (a sheet's chrome bar) rather than
+   read as a discrete control. Neutral text, not the accent red — a
+   back/close action shouldn't compete with the page's actual links
+   and CTAs for attention. */
+.button--bare {
+  --_bg: transparent;
+  --_text: var(--text-color-default);
+  padding: 0;
+  border-color: transparent;
+}
+
+.button--bare:hover,
+.button--bare:active {
+  --_bg: transparent;
+  --_text: var(--text-color-heading);
+}
+
 .button:disabled,
 .button[aria-disabled='true'] {
   --_bg: var(--surface-color-alt);
