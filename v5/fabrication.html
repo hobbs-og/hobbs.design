@@ -43,118 +43,160 @@
 
   <main id="main">
 
-    <div class="case-hero case-hero--inverse">
-      <p class="case-hero__kicker">Union Home Mortgage · UI kit and design system</p>
-      <h1 class="case-hero__title">The team was building fast. There was no system to support it.</h1>
-      <p class="case-hero__lead">Union Home Mortgage was building a set of
-      internal applications to replace parts of a larger, more complex
-      lending platform. Each tool was being developed independently, with
-      little shared structure across the experience. As the number of
-      applications grew, so did the gaps between them.</p>
-      <dl class="case-hero__meta">
-        <div><dt>Focus</dt><dd>UI kit, design system, WCAG tooling</dd></div>
-        <div><dt>Team</dt><dd>Primarily backend engineers</dd></div>
-        <div><dt>Outcome</dt><dd>Adopted across internal tools</dd></div>
-      </dl>
+    <div class="case-hero">
+      <div class="case-hero__inner">
+        <p class="section-label case-hero__kicker">Union Home Mortgage · UI kit and design system</p>
+        <h1 class="case-hero__title">The team was building fast. There was no system to support it.</h1>
+        <p class="case-hero__lead">Union Home Mortgage was building a set of
+        internal applications to replace parts of a larger, more complex
+        lending platform. Each tool was being developed independently, with
+        little shared structure across the experience. As the number of
+        applications grew, so did the gaps between them.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Focus</dt><dd>UI kit, design system, WCAG tooling</dd></div>
+          <div><dt>Team</dt><dd>Primarily backend engineers</dd></div>
+          <div><dt>Outcome</dt><dd>Adopted across internal tools</dd></div>
+        </dl>
+      </div>
     </div>
 
     <div class="container">
 
       <section class="section" aria-labelledby="uhm-problem">
-        <h2 id="uhm-problem">Consistency didn't exist across the applications.</h2>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
-          <p class="span-5">Interfaces varied widely from one application to
-          another, with no shared patterns for layout, hierarchy, or
-          interaction. For a team made up primarily of backend engineers,
-          usability and presentation weren't a primary focus, leading to
-          inconsistency and added cognitive load for users.</p>
-          <p class="span-5">Without a shared structure, every decision had to
-          be made from scratch. That made the applications harder to build,
-          harder to scale, and ultimately harder to use.</p>
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="uhm-problem" class="span-6">Consistency didn't exist across the applications.</h2>
+            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+              <p class="span-4">Interfaces varied widely from one application
+              to another, with no shared patterns for layout, hierarchy, or
+              interaction. For a team made up primarily of backend
+              engineers, usability and presentation weren't a primary focus,
+              leading to inconsistency and added cognitive load for
+              users.</p>
+              <p class="span-4">Without a shared structure, every decision
+              had to be made from scratch. That made the applications harder
+              to build, harder to scale, and ultimately harder to use.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
         </div>
-        <figure style="margin-block-start: var(--space-xl);">
-          <img src="../images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
-          <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">Before the system, the team had been focused on functionality only.</figcaption>
-        </figure>
 
-        <h3 style="margin-block-start: var(--space-xl);">The work focused on creating a system the team could actually use.</h3>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
-          <p class="span-5">The goal was to introduce a shared foundation
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <span class="span-4"></span>
+          <figure class="span-8">
+            <img class="img-frame" src="../images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
+            <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">Before the system, the team had been focused on functionality only.</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <span class="span-4"></span>
+          <h3 class="span-8 pullquote">The work focused on creating a system the team could actually use.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">The goal was to introduce a shared foundation
           that would bring consistency to the UI, reduce decision-making
           overhead, and make it easier to build new applications.</p>
-          <p class="span-5">That meant rethinking the presentation layer,
+          <p class="span-4">That meant rethinking the presentation layer,
           simplifying application flows, and introducing a more flexible
           system for branding and configuration.</p>
         </div>
       </section>
 
       <section class="section" aria-labelledby="uhm-approach">
-        <h2 id="uhm-approach">The system needed to be practical, not theoretical.</h2>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
-          <p class="span-5">I built a UI kit and design system to support
-          real development workflows, focusing on reusable components, clear
-          patterns, and straightforward implementation.</p>
-          <p class="span-5">Working closely with a backend-focused team, the
-          emphasis was on making the system easy to adopt, something the
-          team could rely on, not something they had to interpret.</p>
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="uhm-approach" class="span-6">The system needed to be practical, not theoretical.</h2>
+            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+              <p class="span-4">I built a UI kit and design system to
+              support real development workflows, focusing on reusable
+              components, clear patterns, and straightforward
+              implementation.</p>
+              <p class="span-4">Working closely with a backend-focused
+              team, the emphasis was on making the system easy to adopt,
+              something the team could rely on, not something they had to
+              interpret.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
         </div>
 
-        <div class="stack" style="margin-block-start: var(--space-xl);">
-          <div class="grid grid--baseline">
-            <p class="span-4">I used a modular, atomic approach, breaking
-            interfaces down into fundamental components to keep them
-            consistent and reusable.</p>
-            <p class="span-4">A twelve-column grid system gave every layout
-            the same structure, organizing content and keeping the
-            applications visually coherent.</p>
-            <p class="span-4">A grotesk sans-serif typeface, chosen for
-            legibility and scalability, established clear typographic
-            hierarchy through data-heavy content.</p>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <img class="img-frame" src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+            <h4>Atomic design principles</h4>
+            <p class="text-caption">A modular approach that broke interfaces
+            down into fundamental components, keeping them consistent and
+            reusable.</p>
           </div>
-          <div class="grid grid--baseline">
-            <p class="span-7">I developed a shared color scale from the
-            brand's primary and secondary colors, with a complementary
-            tertiary palette. I set up automated checks that held every
-            color pairing to the WCAG 2.0 contrast ratio of 4.5:1, so
-            accessibility compliance was enforced by the system rather than
-            left to per-screen judgment.</p>
+          <div class="span-4 stack--tight">
+            <img class="img-frame" src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+            <h4>Grid system</h4>
+            <p class="text-caption">A consistent structure for organizing
+            content, so every layout stayed visually coherent across
+            applications.</p>
           </div>
-          <figure>
-            <img src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
-          </figure>
+
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <img class="img-frame" src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+            <h4>Typography</h4>
+            <p class="text-caption">A grotesk sans-serif typeface chosen for
+            legibility and scalability, with clear hierarchy through
+            data-heavy content.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <img class="img-frame" src="../images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+            <h4>Color palette</h4>
+            <p class="text-caption">A shared color scale from the brand's
+            primary and secondary colors, checked automatically against the
+            WCAG 2.0 4.5:1 contrast ratio.</p>
+          </div>
         </div>
 
-        <h3 style="margin-block-start: var(--space-xl);">Clear structure made the applications easier to build, and easier to use.</h3>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
-          <p class="span-5">Shared components reduced the need to recreate
+        <div class="grid" style="margin-block-start: var(--space-xl);">
+          <span class="span-4"></span>
+          <h3 class="span-8 pullquote">Clear structure made the applications easier to build, and easier to use.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Shared components reduced the need to recreate
           patterns across applications, improving efficiency and
           alignment.</p>
-          <p class="span-5">Layouts and hierarchy became more predictable,
+          <p class="span-4">Layouts and hierarchy became more predictable,
           making interfaces easier to scan and understand while creating a
           more cohesive experience across tools that had previously felt
           disconnected.</p>
         </div>
+
         <figure style="margin-block-start: var(--space-xl);">
-          <img src="../images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
+          <img class="img-frame" src="../images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
         </figure>
       </section>
 
       <section class="section" aria-labelledby="uhm-outcome">
-        <h2 id="uhm-outcome">The team could now move faster without sacrificing usability.</h2>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
-          <p class="span-5">With a shared system in place, new applications
-          could be built more efficiently and with greater consistency.</p>
-          <p class="span-5">The experience became easier to navigate and more
-          reliable for internal users, while reducing the effort required
-          from the team to design and build each new tool.</p>
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="uhm-outcome" class="span-8">The team could now move faster without sacrificing usability.</h2>
+            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+              <p class="span-4">With a shared system in place, new
+              applications could be built more efficiently and with greater
+              consistency.</p>
+              <p class="span-4">The experience became easier to navigate
+              and more reliable for internal users, while reducing the
+              effort required from the team to design and build each new
+              tool.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
         </div>
         <figure style="margin-block-start: var(--space-xl);">
-          <img src="../images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
+          <img class="img-frame" src="../images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
         </figure>
       </section>
 
       <section class="section" aria-label="Closing thought">
-        <h2>Systems don't just create consistency. They create momentum. Giving the team the foundation they needed made it easier to build better tools.</h2>
+        <div class="grid">
+          <h2 class="span-8">Systems don't just create consistency. They create momentum. Giving the team the foundation they needed made it easier to build better tools.</h2>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="uhm-next">

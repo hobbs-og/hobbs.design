@@ -12,7 +12,17 @@
   --_meta: var(--case-hero-color-meta);
 
   background: var(--_bg);
-  padding: var(--case-hero-space-inset-y) var(--space-section-x);
+  padding-block: var(--case-hero-space-inset-y);
+}
+
+/* The background band stays full-bleed; the content column caps
+   and centers exactly like .container so the hero's text lines up
+   with the section content beneath it on wide viewports instead of
+   hugging the true viewport edge. */
+.case-hero__inner {
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-section-x);
 }
 
 .case-hero--inverse {
@@ -22,9 +32,9 @@
   --_meta: var(--case-hero-color-inverse-meta);
 }
 
+/* Type treatment lives in .section-label (atoms/typography.css);
+   this just wires up the inverse-aware meta color and spacing. */
 .case-hero__kicker {
-  font-size: var(--text-size-ui);
-  line-height: var(--text-line-height-ui);
   color: var(--_meta);
   margin-block-end: var(--space-sm);
 }
@@ -78,7 +88,7 @@
 
 @media (max-width: 47.9375rem) {
   .case-hero {
-    padding: var(--space-2xl) var(--space-md);
+    padding-block: var(--space-2xl);
   }
 
   .case-hero__title {
