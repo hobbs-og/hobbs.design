@@ -121,6 +121,7 @@ export const controlToggleGap: string;
 export const controlSizeToggle: string;
 export const controlSizeToggleBar: string;
 export const controlSizeToggleGap: string;
+export const controlSizeHandle: string;
 export const strokeWidthHairline: string;
 export const strokeWidthMedium: string;
 export const strokeWidthThick: string;

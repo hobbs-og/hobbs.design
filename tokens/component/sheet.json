@@ -7,9 +7,9 @@
       "chrome":  { "$value": "{surface.color.page}",    "$type": "color" }
     },
     "size": {
-      "peek":          { "$value": "{space.2xl}",        "$type": "dimension" },
-      "handle-inline": { "$value": "{spacing.40}",       "$type": "dimension" },
-      "handle-block":  { "$value": "{stroke-width.thick}", "$type": "dimension" }
+      "peek":          { "$value": "{space.2xl}",          "$type": "dimension" },
+      "handle-inline": { "$value": "{control.size.handle}", "$type": "dimension" },
+      "handle-block":  { "$value": "{border.width.thick}",  "$type": "dimension" }
     },
     "space": {
       "inset": { "$value": "{space.md}", "$type": "dimension" }

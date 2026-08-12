@@ -122,6 +122,7 @@
   --control-size-toggle: var(--control-toggle);
   --control-size-toggle-bar: var(--control-toggle-bar);
   --control-size-toggle-gap: var(--control-toggle-gap);
+  --control-size-handle: var(--spacing-40);
   --text-color-heading: var(--color-content-headline);
   --text-color-default: var(--color-content-default);
   --text-color-body: var(--color-content-body);
@@ -222,8 +223,6 @@
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
   --radius-round: var(--border-radius-round);
-  --sheet-size-handle-inline: var(--spacing-40);
-  --sheet-size-handle-block: var(--stroke-width-thick);
   --button-color-background: var(--action-color-default);
   --button-color-background-hover: var(--action-color-hover);
   --button-color-background-active: var(--action-color-active);
@@ -303,6 +302,8 @@
   --sheet-color-handle: var(--border-color-strong);
   --sheet-color-chrome: var(--surface-color-page);
   --sheet-size-peek: var(--space-2xl);
+  --sheet-size-handle-inline: var(--control-size-handle);
+  --sheet-size-handle-block: var(--border-width-thick);
   --sheet-space-inset: var(--space-md);
   --sheet-radius-default: var(--radius-md);
   --sheet-motion-duration: var(--motion-duration-sheet);

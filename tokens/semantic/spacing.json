@@ -26,7 +26,8 @@
     "size": {
       "toggle":     { "$value": "{control.toggle}",     "$type": "dimension" },
       "toggle-bar": { "$value": "{control.toggle-bar}", "$type": "dimension" },
-      "toggle-gap": { "$value": "{control.toggle-gap}", "$type": "dimension" }
+      "toggle-gap": { "$value": "{control.toggle-gap}", "$type": "dimension" },
+      "handle":     { "$value": "{spacing.40}",         "$type": "dimension" }
     }
   },
   "border": {
