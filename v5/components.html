@@ -17,7 +17,7 @@
     .spec__label {
       font-family: var(--text-family-mono);
       font-size: var(--text-size-caption);
-      line-height: var(--text-leading-caption);
+      line-height: var(--text-line-height-caption);
       color: var(--text-color-subtle);
       display: block;
       margin-block-end: var(--space-sm);
@@ -31,12 +31,26 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">Mark Hobbs<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">Mark Hobbs<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="foundations.html">Foundations</a>
+      <a href="components.html" aria-current="page">Components</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
       <a href="foundations.html">Foundations</a>
       <a href="components.html" aria-current="page">Components</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
     <div class="container">
@@ -51,7 +65,7 @@
             semantic tokens, and nothing reaches past them.
           </p>
           <div class="index-hero__actions">
-            <a class="cta cta--display" href="#case-hero">See the case hero →</a>
+            <a class="cta cta--display" href="#case-hero">See the case hero <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="index-hero__media" aria-hidden="true">
@@ -152,6 +166,36 @@
         </div>
       </section>
 
+      <section class="spec" aria-labelledby="icons-heading">
+        <h2 id="icons-heading">Icons</h2>
+        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
+          <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a>,
+          held as an SVG sprite at <code>src/public/icons.svg</code> and pulled in by
+          reference — no icon font, nothing to bundle. Reserved for arrows and other
+          non-letterform marks; never for anything a word can say on its own.
+        </p>
+        <p style="margin-block-start: var(--space-sm); max-width: 60ch;">
+          To use one: <code>&lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="src/public/icons.svg#bi-{name}"&gt;&lt;/use&gt;&lt;/svg&gt;</code>
+          with any icon name from Bootstrap Icons, then run <code>npm run build:icons</code> — it
+          scans the site for <code>#bi-{name}</code> references and pulls just those symbols out
+          of the full library. Nothing to copy or paste by hand.
+        </p>
+        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-xl);">
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg>
+            <span class="spec__label" style="margin: 0;">bi-arrow-right</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-down"></use></svg>
+            <span class="spec__label" style="margin: 0;">bi-arrow-down</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-sm);">
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-up-right-square"></use></svg>
+            <span class="spec__label" style="margin: 0;">bi-arrow-up-right-square</span>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -159,5 +203,6 @@
     <p>Three token layers. Subatomic holds the raw values, semantic names the roles, components consume them.</p>
     <p><a href="foundations.html">Foundations</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

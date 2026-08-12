@@ -29,6 +29,10 @@
   /* Contains the rule's bleed. `clip` rather than `hidden` so this
      never becomes a scroll container. */
   overflow-x: clip;
+  /* Sibling of the hero in .home-fold (see index-hero.css): stays
+     its natural height and never gets compressed, however tight
+     the fold's flex column gets. */
+  flex-shrink: 0;
 }
 
 .stat-band__rule {
@@ -93,14 +97,14 @@
   font-family: var(--text-family-display);
   font-size: var(--text-size-heading-lg);
   font-weight: var(--text-weight-heading);
-  line-height: var(--text-leading-heading-lg);
+  line-height: var(--text-line-height-heading-lg);
   color: var(--stat-color-value);
 }
 
 .stat__label {
   margin-block-start: var(--space-xs);
   font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  line-height: var(--text-line-height-ui);
   color: var(--stat-color-label);
 }
 

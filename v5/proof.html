@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
 
@@ -42,7 +58,7 @@
 
       <section class="section" aria-labelledby="proof-problem">
         <h2 id="proof-problem">The challenge wasn't storing documents. It was building trust around access.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Paper records are difficult to organize, easy to
           misplace, and rarely available when people need them most. But
           putting that information on a phone creates a different kind of
@@ -56,7 +72,7 @@
         </figure>
 
         <h3 style="margin-block-start: var(--space-xl);">Convenience only works when control is obvious.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The experience needed to make sensitive actions
           feel deliberate. Requests had to be visible, understandable, and
           easy to approve or deny without making users feel like they were
@@ -68,7 +84,7 @@
 
       <section class="section" aria-labelledby="proof-mvp">
         <h2 id="proof-mvp">The first version had to prove the basic value before the bigger vision could work.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">With no directly comparable product to learn
           from, research focused on understanding how people already managed
           identity, documents, and proof of ownership in real situations.</p>
@@ -79,7 +95,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">People needed to know what they had, who could ask for it, and what they were sharing.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The MVP centered on a launchpad experience where
           users could quickly access documents, trusted contacts,
           institutions, and incoming requests.</p>
@@ -94,7 +110,7 @@
 
       <section class="section" aria-labelledby="proof-sharing">
         <h2 id="proof-sharing">Sharing sensitive information needed to feel deliberate.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Proof had to support moments where identity and
           access mattered, including high-stress situations where someone
           else may need to act on a user's behalf.</p>
@@ -104,7 +120,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">The product had to make access feel possible without making it feel loose.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Users could manage who had access to each
           document and control which fields were shared.</p>
           <p class="span-5">The sharing flow included intentional
@@ -119,7 +135,7 @@
 
       <section class="section" aria-labelledby="proof-system">
         <h2 id="proof-system">The system needed a visual foundation before it could scale.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Proof needed to feel secure, modern, and easy to
           understand across platforms. The style guide established the
           visual foundation for that experience, including color,
@@ -145,7 +161,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">A product about trust can't afford to feel improvised.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The design system helped make the MVP feel
           cohesive and intentional, even as the product explored unfamiliar
           behaviors around identity, delegation, and secure sharing.</p>
@@ -157,7 +173,7 @@
 
       <section class="section" aria-labelledby="proof-direction">
         <h2 id="proof-direction">The direction changed when the product started to feel more like content than identity.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Early concepts leaned heavily into education,
           helping users understand the benefits of digital identity and what
           the product could do.</p>
@@ -168,7 +184,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">People weren't asking to be educated. They needed to know what to do next.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The design shifted toward a more profile-centered
           experience, making functionality more apparent and helping users
           understand what actions they could take.</p>
@@ -185,7 +201,7 @@
 
       <section class="section" aria-labelledby="proof-outcome">
         <h2 id="proof-outcome">The final direction made identity feel personal, actionable, and easier to manage.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">The refined product brought documents, requests,
           trusted contacts, institutions, and activity history into a
           clearer structure.</p>
@@ -196,7 +212,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">The experience worked best when risk was visible and action was clear.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Sensitive workflows were designed to slow people
           down just enough to understand what was happening, without making
           the product feel heavy.</p>
@@ -210,7 +226,7 @@
 
       <section class="section" aria-labelledby="proof-lesson">
         <h2 id="proof-lesson">The vision had real potential, but timing changed.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Proof pointed toward a future where people could
           manage, share, delegate, and use identity documents without
           relying on paper records or fragmented processes.</p>
@@ -222,7 +238,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">The product didn't launch, but the problem didn't go away.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The strongest lesson was that digital identity is
           not just a storage problem. It is a trust problem, a timing
           problem, and a control problem.</p>
@@ -241,7 +257,7 @@
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Rümi</p>
             <h3 class="project-row__title">Making homeownership feel more manageable, without pretending it's simple</h3>
-            <a class="cta" href="rumi.html">View project →</a>
+            <a class="cta" href="rumi.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
             <img src="../images/Rumi/index-rumi.png" alt="" loading="lazy">
@@ -256,5 +272,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

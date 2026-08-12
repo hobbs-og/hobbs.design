@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
 
@@ -44,7 +60,7 @@
 
       <section class="section" aria-labelledby="mh-problem">
         <h2 id="mh-problem">The hierarchy made simple tasks feel harder than they should have.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">The platform's content model was deeply nested,
           with multiple layers that could each hold content or simply act as
           containers. In practice, teachers often had to click through
@@ -57,7 +73,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Teachers needed to move quickly. Reviewers needed to see the whole picture.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The problem wasn't the same for every user.
           Teachers often knew exactly what they were trying to find and
           needed to get there fast. Reviewers were looking for the opposite.
@@ -70,7 +86,7 @@
 
       <section class="section" aria-labelledby="mh-existing">
         <h2 id="mh-existing">The existing navigation asked for too much effort up front.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">To reach the course structure, teachers first had
           to open a separate Browse This Course view, then decide whether to
           enter a container or expand it, then continue drilling down until
@@ -83,7 +99,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Too many clicks were spent uncovering structure instead of accessing content.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The hierarchy wasn't just complex. It was hidden.
           Users had to progressively unpack the platform before they could
           decide where to go next, which made navigation feel slow, opaque,
@@ -110,7 +126,7 @@
 
       <section class="section" aria-labelledby="mh-solution">
         <h2 id="mh-solution">The answer was to make the structure visible.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">The redesign focused on making navigation more
           transparent, more persistent, and easier to scan at a glance.
           Instead of forcing users in and out of containers, the experience
@@ -134,7 +150,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">The goal wasn't to flatten complexity. It was to make it navigable.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The content still needed to support a wide range
           of educational structures, products, and roles. The work wasn't
           about oversimplifying that system. It was about making it easier
@@ -148,7 +164,7 @@
 
       <section class="section" aria-labelledby="mh-outcome">
         <h2 id="mh-outcome">Making content easier to discover changed how the platform was experienced.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">With the updated navigation in place, teachers no
           longer had to drill through intermediate containers to reach
           instructional materials. Content hierarchy became actionable at a
@@ -163,7 +179,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Better navigation made the product easier to use in the moments that mattered most.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The persistent panel and full-screen table of
           contents replaced several click-heavy interactions with snappier,
           context-aware access.</p>
@@ -188,7 +204,7 @@
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Terafina</p>
             <h3 class="project-row__title">Making a complex product easier to use, without pretending it isn't still complex</h3>
-            <a class="cta" href="terafina.html">View project →</a>
+            <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
             <img src="../images/Terafina/index-terafina.png" alt="" loading="lazy">
@@ -203,5 +219,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

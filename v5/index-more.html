@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html" aria-current="page">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html" aria-current="page">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
     <div class="container">
@@ -46,7 +62,7 @@
 
       <section class="section" aria-labelledby="pillars-heading">
         <h2 class="visually-hidden" id="pillars-heading">What that means in practice</h2>
-        <div class="grid">
+        <div class="grid grid--baseline">
           <div class="span-4 stack--tight">
             <h3>Design systems that hold up under pressure</h3>
             <p>Create patterns and foundations that scale without losing
@@ -85,8 +101,8 @@
       <section class="section" aria-labelledby="how-contact">
         <h2 id="how-contact">If this resonates,<br>I'd love to have a chat.</h2>
         <div class="index-hero__actions" style="margin-block-start: var(--space-lg);">
-          <a class="cta cta--display" href="contact.html">Get in touch →</a>
-          <a class="cta" href="index.html#work">Work I've done →</a>
+          <a class="cta cta--display" href="contact.html">Get in touch <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          <a class="cta" href="index.html#work">Work I've done <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
         </div>
       </section>
 
@@ -97,5 +113,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

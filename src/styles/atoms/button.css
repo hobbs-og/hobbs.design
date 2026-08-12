@@ -7,16 +7,22 @@
   --_bg: var(--button-color-background);
   --_text: var(--button-color-text);
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   padding: var(--button-space-inset-y) var(--button-space-inset-x);
   border: var(--border-width-hairline) solid transparent;
   border-radius: var(--button-radius-default);
   background: var(--_bg);
   color: var(--_text);
   font-size: var(--text-size-body);
-  line-height: var(--text-leading-body);
+  line-height: var(--text-line-height-body);
   text-decoration: none;
   cursor: pointer;
+  transition:
+    background-color var(--motion-duration-ui) var(--motion-easing-ui),
+    color var(--motion-duration-ui) var(--motion-easing-ui),
+    border-color var(--motion-duration-ui) var(--motion-easing-ui);
 }
 
 .button:hover {
@@ -34,20 +40,30 @@
 }
 
 /* Solid: the near-black primary. Red stays reserved for the
-   accent; a filled dark button reads calmer at hero scale. */
+   accent; a filled dark button reads calmer at hero scale.
+   border-color: currentColor matches --quiet's approach: a defined
+   edge in the text color, which flips along automatically with
+   --_text through the hover inversion below instead of needing its
+   own hover rule. */
 .button--solid {
   --_bg: var(--button-color-solid-background);
   --_text: var(--button-color-solid-text);
+  border-color: currentColor;
 }
 
+/* Hover inverts the button rather than nudging its color one step:
+   background and text swap, so the change is unmistakable even
+   where the resting and "one step darker/lighter" tones are close. */
 .button--solid:hover,
 .button--solid:active {
-  --_bg: var(--text-color-heading);
+  --_bg: var(--button-color-solid-text);
+  --_text: var(--button-color-solid-background);
 }
 
-.button--quiet:hover {
-  --_bg: transparent;
-  --_text: var(--button-color-quiet-text-hover);
+.button--quiet:hover,
+.button--quiet:active {
+  --_bg: var(--button-color-quiet-text);
+  --_text: var(--button-color-text);
 }
 
 .button:disabled,

@@ -17,7 +17,7 @@
     .spec__label {
       font-family: var(--text-family-mono);
       font-size: var(--text-size-caption);
-      line-height: var(--text-leading-caption);
+      line-height: var(--text-line-height-caption);
       color: var(--text-color-subtle);
       display: block;
       margin-block-end: var(--space-sm);
@@ -51,12 +51,26 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">Mark Hobbs<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">Mark Hobbs<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="foundations.html" aria-current="page">Foundations</a>
+      <a href="components.html">Components</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
       <a href="foundations.html" aria-current="page">Foundations</a>
       <a href="components.html">Components</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
     <div class="container">
@@ -64,12 +78,12 @@
       <section class="section" aria-labelledby="hero-heading">
         <p class="text-ui" style="color: var(--text-color-subtle);">hobbs.design v5 · foundations</p>
         <h1 id="hero-heading">Subatomic to&nbsp;system.</h1>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="text-body-lg span-6">
             One source of truth. Raw values live in the subatomic layer, semantic roles
             alias them, components consume roles. Every spacing decision lands on an
             8px grid, and every color pairing on this page passes WCAG&nbsp;AA.
-            <a class="cta" href="#type">See the type scale →</a>
+            <a class="cta" href="#type">See the type scale <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </p>
         </div>
       </section>
@@ -114,7 +128,7 @@
           which clears 4.5:1 on the page background. Muted text sits at 60%. The old
           40% failed AA and survives only as <code>disabled</code>.
         </p>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <div class="swatch span-3">
             <div class="swatch__chip" style="background: var(--action-color-accent);"></div>
             <div class="swatch__meta"><code>action-color-accent</code><p class="text-caption">#E12A09 · 4.4:1 · large text</p></div>
@@ -184,8 +198,8 @@
           <button class="button" type="button">Primary action</button>
           <button class="button button--quiet" type="button">Quiet action</button>
           <button class="button" type="button" disabled>Disabled</button>
-          <a class="cta" href="#main">View project →</a>
-          <a class="cta cta--display" href="#main">Get in touch →</a>
+          <a class="cta" href="#main">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          <a class="cta cta--display" href="#main">Get in touch <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
         </div>
       </section>
 
@@ -205,7 +219,7 @@
               <p class="project-row__meta">Design systems / white-label configuration</p>
               <p>A rebuild that started at atomic elements and let the decisions
               scale. Completion rates improved 12%.</p>
-              <a class="cta" href="../terafina.html">View project →</a>
+              <a class="cta" href="../terafina.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
             </div>
             <div class="project-row__media">
               <img src="../images/Terafina/index-terafina.png" alt="Terafina account-opening screens across desktop and mobile" loading="lazy">
@@ -218,7 +232,7 @@
               <p class="project-row__meta">UI kit / design system for a backend-heavy team</p>
               <p>A system built to be adopted, not interpreted. Automated
               tooling held every color pairing to WCAG contrast.</p>
-              <a class="cta" href="../fabrication.html">View project →</a>
+              <a class="cta" href="../fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
             </div>
             <div class="project-row__media">
               <img src="../images/UHM/index-fabrication.png" alt="Union Home Mortgage application dashboard on mobile" loading="lazy">
@@ -234,5 +248,6 @@
     <p>Three token layers. Subatomic holds the raw values, semantic names the roles, components consume them.</p>
     <p>Tab through this page. Every interactive element has a visible focus state.</p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

@@ -16,6 +16,30 @@
    restoration come from the platform rather than from script.
    ============================================================ */
 
+/* --nav-height-fallback covers the same case --nav-height itself
+   does below: no JS, or the first frame before nav.js's measurement
+   runs. Built from the tokens that actually set the header's height
+   at each breakpoint — the logo's line box on desktop, the taller
+   hamburger target on mobile — so it tracks reality if those change,
+   the same as the measured value does. */
+:root {
+  --nav-height-fallback: calc(
+    (var(--nav-space-inset-y) * 2) +
+    var(--text-line-height-heading-md) +
+    var(--border-width-hairline)
+  );
+}
+
+@media (max-width: 47.9375rem) {
+  :root {
+    --nav-height-fallback: calc(
+      (var(--nav-space-inset-y) * 2) +
+      var(--nav-size-toggle) +
+      var(--border-width-hairline)
+    );
+  }
+}
+
 .site-nav {
   position: sticky;
   inset-block-start: 0;
@@ -36,7 +60,7 @@
 
 .site-nav__logo {
   font-size: var(--text-size-heading-md);
-  line-height: var(--text-leading-heading-md);
+  line-height: var(--text-line-height-heading-md);
   color: var(--nav-color-logo);
   text-decoration: none;
   /* The marker highlight: an inset shadow rising half an em from
@@ -67,7 +91,7 @@
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  line-height: var(--text-line-height-ui);
   color: var(--nav-color-link);
   text-decoration: none;
 }
@@ -81,13 +105,6 @@
   color: var(--nav-color-link-current);
   text-decoration: underline;
   text-underline-offset: 0.5em;
-}
-
-/* External-link mark. Sized in em so it matches the label. */
-.site-nav__external {
-  inline-size: 1em;
-  block-size: auto;
-  flex: none;
 }
 
 /* ---------- Hamburger ----------
@@ -154,16 +171,9 @@
 
 .sheet--nav {
   /* Meets the bottom of the header exactly. nav.js measures the
-     header and publishes --nav-height, because which child is
-     tallest depends on the breakpoint: the logo's line box on
-     desktop, the taller hamburger target here. The fallback covers
-     the no-JS case and the first paint, and is built from the
-     tokens that actually set the height at this width. */
-  inset-block-start: var(--nav-height, calc(
-    (var(--nav-space-inset-y) * 2) +
-    var(--nav-size-toggle) +
-    var(--border-width-hairline)
-  ));
+     header and publishes --nav-height; --nav-height-fallback (set
+     above) covers the no-JS case and the first paint. */
+  inset-block-start: var(--nav-height, var(--nav-height-fallback));
   inset-block-end: 0;
   inset-inline: 0;
   /* Under the sticky header, over the page. */
@@ -191,7 +201,7 @@
   gap: var(--space-xs);
   font-family: var(--text-family-display);
   font-size: var(--text-size-heading-md);
-  line-height: var(--text-leading-heading-md);
+  line-height: var(--text-line-height-heading-md);
   color: var(--nav-color-link);
   text-decoration: none;
 }

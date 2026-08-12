@@ -8,3 +8,23 @@
 .contact__links {
   margin-block-start: var(--space-lg);
 }
+
+.contact__form {
+  margin-block-start: var(--space-2xl);
+}
+
+.contact__form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-block-start: var(--space-sm);
+}
+
+.contact__form-status {
+  font-size: var(--text-size-ui);
+  color: var(--feedback-color-success-text);
+}
+
+.contact__form-status--error {
+  color: var(--field-color-error);
+}

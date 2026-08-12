@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
 
@@ -43,7 +59,7 @@
 
       <section class="section" aria-labelledby="terafina-problem">
         <h2 id="terafina-problem">Clarity was missing at every level.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">The platform was built to be flexible and
           customizable, but the presentation layer hadn't evolved to support
           that. The result was a cluttered, inconsistent experience that made
@@ -58,7 +74,7 @@
         </figure>
 
         <h3 style="margin-block-start: var(--space-xl);">The work focused on clarity, trust, and making the product easier to adopt.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The work focused on improving clarity, usability,
           and trust across the platform, while making it easier for clients
           to adopt and customize.</p>
@@ -70,7 +86,7 @@
 
       <section class="section" aria-labelledby="terafina-approach">
         <h2 id="terafina-approach">We started at the foundation and let the system scale from there.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Instead of redesigning screens in isolation, I
           focused on rebuilding the system from the ground up, starting with
           atomic elements and letting those decisions scale across the
@@ -81,7 +97,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Small changes made the experience feel clearer, more guided, and more trustworthy.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Application flows became clearer and easier to
           follow. I introduced a progress stepper across devices, giving
           users a better sense of where they were and what remained.
@@ -105,12 +121,12 @@
 
       <section class="section" aria-labelledby="terafina-outcome">
         <h2 id="terafina-outcome">The product became easier to use, easier to sell, and easier to adopt.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="text-body-lg span-7">The platform became easier to
           understand, easier to use, and easier to sell, giving both users
           and clients more confidence in how it worked.</p>
         </div>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Reducing cognitive load and improving consistency
           led to a measurable decrease in application abandonment, with
           completion rates improving by 12%.</p>
@@ -134,7 +150,7 @@
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Union Home Mortgage</p>
             <h3 class="project-row__title">A design system built for a team of backend engineers</h3>
-            <a class="cta" href="fabrication.html">View project →</a>
+            <a class="cta" href="fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
             <img src="../images/UHM/index-fabrication.png" alt="" loading="lazy">
@@ -149,5 +165,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

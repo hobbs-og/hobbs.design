@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
     <div class="container">
@@ -36,6 +52,8 @@
 
       <section class="section" aria-label="Contact form">
         <form class="grid" method="post" action="../send_mail.php" id="contactForm">
+          <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
+
           <div class="field span-4">
             <label class="field__label" for="contact-name">Name</label>
             <input class="field__control" id="contact-name" name="name" type="text" autocomplete="name" required>
@@ -61,5 +79,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

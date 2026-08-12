@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
 
@@ -43,7 +59,7 @@
 
       <section class="section" aria-labelledby="uhm-problem">
         <h2 id="uhm-problem">Consistency didn't exist across the applications.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Interfaces varied widely from one application to
           another, with no shared patterns for layout, hierarchy, or
           interaction. For a team made up primarily of backend engineers,
@@ -59,7 +75,7 @@
         </figure>
 
         <h3 style="margin-block-start: var(--space-xl);">The work focused on creating a system the team could actually use.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The goal was to introduce a shared foundation
           that would bring consistency to the UI, reduce decision-making
           overhead, and make it easier to build new applications.</p>
@@ -71,7 +87,7 @@
 
       <section class="section" aria-labelledby="uhm-approach">
         <h2 id="uhm-approach">The system needed to be practical, not theoretical.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">I built a UI kit and design system to support
           real development workflows, focusing on reusable components, clear
           patterns, and straightforward implementation.</p>
@@ -81,7 +97,7 @@
         </div>
 
         <div class="stack" style="margin-block-start: var(--space-xl);">
-          <div class="grid">
+          <div class="grid grid--baseline">
             <p class="span-4">I used a modular, atomic approach, breaking
             interfaces down into fundamental components to keep them
             consistent and reusable.</p>
@@ -92,7 +108,7 @@
             legibility and scalability, established clear typographic
             hierarchy through data-heavy content.</p>
           </div>
-          <div class="grid">
+          <div class="grid grid--baseline">
             <p class="span-7">I developed a shared color scale from the
             brand's primary and secondary colors, with a complementary
             tertiary palette. I set up automated checks that held every
@@ -106,7 +122,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Clear structure made the applications easier to build, and easier to use.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Shared components reduced the need to recreate
           patterns across applications, improving efficiency and
           alignment.</p>
@@ -122,7 +138,7 @@
 
       <section class="section" aria-labelledby="uhm-outcome">
         <h2 id="uhm-outcome">The team could now move faster without sacrificing usability.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">With a shared system in place, new applications
           could be built more efficiently and with greater consistency.</p>
           <p class="span-5">The experience became easier to navigate and more
@@ -144,7 +160,7 @@
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Proof</p>
             <h3 class="project-row__title">Sensitive information needs more than security. It needs clarity.</h3>
-            <a class="cta" href="proof.html">View project →</a>
+            <a class="cta" href="proof.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
             <img src="../images/Proof/directions/index-proof.png" alt="" loading="lazy">
@@ -159,5 +175,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

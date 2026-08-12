@@ -16,13 +16,14 @@
   font-family: var(--text-family-display);
   font-size: var(--text-size-heading-md);
   font-weight: var(--text-weight-heading);
-  line-height: var(--text-leading-heading-md);
+  line-height: var(--text-line-height-heading-md);
   color: var(--project-row-color-title);
+  transition: color var(--motion-duration-ui) var(--motion-easing-ui);
 }
 
 .project-row__meta {
   font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  line-height: var(--text-line-height-ui);
   color: var(--text-color-subtle);
   margin-block-start: var(--space-xs);
 }
@@ -40,27 +41,104 @@
   background: var(--surface-color-card);
 }
 
-/* Index variant: the Swiss work list. A number, the client, a
-   category tag, one sentence, a CTA. No media. */
+/* Index variant: the Swiss work list. No image — the label group
+   (number, title, tag) sits in one column and the prose in the other,
+   on the same 12-column grid as .grid: labels 1–4, two columns of
+   air, prose 7–12. Baseline-aligned like .grid--baseline: the mono
+   number and the prose's first line share a baseline instead of a
+   top edge.
+
+   The row is the whole click target and its rule/hover bleed to the
+   true viewport edge — not just the .container's own max-width. No
+   pseudo-element, no z-index, no positioning: the row's own box is
+   widened with a negative inline margin sized by max(), then padded
+   back in by the same amount, so content lands exactly where the
+   grid puts it. max() picks whichever is bigger — the section's own
+   gutter (viewport narrower than the container) or the distance out
+   to the real viewport edge (viewport wider than the container) — so
+   this holds at every breakpoint without a media query. Because the
+   row itself is the full-width box, :hover is the row's own, plain
+   and ordinary. */
 .project-row--index {
-  grid-template-columns: var(--space-2xl) 1fr 2fr;
+  grid-template-columns: repeat(12, 1fr);
   align-items: baseline;
+  --_bleed: max(
+    var(--space-section-x),
+    calc((100vw - var(--layout-container-max)) / 2 + var(--space-section-x))
+  );
+  margin-inline: calc(-1 * var(--_bleed));
+  padding-inline: var(--_bleed);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-ui) var(--motion-easing-ui);
+}
+
+.project-row--index:hover,
+.project-row--index:focus-within {
+  background-color: var(--surface-color-card);
+}
+
+/* Every row's own top hairline closes the gap above it; the list
+   still needs one more rule to close the bottom of the last row. */
+.project-row--index:last-child {
+  border-block-end: var(--border-width-hairline) solid var(--project-row-color-border);
+}
+
+.project-row--index:hover .project-row__title,
+.project-row--index:focus-within .project-row__title {
+  color: var(--text-color-link);
+}
+
+.project-row--index .cta .icon {
+  transition: transform var(--motion-duration-ui) var(--motion-easing-ui);
+}
+
+.project-row--index:hover .cta .icon,
+.project-row--index:focus-within .cta .icon {
+  transform: translateX(var(--space-sm));
+}
+
+.project-row--index .project-row__content {
+  grid-column: span 4;
+}
+
+.project-row--index .project-row__body {
+  grid-column: 7 / -1;
+}
+
+/* Number, title, and tag are one rhythm — a single gap between all
+   three, not per-element margins. Matches .stack--tight. */
+.project-row__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .project-row__number {
   font-family: var(--text-family-mono);
   font-size: var(--text-size-caption);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   color: var(--text-color-subtle);
 }
 
 .project-row__tag {
   font-family: var(--text-family-mono);
   font-size: var(--text-size-ui);
-  line-height: var(--text-leading-caption);
+  line-height: var(--text-line-height-caption);
   text-transform: uppercase;
   color: var(--text-color-subtle);
-  /* margin-block-start: var(--space-xs); */
+}
+
+/* Twelve tracks with 48px gaps leave almost nothing per column below
+   the desktop breakpoint, so halve it — same degradation as .grid. */
+@media (max-width: 64rem) {
+  .project-row--index {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-row--index .project-row__content,
+  .project-row--index .project-row__body {
+    grid-column: span 1;
+  }
 }
 
 @media (max-width: 47.9375rem) {
@@ -71,6 +149,11 @@
 
   .project-row--index {
     grid-template-columns: 1fr;
-    gap: var(--space-sm);
+    gap: var(--space-md);
+  }
+
+  .project-row--index .project-row__content,
+  .project-row--index .project-row__body {
+    grid-column: 1 / -1;
   }
 }

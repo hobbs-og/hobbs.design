@@ -7,16 +7,28 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover:not(.button) {
   color: var(--text-color-link-hover);
 }
 
 /* Inline links inside running text keep an underline —
    color alone is not a sufficient affordance (WCAG 1.4.1). */
-p a,
-li a {
+p a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+/* List links get the same underline, but as a border instead of
+   text-decoration: browsers don't extend text-decoration under an
+   inline-block child like .icon, which leaves any icon dangling
+   past where the line stops. A border on an inline-flex row draws
+   under the whole box — text and icon together — every time. */
+li a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  text-decoration: none;
+  border-block-end: var(--border-width-hairline) solid currentColor;
 }
 
 /* CTA — standalone action link ("View Project →").
@@ -25,6 +37,7 @@ li a {
   display: inline-block;
   font-size: var(--text-size-body);
   color: var(--text-color-link);
+  transition: color var(--motion-duration-ui) var(--motion-easing-ui);
 }
 
 .cta:hover {
@@ -33,6 +46,6 @@ li a {
 
 .cta--display {
   font-size: var(--text-size-body-lg);
-  line-height: var(--text-leading-body-lg);
+  line-height: var(--text-line-height-body-lg);
   color: var(--text-color-link-large);
 }

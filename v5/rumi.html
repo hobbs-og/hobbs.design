@@ -13,14 +13,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav">
-    <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
-    <nav class="site-nav__links" aria-label="Primary">
-      <a href="index.html#work">Work I've Done</a>
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html">hobbs.design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html#work">Work</a>
       <a href="index-more.html">How I Work</a>
-      <a href="resume.html">My Resume</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
+      </nav>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index-more.html">How I Work</a>
+      <a href="resume.html">Resume</a>
       <a href="https://github.com/hobbs-og/hobbs.design">GitHub</a>
     </nav>
-  </header>
+  </dialog>
 
   <main id="main">
 
@@ -43,7 +59,7 @@
 
       <section class="section" aria-labelledby="rumi-problem">
         <h2 id="rumi-problem">People needed guidance that matched where they were.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Homeowners didn't approach the same problems in
           the same way. Some were comfortable taking on projects themselves.
           Others needed more guidance, reassurance, or help from a
@@ -56,7 +72,7 @@
         </figure>
 
         <h3 style="margin-block-start: var(--space-xl);">Personalization worked best when it felt lightweight.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Persona selection gave users a way to define
           their comfort level, goals, and starting point up front.</p>
           <p class="span-5">That made it possible to shape the guidance
@@ -72,7 +88,7 @@
 
       <section class="section" aria-labelledby="rumi-direction">
         <h2 id="rumi-direction">Early concepts tried to make it feel like a game. That wasn't the right direction.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Initial concepts leaned toward gamification, but
           it quickly became clear that homeownership isn't something people
           want to win.</p>
@@ -83,7 +99,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">People didn't want motivation. They wanted clarity.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The stronger direction was not to make the
           product more playful. It was to make it more useful.</p>
           <p class="span-5">People needed to understand what needed
@@ -97,7 +113,7 @@
 
       <section class="section" aria-labelledby="rumi-solution">
         <h2 id="rumi-solution">The solution was a system people could shape themselves.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">The experience shifted toward a flexible,
           user-driven checklist that organized tasks into three clear
           categories. What to do next, routine maintenance, and longer-term
@@ -108,7 +124,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">Structure created clarity. Flexibility made it usable.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">The goal wasn't to simplify homeownership. It was
           to make it easier to move through.</p>
           <p class="span-5">By giving people a clear structure without
@@ -122,7 +138,7 @@
 
       <section class="section" aria-labelledby="rumi-outcome">
         <h2 id="rumi-outcome">The experience became less about managing a list and more about helping people make progress.</h2>
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
           <p class="span-5">Each task gave users more than a reminder. It
           gave them context, instructions, relevant supplies, and a way to
           connect with trusted professionals when they needed help. The real
@@ -134,7 +150,7 @@
         </div>
 
         <h3 style="margin-block-start: var(--space-xl);">The core tension wasn't complexity. It was confidence.</h3>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
           <p class="span-5">Homeowners generally know their home needs work.
           What stops them is not knowing where to start, whether they're
           capable of handling it, or what doing it wrong might cost
@@ -152,7 +168,7 @@
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · McGraw Hill Education</p>
             <h3 class="project-row__title">Simplifying content discovery for educators</h3>
-            <a class="cta" href="frictionless.html">View project →</a>
+            <a class="cta" href="frictionless.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
             <img src="../images/Education/index-frictionless.png" alt="" loading="lazy">
@@ -167,5 +183,6 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
+  <script src="../src/js/nav.js"></script>
 </body>
 </html>

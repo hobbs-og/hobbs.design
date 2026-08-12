@@ -7,6 +7,35 @@
    the statement takes the full measure.
    ============================================================ */
 
+/* Homepage fold: the hero and the stat band together fill exactly
+   the viewport height left after the sticky header, whenever the
+   viewport is tall enough to allow it. The stat band keeps its
+   natural height and never shrinks, the hero absorbs whatever
+   space is left over and centers its content inside it. If the
+   two sections' natural heights already exceed that space, min-
+   height stops mattering and everything just falls back to its
+   ordinary, unconstrained height — no min-height fights that. */
+.home-fold {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--nav-height, var(--nav-height-fallback)));
+  min-height: calc(100dvh - var(--nav-height, var(--nav-height-fallback)));
+}
+
+.home-fold__hero {
+  flex: 1;
+  /* .container already centers itself with margin-inline: auto, but
+     an auto margin on a flex item's cross axis overrides `stretch`
+     and falls back to sizing the box to its content instead of
+     max-width — width: 100% removes that ambiguity so it still
+     fills to max-width and centers exactly like every other
+     .container on the page. */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .index-hero {
   display: grid;
   grid-template-columns: 2fr 3fr;
@@ -25,13 +54,11 @@
   max-width: 24ch;
 }
 
-.index-hero__status {
-  margin-block-end: var(--space-md);
-}
-
 .index-hero__eyebrow {
-  font-size: var(--text-size-ui);
-  line-height: var(--text-leading-ui);
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-line-height-caption);
+  text-transform: uppercase;
   color: var(--text-color-subtle);
   margin-block-end: var(--space-sm);
 }
@@ -40,14 +67,14 @@
   font-family: var(--text-family-display);
   font-size: var(--text-size-display);
   font-weight: var(--text-weight-display);
-  line-height: var(--text-leading-display);
+  line-height: var(--text-line-height-display);
   color: var(--text-color-default);
   max-width: 16ch;
 }
 
 .index-hero__lead {
   font-size: var(--text-size-body-lg);
-  line-height: var(--text-leading-body-lg);
+  line-height: var(--text-line-height-body-lg);
   color: var(--text-color-body);
   max-width: 44ch;
   margin-block-start: var(--space-md);
@@ -67,7 +94,7 @@
 @media (max-width: 64rem) {
   .index-hero__title {
     font-size: var(--text-size-heading-xl);
-    line-height: var(--text-leading-heading-xl);
+    line-height: var(--text-line-height-heading-xl);
   }
 }
 
@@ -79,6 +106,6 @@
 
   .index-hero__title {
     font-size: var(--text-size-display-sm);
-    line-height: var(--text-leading-display-sm);
+    line-height: var(--text-line-height-display-sm);
   }
 }
