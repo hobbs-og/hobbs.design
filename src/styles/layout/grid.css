@@ -13,10 +13,6 @@
   padding-block: var(--space-section-y);
 }
 
-.section--alt {
-  background: var(--surface-color-alt);
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -100,8 +96,4 @@
 
 .stack--tight > * + * {
   margin-block-start: var(--space-stack-tight);
-}
-
-.stack--loose > * + * {
-  margin-block-start: var(--space-stack-loose);
 }

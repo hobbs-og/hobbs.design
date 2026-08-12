@@ -34,8 +34,7 @@ h3,
   color: var(--text-color-heading);
 }
 
-h4,
-.text-heading-sm {
+h4 {
   font-family: var(--text-family-base);
   font-size: var(--text-size-body);
   font-weight: var(--text-weight-heading);
