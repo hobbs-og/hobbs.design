@@ -1,0 +1,20 @@
+/* ============================================================
+   atoms/icon.css — Bootstrap Icons, via the sprite at
+   src/public/icons.svg. Usage:
+
+     <svg class="icon" aria-hidden="true">
+       <use href="../src/public/icons.svg#bi-arrow-right"></use>
+     </svg>
+
+   Always aria-hidden: icons here are decorative, riding alongside
+   text that already carries the meaning.
+   ============================================================ */
+
+.icon {
+  display: inline-block;
+  inline-size: 1em;
+  block-size: 1em;
+  fill: currentColor;
+  flex: none;
+  vertical-align: -0.125em;
+}

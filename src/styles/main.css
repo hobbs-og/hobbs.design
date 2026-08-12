@@ -24,6 +24,7 @@
 @import url('atoms/link.css');
 @import url('atoms/button.css');
 @import url('atoms/chip.css');
+@import url('atoms/icon.css');
 
 @import url('molecules/project-row.css');
 @import url('molecules/field.css');
@@ -37,8 +38,8 @@
 @import url('organisms/nav.css');
 @import url('organisms/footer.css');
 @import url('organisms/index-hero.css');
-@import url('organisms/case-hero.css');
 @import url('organisms/how-i-work.css');
+@import url('organisms/case-hero.css');
 @import url('organisms/work-index.css');
 @import url('organisms/contact.css');
 
