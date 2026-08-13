@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Proof | hobbs.design</title>
   <meta name="description" content="A digital identity MVP for Alberta residents: secure storage, deliberate sharing, and a cross-platform design system built as an engineering handoff artifact.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="../dist/tokens.css">
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,7 +25,7 @@
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
         <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -41,11 +42,11 @@
     </nav>
   </dialog>
 
-  <main id="main">
+  <main id="main" data-xray="template · case-study">
 
-    <div class="case-hero">
+    <div class="case-hero" data-xray="organism · case-hero">
       <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker">Proof · Digital identity</p>
+        <p class="section-label case-hero__kicker" data-xray="atom · section-label">Proof · Digital identity</p>
         <h1 class="case-hero__title">Personal information is hard to manage. Sharing it safely, and conveniently, is harder.</h1>
         <p class="case-hero__lead">Proof explored a digital identity product
         for Alberta residents, built around the idea that people should be
@@ -64,7 +65,7 @@
       <section class="section" aria-labelledby="proof-problem">
         <div class="grid">
           <div class="span-8 align">
-            <h2 id="proof-problem" class="span-8">The challenge wasn't storing documents. It was building trust around access.</h2>
+            <h2 id="proof-problem" class="span-8">The challenge wasn't storing documents, it was building trust around access.</h2>
             <div class="span-8 align" style="margin-block-start: var(--space-md);">
               <p class="span-4">Paper records are difficult to organize, easy
               to misplace, and rarely available when people need them most.
@@ -79,7 +80,7 @@
         </div>
 
         <figure style="margin-block-start: var(--space-xl);">
-          <img class="img-frame" src="../images/Proof/proof-hero.png" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
+          <img class="img-frame" data-xray="atom · media" src="images/Proof/proof-hero.png" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
         </figure>
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
@@ -123,7 +124,7 @@
           actions are available.</p>
           <span class="span-4"></span>
           <figure class="span-8">
-            <img class="img-frame" src="../images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
           </figure>
         </div>
       </section>
@@ -157,7 +158,7 @@
           granting.</p>
           <span class="span-4"></span>
           <figure class="span-8">
-            <img class="img-frame" src="../images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
           </figure>
         </div>
       </section>
@@ -172,8 +173,8 @@
               established the visual foundation for that experience,
               including color, typography, spacing, button styles, and core
               tile components.</p>
-              <p class="span-4">The goal was not just visual consistency. It
-              was giving engineering a usable framework for building a
+              <p class="span-4">More than visual consistency, the style
+              guide gave engineering a usable framework for building a
               product that felt trustworthy from screen to screen.</p>
             </div>
           </div>
@@ -190,18 +191,18 @@
           made the experience easier to understand and easier to believe
           in.</p>
 
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/1.0 Typography.png" alt="Proof style guide: the typography system" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/1.1 iOS headings.png" alt="Proof style guide: iOS heading specifications" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/1.2 Android headings.png" alt="Proof style guide: Android heading specifications" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/2.0 Colors.png" alt="Proof style guide: the color palette" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/2.1 Primary.png" alt="Proof style guide: primary color definitions" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/2.2 Secondary.png" alt="Proof style guide: secondary color definitions" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/2.3 Tertiary.png" alt="Proof style guide: tertiary color definitions" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/2.6 Grayscale.png" alt="Proof style guide: grayscale definitions" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/4.0 Tiles-1.png" alt="Proof style guide: request tile anatomy" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/4.1 Tile Types.png" alt="Proof style guide: tile types" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/5.0 Buttons.png" alt="Proof style guide: button styles and states" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/styleguide/6.0 Tabs.png" alt="Proof style guide: tab patterns" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.0 Typography.png" alt="Proof style guide: the typography system" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.1 iOS headings.png" alt="Proof style guide: iOS heading specifications" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.2 Android headings.png" alt="Proof style guide: Android heading specifications" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/2.0 Colors.png" alt="Proof style guide: the color palette" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/2.1 Primary.png" alt="Proof style guide: primary color definitions" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/2.2 Secondary.png" alt="Proof style guide: secondary color definitions" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/2.3 Tertiary.png" alt="Proof style guide: tertiary color definitions" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/2.6 Grayscale.png" alt="Proof style guide: grayscale definitions" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/4.0 Tiles-1.png" alt="Proof style guide: request tile anatomy" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/4.1 Tile Types.png" alt="Proof style guide: tile types" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/5.0 Buttons.png" alt="Proof style guide: button styles and states" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/6.0 Tabs.png" alt="Proof style guide: tab patterns" loading="lazy">
         </div>
       </section>
 
@@ -223,18 +224,17 @@
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <span class="span-4"></span>
-          <h3 class="span-8 pullquote">People weren't asking to be educated. They needed to know what to do next.</h3>
+          <h3 class="span-8 pullquote">People weren't asking to be educated, they needed to know what to do next.</h3>
           <span class="span-4"></span>
           <p class="span-4">The design shifted toward a more
           profile-centered experience, making functionality more apparent
           and helping users understand what actions they could take.</p>
           <p class="span-4">That change brought the product closer to the
-          real user need. Not learning about digital identity in the
-          abstract, but managing identity in practical, everyday
-          situations.</p>
+          real user need: managing identity in practical, everyday
+          situations, not learning about it in the abstract.</p>
           <span class="span-4"></span>
-          <img class="span-4 img-frame" src="../images/Proof/directions/concept-2.png" alt="An early Proof direction focused on education and awareness." loading="lazy">
-          <img class="span-4 img-frame" src="../images/Proof/directions/concept-3.png" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/directions/concept-2.png" alt="An early Proof direction focused on education and awareness." loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/directions/concept-3.png" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
         </div>
       </section>
 
@@ -261,12 +261,12 @@
           <p class="span-4">Sensitive workflows were designed to slow people
           down just enough to understand what was happening, without making
           the product feel heavy.</p>
-          <p class="span-4">That balance was the center of the work. Make
-          identity easier to use, but never casual.</p>
+          <p class="span-4">That balance was the center of the work, making
+          identity easier to use without ever making it feel casual.</p>
         </div>
 
         <figure style="margin-block-start: var(--space-xl);">
-          <img class="img-frame" src="../images/Proof/results/four-up.png" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
+          <img class="img-frame" data-xray="atom · media" src="images/Proof/results/four-up.png" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
         </figure>
       </section>
 
@@ -280,7 +280,7 @@
               without relying on paper records or fragmented processes.</p>
               <p class="span-4">Before the product could launch, priorities
               shifted and the initiative was paused. The work remained
-              valuable because it explored a problem that still matters. How
+              valuable because it explored a problem that still matters: how
               people safely access and share sensitive information when
               timing, trust, and control all matter.</p>
             </div>
@@ -291,8 +291,8 @@
           <span class="span-4"></span>
           <h3 class="span-8 pullquote">The product didn't launch, but the problem didn't go away.</h3>
           <span class="span-4"></span>
-          <p class="span-4">The strongest lesson was that digital identity is
-          not just a storage problem. It is a trust problem, a timing
+          <p class="span-4">The strongest lesson was that digital identity
+          isn't a storage problem so much as a trust problem, a timing
           problem, and a control problem.</p>
           <p class="span-4">Design had to make the system feel useful
           without making it feel risky.</p>
@@ -303,22 +303,22 @@
         <div class="grid">
           <span class="span-4"></span>
           <div class="span-8 align">
-            <h2 class="span-8">Trust isn't <em>just</em> security. It's whether people understand what's happening and what they control.</h2>
-            <p class="span-4" style="margin-block-start: var(--space-md);">Proof was about more than digitizing documents. It was about giving people clearer access to sensitive information, while making every request, permission, and share feel intentional.</p>
+            <h2 class="span-8">Trust means people understand what's happening and what they control, not just that the system is secure.</h2>
+            <p class="span-4" style="margin-block-start: var(--space-md);">Proof was about more than digitizing documents, it was about giving people clearer access to sensitive information while making every request, permission, and share feel intentional.</p>
           </div>
         </div>
       </section>
 
       <section class="section" aria-labelledby="proof-next">
         <h2 class="visually-hidden" id="proof-next">Next project</h2>
-        <article class="project-row">
+        <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Rümi</p>
             <h3 class="project-row__title">Making homeownership feel more manageable, without pretending it's simple</h3>
-            <a class="cta" href="rumi.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <a class="cta" href="rumi.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
-            <img src="../images/Rumi/index-rumi.png" alt="" loading="lazy">
+            <img src="images/Rumi/index-rumi.png" alt="" loading="lazy">
           </div>
         </article>
       </section>
@@ -330,7 +330,7 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
-  <script src="../src/js/xray.js"></script>
-  <script src="../src/js/nav.js"></script>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
 </body>
 </html>

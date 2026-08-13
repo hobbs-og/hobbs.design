@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Components — hobbs.design v5</title>
   <meta name="description" content="The component layer of the hobbs.design rebuild: heroes, project rows, form fields, and chips, all built on semantic tokens.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="../dist/tokens.css">
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
   <style>
     /* Page-local specimen styles only. Semantic tokens only. */
     .spec {
@@ -42,7 +43,7 @@
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
         <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -72,11 +73,11 @@
             semantic tokens, and nothing reaches past them.
           </p>
           <div class="index-hero__actions">
-            <a class="cta cta--display" href="#case-hero">See the case hero <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <a class="cta cta--display" href="#case-hero">See the case hero <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="index-hero__media" aria-hidden="true">
-          <img src="../images/Terafina/index-terafina.png" alt="" loading="eager">
+          <img src="images/Terafina/index-terafina.png" alt="" loading="eager">
         </div>
       </section>
 
@@ -131,7 +132,7 @@
           instead of leaning on red alone.
         </p>
 
-        <form class="grid" style="margin-block-start: var(--space-xl);" action="../send_mail.php" method="post" novalidate>
+        <form class="grid" style="margin-block-start: var(--space-xl);" action="send_mail.php" method="post" novalidate>
           <div class="field span-4">
             <label class="field__label" for="demo-name">Name</label>
             <input class="field__control" id="demo-name" name="name" type="text" autocomplete="name">
@@ -189,15 +190,15 @@
         </p>
         <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-xl);">
           <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg>
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg>
             <span class="spec__label" style="margin: 0;">bi-arrow-right</span>
           </div>
           <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-down"></use></svg>
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-down"></use></svg>
             <span class="spec__label" style="margin: 0;">bi-arrow-down</span>
           </div>
           <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-up-right-square"></use></svg>
+            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg>
             <span class="spec__label" style="margin: 0;">bi-arrow-up-right-square</span>
           </div>
         </div>
@@ -210,7 +211,7 @@
     <p>Three token layers. Subatomic holds the raw values, semantic names the roles, components consume them.</p>
     <p><a href="foundations.html">Foundations</a></p>
   </footer>
-  <script src="../src/js/xray.js"></script>
-  <script src="../src/js/nav.js"></script>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
 </body>
 </html>

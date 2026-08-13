@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>McGraw Hill Education | hobbs.design</title>
   <meta name="description" content="Redesigning content discovery in McGraw Hill's Open Learning Platform: persistent navigation and a full-page table of contents that made deep curriculum structure visible.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="../dist/tokens.css">
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,7 +25,7 @@
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
         <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -41,11 +42,11 @@
     </nav>
   </dialog>
 
-  <main id="main">
+  <main id="main" data-xray="template · case-study">
 
-    <div class="case-hero">
+    <div class="case-hero" data-xray="organism · case-hero">
       <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker">McGraw Hill Education · Content discovery</p>
+        <p class="section-label case-hero__kicker" data-xray="atom · section-label">McGraw Hill Education · Content discovery</p>
         <h1 class="case-hero__title">The content was there. Finding it was the problem.</h1>
         <p class="case-hero__lead">McGraw Hill's Open Learning Platform powered
         K-12 instructional content for teachers and students, but the way that
@@ -89,9 +90,9 @@
           <span class="span-4"></span>
           <p class="span-4">The problem wasn't the same for every user.
           Teachers often knew exactly what they were trying to find and
-          needed to get there fast. Reviewers were looking for the opposite.
-          A high-level view that made the breadth and structure of the
-          curriculum easier to understand.</p>
+          needed to get there fast. Reviewers were looking for the
+          opposite: a high-level view that made the breadth and structure
+          of the curriculum easier to understand.</p>
           <p class="span-4">The work had to support both experiences at once,
           without making either one feel compromised.</p>
         </div>
@@ -120,27 +121,27 @@
           <span class="span-4"></span>
           <h3 class="span-8 pullquote">Too many clicks were spent uncovering structure instead of accessing content.</h3>
           <span class="span-4"></span>
-          <p class="span-4">The hierarchy wasn't just complex. It was hidden.
-          Users had to progressively unpack the platform before they could
-          decide where to go next, which made navigation feel slow, opaque,
-          and difficult to scan.</p>
+          <p class="span-4">The hierarchy wasn't just complex, it was
+          hidden. Users had to progressively unpack the platform before they
+          could decide where to go next, which made navigation feel slow
+          and opaque.</p>
           <p class="span-4">That made even well-organized content feel harder
           to use than it actually was.</p>
         </div>
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <figure class="span-4">
-            <img class="img-frame" src="../images/Education/TOC/navFlow-1.png" alt="The original flow, step one: the course page before any structure is visible." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Education/TOC/navFlow-1.png" alt="The original flow, step one: the course page before any structure is visible." loading="lazy">
             <h4 style="margin-block-start: var(--space-sm);">Step one</h4>
             <p class="text-caption">Teachers first had to click Browse This Course just to expose the content structure.</p>
           </figure>
           <figure class="span-4">
-            <img class="img-frame" src="../images/Education/TOC/navFlow-2.png" alt="The original flow, step two: choosing between entering a container or expanding it." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Education/TOC/navFlow-2.png" alt="The original flow, step two: choosing between entering a container or expanding it." loading="lazy">
             <h4 style="margin-block-start: var(--space-sm);">Step two</h4>
             <p class="text-caption">Each container offered a link into it or an arrow to peek inside, one level at a time.</p>
           </figure>
           <figure class="span-4">
-            <img class="img-frame" src="../images/Education/TOC/navFlow-3.png" alt="The original flow, step three: the contents of a single parent folder." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Education/TOC/navFlow-3.png" alt="The original flow, step three: the contents of a single parent folder." loading="lazy">
             <h4 style="margin-block-start: var(--space-sm);">Step three</h4>
             <p class="text-caption">Only inside the parent folder could a teacher finally see what it held.</p>
           </figure>
@@ -169,12 +170,12 @@
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <figure class="span-6">
-            <img class="img-frame" src="../images/Education/index-frictionless-cnp.png" alt="The redesigned view with a persistent navigation panel beside lesson content." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Education/index-frictionless-cnp.png" alt="The redesigned view with a persistent navigation panel beside lesson content." loading="lazy">
             <h4 style="margin-block-start: var(--space-sm);">Content discovery</h4>
             <p class="text-caption">Lesson subject matter stays in view without jumping in and out of containers.</p>
           </figure>
           <figure class="span-6">
-            <img class="img-frame" src="../images/Education/index-frictionless-toc.png" alt="The full-page table of contents showing the entire curriculum in context." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Education/index-frictionless-toc.png" alt="The full-page table of contents showing the entire curriculum in context." loading="lazy">
             <h4 style="margin-block-start: var(--space-sm);">35,000-foot view</h4>
             <p class="text-caption">State-level administrators can see all the educational content in context on one screen.</p>
           </figure>
@@ -182,11 +183,11 @@
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <span class="span-4"></span>
-          <h3 class="span-8 pullquote">The goal wasn't to flatten complexity. It was to make it navigable.</h3>
+          <h3 class="span-8 pullquote">The goal wasn't flattening complexity, it was making it navigable.</h3>
           <span class="span-4"></span>
           <p class="span-4">The content still needed to support a wide range
           of educational structures, products, and roles. The work wasn't
-          about oversimplifying that system. It was about making it easier
+          about oversimplifying that system, it was about making it easier
           for people to understand where they were, what was available, and
           how to move through it with less friction.</p>
           <p class="span-4">That shift made the platform feel more responsive
@@ -249,28 +250,28 @@
         </div>
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
-          <img class="span-6 img-frame" src="../images/Education/TOC/navNew-cnp-2.png" alt="The redesigned persistent navigation panel in use during a lesson." loading="lazy">
-          <img class="span-6 img-frame" src="../images/Education/TOC/navNew-toc.png" alt="The redesigned full-page table of contents." loading="lazy">
+          <img class="span-6 img-frame" data-xray="atom · media" src="images/Education/TOC/navNew-cnp-2.png" alt="The redesigned persistent navigation panel in use during a lesson." loading="lazy">
+          <img class="span-6 img-frame" data-xray="atom · media" src="images/Education/TOC/navNew-toc.png" alt="The redesigned full-page table of contents." loading="lazy">
         </div>
       </section>
 
       <section class="section" aria-label="Closing thought">
         <div class="grid">
           <h2 class="span-10">In products like this, friction doesn't always come from features. Sometimes it comes from how hard the structure is to see.</h2>
-          <p class="span-6" style="margin-block-start: var(--space-md);">Making the content easier to discover didn't change what the platform offered. It changed how usable that value felt in practice — the difference that made the experience hold up for teachers, reviewers, and the business behind it.</p>
+          <p class="span-6" style="margin-block-start: var(--space-md);">Making the content easier to discover didn't change what the platform offered, it changed how usable that value felt in practice. That's the difference that made the experience hold up for teachers, reviewers, and the business behind it.</p>
         </div>
       </section>
 
       <section class="section" aria-labelledby="mh-next">
         <h2 class="visually-hidden" id="mh-next">Next project</h2>
-        <article class="project-row">
+        <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Terafina</p>
             <h3 class="project-row__title">Making a complex product easier to use, without pretending it isn't still complex</h3>
-            <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
-            <img src="../images/Terafina/index-terafina.png" alt="" loading="lazy">
+            <img src="images/Terafina/index-terafina.png" alt="" loading="lazy">
           </div>
         </article>
       </section>
@@ -282,7 +283,7 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
-  <script src="../src/js/xray.js"></script>
-  <script src="../src/js/nav.js"></script>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
 </body>
 </html>

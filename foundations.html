@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Foundations — hobbs.design v5</title>
   <meta name="description" content="Design token foundations for the hobbs.design rebuild: subatomic values, semantic roles, atomic components, on an 8px grid.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="../dist/tokens.css">
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
   <style>
     /* Page-local styles for the specimen UI only. Semantic tokens only. */
     .spec {
@@ -62,7 +63,7 @@
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
         <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -90,7 +91,7 @@
             One source of truth. Raw values live in the subatomic layer, semantic roles
             alias them, components consume roles. Every spacing decision lands on an
             8px grid, and every color pairing on this page passes WCAG&nbsp;AA.
-            <a class="cta" href="#type">See the type scale <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <a class="cta" href="#type">See the type scale <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </p>
         </div>
       </section>
@@ -204,10 +205,10 @@
         <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
           <button class="button" type="button">Primary action</button>
           <button class="button button--quiet" type="button">Quiet action</button>
-          <button class="button button--bare" type="button"><svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-left"></use></svg>Bare action</button>
+          <button class="button button--bare" type="button"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-left"></use></svg>Bare action</button>
           <button class="button" type="button" disabled>Disabled</button>
-          <a class="cta" href="#main">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
-          <a class="cta cta--display" href="#main">Get in touch <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          <a class="cta" href="#main">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          <a class="cta cta--display" href="#main">Get in touch <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
         </div>
       </section>
 
@@ -227,10 +228,10 @@
               <p class="project-row__meta">Design systems / white-label configuration</p>
               <p>A rebuild that started at atomic elements and let the decisions
               scale. Completion rates improved 12%.</p>
-              <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+              <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
             </div>
             <div class="project-row__media">
-              <img src="../images/Terafina/index-terafina.png" alt="Terafina account-opening screens across desktop and mobile" loading="lazy">
+              <img src="images/Terafina/index-terafina.png" alt="Terafina account-opening screens across desktop and mobile" loading="lazy">
             </div>
           </article>
 
@@ -240,10 +241,10 @@
               <p class="project-row__meta">UI kit / design system for a backend-heavy team</p>
               <p>A system built to be adopted, not interpreted. Automated
               tooling held every color pairing to WCAG contrast.</p>
-              <a class="cta" href="fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+              <a class="cta" href="fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
             </div>
             <div class="project-row__media">
-              <img src="../images/UHM/index-fabrication.png" alt="Union Home Mortgage application dashboard on mobile" loading="lazy">
+              <img src="images/UHM/index-fabrication.png" alt="Union Home Mortgage application dashboard on mobile" loading="lazy">
             </div>
           </article>
         </div>
@@ -257,7 +258,7 @@
     <p>Tab through this page. Every interactive element has a visible focus state.</p>
     <p><a href="components.html">Components</a></p>
   </footer>
-  <script src="../src/js/xray.js"></script>
-  <script src="../src/js/nav.js"></script>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
 </body>
 </html>

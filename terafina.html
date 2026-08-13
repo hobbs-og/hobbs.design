@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terafina | hobbs.design</title>
   <meta name="description" content="Rebuilding Terafina's account-opening platform from atomic elements up. A design system and white-label branding layer that improved completion rates 12%.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="../dist/tokens.css">
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,7 +25,7 @@
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
         <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -41,12 +42,12 @@
     </nav>
   </dialog>
 
-  <main id="main">
+  <main id="main" data-xray="template · case-study">
 
-    <div class="case-hero">
+    <div class="case-hero" data-xray="organism · case-hero">
       <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker">Terafina, Inc. · White-label banking</p>
-        <h1 class="case-hero__title">The problem wasn't functionality. It was perception.</h1>
+        <p class="section-label case-hero__kicker" data-xray="atom · section-label">Terafina, Inc. · White-label banking</p>
+        <h1 class="case-hero__title">The problem wasn't functionality, it was perception.</h1>
         <p class="case-hero__lead">Terafina provides account opening software
         for banks and credit unions across digital, call center, and in-branch
         experiences. The platform supported a wide range of financial products,
@@ -82,7 +83,7 @@
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <span class="span-4"></span>
           <figure class="span-8">
-            <img class="img-frame" src="../images/Terafina/before-new.png" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
+            <img class="img-frame" data-xray="atom · media" src="images/Terafina/before-new.png" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
             <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">The platform before the redesign.</figcaption>
           </figure>
         </div>
@@ -91,9 +92,9 @@
           <span class="span-4"></span>
           <h3 class="span-8 pullquote">The work focused on clarity, trust, and making the product easier to adopt.</h3>
           <span class="span-4"></span>
-          <p class="span-4">The work focused on improving clarity,
-          usability, and trust across the platform, while making it easier
-          for clients to adopt and customize.</p>
+          <p class="span-4">The work focused on improving clarity and trust
+          across the platform, while making it easier for clients to adopt
+          and customize.</p>
           <p class="span-4">That meant rethinking the presentation layer,
           simplifying application flows, and introducing a more flexible
           system for branding and configuration.</p>
@@ -119,7 +120,7 @@
 
         <div class="grid" style="margin-block-start: var(--space-xl);">
           <span class="span-4"></span>
-          <h3 class="span-8 pullquote">Small changes made the experience feel clearer, more guided, and more trustworthy.</h3>
+          <h3 class="span-8 pullquote">Small changes made the experience feel clearer and more trustworthy.</h3>
           <span class="span-4"></span>
           <p class="span-4">Application flows became clearer and easier to
           follow. I introduced a progress stepper across devices, giving
@@ -128,15 +129,15 @@
           important information instead of hiding it.</p>
           <p class="span-4">A white-label system made it easier for clients
           to apply their own branding without heavy development effort. This
-          reduced implementation complexity, improved consistency across the
-          platform, and made the product easier to adopt and scale.</p>
+          reduced implementation complexity and made the product easier for
+          new clients to adopt.</p>
 
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-typography.png" alt="Terafina style guide: the typography scale" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-colors.png" alt="Terafina style guide: the color system" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-progressStepper.png" alt="Terafina style guide: the progress stepper component" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-generalUI-1.png" alt="Terafina style guide: general UI components" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-generalUI-2.png" alt="Terafina style guide: form and card components" loading="lazy">
-          <img class="span-4 img-frame" src="../images/Terafina/styleguide/styleGuide-dropdowns.png" alt="Terafina style guide: dropdown states" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-typography.png" alt="Terafina style guide: the typography scale" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-colors.png" alt="Terafina style guide: the color system" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-progressStepper.png" alt="Terafina style guide: the progress stepper component" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-1.png" alt="Terafina style guide: general UI components" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-2.png" alt="Terafina style guide: form and card components" loading="lazy">
+          <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-dropdowns.png" alt="Terafina style guide: dropdown states" loading="lazy">
         </div>
       </section>
 
@@ -146,8 +147,8 @@
         </div>
         <div class="grid" style="margin-block-start: var(--space-md);">
           <p class="text-body-lg span-7">The platform became easier to
-          understand, easier to use, and easier to sell, giving both users
-          and clients more confidence in how it worked.</p>
+          understand, giving both users and clients more confidence in how
+          it worked.</p>
         </div>
 
         <div class="grid" style="margin-block-start: var(--space-md);">
@@ -161,27 +162,27 @@
         </div>
 
         <figure style="margin-block-start: var(--space-xl);">
-          <img class="img-frame" src="../images/Terafina/after.png" alt="The Terafina platform after the redesign, on a phone, a tablet, and a desktop. The interface is cleaner, more consistent, and easier to follow." loading="lazy">
+          <img class="img-frame" data-xray="atom · media" src="images/Terafina/after.png" alt="The Terafina platform after the redesign, on a phone, a tablet, and a desktop. The interface is cleaner, more consistent, and easier to follow." loading="lazy">
           <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">The platform after the rebuild.</figcaption>
         </figure>
       </section>
 
       <section class="section" aria-label="Closing thought">
         <div class="grid">
-          <h2 class="span-8">In products like this, clarity isn't a layer you add. It's something you have to build into the system. That's what makes the experience hold up over time.</h2>
+          <h2 class="span-8">In products like this, clarity has to be built into the system, not layered on top. That's what makes the experience hold up over time.</h2>
         </div>
       </section>
 
       <section class="section" aria-labelledby="terafina-next">
         <h2 class="visually-hidden" id="terafina-next">Next project</h2>
-        <article class="project-row">
+        <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Union Home Mortgage</p>
             <h3 class="project-row__title">A design system built for a team of backend engineers</h3>
-            <a class="cta" href="fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="../src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <a class="cta" href="fabrication.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">
-            <img src="../images/UHM/index-fabrication.png" alt="" loading="lazy">
+            <img src="images/UHM/index-fabrication.png" alt="" loading="lazy">
           </div>
         </article>
       </section>
@@ -193,7 +194,7 @@
     <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
     <p><a href="index.html">Home</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
   </footer>
-  <script src="../src/js/xray.js"></script>
-  <script src="../src/js/nav.js"></script>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
 </body>
 </html>
