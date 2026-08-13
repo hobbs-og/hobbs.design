@@ -92,7 +92,8 @@
   }
 
   .grid > *,
-  .align > * {
+  .align > *,
+  .index-hero > * {
     grid-column: 1 / -1;
   }
 }

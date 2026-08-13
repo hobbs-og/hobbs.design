@@ -38,7 +38,7 @@
 
 .index-hero {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: repeat(12, 1fr);
   gap: var(--space-grid-row-gap) var(--space-grid-column-gap);
   align-items: center;
   padding-block: var(--space-2xl);
