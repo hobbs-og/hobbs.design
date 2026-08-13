@@ -57,17 +57,18 @@ an affordance.
 | `tokens/` | The design token source, W3C format JSON |
 | `dist/` | Compiled tokens: CSS custom properties plus a JS module |
 | `src/styles/` | The atomic CSS library |
-| `v5/` | The site: homepage, foundations, components, five case studies, resume, contact |
+| `*.html` | The site: homepage, foundations, components, five case studies, resume, contact |
 | `docs/design-tokens.md` | The architecture in detail |
+| `.cpanel.yml` | Deploy config — copies only the servable paths into `public_html` on the host |
 
-The live site at hobbs.design still runs the pre-rebuild HTML and Sass; that
-version stays on the host until `v5/` swaps in as the new root. The legacy
-Sass variables used to alias the compiled custom properties, so a value
-change in `tokens/base/` propagated to a stylesheet written years before the
-pipeline existed. That migration path is preserved in the commit history,
-which is the part of this repo I'd actually encourage you to read. The
-legacy pages and that Sass build have since been archived out of this
-working tree, so what's here now is only what `v5/` actually references.
+This rebuild used to live under `v5/` while the pre-rebuild HTML and Sass
+still ran at the domain root. The legacy Sass variables used to alias the
+compiled custom properties, so a value change in `tokens/base/` propagated
+to a stylesheet written years before the pipeline existed. That migration
+path is preserved in the commit history, which is the part of this repo I'd
+actually encourage you to read. The legacy pages and that Sass build have
+since been archived out of this working tree, and this rebuild has been
+promoted to the root: what's here now is the actual site.
 
 ## The honest boundary
 

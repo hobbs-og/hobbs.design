@@ -1,0 +1,43 @@
+---
+# cPanel Git Version Control deployment.
+#
+# This repo is the dev source: it has the token JSON, docs, and
+# tooling alongside the actual site. Only the servable files below
+# get copied into public_html — dev-only trees never touch the web
+# root. $HOME is set by cPanel to the account home directory, so
+# this works without hardcoding a username.
+#
+# One-time setup, in cPanel:
+#   1. Git™ Version Control → Create → clone this repo's GitHub URL
+#      to a path OUTSIDE public_html (e.g. ~/repositories/hobbs.design).
+#   2. After each push to main: open that repo in cPanel → Manage →
+#      "Update from Remote" (pulls the new commit), then
+#      "Deploy HEAD Commit" (runs the tasks below).
+#   3. SENDGRID_API_KEY is never in this repo. Set it once, directly
+#      on the server, either as a real environment variable if your
+#      plan's MultiPHP settings expose one, or via a line in
+#      public_html/.htaccess: SetEnv SENDGRID_API_KEY "the-real-key"
+#      — .htaccess lives only on the server, outside git, and
+#      send_mail.php already reads it with getenv().
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp -R index.html $DEPLOYPATH
+    - /bin/cp -R index-more.html $DEPLOYPATH
+    - /bin/cp -R resume.html $DEPLOYPATH
+    - /bin/cp -R contact.html $DEPLOYPATH
+    - /bin/cp -R terafina.html $DEPLOYPATH
+    - /bin/cp -R fabrication.html $DEPLOYPATH
+    - /bin/cp -R proof.html $DEPLOYPATH
+    - /bin/cp -R rumi.html $DEPLOYPATH
+    - /bin/cp -R frictionless.html $DEPLOYPATH
+    - /bin/cp -R foundations.html $DEPLOYPATH
+    - /bin/cp -R components.html $DEPLOYPATH
+    - /bin/cp -R favicon.svg $DEPLOYPATH
+    - /bin/cp -R robots.txt $DEPLOYPATH
+    - /bin/cp -R sitemap.xml $DEPLOYPATH
+    - /bin/cp -R send_mail.php $DEPLOYPATH
+    - /bin/cp -R Mark-Hobbs_Resume.pdf $DEPLOYPATH
+    - /bin/cp -R dist $DEPLOYPATH
+    - /bin/cp -R src $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH

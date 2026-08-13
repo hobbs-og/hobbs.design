@@ -78,8 +78,8 @@ button.css and case-hero.css: variants swap custom properties, never rules.
 The footer and the index hero are the counterexamples, on purpose. Both are
 built entirely on semantic tokens because none of their values needed a
 component-level name. That's the test for whether a component gets a token
-file at all. Both demo pages are live: `v5/index.html` for foundations,
-`v5/components.html` for the component layer.
+file at all. Both demo pages are live: `foundations.html` for foundations,
+`components.html` for the component layer.
 
 ---
 
