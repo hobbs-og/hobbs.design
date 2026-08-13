@@ -85,3 +85,15 @@ textarea.field__control {
   content: 'Error: ';
   font-weight: var(--text-weight-emphasis);
 }
+
+/* Fill: stretches the control to the field's full block size instead
+   of its natural height — for a textarea sitting beside a taller
+   sibling column in a grid row (the grid already stretches the
+   field div itself; this makes the control inside it grow too). */
+.field--fill {
+  height: 100%;
+}
+
+.field--fill .field__control {
+  flex: 1;
+}

@@ -37,11 +37,20 @@ li a {
   display: inline-block;
   font-size: var(--text-size-body);
   color: var(--text-color-link);
+  text-decoration: none;
   transition: color var(--motion-duration-ui) var(--motion-easing-ui);
 }
 
 .cta:hover {
   color: var(--text-color-link-hover);
+}
+
+.cta .icon {
+  transition: transform var(--motion-duration-ui) var(--motion-easing-ui);
+}
+
+.cta:hover .icon {
+  transform: translateX(var(--space-sm));
 }
 
 .cta--display {

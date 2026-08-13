@@ -22,6 +22,9 @@
   "layout": {
     "container-max": { "$value": "{container.max-width}", "$type": "dimension" }
   },
+  "effect": {
+    "blur-subtle": { "$value": "{blur.subtle}", "$type": "dimension" }
+  },
   "control": {
     "size": {
       "toggle":     { "$value": "{control.toggle}",     "$type": "dimension" },

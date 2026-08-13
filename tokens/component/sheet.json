@@ -4,7 +4,8 @@
       "surface": { "$value": "{surface.color.page}",    "$type": "color" },
       "scrim":   { "$value": "{surface.color.overlay}", "$type": "color" },
       "handle":  { "$value": "{border.color.strong}",   "$type": "color" },
-      "chrome":  { "$value": "{surface.color.card}",    "$type": "color" }
+      "chrome":  { "$value": "{surface.color.card}",    "$type": "color" },
+      "elevate": { "$value": "{surface.color.raise}",   "$type": "color" }
     },
     "size": {
       "peek":          { "$value": "{space.2xl}",          "$type": "dimension" },
@@ -16,6 +17,9 @@
     },
     "radius": {
       "default": { "$value": "{radius.md}", "$type": "dimension" }
+    },
+    "blur": {
+      "backdrop": { "$value": "{effect.blur-subtle}", "$type": "dimension" }
     },
     "motion": {
       "duration": { "$value": "{motion.duration.sheet}", "$type": "duration" },

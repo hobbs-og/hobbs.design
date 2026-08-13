@@ -15,6 +15,7 @@
   --color-background-subtle: #faf9f5;
   --color-background-surface: #ffffff;
   --color-background-overlay: rgba(15, 15, 15, 0.8);
+  --color-overlay-raise: rgba(255, 255, 255, 0.05);
   --color-brand-primary-100: #fde3cc;
   --color-brand-primary-200: #fcc09b;
   --color-brand-primary-300: #f69368;
@@ -80,6 +81,7 @@
   --control-toggle: 3rem;
   --control-toggle-bar: 1.75rem;
   --control-toggle-gap: 0.375rem;
+  --blur-subtle: 0.5rem;
   --stroke-width-hairline: 0.0625rem;
   --stroke-width-medium: 0.125rem;
   --stroke-width-thick: 0.25rem;
@@ -167,6 +169,7 @@
   --surface-color-inverse: var(--color-background-knockout);
   --surface-color-overlay: var(--color-background-overlay);
   --surface-color-highlight: var(--color-brand-primary-alpha-40);
+  --surface-color-raise: var(--color-overlay-raise);
   --border-color-hairline: var(--color-border-hairline);
   --border-color-default: var(--color-border-default);
   --border-color-strong: var(--color-border-strong);
@@ -219,6 +222,7 @@
   --space-stack-default: var(--spacing-24);
   --space-stack-loose: var(--spacing-48);
   --layout-container-max: var(--container-max-width);
+  --effect-blur-subtle: var(--blur-subtle);
   --radius-none: var(--border-radius-none);
   --radius-sm: var(--border-radius-sm);
   --radius-md: var(--border-radius-md);
@@ -301,11 +305,13 @@
   --sheet-color-scrim: var(--surface-color-overlay);
   --sheet-color-handle: var(--border-color-strong);
   --sheet-color-chrome: var(--surface-color-card);
+  --sheet-color-elevate: var(--surface-color-raise);
   --sheet-size-peek: var(--space-2xl);
   --sheet-size-handle-inline: var(--control-size-handle);
   --sheet-size-handle-block: var(--border-width-thick);
   --sheet-space-inset: var(--space-md);
   --sheet-radius-default: var(--radius-md);
+  --sheet-blur-backdrop: var(--effect-blur-subtle);
   --sheet-motion-duration: var(--motion-duration-sheet);
   --sheet-motion-easing: var(--motion-easing-sheet);
   --stat-color-background: var(--surface-color-alt);

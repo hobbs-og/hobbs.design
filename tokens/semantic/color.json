@@ -20,7 +20,8 @@
       "card":    { "$value": "{color.background.surface}",  "$type": "color" },
       "inverse": { "$value": "{color.background.knockout}", "$type": "color" },
       "overlay": { "$value": "{color.background.overlay}",  "$type": "color" },
-      "highlight": { "$value": "{color.brand.primary-alpha.40}", "$type": "color" }
+      "highlight": { "$value": "{color.brand.primary-alpha.40}", "$type": "color" },
+      "raise": { "$value": "{color.overlay.raise}", "$type": "color" }
     }
   },
   "border": {

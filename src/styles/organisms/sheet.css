@@ -31,7 +31,12 @@
   block-size: auto;
   max-inline-size: none;
   max-block-size: none;
-  background: var(--sheet-color-surface);
+  /* A touch of white laid over the page surface reads as a raised
+     layer rather than a same-color continuation of the page,
+     the way a card sits a shade lighter than its page in dark mode. */
+  background:
+    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
+    var(--sheet-color-surface);
   color: inherit;
 
   position: fixed;
@@ -77,8 +82,17 @@
   inline-size: min(100% - var(--sheet-size-peek), var(--layout-container-max));
 }
 
+/* On the standalone page the case-hero hands off to the container's
+   own rhythm. In the sheet it's the first thing in view, so a
+   hairline marks where it ends and the case study begins. */
+.sheet--case .case-hero {
+  border-block-end: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
 .sheet::backdrop {
   background: var(--sheet-color-scrim);
+  backdrop-filter: blur(var(--sheet-blur-backdrop));
+  -webkit-backdrop-filter: blur(var(--sheet-blur-backdrop));
   opacity: 0;
   transition:
     opacity var(--sheet-motion-duration) var(--sheet-motion-easing),

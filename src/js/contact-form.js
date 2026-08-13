@@ -1,13 +1,13 @@
 /* ============================================================
    contact-form.js — homepage contact form
 
-   Submits to Web3Forms (a static-form backend: no server code,
-   no API keys to run or rotate on our side, just an access key
-   in the form itself). Progressive enhancement, same as sheet.js:
-   the form's real method/action already work as a plain POST, so
-   a visitor with JS disabled still reaches Web3Forms and sees its
-   default confirmation page. This script only upgrades that into
-   an inline status message without leaving the page.
+   Submits to send_mail.php, which answers with a real HTTP status
+   (200 on success, 405/422/500/502 on failure) and a plain-text
+   body — no JSON to parse. Progressive enhancement, same as
+   sheet.js: the form's real method/action already work as a plain
+   POST, so a visitor with JS disabled still reaches send_mail.php
+   and sees its plain-text response. This script only upgrades that
+   into an inline status message without leaving the page.
    ============================================================ */
 (function () {
   var form = document.getElementById('contactForm');
@@ -24,14 +24,9 @@
     status.textContent = '';
     status.classList.remove('contact__form-status--error');
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
-    })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (!data.success) throw new Error(data.message || 'Something went wrong.');
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (res) {
+        if (!res.ok) throw new Error('send failed');
         form.reset();
         status.textContent = 'Message sent — I’ll get back to you soon.';
       })

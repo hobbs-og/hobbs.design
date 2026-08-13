@@ -65,9 +65,14 @@
     document.body.style.insetBlockStart = '';
     // After the pin is removed the page regains its full height, so
     // the scroll has to be set on the next frame, once that layout
-    // has happened. Setting it in the same tick lands short.
-    window.scrollTo(0, y);
-    requestAnimationFrame(function () { window.scrollTo(0, y); });
+    // has happened. Setting it in the same tick lands short. Both
+    // calls are explicitly instant: base/global.css puts smooth
+    // scroll-behavior on html for in-page anchor nav, which would
+    // otherwise animate this restore into a visible jump-then-glide.
+    window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+    requestAnimationFrame(function () {
+      window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+    });
   }
 
   function populate(html) {

@@ -88,10 +88,6 @@
   color: var(--text-color-link);
 }
 
-.project-row--index .cta .icon {
-  transition: transform var(--motion-duration-ui) var(--motion-easing-ui);
-}
-
 .project-row--index:hover .cta .icon,
 .project-row--index:focus-within .cta .icon {
   transform: translateX(var(--space-sm));

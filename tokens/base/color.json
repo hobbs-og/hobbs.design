@@ -16,6 +16,9 @@
       "surface":  { "$value": "#ffffff", "$type": "color" },
       "overlay":  { "$value": "#0f0f0fcc", "$type": "color" }
     },
+    "overlay": {
+      "raise": { "$value": "#ffffff0d", "$type": "color" }
+    },
     "brand": {
       "primary": {
         "100": { "$value": "#fde3cc", "$type": "color" },
