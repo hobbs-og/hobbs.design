@@ -33,6 +33,17 @@
   --_bg: var(--button-color-background-active);
 }
 
+/* Same nudge as .cta's hover icon, but half the distance — the
+   button's inline padding only has --button-space-inset-x of
+   headroom before the icon would spill past the edge. */
+.button .icon {
+  transition: transform var(--motion-duration-ui) var(--motion-easing-ui);
+}
+
+.button:hover .icon {
+  transform: translateX(var(--space-xs));
+}
+
 .button--quiet {
   --_bg: transparent;
   --_text: var(--button-color-quiet-text);
