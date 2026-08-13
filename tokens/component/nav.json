@@ -20,7 +20,7 @@
     "space": {
       "inset-y":   { "$value": "{space.nav-y}", "$type": "dimension" },
       "inset-x":   { "$value": "{space.nav-x}", "$type": "dimension" },
-      "link-gap":  { "$value": "{space.md}",    "$type": "dimension" },
+      "link-gap":  { "$value": "{space.lg}",    "$type": "dimension" },
       "panel-gap": { "$value": "{space.lg}",    "$type": "dimension" }
     },
     "motion": {

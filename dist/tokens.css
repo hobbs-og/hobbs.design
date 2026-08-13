@@ -289,7 +289,7 @@
   --nav-size-bar-stroke: var(--border-width-hairline);
   --nav-space-inset-y: var(--space-nav-y);
   --nav-space-inset-x: var(--space-nav-x);
-  --nav-space-link-gap: var(--space-md);
+  --nav-space-link-gap: var(--space-lg);
   --nav-space-panel-gap: var(--space-lg);
   --nav-motion-duration: var(--motion-duration-ui);
   --nav-motion-easing: var(--motion-easing-ui);
