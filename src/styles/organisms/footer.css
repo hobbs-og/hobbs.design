@@ -2,16 +2,24 @@
    organisms/footer.css — site footer
    No component tokens: the semantic layer covers every value
    here, so per-component tokens would be ceremony.
+
+   Full-bleed like .site-nav, so its rule reaches both edges of
+   the screen while its contents sit in the same .container as
+   the rest of the page — otherwise the footer runs wider than
+   the content above it on screens past the max-width.
    ============================================================ */
 
 .site-footer {
+  border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
+.site-footer__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-sm) var(--space-md);
-  padding: var(--space-xl) var(--space-section-x);
-  border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  padding-block: var(--space-xl);
   font-size: var(--text-size-ui);
   line-height: var(--text-line-height-ui);
   color: var(--text-color-subtle);
@@ -23,10 +31,4 @@
 
 .site-footer a:hover {
   color: var(--text-color-heading);
-}
-
-@media (max-width: 47.9375rem) {
-  .site-footer {
-    padding-inline: var(--space-md);
-  }
 }
