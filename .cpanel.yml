@@ -23,7 +23,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
     - /bin/cp -R index.html $DEPLOYPATH
-    - /bin/cp -R index-more.html $DEPLOYPATH
+    - /bin/cp -R about.html $DEPLOYPATH
     - /bin/cp -R resume.html $DEPLOYPATH
     - /bin/cp -R contact.html $DEPLOYPATH
     - /bin/cp -R terafina.html $DEPLOYPATH
