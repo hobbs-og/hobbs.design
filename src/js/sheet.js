@@ -28,6 +28,7 @@
 
   var body = sheet.querySelector('.sheet__body');
   var closeBtn = sheet.querySelector('.sheet__close');
+  var backBtn = sheet.querySelector('.sheet__back');
 
   var cache = {};
   var inFlight = {};
@@ -287,6 +288,7 @@
   });
 
   if (closeBtn) closeBtn.addEventListener('click', dismiss);
+  if (backBtn) backBtn.addEventListener('click', dismiss);
 
   // Back closes without pushing another entry; Forward re-opens.
   window.addEventListener('popstate', function (e) {

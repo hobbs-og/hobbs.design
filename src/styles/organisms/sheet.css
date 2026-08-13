@@ -159,8 +159,8 @@
   }
 
   .sheet__chrome {
-    flex-direction: column;
-    gap: var(--space-xs);
+    position: relative;
+    justify-content: flex-end;
     padding-inline: var(--space-md);
     /* The chrome bar is the drag surface for swipe-to-close; without
        this, touchmove here is interpreted as a page/body scroll
@@ -169,9 +169,18 @@
   }
 
   /* The grab handle is a rule, so it is drawn as one: a border
-     rather than a box with a height. */
+     rather than a box with a height. Centered on the bar itself
+     (standard sheet placement) rather than in the flex flow next to
+     the close button, so its position holds regardless of the
+     button's width — same reason the close button sits at the
+     trailing edge instead of beside it, the standard split for a
+     sheet's top bar. */
   .sheet__handle {
     display: block;
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    transform: translate(-50%, -50%);
     inline-size: var(--sheet-size-handle-inline);
     border-block-start: var(--sheet-size-handle-block) solid var(--sheet-color-handle);
     border-radius: var(--radius-round);
@@ -179,13 +188,22 @@
 
   /* Icon-only now that "Back" text is gone — the visible glyph is
      smaller than a comfortable touch target, so the tappable area
-     is grown past the icon's own box without adding visible padding. */
+     is grown past the icon's own box without adding visible padding.
+     align-items: center on .sheet__chrome (base rule, above) keeps
+     it level with the handle. */
   .sheet__close {
-    align-self: flex-end;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-inline-size: 2.75rem;
     min-block-size: 2.75rem;
+  }
+
+  /* Desktop pairs a Back link (left) with Close (right) — standard
+     for a two-affordance panel. On mobile there's only room, and
+     only need, for the one exit: the close button plus the swipe
+     gesture. */
+  .sheet__back {
+    display: none;
   }
 }
