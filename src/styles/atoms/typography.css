@@ -77,7 +77,6 @@ samp,
   font-weight: var(--text-weight-brand);
   line-height: var(--text-line-height-heading-lg);
   color: var(--text-color-heading);
-  text-wrap: balance;
 }
 
 /* The eyebrow/kicker treatment: mono and quiet, uppercase, small.
@@ -90,6 +89,24 @@ samp,
   line-height: var(--text-line-height-caption);
   text-transform: uppercase;
   color: var(--text-color-subtle);
+}
+
+/* Widow/orphan control, sitewide. Headings and other short,
+   editorial text balance across all of their lines rather than
+   wrapping ragged (the same treatment .pullquote used alone before
+   this rule existed). Body copy gets the narrower fix: only the
+   last line is reflowed, just enough to keep a single stray word
+   off it. Both are no-ops wherever a block doesn't wrap, and both
+   degrade harmlessly in browsers that don't support them yet —
+   text just wraps normally, same as before this rule. */
+h1, h2, h3, h4,
+.text-display, .text-heading-xl, .text-heading-md,
+.section-label, .pullquote {
+  text-wrap: balance;
+}
+
+p, li, dd {
+  text-wrap: pretty;
 }
 
 /* Responsive display scale — the 80px hero steps down, keeping
