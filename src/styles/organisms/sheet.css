@@ -161,7 +161,8 @@
   .sheet__chrome {
     position: relative;
     justify-content: flex-end;
-    padding-inline: var(--space-md);
+    padding-inline-start: var(--space-md);
+    padding-inline-end: var(--space-xs);
     padding-block: var(--space-xs);
     /* The chrome bar is the drag surface for swipe-to-close; without
        this, touchmove here is interpreted as a page/body scroll
