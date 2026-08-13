@@ -39,3 +39,14 @@
   --_text: var(--chip-color-error-text);
   --_border: transparent;
 }
+
+/* A wrapped row of chips centers instead of ragging left, so a
+   short final line reads as a balanced last row instead of a
+   stray pair stranded against empty space. */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0;
+}
