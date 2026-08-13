@@ -77,6 +77,14 @@
 /* Single column on mobile — twelve tracks with 48px gaps
    exceed the viewport and force horizontal overflow. */
 @media (max-width: 47.9375rem) {
+  .container {
+    padding-inline: var(--space-md);
+  }
+
+  .section {
+    padding-block: var(--space-md);
+  }
+
   .grid,
   .align {
     grid-template-columns: 1fr;

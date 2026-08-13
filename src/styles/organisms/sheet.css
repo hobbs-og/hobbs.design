@@ -162,6 +162,10 @@
     flex-direction: column;
     gap: var(--space-xs);
     padding-inline: var(--space-md);
+    /* The chrome bar is the drag surface for swipe-to-close; without
+       this, touchmove here is interpreted as a page/body scroll
+       attempt and fights the pointer handlers in sheet.js. */
+    touch-action: none;
   }
 
   /* The grab handle is a rule, so it is drawn as one: a border
@@ -173,7 +177,15 @@
     border-radius: var(--radius-round);
   }
 
+  /* Icon-only now that "Back" text is gone — the visible glyph is
+     smaller than a comfortable touch target, so the tappable area
+     is grown past the icon's own box without adding visible padding. */
   .sheet__close {
     align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
   }
 }

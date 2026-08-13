@@ -145,6 +145,103 @@
     teardown();
   }
 
+  // Swipe-to-close (mobile only — the handle is display:none above
+  // that breakpoint, and the desktop sheet slides in from the side,
+  // not up from the bottom, so a vertical drag wouldn't make sense
+  // there). Dragging is read from the whole chrome bar, not just the
+  // thin handle rule, so the hit area is generous; the close button
+  // opts itself out so its own click still works.
+  //
+  // The sheet is dragged with an inline transform while the pointer
+  // is down. On release it either springs back to open (clearing the
+  // inline style lets the [open] rule's transition take over) or
+  // finishes the close animation itself before handing off to
+  // dismiss() — dismiss()'s own transition would otherwise start
+  // from translateY(0) and jump, since it doesn't know a drag was
+  // already partway there.
+  var chrome = sheet.querySelector('.sheet__chrome');
+  var DISMISS_DISTANCE = 120; // px dragged before it counts as intentional
+  var DISMISS_VELOCITY = 0.5; // px/ms — a flick counts even if short
+
+  function isMobileSheet() {
+    return window.matchMedia('(max-width: 47.9375rem)').matches;
+  }
+
+  if (chrome && window.PointerEvent) {
+    var dragging = false;
+    var startY = 0;
+    var lastDelta = 0;
+    var startTime = 0;
+
+    chrome.addEventListener('pointerdown', function (e) {
+      if (!isOpen || !isMobileSheet()) return;
+      if (e.target.closest('.sheet__close')) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      startY = e.clientY;
+      lastDelta = 0;
+      startTime = e.timeStamp;
+      sheet.style.transition = 'none';
+      chrome.setPointerCapture(e.pointerId);
+    });
+
+    chrome.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var delta = e.clientY - startY;
+      // Rubber-band resistance dragging upward — the sheet is
+      // already fully open, there's nowhere for it to go.
+      if (delta < 0) delta = delta / 3;
+      lastDelta = delta;
+      sheet.style.transform = 'translateY(' + delta + 'px)';
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      sheet.style.transition = '';
+      // Re-enabling the transition and changing transform in the same
+      // tick can get coalesced into one style recalc, which drops the
+      // transition (and the transitionend it depends on below) — most
+      // likely on a fast flick, where pointerup lands in the same
+      // frame as the last pointermove. Forcing a flush in between
+      // guarantees the transform change is seen as a genuine update.
+      void sheet.offsetHeight;
+
+      var elapsed = Math.max(1, e.timeStamp - startTime);
+      var velocity = lastDelta / elapsed;
+      var shouldDismiss = lastDelta > DISMISS_DISTANCE || velocity > DISMISS_VELOCITY;
+
+      if (!shouldDismiss) {
+        sheet.style.transform = '';
+        return;
+      }
+
+      // Finish the slide down under the drag's own transform, then
+      // hand off to the normal close path once it's visually gone.
+      // The timeout is a backstop in case transitionend never fires
+      // (e.g. the transform was already at its target and no
+      // transition triggers).
+      var settled = false;
+      function finish() {
+        if (settled) return;
+        settled = true;
+        sheet.removeEventListener('transitionend', onDone);
+        clearTimeout(fallback);
+        sheet.style.transform = '';
+        dismiss();
+      }
+      function onDone(ev) {
+        if (ev.target === sheet && ev.propertyName === 'transform') finish();
+      }
+      sheet.addEventListener('transitionend', onDone);
+      var fallback = setTimeout(finish, 400);
+      sheet.style.transform = 'translateY(100%)';
+    }
+
+    chrome.addEventListener('pointerup', endDrag);
+    chrome.addEventListener('pointercancel', endDrag);
+  }
+
   // Native exits: Escape fires cancel then close. Listening to both
   // means teardown still runs on engines that skip one of them.
   sheet.addEventListener('cancel', teardown);

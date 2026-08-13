@@ -95,4 +95,11 @@
     font-size: var(--text-size-heading-lg);
     line-height: var(--text-line-height-heading-lg);
   }
+
+  /* Matches .container's own mobile step-down (layout/grid.css) so
+     the hero's text keeps lining up with the section content below
+     it, per the alignment this element exists for. */
+  .case-hero__inner {
+    padding-inline: var(--space-md);
+  }
 }
