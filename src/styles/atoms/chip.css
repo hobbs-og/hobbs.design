@@ -40,13 +40,19 @@
   --_border: transparent;
 }
 
-/* A wrapped row of chips centers instead of ragging left, so a
-   short final line reads as a balanced last row instead of a
-   stray pair stranded against empty space. */
 .chip-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-xs);
   padding: 0;
+}
+
+/* Forces a wrap at a chosen point instead of leaving the browser
+   to fill each row greedily — which is what produced a lopsided
+   final row (most chips up top, a stray couple left dangling
+   below). A zero-height, full-width flex item breaks the line
+   without adding visible space of its own. */
+.chip-group__break {
+  flex-basis: 100%;
+  block-size: 0;
 }
