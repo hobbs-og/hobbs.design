@@ -17,6 +17,13 @@
   color: var(--_text);
   font-size: var(--text-size-body);
   line-height: var(--text-line-height-body);
+  /* Labels are title-cased by the component, not by whoever writes the
+     markup, so "View the work" and "view the work" render identically
+     and a label can't arrive in the wrong case. Worth knowing: this
+     capitalises every word including the small ones, so "View the work"
+     reads "View The Work". If a label needs true title case, the fix is
+     the label, not this rule. */
+  text-transform: capitalize;
   text-decoration: none;
   cursor: pointer;
   transition:

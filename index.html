@@ -30,7 +30,7 @@
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
         <a href="index.html#work">Work</a>
-        <a href="about.html">About</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="resume.html">Resume</a>
       </nav>
@@ -49,7 +49,7 @@
   <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
     <nav class="sheet__body nav-panel__links" aria-label="Primary">
       <a href="index.html#work">Work</a>
-      <a href="about.html">About</a>
+      <a href="index.html#about">About</a>
       <a href="index.html#contact">Contact</a>
       <a href="resume.html">Resume</a>
     </nav>
@@ -107,7 +107,7 @@
 
     <div class="container">
 
-      <section class="section" aria-labelledby="how-heading" data-xray="organism · how-i-work">
+      <section class="section" id="about" aria-labelledby="how-heading" data-xray="organism · how-i-work">
         <div class="section-header">
           <p class="section-label" data-xray="atom · section-label">01 — What I solve</p>
         </div>
@@ -130,7 +130,10 @@
             how the thing actually gets built, shipped, and maintained.</p>
             <p>The goal isn't to make complexity look simpler, it's to make
             it workable.</p>
-            <a class="button button--quiet how-i-work__action" href="groundwork.html" data-xray="atom · button">How I rebuilt this site <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            <div class="index-hero__actions">
+              <a class="button button--solid" href="about.html" data-xray="atom · button">More about me</a>
+              <a class="button button--quiet" href="groundwork.html" data-xray="atom · button">How I work <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+            </div>
           </div>
         </div>
       </section>
