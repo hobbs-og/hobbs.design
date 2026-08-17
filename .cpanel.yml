@@ -48,6 +48,9 @@ deployment:
     - /bin/cp -R robots.txt $DEPLOYPATH
     - /bin/cp -R sitemap.xml $DEPLOYPATH
     - /bin/cp -R send_mail.php $DEPLOYPATH
+    # TEMPORARY diagnostic — remove this line and the file once the
+    # contact form is confirmed delivering.
+    - /bin/cp -R mail-check.php $DEPLOYPATH
     - /bin/cp -R Mark-Hobbs_Resume.pdf $DEPLOYPATH
     - /bin/cp -R dist $DEPLOYPATH
     - /bin/cp -R src $DEPLOYPATH
