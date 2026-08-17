@@ -4,7 +4,7 @@
    Atomic Design, one direction of dependency:
 
      dist/tokens.css   design tokens (link BEFORE this file)
-     base/             reset + element defaults + a11y foundations
+     base/             @font-face + reset + element defaults + a11y
      atoms/            typography, link, button, chip
      molecules/        project-row, field
      organisms/        nav, footer, index-hero, case-hero, sheet
@@ -17,6 +17,7 @@
    3. Hierarchy comes from size and opacity, not hue or weight.
    ============================================================ */
 
+@import url('base/fonts.css');
 @import url('base/reset.css');
 @import url('base/global.css');
 
@@ -41,6 +42,7 @@
 @import url('organisms/index-hero.css');
 @import url('organisms/how-i-work.css');
 @import url('organisms/case-hero.css');
+@import url('organisms/case-study.css');
 @import url('organisms/work-index.css');
 @import url('organisms/contact.css');
 

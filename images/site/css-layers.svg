@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="layers-title">
+  <title id="layers-title">The stylesheet layers of main.css in import order, from tokens through base, atoms, molecules, organisms, layout and utilities</title>
+  <style>
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .name { font-size: 13px; fill: #0f0f0f; letter-spacing: 0.06em; text-anchor: end; }
+    .box { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .box--gen { stroke-dasharray: 4 4; }
+    .flow { stroke: rgba(15, 15, 15, 0.6); stroke-width: 1.5; fill: none; }
+    .flow-tip { fill: rgba(15, 15, 15, 0.6); }
+    .axis { letter-spacing: 0.16em; text-anchor: middle; }
+
+    @media (prefers-color-scheme: dark) {
+      text { fill: rgba(245, 245, 244, 0.6); }
+      .name { fill: #f5f5f4; }
+      .box { stroke: #686b70; }
+      .flow { stroke: rgba(245, 245, 244, 0.6); }
+      .flow-tip { fill: rgba(245, 245, 244, 0.6); }
+    }
+  </style>
+
+  <!-- direction of dependency -->
+  <path class="flow" d="M40 40 V 416"/>
+  <polygon class="flow-tip" points="36,416 44,416 40,426"/>
+  <text class="axis" x="20" y="232" transform="rotate(-90 20 232)">DEPENDENCY RUNS ONE WAY</text>
+
+  <text class="name" x="200" y="70">dist/tokens.css</text>
+  <rect class="box box--gen" x="224" y="40" width="968" height="48"/>
+  <text x="248" y="70">generated from tokens/, linked before main.css on every page</text>
+
+  <text class="name" x="200" y="126">base/</text>
+  <rect class="box" x="224" y="96" width="968" height="48"/>
+  <text x="248" y="126">reset.css, global.css</text>
+
+  <text class="name" x="200" y="182">atoms/</text>
+  <rect class="box" x="224" y="152" width="968" height="48"/>
+  <text x="248" y="182">typography.css, link.css, button.css, chip.css, icon.css, media.css</text>
+
+  <text class="name" x="200" y="238">molecules/</text>
+  <rect class="box" x="224" y="208" width="968" height="48"/>
+  <text x="248" y="238">project-row.css, field.css, stat.css, section-header.css, link-list.css</text>
+
+  <text class="name" x="200" y="294">organisms/</text>
+  <rect class="box" x="224" y="264" width="968" height="48"/>
+  <text x="248" y="294">sheet.css, nav.css, footer.css, index-hero.css, how-i-work.css, case-hero.css, case-study.css, work-index.css, contact.css</text>
+
+  <text class="name" x="200" y="350">layout/</text>
+  <rect class="box" x="224" y="320" width="968" height="48"/>
+  <text x="248" y="350">grid.css</text>
+
+  <text class="name" x="200" y="406">utilities/</text>
+  <rect class="box" x="224" y="376" width="968" height="48"/>
+  <text x="248" y="406">xray.css</text>
+
+  <text x="80" y="464">Import order is dependency order, so the cascade never has to be argued with. sheet.css is imported before nav.css because the</text>
+  <text x="80" y="484">navigation panel is a sheet variant, and an override has to come after the thing it modifies.</text>
+</svg>

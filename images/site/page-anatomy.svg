@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="anatomy-title">
+  <title id="anatomy-title">Wireframe of a hobbs.design case study page, annotated with the atomic layer and class name of each region</title>
+  <style>
+    /* Standalone asset: an SVG loaded through an img element is its own
+       document, so the page's custom properties can't reach it. The token
+       values are restated here, light and dark, and kept in sync by hand. */
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .hair { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .bar { fill: rgba(15, 15, 15, 0.14); }
+    .bar--quiet { fill: rgba(15, 15, 15, 0.08); }
+    .col { stroke: rgba(15, 15, 15, 0.08); stroke-width: 1; }
+    .box { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .dash { stroke-dasharray: 4 4; }
+    .atom { fill: #3b4ede; }
+    .atom-s { stroke: #3b4ede; }
+    .molecule { fill: #7a3bde; }
+    .molecule-s { stroke: #7a3bde; }
+    .organism { fill: #00754a; }
+    .organism-s { stroke: #00754a; }
+    .template { fill: #b26e00; }
+    .template-s { stroke: #b26e00; }
+    .accent { fill: #c11406; }
+    .end { text-anchor: end; }
+
+    @media (prefers-color-scheme: dark) {
+      text { fill: rgba(245, 245, 244, 0.6); }
+      .hair, .box { stroke: #686b70; }
+      .bar { fill: rgba(245, 245, 244, 0.18); }
+      .bar--quiet { fill: rgba(245, 245, 244, 0.1); }
+      .col { stroke: rgba(245, 245, 244, 0.1); }
+      .atom { fill: #8b93ff; } .atom-s { stroke: #8b93ff; }
+      .molecule { fill: #b596ff; } .molecule-s { stroke: #b596ff; }
+      .organism { fill: #3ddb95; } .organism-s { stroke: #3ddb95; }
+      .template { fill: #e0a83e; } .template-s { stroke: #e0a83e; }
+      .accent { fill: #ff7a5c; }
+    }
+  </style>
+
+  <!-- the page itself -->
+  <text class="template" x="400" y="28">template · case-study</text>
+  <rect class="box dash template-s" x="400" y="40" width="416" height="600"/>
+
+  <!-- site-nav -->
+  <rect class="box" x="416" y="56" width="384" height="48"/>
+  <rect class="bar" x="432" y="72" width="80" height="16"/>
+  <rect class="bar--quiet" x="624" y="76" width="32" height="8"/>
+  <rect class="bar--quiet" x="672" y="76" width="32" height="8"/>
+  <rect class="bar--quiet" x="720" y="76" width="32" height="8"/>
+  <rect class="bar--quiet" x="760" y="72" width="24" height="16" rx="8"/>
+
+  <!-- case-hero -->
+  <rect class="box" x="416" y="120" width="384" height="168"/>
+  <rect class="bar--quiet" x="432" y="144" width="104" height="8"/>
+  <rect class="bar" x="432" y="168" width="320" height="16"/>
+  <rect class="bar" x="432" y="192" width="232" height="16"/>
+  <rect class="bar--quiet" x="432" y="224" width="288" height="8"/>
+  <rect class="bar--quiet" x="432" y="240" width="248" height="8"/>
+  <rect class="bar--quiet" x="432" y="264" width="48" height="8"/>
+  <rect class="bar--quiet" x="512" y="264" width="64" height="8"/>
+  <rect class="bar--quiet" x="608" y="264" width="56" height="8"/>
+
+  <!-- section on the 12-column grid -->
+  <g class="col">
+    <line x1="416" y1="304" x2="416" y2="472"/>
+    <line x1="448" y1="304" x2="448" y2="472"/>
+    <line x1="480" y1="304" x2="480" y2="472"/>
+    <line x1="512" y1="304" x2="512" y2="472"/>
+    <line x1="544" y1="304" x2="544" y2="472"/>
+    <line x1="576" y1="304" x2="576" y2="472"/>
+    <line x1="608" y1="304" x2="608" y2="472"/>
+    <line x1="640" y1="304" x2="640" y2="472"/>
+    <line x1="672" y1="304" x2="672" y2="472"/>
+    <line x1="704" y1="304" x2="704" y2="472"/>
+    <line x1="736" y1="304" x2="736" y2="472"/>
+    <line x1="768" y1="304" x2="768" y2="472"/>
+    <line x1="800" y1="304" x2="800" y2="472"/>
+  </g>
+  <rect class="bar" x="416" y="328" width="256" height="12"/>
+  <rect class="bar" x="416" y="348" width="192" height="12"/>
+  <rect class="bar" x="544" y="380" width="256" height="12"/>
+  <rect class="bar" x="544" y="400" width="208" height="12"/>
+  <rect class="bar--quiet" x="544" y="432" width="112" height="6"/>
+  <rect class="bar--quiet" x="544" y="444" width="96" height="6"/>
+  <rect class="bar--quiet" x="680" y="432" width="112" height="6"/>
+  <rect class="bar--quiet" x="680" y="444" width="104" height="6"/>
+
+  <!-- project-row -->
+  <rect class="box" x="416" y="488" width="384" height="80"/>
+  <rect class="bar--quiet" x="432" y="504" width="88" height="6"/>
+  <rect class="bar" x="432" y="520" width="176" height="10"/>
+  <rect class="bar" x="432" y="536" width="136" height="10"/>
+  <rect class="accent" x="432" y="556" width="64" height="6"/>
+  <rect class="box" x="624" y="496" width="160" height="64"/>
+  <g class="hair">
+    <line x1="624" y1="496" x2="784" y2="560"/>
+    <line x1="784" y1="496" x2="624" y2="560"/>
+  </g>
+
+  <!-- site-footer -->
+  <rect class="box" x="416" y="584" width="384" height="40"/>
+  <rect class="bar--quiet" x="432" y="600" width="176" height="6"/>
+  <rect class="bar--quiet" x="704" y="600" width="80" height="6"/>
+
+  <!-- annotations, left -->
+  <g class="hair">
+    <line x1="376" y1="80" x2="400" y2="80"/>
+    <line x1="376" y1="204" x2="400" y2="204"/>
+    <line x1="376" y1="388" x2="400" y2="388"/>
+    <line x1="376" y1="528" x2="400" y2="528"/>
+    <line x1="376" y1="604" x2="400" y2="604"/>
+  </g>
+  <text class="end organism" x="368" y="84">organism · site-nav</text>
+  <text class="end organism" x="368" y="208">organism · case-hero</text>
+  <text class="end" x="368" y="392">layout · grid, 12 columns</text>
+  <text class="end molecule" x="368" y="532">molecule · project-row</text>
+  <text class="end organism" x="368" y="608">organism · site-footer</text>
+
+  <!-- annotations, right -->
+  <g class="hair">
+    <line x1="816" y1="80" x2="840" y2="80"/>
+    <line x1="816" y1="148" x2="840" y2="148"/>
+    <line x1="816" y1="386" x2="840" y2="386"/>
+    <line x1="816" y1="504" x2="840" y2="504"/>
+    <line x1="816" y1="558" x2="840" y2="558"/>
+  </g>
+  <text class="molecule" x="848" y="84">molecule · nav-links</text>
+  <text class="atom" x="848" y="152">atom · section-label</text>
+  <text class="atom" x="848" y="390">atom · h3</text>
+  <text class="atom" x="848" y="508">atom · img-frame</text>
+  <text class="atom" x="848" y="562">atom · cta</text>
+
+  <!-- legend -->
+  <g>
+    <circle class="atom" cx="404" cy="660" r="4"/>
+    <text class="atom" x="416" y="664">atom</text>
+    <circle class="molecule" cx="500" cy="660" r="4"/>
+    <text class="molecule" x="512" y="664">molecule</text>
+    <circle class="organism" cx="620" cy="660" r="4"/>
+    <text class="organism" x="632" y="664">organism</text>
+    <circle class="template" cx="748" cy="660" r="4"/>
+    <text class="template" x="760" y="664">template</text>
+  </g>
+</svg>

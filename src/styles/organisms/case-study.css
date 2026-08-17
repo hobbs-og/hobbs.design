@@ -1,0 +1,27 @@
+/* ============================================================
+   organisms/case-study.css — the case-study reading rhythm
+
+   Every case study repeats the same vertical spacing: one xl step
+   between the blocks of a section, one md step between a heading
+   and the columns that support it. Until now that rhythm was typed
+   into the markup as a style attribute on every block, which meant
+   the page carried layout decisions the system was supposed to own.
+
+   Encoded here, the spacing is a property of the pattern. Change
+   the step once and every case study moves together, and the HTML
+   goes back to describing structure rather than measurements.
+   ============================================================ */
+
+/* Sits alongside .section, which owns the padding between sections.
+   This owns the gaps inside one. The lead-in figure needs no rule
+   of its own: as the first child it gets no margin, and the block
+   after it picks up the same xl step everything else does. */
+.case-section > * + * {
+  margin-block-start: var(--space-xl);
+}
+
+/* A heading and the columns that carry its argument are one unit,
+   so they sit closer together than two separate blocks would. */
+.case-section__support {
+  margin-block-start: var(--space-md);
+}

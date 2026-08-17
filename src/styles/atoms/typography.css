@@ -14,18 +14,43 @@ h1,
   color: var(--text-color-default);
 }
 
-/* H2 — editorial section heading. Large and calm, regular weight. */
+/* H2 — editorial section heading. Large and calm, regular weight,
+   and the brightest text on the page after the display. Size carries
+   the hierarchy; the color says which line the eye lands on first. */
 h2,
 .text-heading-xl {
   font-family: var(--text-family-base);
   font-size: var(--text-size-heading-xl);
   font-weight: var(--text-weight-editorial);
   line-height: var(--text-line-height-heading-xl);
+  color: var(--text-color-heading);
+}
+
+/* H3 — the editorial statement. Big, bold, and set in the display
+   face: the callout hung in the right-hand columns of a case-study
+   section, and the only thing an h3 is ever used for.
+
+   This was a .pullquote class sitting on top of a smaller default,
+   which meant the element said one thing and the class said another
+   on every single use. There were no bare h3s left doing the old
+   job, so the class was the default in all but name and the
+   override could go. It reads at body color rather than heading
+   color on purpose — an h2 above it is the section, and a statement
+   that outshouted its own section heading would invert the
+   hierarchy. */
+h3,
+.text-heading-lg {
+  font-family: var(--text-family-display);
+  font-size: var(--text-size-heading-lg);
+  font-weight: var(--text-weight-brand);
+  line-height: var(--text-line-height-heading-lg);
   color: var(--text-color-body);
 }
 
-/* H3 — card / subsection title. */
-h3,
+/* Card and entry titles — a project in the work index, a role on
+   the resume, one of the pillars on the About page. Named for its
+   step on the scale rather than for an element, because no element
+   defaults to it: a heading that isn't a statement asks for it. */
 .text-heading-md {
   font-family: var(--text-family-display);
   font-size: var(--text-size-heading-md);
@@ -59,24 +84,56 @@ h4 {
   color: var(--text-color-subtle);
 }
 
+/* Inline code — a token name or a filename sitting inside a
+   sentence. No size step: it runs at the size of the prose around
+   it. The old rule shrank it to 0.875em on the assumption that a
+   monospace reads large beside Neue Haas, but measured against the
+   face this stack actually resolves to, the x-heights sit within
+   1.3% of each other at the same nominal size. The step-down wasn't
+   correcting anything, it was just setting code smaller than its
+   own sentence.
+
+   Contrast does the separating instead. Code takes the brightest
+   neutral while body copy sits at 70%, so a token name reads as
+   something to look at rather than something to skim. It stays a
+   neutral on purpose: on this site red means a link, and code is
+   not a thing you can click. */
 code,
 kbd,
-samp,
-.text-mono {
+samp {
   font-family: var(--text-family-mono);
-  font-size: 0.875em;
+  color: var(--text-color-heading);
+  /* A token name is full of hyphens, and a browser treats every one
+     of them as a licence to break the line. --text-color-link split
+     across two lines reads as two different things, and the reader
+     can't tell the wrap from a hyphen that's really in the name.
+     The whole name moves to the next line instead. */
+  white-space: nowrap;
 }
 
-/* Case-study pullquote — a large, bold editorial callout hung in
-   the right-hand columns of a section. Distinct from h3 (the
-   card/subsection title): bigger, heavier, and set to balance
-   rather than wrap ragged. */
-.pullquote {
-  font-family: var(--text-family-display);
-  font-size: var(--text-size-heading-lg);
-  font-weight: var(--text-weight-brand);
-  line-height: var(--text-line-height-heading-lg);
-  color: var(--text-color-heading);
+/* A sample rather than a reference: a whole snippet of markup or a
+   command, too long to sit inside a line of prose. The nowrap above
+   is written for short names, and a sample inheriting it cannot wrap
+   at all — one snippet on components.html stretched to 883px and
+   pushed the entire page to 907px wide inside a 375px viewport,
+   giving every section a horizontal scrollbar on a phone. A sample
+   wraps at the spaces between its attributes instead, and
+   break-word is the backstop for a single run longer than the
+   measure. */
+code.code-sample {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* The mono utility is a different job — whole lines set in mono
+   (the contact links, a specimen on the foundations page) rather
+   than a phrase inside a sentence. Those lines want to be ui-sized,
+   so they ask for the ui size. This used to be 0.875em, which
+   happened to compute to 14px next to 16px body copy and would have
+   quietly become something else anywhere else. */
+.text-mono {
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-ui);
 }
 
 /* The eyebrow/kicker treatment: mono and quiet, uppercase, small.
@@ -93,15 +150,15 @@ samp,
 
 /* Widow/orphan control, sitewide. Headings and other short,
    editorial text balance across all of their lines rather than
-   wrapping ragged (the same treatment .pullquote used alone before
-   this rule existed). Body copy gets the narrower fix: only the
-   last line is reflowed, just enough to keep a single stray word
-   off it. Both are no-ops wherever a block doesn't wrap, and both
+   wrapping ragged. Body copy gets the narrower fix: only the last
+   line is reflowed, just enough to keep a single stray word off
+   it. Both are no-ops wherever a block doesn't wrap, and both
    degrade harmlessly in browsers that don't support them yet —
    text just wraps normally, same as before this rule. */
 h1, h2, h3, h4,
-.text-display, .text-heading-xl, .text-heading-md,
-.section-label, .pullquote {
+.text-display, .text-heading-xl,
+.text-heading-lg, .text-heading-md,
+.section-label {
   text-wrap: balance;
 }
 

@@ -54,7 +54,7 @@
    nested span-4 lines up with the outer grid's actual columns
    instead of splitting evenly across whatever width the item
    happens to have. Case studies use this to hang asymmetric groups
-   (headings, pullquotes, image pairs) off the same 12-column
+   (headings, statements, image pairs) off the same 12-column
    measure — an item needs both a span-N class (its own size) and
    .align (subgrids its children) to nest correctly. */
 .align {

@@ -40,6 +40,16 @@ or px value.** `color.brand.primary.500` is a red; it doesn't know it's a link.
   line heights (all 8px multiples), letter spacing (0 — tracking is never
   manipulated)
 
+Two families, two delivery routes. Neue Haas Grotesk is served by Typekit.
+The mono is **JetBrains Mono, self-hosted** from `src/public/fonts/`
+(latin subset, weight 400, 21KB, OFL — the licence sits beside the file),
+declared in `src/styles/base/fonts.css`. It was picked by measurement: at
+the same nominal size its x-height is 1.02 and its cap-height 0.98 of Neue
+Haas Grotesk Text, the closest of the candidates tested, so inline `<code>`
+needs no size correction to sit inside a sentence. Before this it was named
+in the token but never loaded, which meant the mono rendered as whatever
+the visitor's OS supplied.
+
 Dimensions compile to rem (÷16) so user font-size preferences scale the UI.
 Breakpoints stay px: media queries can't read custom properties, so those
 tokens document the values duplicated by hand in CSS.

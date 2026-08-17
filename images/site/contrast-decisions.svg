@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-labelledby="contrast-title">
+  <title id="contrast-title">Contrast measurements for the two colour pairs that failed WCAG AA at body size, and the token values that replaced them</title>
+  <style>
+    /* This one stays light in both themes on purpose. It documents four
+       measured pairs from the light palette, and a colour that repaints
+       itself in dark mode would make the numbers beside it wrong. */
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .page { fill: #f8f8f8; }
+    .head { font-size: 11px; letter-spacing: 0.12em; fill: rgba(15, 15, 15, 0.6); }
+    .title { font-size: 13px; letter-spacing: 0.12em; fill: #0f0f0f; }
+    .sample { font-size: 16px; }
+    .s500 { fill: #e12a09; }
+    .s600 { fill: #c11406; }
+    .s40 { fill: rgba(15, 15, 15, 0.4); }
+    .s60 { fill: rgba(15, 15, 15, 0.6); }
+    .rule { stroke: #cccccc; stroke-width: 1; }
+    .fail { fill: #d00000; }
+    .pass { fill: #007b31; }
+    .end { text-anchor: end; }
+  </style>
+
+  <rect class="page" x="0" y="0" width="1200" height="440"/>
+
+  <text class="title" x="48" y="56">BODY TEXT ON #F8F8F8. WCAG 2.2 AA NEEDS 4.5:1</text>
+
+  <text class="head" x="96" y="96">SAMPLE</text>
+  <text class="head" x="400" y="96">TOKEN</text>
+  <text class="head" x="720" y="96">VALUE</text>
+  <text class="head end" x="940" y="96">RATIO</text>
+  <line class="rule" x1="48" y1="112" x2="1152" y2="112"/>
+
+  <rect class="s500" x="48" y="128" width="32" height="32"/>
+  <text class="sample s500" x="96" y="156">Read the case study</text>
+  <text x="400" y="156">--text-color-link-large</text>
+  <text x="720" y="156">brand.primary.500</text>
+  <text class="end" x="940" y="156">4.36:1</text>
+  <text class="fail" x="980" y="156">&#10007; fails at body size</text>
+  <line class="rule" x1="48" y1="184" x2="1152" y2="184"/>
+
+  <rect class="s600" x="48" y="192" width="32" height="32"/>
+  <text class="sample s600" x="96" y="220">Read the case study</text>
+  <text x="400" y="220">--text-color-link</text>
+  <text x="720" y="220">brand.primary.600</text>
+  <text class="end" x="940" y="220">5.90:1</text>
+  <text class="pass" x="980" y="220">&#10003; passes</text>
+  <line class="rule" x1="48" y1="248" x2="1152" y2="248"/>
+
+  <rect class="s40" x="48" y="256" width="32" height="32"/>
+  <text class="sample s40" x="96" y="284">Supporting caption</text>
+  <text x="400" y="284">--text-color-disabled</text>
+  <text x="720" y="284">40% black</text>
+  <text class="end" x="940" y="284">2.60:1</text>
+  <text class="fail" x="980" y="284">&#10007; fails</text>
+  <line class="rule" x1="48" y1="312" x2="1152" y2="312"/>
+
+  <rect class="s60" x="48" y="320" width="32" height="32"/>
+  <text class="sample s60" x="96" y="348">Supporting caption</text>
+  <text x="400" y="348">--text-color-subtle</text>
+  <text x="720" y="348">60% black</text>
+  <text class="end" x="940" y="348">5.00:1</text>
+  <text class="pass" x="980" y="348">&#10003; passes</text>
+  <line class="rule" x1="48" y1="376" x2="1152" y2="376"/>
+
+  <text x="48" y="408">Neither failing value was deleted. The 500 red is still the right red at 24px and up, where the threshold is 3:1, and WCAG exempts disabled text.</text>
+</svg>

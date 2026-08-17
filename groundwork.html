@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rebuilding hobbs.design | hobbs.design</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBES5CDMVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QBES5CDMVZ');
+  </script>
+  <meta name="description" content="Rebuilding hobbs.design from the token layer up: a three-layer token pipeline, an atomic CSS library, accessibility fixed at the value, and an X-ray mode that shows the architecture on the page.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav" data-xray="organism · site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+
+      <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
+        <button type="button" data-mode="design" aria-pressed="true">Design</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
+      </div>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </dialog>
+
+  <main id="main" data-xray="template · case-study">
+
+    <div class="case-hero" data-xray="organism · case-hero">
+      <div class="case-hero__inner">
+        <p class="section-label case-hero__kicker" data-xray="atom · section-label">hobbs.design · Rebuilding this site</p>
+        <h1 class="case-hero__title">A portfolio that argues for systems should be built like one.</h1>
+        <p class="case-hero__lead">I'd spent years telling people I work in
+        systems and build what I design. The site making that case was five
+        years of accumulated markup with the values typed in by hand. So I
+        rebuilt it from the token layer up, in public, and left the commit
+        history where anyone can read it.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Focus</dt><dd>Design tokens, component library</dd></div>
+          <div><dt>Built with</dt><dd>HTML, CSS, Style Dictionary</dd></div>
+          <div><dt>Source</dt><dd><a href="https://github.com/hobbs-og/hobbs.design">Public on GitHub</a></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <section class="section case-section" aria-labelledby="site-problem">
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/page-anatomy.svg" alt="Wireframe of a case study page, annotated with the atomic layer and class name of each region: site-nav, case-hero, the twelve-column grid, project-row, and site-footer." loading="lazy">
+          <figcaption class="text-caption">Where the rebuild ended up. Every region is a named component, and every label on this drawing is a real class in src/styles, filed at the layer it lives in.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-problem" class="span-8">The old site worked. It just didn't back up anything I was saying.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">Every page rendered. Nothing was broken in a
+              way a visitor would notice. Underneath, the presentation layer
+              was five years of decisions nobody had written down: a red in a
+              Sass variable here, the same red typed as a hex there, a style
+              attribute on a heading that needed to be slightly bigger one
+              afternoon in 2021.</p>
+              <p class="span-4">None of that is visible from the front. It is
+              extremely visible to someone who opens DevTools, which is
+              exactly the person this site exists for. I was applying for
+              roles where the work is the system underneath the interface,
+              and handing over an interface with no system underneath it.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">The work I wanted to be hired for was the work the site had never had done to it.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">A portfolio is usually treated as a container for
+          the work. For design systems and design engineering roles it's
+          also a sample of it, because the thing being hired for is the
+          layer the visitor never sees.</p>
+          <p class="span-4">That reframed the whole project. The rebuild
+          wasn't a visual refresh with a new grid, it was a working proof
+          that I structure decisions the way I say I do.</p>
+        </div>
+
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/one-source-of-truth.svg" alt="Diagram comparing one colour copied into three files, each spelled differently, against the same colour defined once in a token file and referenced by name from three stylesheets." loading="lazy">
+          <figcaption class="text-caption">The actual problem, drawn honestly. Three spellings of one red, and nothing in the code saying they were ever meant to match.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-tokens">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-tokens" class="span-8">Step one was deciding where a value is allowed to live.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">Before a single page was touched, every
+              value moved into JSON in <code>tokens/</code>, split across
+              three layers. Base holds raw hex and pixel values and is the
+              only layer permitted to have them. Semantic gives those values
+              roles, named element-property-role, so
+              <code>--text-color-link</code> reads as what it styles, which
+              property, in what job.</p>
+              <p class="span-4">Component tokens come last, and only once a
+              component has earned one. Style Dictionary compiles all three
+              into <code>dist/tokens.css</code>, which every page links
+              before the stylesheet. The compiled file is generated, so it
+              is never edited by hand.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/token-pipeline.svg" alt="The three token layers, base to semantic to component, compiling into dist/tokens.css, with one red traced across all four and a crossed-out return path from component back to base." loading="lazy">
+          <figcaption class="text-caption">Dependency runs one direction only. The crossed path is the move the architecture forbids.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">A design system isn't a component library, it's an agreement about where decisions live.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">The layering does one useful thing above all
+          else: it turns a matter of taste into a rule you can check. A raw
+          hex outside <code>tokens/base/</code> is a bug, and anyone can
+          grep for it. Nobody has to remember the convention or be senior
+          enough to enforce it.</p>
+          <p class="span-4">The alias chain also survives compilation. Open
+          DevTools on any page here and
+          <code>--text-color-link</code> resolves through
+          <code>--color-brand-primary-600</code> back to a hex, so the
+          reasoning is readable from the browser without reading the
+          source.</p>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>The layer is the constraint</h4>
+            <p class="text-caption">If a rule needs a value the semantic layer doesn't have, that means a role is missing, not that a raw value is allowed just this once.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Dark mode stopped being a redesign</h4>
+            <p class="text-caption">Because every colour is a role, a second set of base values generates the whole dark theme. No stylesheet was edited to add it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-css">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-css" class="span-8">Step two gave the stylesheet the same shape as the design.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The CSS follows Atomic Design, and
+              <code>main.css</code> is nothing but imports in dependency
+              order. Base, then atoms, then molecules, then organisms, then
+              layout, then utilities. Every rule below the base layer
+              consumes semantic tokens and nothing else.</p>
+              <p class="span-4">That order is doing real work. The sheet is
+              imported before the nav because the navigation panel is a
+              sheet variant, and an override has to come after the thing it
+              modifies. Getting the sequence right means the cascade never
+              needs to be fought with a higher-specificity selector.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/css-layers.svg" alt="The layers of main.css listed in import order with their files: tokens, base, atoms, molecules, organisms, layout, utilities, with an arrow showing dependency running one way." loading="lazy">
+          <figcaption class="text-caption">The whole stylesheet, in the order it loads. Nothing in a lower layer knows anything about a higher one.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Import order is dependency order, so the cascade never has to be argued with.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">The practical payoff is that everything has one
+          obvious address. A button problem is in
+          <code>atoms/button.css</code>, and there is nowhere else it could
+          be hiding. Deleting a component means deleting a file and an
+          import line.</p>
+          <p class="span-4">Specificity stays flat as a result. Almost every
+          selector in this site is a single class, which is what makes the
+          whole thing safe to change quickly.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-pages">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-pages" class="span-8">Step three rebuilt the pages out of the parts, instead of the other way around.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">With tokens and components in place, the
+              pages were rebuilt as assemblies. A case study is a case hero,
+              a series of sections on the twelve-column grid, and a project
+              row at the end. The markup describes structure, and the
+              stylesheet owns every measurement.</p>
+              <p class="span-4">Spacing is a strict 8px scale, no 4s and no
+              12s. If a gap isn't divisible by eight it isn't in the system,
+              which sounds arbitrary until you stop having the conversation
+              about whether something should be 12 or 14.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/case-grid.svg" alt="A case study section drawn on twelve columns: a heading spanning the first eight, supporting paragraphs on a subgrid, a bold statement hung across columns five to twelve, and dashed empty spacer spans." loading="lazy">
+          <figcaption class="text-caption">One section of this page, drawn on its own grid. The dashed blocks are empty spans that push a block into a later column.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">A page should be assembly. When it isn't, every page becomes a fresh set of decisions.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">The asymmetric measure was carried over from the
+          old site deliberately, because it was the one thing about it worth
+          keeping. Headings hang left, the argument hangs right, and CSS
+          subgrid makes a column inside a block line up with the real grid
+          instead of an even split of whatever width that block happens to
+          have.</p>
+          <p class="span-4">This page is the strictest test of that, and the
+          reason a new stylesheet layer exists. Every case study before it
+          carried its vertical rhythm as a style attribute on each block.
+          Here the rhythm lives in
+          <code>organisms/case-study.css</code>, so the page contains no
+          inline styles at all.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-nav-lock">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-nav-lock" class="span-8">Step four: locking one component down found bugs I couldn't otherwise see.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The header is on every page, so it was the
+              obvious component to lock first. My first pass made the markup
+              identical everywhere but left the links alone, on the
+              reasoning that links are content and content varies by
+              page.</p>
+              <p class="span-4">That reasoning was wrong, and it took
+              someone saying so to see it. A global navigation that changes
+              from page to page isn't global. The only thing that
+              legitimately varies is <code>aria-current</code>, which says
+              which page you're on.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Consistency is a test, not a finish. What refuses to be identical is usually wrong.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Forcing the links to match immediately turned up
+          two real defects. The homepage used bare fragment links that only
+          worked when you were already on the homepage. And it pointed
+          Resume straight at the PDF while ten other pages pointed at
+          <code>resume.html</code>, so making the PDF link the standard
+          would have orphaned a page I'd built.</p>
+          <p class="span-4">Neither of those was findable by looking at any
+          single page, because each page was internally consistent. They
+          only surfaced when eleven pages had to agree on one answer.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-a11y">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-a11y" class="span-8">Step five found two accessibility failures I'd been shipping for years.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">Auditing the palette against WCAG 2.2 turned
+              up two colours that had been on the live site the whole time.
+              The brand red measures 4.36:1 on the page background, just
+              under the 4.5:1 needed for body text. Muted text sat at 40%
+              black, which measures 2.6:1 and isn't close.</p>
+              <p class="span-4">Both were fixed at the value rather than the
+              usage. Body links now take the 600 step of the ramp at 5.9:1,
+              and muted text sits at 60% black. Neither original value was
+              deleted, because both are still correct in the places WCAG
+              allows them.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/site/contrast-decisions.svg" alt="A contrast spec sheet: the 500 red at 4.36 to 1 failing at body size, the 600 red at 5.9 to 1 passing, 40 percent black at 2.6 to 1 failing, and 60 percent black at 5 to 1 passing." loading="lazy">
+          <figcaption class="text-caption">The four measurements that changed the palette. The failing values survive in the roles where they still pass.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Fix it in the value and it can't quietly come back.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">This is the argument for tokens that I find most
+          convincing. A contrast fix applied page by page is a fix with a
+          shelf life, because the next person to need a red will reach for
+          the one that looks right. Encoded as
+          <code>--text-color-link</code>, the accessible answer is also the
+          convenient one.</p>
+          <p class="span-4">Focus is a token pair for the same reason, a 2px
+          near-black ring on <code>:focus-visible</code> defined once and
+          applied globally. Every page opens with a skip link, and form
+          errors are wired through <code>aria-describedby</code> and spell
+          out the word Error, because colour on its own isn't an
+          affordance.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-xray">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-xray" class="span-8">Step six made the site show its own work.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">There's a Design/Code toggle in the header
+              of every page. Switching it to Code outlines each element that
+              carries a <code>data-xray</code> attribute and labels it with
+              its layer and component name, which is how the annotations on
+              the drawings above were derived.</p>
+              <p class="span-4">The labels aren't a diagram of the
+              architecture, they're attached to the components themselves.
+              If the structure ever drifts from what the labels claim, the
+              labels start lying in public, which is a good reason to keep
+              them true.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Claiming a system and showing one are different jobs.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Every portfolio in this field says the same
+          words about systems thinking. Almost none of them let you look.
+          The toggle costs one stylesheet and a few lines of JavaScript, and
+          it replaces a claim with something checkable in about two
+          seconds.</p>
+          <p class="span-4">It's also genuinely useful to me. Turning it on
+          is the fastest way to spot a region that has quietly stopped being
+          a component.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-ship">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-ship" class="span-8">Step seven was the least interesting and the most overdue.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The rebuild lived in a <code>v5/</code>
+              folder while the old pages stayed at the domain root. For a
+              while that was sensible, and then it stopped being sensible,
+              because an outside audit pointed out that none of the new work
+              had ever been deployed. Real visitors were still getting the
+              old build.</p>
+              <p class="span-4">So <code>v5/</code> was promoted to the
+              root, the legacy pages were archived out of the working tree,
+              and a deploy config now copies only the paths that should be
+              served. The icon sprite is generated from the official
+              library by a script that fails loudly on a typo rather than
+              shipping a blank square.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Work that hasn't shipped is work nobody has seen, however good the repo looks.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">I'm including this because it's the most common
+          way a rebuild like this fails, and because leaving it out would
+          make the story tidier than it was. The system was sound for a week
+          before anyone outside the repo could see any of it.</p>
+          <p class="span-4">The fix was boring and it was the whole
+          difference between a nice local project and a live site.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-outcome">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-outcome" class="span-8">What the rebuild actually bought.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">Sixty-five commits over nine days, and the
+              site is now the same kind of artifact as the work it
+              describes. The visible design changed less than the amount of
+              effort suggests, which is the correct outcome for a
+              structural rebuild.</p>
+              <p class="span-4">What changed is the cost of the next
+              change.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>One place to change a decision</h4>
+            <p class="text-caption">A colour, a spacing step, or a type size is edited in one JSON file and rebuilt. Nothing has to be found first.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Pages got cheap</h4>
+            <p class="text-caption">This page is new markup and one small stylesheet. Every other part of it already existed and was reused as-is.</p>
+          </div>
+
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>Accessibility is structural</h4>
+            <p class="text-caption">Contrast, focus, and skip links are defaults in the token and base layers, so passing is what happens when nobody does anything special.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>The repo is part of the portfolio</h4>
+            <p class="text-caption">The source is public, the commit messages explain the reasoning, and the migration from the old build is readable in the history.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="site-next-steps">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="site-next-steps" class="span-8">What this sets up, and what it doesn't.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The point of building it this way is that
+              the next few things become small. Some of them are already
+              obvious, and a couple of them are still open problems I'd
+              rather name than hide.</p>
+              <p class="span-4">These are in the order I expect to get to
+              them, not in order of how impressive they sound.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>React without a rewrite</h4>
+            <p class="text-caption">Every page already carries the same DOM shape for a given component, with content as the only variable. Converting the locked components into real React components is a translation job, not a redesign.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Deployment is still the weak link</h4>
+            <p class="text-caption">Publishing is a manual step, which is precisely how the built work went unseen for a week. Until it runs on merge, the same failure can happen again.</p>
+          </div>
+
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>The rules should be tested, not remembered</h4>
+            <p class="text-caption">Contrast ratios and the no-raw-values rule are both checkable by a script. Right now they're checked by me noticing, which is the least reliable option available.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Dark mode is generated, not designed</h4>
+            <p class="text-caption">A full set of dark tokens compiles today, but nobody has sat with the result and made judgements about it. Generated is not the same as considered.</p>
+          </div>
+
+          <span class="span-4"></span>
+          <div class="span-4 stack--tight">
+            <h4>The older pages still carry inline styles</h4>
+            <p class="text-caption">The five case studies written before this one hold their spacing in style attributes. The stylesheet that replaces them now exists, so that cleanup is a delete.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>The real test is month six</h4>
+            <p class="text-caption">Any system is easy to keep clean in the week you build it. Whether this one still has one source of truth after a year of small edits is the only result that counts.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-label="Closing thought">
+        <div class="grid">
+          <h2 class="span-10">The site isn't really the argument. The commit history is.</h2>
+          <p class="span-6 case-section__support">A finished page only shows that something was made. The sequence of decisions behind it, why a value moved layers, why a component was locked, why an accessible colour replaced a prettier one, is the part of this work that transfers to a team. That's why the source is public and why this page describes the reasoning instead of the result.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="site-next">
+        <h2 class="visually-hidden" id="site-next">Next project</h2>
+        <article class="project-row" data-xray="molecule · project-row">
+          <div class="project-row__body stack--tight">
+            <p class="project-row__meta">Next · Terafina</p>
+            <h3 class="project-row__title">The product worked. People just didn't trust it enough to finish.</h3>
+            <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          </div>
+          <div class="project-row__media">
+            <img src="images/Terafina/index-terafina.png" alt="" loading="lazy">
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+      <p><a href="index.html">Home</a> · <a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
+    </div>
+  </footer>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
+</body>
+</html>

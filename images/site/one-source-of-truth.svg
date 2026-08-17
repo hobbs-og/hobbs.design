@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="source-title">
+  <title id="source-title">Diagram comparing a colour value copied into three files against the same value defined once and referenced by name</title>
+  <style>
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .title { font-size: 13px; letter-spacing: 0.12em; fill: #0f0f0f; }
+    .code { font-size: 11px; fill: #0f0f0f; }
+    .box { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .dash { stroke-dasharray: 4 4; }
+    .hair { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .swatch { fill: #e12a09; }
+    .swatch--alt { fill: #c11406; }
+    .flow { stroke: #c11406; stroke-width: 1.5; fill: none; }
+    .tip { fill: #c11406; }
+
+    @media (prefers-color-scheme: dark) {
+      text { fill: rgba(245, 245, 244, 0.6); }
+      .title, .code { fill: #f5f5f4; }
+      .box, .hair { stroke: #686b70; }
+      .swatch { fill: #ff5a36; }
+      .swatch--alt { fill: #ff7a5c; }
+      .flow { stroke: #ff7a5c; }
+      .tip { fill: #ff7a5c; }
+    }
+  </style>
+
+  <!-- BEFORE -->
+  <text class="title" x="8" y="24">BEFORE</text>
+  <text x="8" y="46">one decision, copied by hand into every file that needs it</text>
+
+  <rect class="box dash" x="8" y="88" width="552" height="80"/>
+  <text x="32" y="118">terafina.scss</text>
+  <rect class="swatch" x="32" y="130" width="16" height="16"/>
+  <text class="code" x="56" y="143">$brand-red: #E12A09;</text>
+
+  <rect class="box dash" x="8" y="192" width="552" height="80"/>
+  <text x="32" y="222">styles/legacy.css</text>
+  <rect class="swatch" x="32" y="234" width="16" height="16"/>
+  <text class="code" x="56" y="247">color: rgb(225, 42, 9);</text>
+
+  <rect class="box dash" x="8" y="296" width="552" height="80"/>
+  <text x="32" y="326">proof.html</text>
+  <rect class="swatch" x="32" y="338" width="16" height="16"/>
+  <text class="code" x="56" y="351">style="color:#e12a09"</text>
+
+  <text x="8" y="428">Three spellings of the same red. Nothing in the code says</text>
+  <text x="8" y="448">they are meant to be the same red, so nothing keeps them</text>
+  <text x="8" y="468">that way. Changing it is a search, not an edit.</text>
+
+  <line class="hair" x1="600" y1="8" x2="600" y2="504"/>
+
+  <!-- AFTER -->
+  <text class="title" x="616" y="24">AFTER</text>
+  <text x="616" y="46">one decision, referenced by name</text>
+
+  <rect class="box" x="616" y="180" width="232" height="104"/>
+  <text x="640" y="212">tokens/base/color.json</text>
+  <rect class="swatch" x="640" y="224" width="16" height="16"/>
+  <text class="code" x="664" y="237">#E12A09</text>
+  <rect class="swatch--alt" x="640" y="248" width="16" height="16"/>
+  <text class="code" x="664" y="261">#C11406</text>
+
+  <g class="flow">
+    <path d="M848 232 C 896 232 896 128 944 128"/>
+    <path d="M848 232 H 944"/>
+    <path d="M848 232 C 896 232 896 336 944 336"/>
+  </g>
+  <g class="tip">
+    <polygon points="944,124 952,128 944,132"/>
+    <polygon points="944,228 952,232 944,236"/>
+    <polygon points="944,332 952,336 944,340"/>
+  </g>
+
+  <rect class="box" x="952" y="88" width="240" height="80"/>
+  <text x="976" y="118">atoms/link.css</text>
+  <text class="code" x="976" y="140">color: var(--text-color-link)</text>
+
+  <rect class="box" x="952" y="192" width="240" height="80"/>
+  <text x="976" y="222">atoms/chip.css</text>
+  <text class="code" x="976" y="244">border-color:</text>
+  <text class="code" x="976" y="260">var(--chip-color-border)</text>
+
+  <rect class="box" x="952" y="296" width="240" height="80"/>
+  <text x="976" y="326">molecules/stat.css</text>
+  <text class="code" x="976" y="348">background:</text>
+  <text class="code" x="976" y="364">var(--stat-color-background)</text>
+
+  <text x="616" y="428">Every consumer asks for the value by the name of the job it</text>
+  <text x="616" y="448">does. The red can change, or become a different red in dark</text>
+  <text x="616" y="468">mode, without a single stylesheet being edited.</text>
+</svg>

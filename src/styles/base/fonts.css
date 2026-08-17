@@ -1,0 +1,39 @@
+/* ============================================================
+   base/fonts.css — the one self-hosted face
+
+   Neue Haas Grotesk comes from Typekit. The mono came from nowhere:
+   'JetBrains Mono' sat at the head of the mono token while nothing
+   in the repo loaded it, so every visitor got whatever their OS
+   calls monospace — SF Mono on a Mac, Consolas on Windows, DejaVu
+   on Linux, each with different metrics. The section labels, the
+   X-ray overlay, the project numbers and inline code all ran on a
+   typeface the site never chose.
+
+   JetBrains Mono is the closest match to the body face of the
+   candidates measured. Against Neue Haas Grotesk Text at the same
+   nominal size its x-height is 1.02 and its cap-height 0.98, so it
+   sits inside a sentence without a size correction. SF Mono, the
+   Mac fallback, matched on x-height but ran 5% short on caps and 3%
+   wider per character, which is what made code look undersized
+   against body copy. It was also drawn for code specifically: a
+   dotted zero and disambiguated l/I/1, which is what matters when
+   the string is a token name or a hex value.
+
+   Latin subset, one weight, 21KB. Nothing on this site sets mono at
+   any weight other than 400, so a bold cut would be dead weight.
+
+   Licensed under the SIL Open Font License 1.1. The licence ships
+   next to the file it covers, at src/public/fonts/OFL.txt.
+   ============================================================ */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../../public/fonts/jetbrains-mono-latin-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  /* Text paints in the fallback immediately and swaps when the face
+     arrives. The alternative hides mono until the download finishes,
+     and mono carries the section label above every heading — the
+     first line of most sections on the site. */
+  font-display: swap;
+}
