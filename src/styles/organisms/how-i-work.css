@@ -7,3 +7,13 @@
   flex-direction: column;
   gap: var(--space-sm);
 }
+
+/* The section's closing action, pointing at the case study that backs up
+   the claims above it. Two things a button needs that a paragraph
+   doesn't: the body is a flex column, whose default stretch would pull
+   the button across the full measure, and it wants more air than the
+   gap between two paragraphs. */
+.how-i-work__action {
+  align-self: flex-start;
+  margin-block-start: var(--space-md);
+}
