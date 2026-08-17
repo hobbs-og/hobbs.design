@@ -86,6 +86,16 @@ textarea.field__control {
   font-weight: var(--text-weight-emphasis);
 }
 
+/* That prefix is generated content, so it renders even when there is
+   no message to prefix — an error element left empty in the markup
+   would show a bare "Error:" against a field that is perfectly fine.
+   contact-form.js creates these only when a field has failed, and
+   this keeps the pattern honest for anyone who reaches for it in
+   static markup instead. */
+.field__error:empty {
+  display: none;
+}
+
 /* Fill: stretches the control to the field's full block size instead
    of its natural height — for a textarea sitting beside a taller
    sibling column in a grid row (the grid already stretches the
