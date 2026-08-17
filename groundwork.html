@@ -28,10 +28,10 @@
       <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="index.html#work">Work</a>
         <a href="index.html#about">About</a>
+        <a href="index.html#work">Work</a>
         <a href="index.html#contact">Contact</a>
-        <a href="resume.html">Resume</a>
+        <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
       <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
@@ -47,10 +47,10 @@
 
   <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
     <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="index.html#work">Work</a>
       <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
       <a href="index.html#contact">Contact</a>
-      <a href="resume.html">Resume</a>
+      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
     </nav>
   </dialog>
 
@@ -68,7 +68,7 @@
         <dl class="case-hero__meta">
           <div><dt>Focus</dt><dd>Design tokens, component library</dd></div>
           <div><dt>Built with</dt><dd>HTML, CSS, Style Dictionary</dd></div>
-          <div><dt>Source</dt><dd><a href="https://github.com/hobbs-og/hobbs.design">Public on GitHub</a></dd></div>
+          <div><dt>Source</dt><dd><a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Public on GitHub <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></dd></div>
         </dl>
       </div>
     </div>
@@ -272,9 +272,9 @@
               page.</p>
               <p class="span-4">That reasoning was wrong, and it took
               someone saying so to see it. A global navigation that changes
-              from page to page isn't global. The only thing that
-              legitimately varies is <code>aria-current</code>, which says
-              which page you're on.</p>
+              from page to page isn't global. The one variation I'd have
+              defended was <code>aria-current</code>, which says which page
+              you're on — and that was the thread worth pulling.</p>
             </div>
           </div>
           <span class="span-4"></span>
@@ -287,12 +287,14 @@
           <p class="span-4">Forcing the links to match immediately turned up
           two real defects. The homepage used bare fragment links that only
           worked when you were already on the homepage. And it pointed
-          Resume straight at the PDF while ten other pages pointed at
-          <code>resume.html</code>, so making the PDF link the standard
-          would have orphaned a page I'd built.</p>
-          <p class="span-4">Neither of those was findable by looking at any
-          single page, because each page was internally consistent. They
-          only surfaced when eleven pages had to agree on one answer.</p>
+          Resume straight at the PDF while eleven other pages pointed at
+          <code>resume.html</code> — one question with two answers, and no
+          single page could tell me which one was right.</p>
+          <p class="span-4">Neither was findable by looking at any single
+          page, because each page was internally consistent. They only
+          surfaced when twelve pages had to agree on one answer. The PDF
+          won, signposted so the new tab is announced rather than sprung,
+          and the web resume kept its link from Contact.</p>
         </div>
       </section>
 
@@ -526,7 +528,7 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
-      <p><a href="index.html">Home</a> · <a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design">Source</a></p>
+      <p><a href="index.html">Home</a> · <a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></p>
     </div>
   </footer>
   <script src="src/js/xray.js"></script>
