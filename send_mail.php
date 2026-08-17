@@ -99,7 +99,146 @@ if (!$email) {
     exit;
 }
 
-// SendGrid settings
+$toEmail = 'mark@hobbs.design';
+$subject = 'Website Contact Form Submission';
+
+/* Two transports, tried in order, because one of them being
+   misconfigured should not be the same thing as losing the message.
+   SendGrid is preferred: it reports why it refused, and it doesn't
+   depend on how this host's MTA is set up. The server's own mail() is
+   the fallback for exactly the situation this endpoint was in — the
+   API answering 4xx or 5xx while every visitor got a dead form.
+
+   Each returns true on success, or a string describing the failure
+   for the log. The visitor never sees either string: an API response
+   can carry account detail that is none of their business. */
+
+function send_via_sendgrid($apiKey, $toEmail, $subject, $name, $email, $message) {
+    if (!$apiKey) {
+        return 'SENDGRID_API_KEY is not configured';
+    }
+
+    // Checked explicitly for the same reason utf8_safe() is
+    // feature-detected: this host turned out not to have every
+    // extension the code assumed, and a named reason in the log beats
+    // inferring one from a stack trace.
+    if (!function_exists('curl_init')) {
+        return 'the cURL extension is not available';
+    }
+
+    /* The From has to be an identity SendGrid has verified for this
+       account, which is the single most common reason it returns 403.
+       It is not the visitor's address — a visitor's domain would
+       never authorise this account to send as them. Their address is
+       the Reply-To, so a reply goes to them. */
+    $fromEmail = 'hobbs.design.contact@gmail.com';
+
+    // Name and email are shown back inside the HTML body, so they're
+    // escaped the same as the message already was — otherwise either
+    // field is a place to inject markup into mail you trust.
+    $data = [
+        'personalizations' => [[
+            'to' => [['email' => $toEmail]],
+            'subject' => $subject
+        ]],
+        'from' => ['email' => $fromEmail, 'name' => 'hobbs.design Contact Form'],
+        'reply_to' => ['email' => $email],
+        'content' => [[
+            'type' => 'text/html',
+            'value' => '<p><strong>Name:</strong> ' . htmlspecialchars($name) . '</p>
+                        <p><strong>Email:</strong> ' . htmlspecialchars($email) . '</p>
+                        <p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($message)) . '</p>'
+        ]]
+    ];
+
+    $jsonPayload = json_encode($data, JSON_UNESCAPED_UNICODE);
+    if ($jsonPayload === false) {
+        return 'json_encode failed: ' . json_last_error_msg();
+    }
+
+    $ch = curl_init('https://api.sendgrid.com/v3/mail/send');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $jsonPayload,
+        CURLOPT_HTTPHEADER => [
+            "Authorization: Bearer $apiKey",
+            'Content-Type: application/json'
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_TIMEOUT => 15
+    ]);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    if ($error) {
+        return "cURL error: $error";
+    }
+    if ($httpCode >= 200 && $httpCode < 300) {
+        return true;
+    }
+
+    return "SendGrid HTTP $httpCode. Response: $response";
+}
+
+function send_via_mail($toEmail, $subject, $name, $email, $message) {
+    if (!function_exists('mail')) {
+        return 'mail() is not available';
+    }
+
+    /* The From must be on this domain. A gmail.com From handed to this
+       server's MTA fails SPF and DMARC at any real recipient, which is
+       the fastest way to have a message dropped rather than delivered
+       — so the API's verified Gmail identity is deliberately not
+       reused here. The visitor's address is the Reply-To instead. */
+    $fromEmail = 'noreply@hobbs.design';
+
+    /* filter_var already rejected any address containing a newline, so
+       this can't smuggle extra headers. Stripped again anyway: header
+       assembly is where injection lives, and this line should be safe
+       on its own terms rather than because of a check made fifty
+       lines earlier. */
+    $replyTo = preg_replace('/[\r\n]+/', '', $email);
+    $safeName = preg_replace('/[\r\n]+/', ' ', $name);
+
+    $headers = implode("\r\n", [
+        'From: hobbs.design Contact Form <' . $fromEmail . '>',
+        'Reply-To: ' . $replyTo,
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8'
+    ]);
+
+    /* Plain text rather than the API's HTML: this path exists to get
+       the words through, and text has nothing to render wrong.
+
+       The footer names the transport on purpose. hobbs.design's MX is
+       external (Proofpoint, ppe-hosted.com) while the site runs on the
+       GoDaddy web host, so whether this message leaves the building at
+       all depends on that account's Email Routing being Remote rather
+       than Local. Set to Local, Exim would drop it in a local mailbox
+       nobody reads while this endpoint reported success. If a form
+       submission arrives carrying this line, the fallback works; if
+       the form says sent and nothing arrives, that setting is why. */
+    $body = "Name: $safeName\nEmail: $replyTo\n\n$message"
+          . "\n\n---\nSent through the web server's own mail(), because the SendGrid API refused.";
+
+    /* -f sets the envelope sender, which is what keeps the bounce
+       address on this domain instead of the PHP user's. Some shared
+       hosts refuse additional parameters outright, so a refusal is
+       retried without it — a message delivered with a mismatched
+       envelope beats no message. */
+    if (mail($toEmail, $subject, $body, $headers, '-f' . $fromEmail)) {
+        return true;
+    }
+    if (mail($toEmail, $subject, $body, $headers)) {
+        return true;
+    }
+
+    return 'mail() returned false';
+}
+
 // The API key is never stored in this file. It comes from the server
 // environment, or from config.local.php, which is gitignored.
 $apiKey = getenv('SENDGRID_API_KEY') ?: null;
@@ -109,81 +248,25 @@ if (!$apiKey && file_exists(__DIR__ . '/config.local.php')) {
     $apiKey = $localConfig['SENDGRID_API_KEY'] ?? null;
 }
 
-if (!$apiKey) {
-    error_log('send_mail.php: SENDGRID_API_KEY is not configured.');
-    http_response_code(500);
-    echo "❌ Mail is not configured. Please email mark@hobbs.design directly.";
-    exit;
-}
+$sendgrid = send_via_sendgrid($apiKey, $toEmail, $subject, $name, $email, $message);
 
-$fromEmail = 'hobbs.design.contact@gmail.com'; // Verified Gmail in SendGrid
-$toEmail = 'mark@hobbs.design';
-
-// Build payload. Name and email are shown back inside the HTML body,
-// so they're escaped the same as the message already was — otherwise
-// either field is a place to inject markup into mail you trust.
-$data = [
-    "personalizations" => [[
-        "to" => [["email" => $toEmail]],
-        "subject" => "Website Contact Form Submission"
-    ]],
-    "from" => ["email" => $fromEmail, "name" => "hobbs.design Contact Form"],
-    "reply_to" => ["email" => $email],
-    "content" => [[
-        "type" => "text/html",
-        "value" => "<p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>
-                    <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
-                    <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>"
-    ]]
-];
-
-// JSON encode with error checking
-$jsonPayload = json_encode($data, JSON_UNESCAPED_UNICODE);
-if ($jsonPayload === false) {
-    error_log('send_mail.php: json_encode failed: ' . json_last_error_msg());
-    http_response_code(500);
-    echo "❌ Could not build the message. Please email mark@hobbs.design directly.";
-    exit;
-}
-
-// Send email via cURL. Checked explicitly for the same reason
-// utf8_safe() is feature-detected: this host turned out not to have
-// every extension the code assumed, and a named reason in the log
-// beats inferring one from a stack trace.
-if (!function_exists('curl_init')) {
-    error_log('send_mail.php: the cURL extension is not available.');
-    http_response_code(500);
-    echo "❌ Mail is not configured. Please email mark@hobbs.design directly.";
-    exit;
-}
-
-$ch = curl_init('https://api.sendgrid.com/v3/mail/send');
-curl_setopt_array($ch, [
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => $jsonPayload,
-    CURLOPT_HTTPHEADER => [
-        "Authorization: Bearer $apiKey",
-        "Content-Type: application/json"
-    ],
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_SSL_VERIFYPEER => true
-]);
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$error = curl_error($ch);
-curl_close($ch);
-
-// Return result to form. Failure detail goes to the server log, not
-// the browser: the raw SendGrid response can carry account-specific
-// detail that has no business being visible to a site visitor.
-if ($error) {
-    error_log("send_mail.php: cURL error: $error");
-    http_response_code(502);
-    echo "❌ Could not send your message right now. Please email mark@hobbs.design directly.";
-} elseif ($httpCode >= 200 && $httpCode < 300) {
+if ($sendgrid === true) {
     echo "✅ Your message was sent successfully!";
-} else {
-    error_log("send_mail.php: SendGrid HTTP $httpCode. Response: $response");
-    http_response_code(502);
-    echo "❌ Could not send your message right now. Please email mark@hobbs.design directly.";
+    exit;
 }
+
+// SendGrid refused. Log why — that line is the whole diagnosis — and
+// try the server's own mail before giving up on the visitor.
+error_log("send_mail.php: SendGrid failed: $sendgrid");
+
+$fallback = send_via_mail($toEmail, $subject, $name, $email, $message);
+
+if ($fallback === true) {
+    error_log('send_mail.php: delivered via mail() after SendGrid failed.');
+    echo "✅ Your message was sent successfully!";
+    exit;
+}
+
+error_log("send_mail.php: mail() fallback also failed: $fallback");
+http_response_code(502);
+echo "❌ Could not send your message right now. Please email mark@hobbs.design directly.";
