@@ -13,12 +13,22 @@
 #   2. After each push to main: open that repo in cPanel → Manage →
 #      "Update from Remote" (pulls the new commit), then
 #      "Deploy HEAD Commit" (runs the tasks below).
-#   3. SENDGRID_API_KEY is never in this repo. Set it once, directly
-#      on the server, either as a real environment variable if your
-#      plan's MultiPHP settings expose one, or via a line in
-#      public_html/.htaccess: SetEnv SENDGRID_API_KEY "the-real-key"
-#      — .htaccess lives only on the server, outside git, and
-#      send_mail.php already reads it with getenv().
+#
+# The contact form needs no key and no third-party account: it uses
+# PHP's mail() and the host's own MTA. It does depend on two server
+# settings, neither of which lives in this repo:
+#
+#   3. cPanel → Email → Email Routing for hobbs.design must be
+#      "Remote Mail Exchanger" or "Automatically Detect". The MX is
+#      external (Proofpoint, in front of Microsoft 365). Set to Local,
+#      Exim drops form mail into a local mailbox nobody reads while
+#      send_mail.php still reports success.
+#   4. Outbound mail from this host has to pass SPF for hobbs.design,
+#      because the domain publishes DMARC p=reject — an unauthenticated
+#      From at this domain is rejected, not junked. The site's A record
+#      (173.201.180.75) is NOT in GoDaddy's published SPF, so if the
+#      form's mail leaves from that address rather than through
+#      GoDaddy's relay, add it to the domain's SPF record.
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
