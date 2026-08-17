@@ -94,6 +94,76 @@ line('mail() returned', $ok ? 'true' : 'false');
 $last = error_get_last();
 line('last php error', $last ? ($last['message'] . ' @ ' . basename($last['file']) . ':' . $last['line']) : '(none)');
 
-echo "\nIf mail() returned true and nothing arrives, PHP handed the message\n";
-echo "to whatever sendmail_path names above and that is where it stopped.\n";
-echo "DELETE THIS FILE once the output has been read.\n";
+/* mail() pipes to local Exim and Exim accepts it, but nothing arrives
+   and Track Delivery shows nothing. Talking to Exim directly turns that
+   black box into a transcript: its reply to the final dot carries the
+   queue id, and a rejection carries the reason. Either answers the
+   question that inference has not. */
+echo "\n=== SMTP transcript with local Exim (127.0.0.1:25) ===\n";
+
+$fp = @fsockopen('127.0.0.1', 25, $errno, $errstr, 10);
+
+if (!$fp) {
+    line('connect', "FAILED — $errstr ($errno)");
+} else {
+    stream_set_timeout($fp, 10);
+
+    $smtpStamp = 'SMTPTEST-' . date('His');
+    $conversation = [
+        null, // read the banner first
+        'EHLO hobbs.design',
+        'MAIL FROM:<' . $from . '>',
+        'RCPT TO:<' . $to . '>',
+        'DATA',
+        "Subject: mail-check smtp $smtpStamp\r\n"
+            . 'From: hobbs.design diagnostic <' . $from . ">\r\n"
+            . 'To: ' . $to . "\r\n"
+            . "Content-Type: text/plain; charset=UTF-8\r\n"
+            . "\r\n"
+            . "Direct-to-Exim probe $smtpStamp.\r\n"
+            . '.',
+        'QUIT'
+    ];
+
+    foreach ($conversation as $send) {
+        if ($send !== null) {
+            // The message body is logged as one line rather than dumped
+            // back in full; only the server's answers matter here.
+            echo '  >>> ' . (strlen($send) > 70 ? '[message body, ' . strlen($send) . " bytes]" : $send) . "\n";
+            fwrite($fp, $send . "\r\n");
+        }
+
+        // EHLO answers over several lines; read while a continuation
+        // hyphen follows the status code.
+        do {
+            $reply = fgets($fp, 1024);
+            if ($reply === false) {
+                break;
+            }
+            echo '  <<< ' . rtrim($reply) . "\n";
+        } while (strlen($reply) > 3 && $reply[3] === '-');
+    }
+
+    fclose($fp);
+    line('smtp marker', $smtpStamp);
+}
+
+/* disable_functions is empty, so ask Exim what is actually in its queue.
+   Read-only: -bpc counts queued messages, -bp lists them. A message
+   sitting here rather than delivered means Exim took it and could not
+   hand it on. */
+echo "\n=== Exim queue (read-only) ===\n";
+
+if (!function_exists('exec')) {
+    line('exec()', 'unavailable');
+} else {
+    foreach (['exim -bpc' => 'queue count', 'exim -bp' => 'queue listing'] as $cmd => $label) {
+        $output = [];
+        $code = null;
+        @exec($cmd . ' 2>&1', $output, $code);
+        $text = trim(implode("\n", array_slice($output, 0, 25)));
+        line($label, ($text === '' ? '(empty)' : "\n" . $text) . "\n  [exit $code]");
+    }
+}
+
+echo "\nDELETE THIS FILE once the output has been read.\n";
