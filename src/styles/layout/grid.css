@@ -106,3 +106,12 @@
 .stack--tight > * + * {
   margin-block-start: var(--space-stack-tight);
 }
+
+/* The stack spaces prose, and a button is not prose. A bordered control
+   sitting on the tight 8px step reads as attached to the paragraph above
+   it, so it takes the next step up. Stated once here rather than as a
+   margin on each button that ends a stack. */
+.stack > .button,
+.stack--tight > .button {
+  margin-block-start: var(--space-md);
+}
