@@ -1,12 +1,35 @@
 <?php
-// display_errors stays off: this echoes its response body directly into
-// the page (see contact.html's respDiv.innerHTML = text), so a raw PHP
-// warning or the raw SendGrid response would render straight to a
-// visitor. Errors still go to the server log instead.
+// display_errors stays off: this response body is shown to the visitor
+// — as an inline status message with JS on, and as the whole page body
+// on a plain form POST with JS off — so a raw PHP warning or the raw
+// SendGrid response would be visible to them, and both can carry
+// server and account detail. Errors go to the server log instead.
 ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
 ini_set('log_errors', '1');
 error_reporting(E_ALL);
+
+// With display_errors off, a fatal error ends the request as a 500
+// with an empty body — which is exactly what made the missing-mbstring
+// bug below invisible from the browser: the form could only report a
+// generic failure, with no clue what broke. Turn any fatal into the
+// same plain-text answer the other failure paths give, and put the
+// real reason where it belongs, in the server error log.
+register_shutdown_function(function () {
+    $fatal = error_get_last();
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+
+    if (!$fatal || !in_array($fatal['type'], $fatalTypes, true)) {
+        return;
+    }
+
+    error_log("send_mail.php: fatal: {$fatal['message']} in {$fatal['file']}:{$fatal['line']}");
+
+    if (!headers_sent()) {
+        http_response_code(500);
+    }
+    echo "❌ Could not send your message right now. Please email mark@hobbs.design directly.";
+});
 
 // Only accept POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -23,9 +46,39 @@ if (!empty($_POST['botcheck'])) {
     exit;
 }
 
-// UTF-8 safe function
+// Scrub anything that isn't well-formed UTF-8, so json_encode() below
+// can't refuse the payload.
+//
+// This used to call mb_convert_encoding() unconditionally. mbstring is
+// not available on this host, so that was a call to an undefined
+// function: a PHP fatal, which with display_errors off ends the
+// request as a 500 with an empty body and tells the visitor nothing.
+// Each strategy below is feature-detected, and the last one needs no
+// extension at all.
 function utf8_safe($str) {
-    return mb_convert_encoding(trim($str), 'UTF-8', 'UTF-8');
+    $str = trim((string) $str);
+
+    if (function_exists('mb_convert_encoding')) {
+        return mb_convert_encoding($str, 'UTF-8', 'UTF-8');
+    }
+
+    if (function_exists('iconv')) {
+        $converted = iconv('UTF-8', 'UTF-8//IGNORE', $str);
+        if ($converted !== false) {
+            return $converted;
+        }
+    }
+
+    // No extension available. An empty pattern still makes PCRE
+    // validate the subject against /u: it matches when the string is
+    // well-formed UTF-8 and returns false when it isn't.
+    if (preg_match('//u', $str) === 1) {
+        return $str;
+    }
+
+    // Malformed bytes, and nothing to transcode with. Drop everything
+    // above ASCII rather than hand invalid UTF-8 to json_encode().
+    return preg_replace('/[\x80-\xFF]/', '', $str) ?? '';
 }
 
 // Sanitize inputs
@@ -93,7 +146,17 @@ if ($jsonPayload === false) {
     exit;
 }
 
-// Send email via cURL
+// Send email via cURL. Checked explicitly for the same reason
+// utf8_safe() is feature-detected: this host turned out not to have
+// every extension the code assumed, and a named reason in the log
+// beats inferring one from a stack trace.
+if (!function_exists('curl_init')) {
+    error_log('send_mail.php: the cURL extension is not available.');
+    http_response_code(500);
+    echo "❌ Mail is not configured. Please email mark@hobbs.design directly.";
+    exit;
+}
+
 $ch = curl_init('https://api.sendgrid.com/v3/mail/send');
 curl_setopt_array($ch, [
     CURLOPT_POST => true,
