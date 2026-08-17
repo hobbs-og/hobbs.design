@@ -137,14 +137,15 @@
       </section>
 
       <section class="spec" aria-labelledby="form-heading">
-        <h2 id="form-heading">Contact form</h2>
+        <h2 id="form-heading">Form fields</h2>
         <p style="margin-block-start: var(--space-md); max-width: 60ch;">
           Labels stay visible, errors are announced through
           aria-describedby, and the error message spells out the word
-          instead of leaning on red alone.
+          instead of leaning on red alone. A specimen, not a working
+          form — the site takes contact by email rather than by post.
         </p>
 
-        <form class="grid" style="margin-block-start: var(--space-xl);" action="send_mail.php" method="post" novalidate>
+        <div class="grid" style="margin-block-start: var(--space-xl);">
           <div class="field span-4">
             <label class="field__label" for="demo-name">Name</label>
             <input class="field__control" id="demo-name" name="name" type="text" autocomplete="name">
@@ -164,9 +165,9 @@
             <textarea class="field__control" id="demo-message" name="message" rows="4"></textarea>
           </div>
           <div class="span-12">
-            <button class="button" type="submit">Send message</button>
+            <button class="button" type="button">Send message</button>
           </div>
-        </form>
+        </div>
       </section>
 
       <section class="spec" aria-labelledby="chips-heading">

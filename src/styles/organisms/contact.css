@@ -9,22 +9,20 @@
   margin-block-start: var(--space-lg);
 }
 
-.contact__form {
-  margin-block-start: var(--space-2xl);
+/* There was a form here. It posted to a PHP endpoint that could not
+   deliver from this host — outbound SMTP is blocked for PHP, the
+   domain's mail is on Microsoft 365 behind Proofpoint, and DMARC is
+   p=reject — so it spent its whole life telling visitors their message
+   had been sent when nothing arrived. A mailto has none of those
+   failure modes and nothing to keep configured. The field molecule it
+   used still exists, documented on components.html. */
+
+.contact__lead {
+  max-width: 48ch;
+  margin-block-start: var(--space-lg);
+  color: var(--text-color-body);
 }
 
-.contact__form-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  margin-block-start: var(--space-sm);
-}
-
-.contact__form-status {
-  font-size: var(--text-size-ui);
-  color: var(--feedback-color-success-text);
-}
-
-.contact__form-status--error {
-  color: var(--field-color-error);
+.contact__cta {
+  margin-block-start: var(--space-lg);
 }

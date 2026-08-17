@@ -89,9 +89,8 @@ textarea.field__control {
 /* That prefix is generated content, so it renders even when there is
    no message to prefix — an error element left empty in the markup
    would show a bare "Error:" against a field that is perfectly fine.
-   contact-form.js creates these only when a field has failed, and
-   this keeps the pattern honest for anyone who reaches for it in
-   static markup instead. */
+   Whatever writes these should add them only when a field has failed;
+   this keeps the pattern honest either way. */
 .field__error:empty {
   display: none;
 }

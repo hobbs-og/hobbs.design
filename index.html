@@ -223,28 +223,12 @@
           <li><a href="https://github.com/hobbs-og/hobbs.design">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg></a></li>
         </ul>
 
-        <form class="grid contact__form" method="post" action="send_mail.php" id="contactForm">
-          <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
+        <p class="contact__lead">
+          Email is the fastest way to reach me — I read everything that
+          arrives and reply to anything that isn't a pitch.
+        </p>
 
-          <div class="span-6 stack">
-            <div class="field">
-              <label class="field__label" for="contact-name">Name</label>
-              <input class="field__control" id="contact-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label class="field__label" for="contact-email">Email</label>
-              <input class="field__control" id="contact-email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-          <div class="field field--fill span-6">
-            <label class="field__label" for="contact-message">Message</label>
-            <textarea class="field__control" id="contact-message" name="message" rows="5" required></textarea>
-          </div>
-          <div class="span-12 contact__form-actions">
-            <button class="button" type="submit">Send message</button>
-            <p class="contact__form-status" role="status" aria-live="polite"></p>
-          </div>
-        </form>
+        <a class="button button--solid contact__cta" href="mailto:mark@hobbs.design">Email me</a>
       </section>
 
     </div>
@@ -277,6 +261,5 @@
   <script src="src/js/nav.js"></script>
   <script src="src/js/sheet.js"></script>
   <script src="src/js/project-row.js"></script>
-  <script src="src/js/contact-form.js"></script>
 </body>
 </html>

@@ -66,27 +66,19 @@
         </div>
       </section>
 
-      <section class="section" aria-label="Contact form">
-        <form class="grid" method="post" action="send_mail.php" id="contactForm">
-          <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
+      <section class="section" aria-label="Contact details">
+        <ul class="link-list contact__links text-mono" role="list">
+          <li><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></li>
+          <li><a href="https://www.linkedin.com/in/hobbsdesign">/in/hobbsdesign</a></li>
+          <li><a href="https://github.com/hobbs-og/hobbs.design">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg></a></li>
+        </ul>
 
-          <div class="field span-4">
-            <label class="field__label" for="contact-name">Name</label>
-            <input class="field__control" id="contact-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field span-4">
-            <label class="field__label" for="contact-email">Email</label>
-            <input class="field__control" id="contact-email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field span-8">
-            <label class="field__label" for="contact-message">Message</label>
-            <textarea class="field__control" id="contact-message" name="message" rows="6" required></textarea>
-          </div>
-          <div class="span-8 contact__form-actions">
-            <button class="button" type="submit">Send message</button>
-            <p class="contact__form-status" role="status" aria-live="polite"></p>
-          </div>
-        </form>
+        <p class="contact__lead">
+          Email is the fastest way to reach me — I read everything that
+          arrives and reply to anything that isn't a pitch.
+        </p>
+
+        <a class="button button--solid contact__cta" href="mailto:mark@hobbs.design">Email me</a>
       </section>
 
     </div>
@@ -100,6 +92,5 @@
   </footer>
   <script src="src/js/xray.js"></script>
   <script src="src/js/nav.js"></script>
-  <script src="src/js/contact-form.js"></script>
 </body>
 </html>

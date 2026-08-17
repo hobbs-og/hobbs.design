@@ -14,21 +14,15 @@
 #      "Update from Remote" (pulls the new commit), then
 #      "Deploy HEAD Commit" (runs the tasks below).
 #
-# The contact form needs no key and no third-party account: it uses
-# PHP's mail() and the host's own MTA. It does depend on two server
-# settings, neither of which lives in this repo:
+# There is no PHP on this site any more, and no server-side anything:
+# it is static files. The contact form is gone — it could not deliver
+# from this host (outbound SMTP blocked for PHP, mail on Microsoft 365
+# behind Proofpoint, DMARC p=reject) and told visitors otherwise.
+# Contact is a mailto now.
 #
-#   3. cPanel → Email → Email Routing for hobbs.design must be
-#      "Remote Mail Exchanger" or "Automatically Detect". The MX is
-#      external (Proofpoint, in front of Microsoft 365). Set to Local,
-#      Exim drops form mail into a local mailbox nobody reads while
-#      send_mail.php still reports success.
-#   4. Outbound mail from this host has to pass SPF for hobbs.design,
-#      because the domain publishes DMARC p=reject — an unauthenticated
-#      From at this domain is rejected, not junked. The site's A record
-#      (173.201.180.75) is NOT in GoDaddy's published SPF, so if the
-#      form's mail leaves from that address rather than through
-#      GoDaddy's relay, add it to the domain's SPF record.
+# NOTE: these tasks only copy. They never delete, so a file removed
+# from this repo stays in public_html until it is deleted there by
+# hand.
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
@@ -47,10 +41,6 @@ deployment:
     - /bin/cp -R favicon.svg $DEPLOYPATH
     - /bin/cp -R robots.txt $DEPLOYPATH
     - /bin/cp -R sitemap.xml $DEPLOYPATH
-    - /bin/cp -R send_mail.php $DEPLOYPATH
-    # TEMPORARY diagnostic — remove this line and the file once the
-    # contact form is confirmed delivering.
-    - /bin/cp -R mail-check.php $DEPLOYPATH
     - /bin/cp -R Mark-Hobbs_Resume.pdf $DEPLOYPATH
     - /bin/cp -R dist $DEPLOYPATH
     - /bin/cp -R src $DEPLOYPATH
