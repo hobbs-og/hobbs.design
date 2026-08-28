@@ -1,9 +1,9 @@
 /* ============================================================
-   atoms/icon.css — Bootstrap Icons, via the sprite at
-   src/public/icons.svg. Usage:
+   atoms/icon.css — Bootstrap Icons, via a sprite your project generates (see the
+   hobbs-icons bin). Usage:
 
      <svg class="icon" aria-hidden="true">
-       <use href="../src/public/icons.svg#bi-arrow-right"></use>
+       <use href="/icons.svg#bi-arrow-right"></use>
      </svg>
 
    Always aria-hidden: icons here are decorative, riding alongside

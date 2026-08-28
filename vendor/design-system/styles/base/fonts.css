@@ -23,12 +23,12 @@
    any weight other than 400, so a bold cut would be dead weight.
 
    Licensed under the SIL Open Font License 1.1. The licence ships
-   next to the file it covers, at src/public/fonts/OFL.txt.
+   next to the file it covers, at assets/fonts/OFL.txt.
    ============================================================ */
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('../../public/fonts/jetbrains-mono-latin-400.woff2') format('woff2');
+  src: url('../../assets/fonts/jetbrains-mono-latin-400.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   /* Text paints in the fallback immediately and swaps when the face

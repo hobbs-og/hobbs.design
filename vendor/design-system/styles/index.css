@@ -1,0 +1,50 @@
+/* ============================================================
+   @hobbs-og/design-system — stylesheet entry point
+
+   One link tag gets you tokens, element defaults, and every atom
+   and molecule in the system:
+
+     <link rel="stylesheet" href="…/design-system/styles/index.css">
+
+   Atomic Design, one direction of dependency:
+
+     ../dist/tokens.css  design tokens, compiled from tokens/*.json
+     base/               @font-face + reset + element defaults + a11y
+     atoms/              typography, link, button, chip, icon, media
+     molecules/          field, stat, section-header, link-list
+     layout/             12-column grid + stack utilities
+
+   Rules:
+   1. Everything below base/ uses semantic tokens only.
+      A raw hex or rem value outside dist/tokens.css is a bug.
+   2. The accent red is links and CTAs only.
+   3. Hierarchy comes from size and opacity, not hue or weight.
+
+   Consuming products add their own organisms on top. They must not
+   edit files in here — a fork is a fork. To change a value, change
+   the token; to add a role the semantic layer lacks, add the role.
+
+   Neue Haas Grotesk is NOT bundled: it is a licensed Typekit face.
+   Load your own kit before this file, or override the family tokens
+   (--text-family-base / --text-family-display). See README.
+   ============================================================ */
+
+@import url('../dist/tokens.css');
+
+@import url('base/fonts.css');
+@import url('base/reset.css');
+@import url('base/global.css');
+
+@import url('atoms/typography.css');
+@import url('atoms/link.css');
+@import url('atoms/button.css');
+@import url('atoms/chip.css');
+@import url('atoms/icon.css');
+@import url('atoms/media.css');
+
+@import url('molecules/field.css');
+@import url('molecules/stat.css');
+@import url('molecules/section-header.css');
+@import url('molecules/link-list.css');
+
+@import url('layout/grid.css');

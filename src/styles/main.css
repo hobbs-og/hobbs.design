@@ -1,38 +1,37 @@
 /* ============================================================
-   hobbs.design — main stylesheet (v5 architecture)
-   ------------------------------------------------------------
-   Atomic Design, one direction of dependency:
+   hobbs.design — site stylesheet
 
-     dist/tokens.css   design tokens (link BEFORE this file)
-     base/             @font-face + reset + element defaults + a11y
-     atoms/            typography, link, button, chip
-     molecules/        project-row, field
-     organisms/        nav, footer, index-hero, case-hero, sheet
-     layout/           grid + page scaffolding
+   This file is the site, not the system. Tokens, element defaults,
+   atoms, molecules and the grid come from @hobbs-og/design-system,
+   loaded from vendor/design-system/styles/index.css by the <link>
+   BEFORE this one. What is left here is what only this site has:
+   its organisms, its one bespoke molecule, and the X-ray overlay.
 
-   Rules:
-   1. Everything below base/ uses semantic tokens only.
-      A raw hex or rem value outside dist/tokens.css is a bug.
+     dist/tokens.local.css   this site's component tokens, compiled
+                             against the system's semantic layer
+     molecules/              project-row
+     organisms/              nav, sheet, footer, index-hero,
+                             how-i-work, case-hero, case-study,
+                             work-index, contact
+     utilities/              xray
+
+   Rules, unchanged and inherited from the system:
+   1. Everything here uses semantic or component tokens only.
+      A raw hex or rem value in this tree is a bug.
    2. The accent red is links and CTAs only.
    3. Hierarchy comes from size and opacity, not hue or weight.
+
+   Nothing in this file may edit a system rule. If a system component
+   is wrong for every product, fix it upstream and cut a release; if
+   it is wrong only here, that is a new organism, not an override.
    ============================================================ */
 
-@import url('base/fonts.css');
-@import url('base/reset.css');
-@import url('base/global.css');
-
-@import url('atoms/typography.css');
-@import url('atoms/link.css');
-@import url('atoms/button.css');
-@import url('atoms/chip.css');
-@import url('atoms/icon.css');
-@import url('atoms/media.css');
+/* Component tokens for the components below. They alias the system's
+   semantic layer, so this has to load after the system stylesheet —
+   which it does, because that stylesheet is a separate, earlier link. */
+@import url('../../dist/tokens.local.css');
 
 @import url('molecules/project-row.css');
-@import url('molecules/field.css');
-@import url('molecules/stat.css');
-@import url('molecules/section-header.css');
-@import url('molecules/link-list.css');
 
 /* sheet before nav: the navigation panel is a sheet variant, so its
    overrides have to come after the base it modifies. */
@@ -46,5 +45,4 @@
 @import url('organisms/work-index.css');
 @import url('organisms/contact.css');
 
-@import url('layout/grid.css');
 @import url('utilities/xray.css');

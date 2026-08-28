@@ -101,6 +101,15 @@
     padding-block: var(--space-section-y);
   }
 
+  /* The single-column collapse. The system's grid.css does this for its
+     own .grid and .align, but the hero declares its own grid rather than
+     using the utility, so it has to collapse its children itself. This
+     rule used to sit in grid.css, which meant the system knew the name
+     of one site's hero. It belongs here. */
+  .index-hero > * {
+    grid-column: 1 / -1;
+  }
+
   .index-hero__title {
     font-size: var(--text-size-display-sm);
     line-height: var(--text-line-height-display-sm);

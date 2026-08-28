@@ -17,7 +17,7 @@
   <meta name="description" content="Rebuilding hobbs.design from the token layer up: a three-layer token pipeline, an atomic CSS library, accessibility fixed at the value, and an X-ray mode that shows the architecture on the page.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
-  <link rel="stylesheet" href="dist/tokens.css">
+  <link rel="stylesheet" href="vendor/design-system/styles/index.css">
   <link rel="stylesheet" href="src/styles/main.css">
 </head>
 <body>
@@ -133,10 +133,12 @@
               <code>--text-color-link</code> reads as what it styles, which
               property, in what job.</p>
               <p class="span-4">Component tokens come last, and only once a
-              component has earned one. Style Dictionary compiles all three
-              into <code>dist/tokens.css</code>, which every page links
-              before the stylesheet. The compiled file is generated, so it
-              is never edited by hand.</p>
+              component has earned one. Style Dictionary compiles the layers
+              into the CSS custom properties every page links before the
+              stylesheet. The compiled file is generated, so it is never
+              edited by hand. The base and semantic layers have since moved
+              into their own repo, so other products can build on them
+              without copying them.</p>
             </div>
           </div>
           <span class="span-4"></span>

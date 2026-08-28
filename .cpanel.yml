@@ -7,6 +7,14 @@
 # root. $HOME is set by cPanel to the account home directory, so
 # this works without hardcoding a username.
 #
+# vendor/ carries @hobbs-og/design-system — the tokens, atoms and
+# grid, which now live in their own repo. It is committed rather than
+# installed, because these tasks only copy: there is no npm on the far
+# end and no build step, so anything the browser needs has to already
+# be a file here. After bumping the design-system ref in package.json,
+# run `npm install && npm run vendor` and commit the result, or the
+# deployed site keeps serving the old system.
+#
 # One-time setup, in cPanel:
 #   1. Git™ Version Control → Create → clone this repo's GitHub URL
 #      to a path OUTSIDE public_html (e.g. ~/repositories/hobbs.design).
@@ -44,4 +52,5 @@ deployment:
     - /bin/cp -R Mark-Hobbs_Resume.pdf $DEPLOYPATH
     - /bin/cp -R dist $DEPLOYPATH
     - /bin/cp -R src $DEPLOYPATH
+    - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH

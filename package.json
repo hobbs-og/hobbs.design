@@ -1,16 +1,20 @@
 {
   "name": "hobbs.design",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "private": true,
-  "description": "Design token pipeline and atomic front-end for hobbs.design",
+  "description": "The hobbs.design site. Tokens and CSS primitives come from @hobbs-og/design-system; this repo holds the pages, the organisms, and its own component-token layer.",
   "type": "module",
   "scripts": {
+    "build": "npm run build:tokens && npm run build:icons && npm run vendor",
     "build:tokens": "style-dictionary build --config style-dictionary.config.mjs",
     "watch:tokens": "style-dictionary build --config style-dictionary.config.mjs --watch",
-    "build:icons": "node tools/build-icons.mjs"
+    "build:icons": "hobbs-icons --scan . --out src/public/icons.svg",
+    "vendor": "node tools/vendor.mjs",
+    "serve": "node tools/serve.mjs",
+    "postinstall": "node tools/vendor.mjs"
   },
   "devDependencies": {
-    "bootstrap-icons": "^1.13.1",
+    "@hobbs-og/design-system": "github:hobbs-og/hobbs-design-system#v1.0.0",
     "style-dictionary": "^4.3.0"
   }
 }

@@ -9,28 +9,60 @@ no CMS. HTML, CSS, and enough JavaScript to ship the real thing.
 Design decisions live in one place and flow one direction.
 
 ```
-tokens/base/       subatomic. Raw hex and px values, and the only layer allowed to have them.
-tokens/semantic/   roles. Every value aliases a base token. Named element-property-role.
-tokens/component/  per-component tokens. Every value aliases a semantic role.
+@hobbs-og/design-system                       this repo
+  tokens/base/       raw values                 tokens/component/  nav · sheet
+  tokens/semantic/   roles                                         case-hero · project-row
+  styles/            atoms · molecules · grid   src/styles/        organisms · xray
+                                                *.html             the pages
 ```
 
-[Style Dictionary](https://styledictionary.com) compiles the JSON to
-`dist/tokens.css` as custom properties on `:root`, with the alias chains
-preserved. Open DevTools on any page and you can trace
-`--text-color-link` back to `--color-brand-primary-600` without reading a
-line of source.
+The tokens and the CSS primitives built on them are **not in this repo**.
+They live in [hobbs-design-system](https://github.com/hobbs-og/hobbs-design-system),
+because they are the baseline for anything I build, and copying them into
+every new project is how a system rots into four systems. This repo consumes
+them like any other product would.
+
+What stays here is what only this site has: its organisms, its pages, and the
+four component-token sets belonging to components the system doesn't carry.
+
+[Style Dictionary](https://styledictionary.com) compiles both halves into
+custom properties on `:root` with the alias chains preserved. Open DevTools
+on any page and you can trace `--text-color-link` back to
+`--color-brand-primary-600` without reading a line of source — across the
+repo boundary, because the chain is just `var()` all the way down.
 
 ```bash
-npm install
-npm run build:tokens
+npm install            # installs the system and vendors it into vendor/
+npm run build:tokens   # this site's component layer -> dist/tokens.local.css
+npm run build:icons    # sprite of only the icons this site references
+npm run serve
 ```
 
-The CSS itself follows Atomic Design. Atoms, molecules, and organisms live
-under `src/styles/`, and every rule below the base layer consumes semantic
-tokens. A raw hex value outside `tokens/base/` is a bug.
+Every page links two stylesheets, in this order:
+
+```html
+<link rel="stylesheet" href="vendor/design-system/styles/index.css">
+<link rel="stylesheet" href="src/styles/main.css">
+```
+
+`vendor/` is committed rather than installed, which looks wrong until you
+look at the deploy: cPanel copies files into `public_html` and runs nothing.
+There is no npm on the far end, so anything the browser needs has to already
+be a file in this repo. `npm run vendor` refreshes it; commit what it writes.
+
+The CSS follows Atomic Design. Every rule below the base layer consumes
+semantic tokens. A raw hex value anywhere but the system's `tokens/base/` is
+a bug.
 
 Spacing is a strict 8px grid. No 4s, no 12s. If a gap isn't divisible by
 eight, it isn't in the system.
+
+### Changing a system value
+
+Not here. Change it in the design-system repo, tag a release, bump the ref in
+`package.json`, then `npm install && npm run vendor` and commit the result.
+Editing `vendor/design-system/` directly works right up until the next vendor
+run silently reverts it.
 
 ## Accessibility is structural here
 
@@ -54,11 +86,14 @@ an affordance.
 
 | Path | What it is |
 |---|---|
-| `tokens/` | The design token source, W3C format JSON |
-| `dist/` | Compiled tokens: CSS custom properties plus a JS module |
-| `src/styles/` | The atomic CSS library |
-| `*.html` | The site: homepage, foundations, components, five case studies, resume, contact |
-| `docs/design-tokens.md` | The architecture in detail |
+| `vendor/design-system/` | The design system, vendored. Generated — never hand-edit |
+| `tokens/component/` | This site's own component tokens, aliasing the system's semantic layer |
+| `dist/tokens.local.css` | Those tokens compiled. Loaded after the system's |
+| `src/styles/` | This site's organisms, one molecule, and the X-ray overlay |
+| `src/js/` | Nav, sheet, project-row, X-ray |
+| `*.html` | The site: homepage, foundations, components, six case studies, resume, contact |
+| `tools/vendor.mjs` | Copies the system out of `node_modules` into `vendor/` |
+| `docs/design-tokens.md` | How the two token layers meet |
 | `.cpanel.yml` | Deploy config — copies only the servable paths into `public_html` on the host |
 
 This rebuild used to live under `v5/` while the pre-rebuild HTML and Sass

@@ -18,6 +18,11 @@ Thumbs.db
 # ---- Dependencies ----
 node_modules/
 
+# vendor/ is NOT ignored, on purpose. It holds @hobbs-og/design-system,
+# copied out of node_modules by `npm run vendor`. The cPanel deploy only
+# copies files — it runs no npm and no build — so the design system has to
+# be committed here or the deployed site has no stylesheet.
+
 # ---- Archived previous version (kept on disk, not in history) ----
 _V4.0/
 xx_graveyard/
