@@ -1,4 +1,4 @@
-@hobbs-og/design-system 1.0.0
+@hobbs-og/design-system 1.2.0
 Vendored by tools/vendor.mjs — do not hand-edit. To change anything in
 here, change it in the design system repo, tag a release, bump the ref in
 package.json, then run: npm install && npm run vendor

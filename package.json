@@ -14,7 +14,7 @@
     "postinstall": "node tools/vendor.mjs"
   },
   "devDependencies": {
-    "@hobbs-og/design-system": "github:hobbs-og/hobbs-design-system#v1.0.0",
+    "@hobbs-og/design-system": "github:hobbs-og/hobbs-design-system#v1.2.0",
     "style-dictionary": "^4.3.0"
   }
 }
