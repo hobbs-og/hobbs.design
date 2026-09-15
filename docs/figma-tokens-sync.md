@@ -41,8 +41,8 @@ don't touch token values at all.
 
 ## File structure to preserve
 
-9 variable collections, 4 pages. Re-running should update variables *within*
-this structure, not recreate it:
+10 variable collections, 5 pages. Re-running should update variables
+*within* this structure, not recreate it:
 
 | Collection | Modes | What |
 |---|---|---|
@@ -50,13 +50,19 @@ this structure, not recreate it:
 | `Base/Typography`, `Base/Spacing`, `Base/Motion` | Value | Single-mode primitives |
 | `Semantic/Color`, `Semantic/Typography`, `Semantic/Spacing`, `Semantic/Motion` | Value | Single-mode — every value is a `VARIABLE_ALIAS` into the matching `Base/*` collection. Dark-mode behavior is inherited automatically through the alias, exactly like a CSS `var()` chain. Never give these a second mode. |
 | `Component` | Value | Aliases into `Semantic/Color` and `Semantic/Spacing` only, for button/chip/field/stat — the only four components that ship component tokens in the source system |
+| `Base/Color Reference` | Value | 156 colors (12 hues × 13 tones), HCT tonal scale via `material-color-utilities`. Sourced from a one-off reference artifact, not yet in any tagged release of the design system. Empty `scopes`, no `codeSyntax` — deliberately unwired inventory, not aliased by anything. If/when a hue from here gets promoted into `tokens/base/color.json`, move its value there and it stops living in this collection. |
 
-Pages: **Cover**, **Base**, **Semantic**, **Component** — each a single
-1200px-wide auto-layout frame using Figma's native `GRID` layout mode (12
-columns) with `gridColumnGap`/`gridRowGap` bound to
-`space/grid-column-gap`/`space/grid-row-gap`, not hardcoded. Side padding is
-bound to `space/gutter`. Every swatch card shows the variable's
-`codeSyntax.WEB` value, never a raw hex string.
+Pages: **Cover**, **Base**, **Semantic**, **Component**, **Reference** — each a
+1200px-wide auto-layout frame with side padding bound to `space/gutter`.
+Cover, Base, Semantic and Component use Figma's native `GRID` layout mode
+(12 columns) with `gridColumnGap`/`gridRowGap` bound to
+`space/grid-column-gap`/`space/grid-row-gap`, not hardcoded, and every
+swatch card shows the variable's `codeSyntax.WEB` value, never a raw hex
+string. **Reference is the deliberate exception**: it's a 13-column tonal
+matrix (12 hues × 13 tones), not card content, so it's a plain table, not
+the 12-col grid — and since `Base/Color Reference` variables have no
+`codeSyntax`, its swatches show raw hex. That's the one place in the file
+raw hex is correct, because there's genuinely no `var()` to show yet.
 
 ## How to re-run
 
