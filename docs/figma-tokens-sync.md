@@ -1,9 +1,11 @@
 # Figma token sync
 
-There is a Figma file that mirrors `@hobbs-og/design-system`'s tokens as
-Figma variables — not this site's own component tokens (nav, sheet,
-case-hero, project-row; see [`design-tokens.md`](design-tokens.md)), just the
-base → semantic → component chain the system itself ships.
+There is a Figma file that started as a mirror of `@hobbs-og/design-system`'s
+tokens and has grown into a small portable component starter kit built on
+top of them — nav, sheet, alert, checkbox, radio, all bound to the same
+token chain, including this site's own `nav`/`sheet` component tokens
+(mirrored from `tokens/component/nav.json` / `sheet.json` — see
+[`design-tokens.md`](design-tokens.md) for where those live in code).
 
 **File:** [hobbs.design — Design Tokens](https://www.figma.com/design/FtTx0vhG9aEGgVLnf4ng9F)
 (file key `FtTx0vhG9aEGgVLnf4ng9F`, in the `hobbs.design` team's drafts —
@@ -41,28 +43,79 @@ don't touch token values at all.
 
 ## File structure to preserve
 
-10 variable collections, 5 pages. Re-running should update variables
+12 variable collections, 10 pages. Re-running should update variables
 *within* this structure, not recreate it:
 
 | Collection | Modes | What |
 |---|---|---|
 | `Base/Color` | Light, Dark | The only collection with two modes — mirrors the `prefers-color-scheme` override happening at the primitive layer in the real CSS |
-| `Base/Typography`, `Base/Spacing`, `Base/Motion` | Value | Single-mode primitives |
-| `Semantic/Color`, `Semantic/Typography`, `Semantic/Spacing`, `Semantic/Motion` | Value | Single-mode — every value is a `VARIABLE_ALIAS` into the matching `Base/*` collection. Dark-mode behavior is inherited automatically through the alias, exactly like a CSS `var()` chain. Never give these a second mode. |
+| `Base/Typography`, `Base/Spacing`, `Base/Motion` | Value | Single-mode primitives. `Base/Spacing` also carries two additions with no code precedent: `control/checkbox` (18px) and `border-radius/xs` (2px) — see "Extending past the shipped tokens" below. |
+| `Semantic/Color`, `Semantic/Typography`, `Semantic/Spacing`, `Semantic/Motion` | Value | Single-mode — every value is a `VARIABLE_ALIAS` into the matching `Base/*` collection. Dark-mode behavior is inherited automatically through the alias, exactly like a CSS `var()` chain. Never give these a second mode. `Semantic/Color` also carries `feedback/color/info` / `info-bg` / `info-text` (not in the shipped system — added for the Alert component, aliased from `Base/Color Reference`'s blue hue). `Semantic/Spacing` carries the semantic aliases for the two additions above. |
 | `Component` | Value | Aliases into `Semantic/Color` and `Semantic/Spacing` only, for button/chip/field/stat — the only four components that ship component tokens in the source system |
-| `Base/Color Reference` | Value | 156 colors (12 hues × 13 tones), HCT tonal scale via `material-color-utilities`. Sourced from a one-off reference artifact, not yet in any tagged release of the design system. Empty `scopes`, no `codeSyntax` — deliberately unwired inventory, not aliased by anything. If/when a hue from here gets promoted into `tokens/base/color.json`, move its value there and it stops living in this collection. |
+| `Base/Color Reference` | Value | 156 colors (12 hues × 13 tones), HCT tonal scale via `material-color-utilities`. Sourced from a one-off reference artifact, not yet in any tagged release of the design system. Empty `scopes`, no `codeSyntax` — deliberately unwired inventory, not aliased by anything except where explicitly promoted (see `feedback/color/info`, above). If/when a hue from here gets promoted into `tokens/base/color.json`, move its value there and it stops living in this collection. |
+| `Portfolio/Nav`, `Portfolio/Sheet` | Value | Mirror this site's own `tokens/component/nav.json` and `sheet.json` exactly — including their `motion` sections. Kept as separate collections from `Component`, matching the real repo boundary: these are portfolio-specific, not part of `@hobbs-og/design-system`. |
 
-Pages: **Cover**, **Base**, **Semantic**, **Component**, **Reference** — each a
-1200px-wide auto-layout frame with side padding bound to `space/gutter`.
-Cover, Base, Semantic and Component use Figma's native `GRID` layout mode
-(12 columns) with `gridColumnGap`/`gridRowGap` bound to
-`space/grid-column-gap`/`space/grid-row-gap`, not hardcoded, and every
-swatch card shows the variable's `codeSyntax.WEB` value, never a raw hex
-string. **Reference is the deliberate exception**: it's a 13-column tonal
-matrix (12 hues × 13 tones), not card content, so it's a plain table, not
-the 12-col grid — and since `Base/Color Reference` variables have no
-`codeSyntax`, its swatches show raw hex. That's the one place in the file
-raw hex is correct, because there's genuinely no `var()` to show yet.
+Pages: **Cover**, **Base**, **Semantic**, **Component**, **Reference**,
+**Alert**, **Nav**, **Sheet**, **Checkbox**, **Radio**.
+
+Cover/Base/Semantic/Component/Reference are documentation pages (see prior
+section for their grid rules). Alert/Nav/Sheet/Checkbox/Radio are **real
+`COMPONENT_SET`s** — combine variants with `figma.combineAsVariants`, give
+them a proper variant property (`Type`, `State`, `Selected`, `Disabled`,
+etc.), and every layer gets a real name, not Figma's default "Frame" /
+"Rectangle". `fills = []` explicitly on every layout-only wrapper —
+`createAutoLayout`/`createFrame` default to a solid white fill, and leaving
+that unset shows up as a stray white box behind content that has no token
+backing it. Audit for both (`node.name === 'Frame'`, and any `SOLID` fill
+without `boundVariables.color`) before calling a page done.
+
+## Extending past the shipped tokens
+
+Nav and Sheet mirror real code exactly. Alert, Checkbox, and Radio don't —
+there's no `alert.css`, no checkbox, no radio anywhere in the codebase yet.
+Building those needed real judgment calls, made the same way the system
+itself would make them:
+
+- **Never invent a raw value.** Alert's `info` color and Checkbox/Radio's
+  box size are grounded in real sources — `feedback/color/info` aliases the
+  `blue` hue already sitting in `Base/Color Reference`; `control/checkbox`
+  and `border-radius/xs` match Material 3's actual published checkbox spec
+  (pulled from the Material 3 Design Kit library already attached to this
+  file, not memory).
+- **New tokens follow the existing exception, not a new one.** `control/*`
+  dimensions already sit outside the 8px grid on purpose ("they size
+  affordances against the hand and the eye, not against layout rhythm" —
+  `tokens/base/spacing.json`). `control/checkbox` is one more of those, not
+  a new kind of exception.
+- **Contrast is computed before building, not after.** Every color pairing
+  in Alert/Checkbox/Radio was checked against WCAG 2.1 AA (4.5:1 text,
+  3:1 non-text UI components) before the component was built, not eyeballed
+  afterward. `border/color/strong` against the page background clears the
+  3:1 floor by only 0.01 — real, passing, but worth knowing if this system
+  is reused somewhere with a different `border/color/strong` value.
+
+## Starter-kit reuse across projects
+
+The alias chain already makes this work without any extra structure:
+`Semantic/*`, `Component`, `Portfolio/*`, and every component page
+(Alert/Nav/Sheet/Checkbox/Radio) only ever reference `Base/*` — nothing
+downstream holds a raw value. To adapt this file for a different project:
+
+1. Duplicate the Figma file.
+2. Edit only `Base/Color`'s 49 primitives (and `Base/Typography`/
+   `Base/Spacing` if the new project's type scale or grid genuinely
+   differs) to the new brand's values.
+3. Everything else — every semantic token, every component, every swatch
+   card — repaints automatically, the same way changing a CSS custom
+   property cascades through every `var()` that points at it.
+
+Light/Dark stays a real Figma **mode** on `Base/Color`, because that's a
+state the same brand needs simultaneously. A different *brand* isn't a mode
+of this file — it's a fork of `Base/*`'s values, the same way a new product
+consuming `@hobbs-og/design-system` in code doesn't get a "brand mode," it
+gets its own token overrides. Don't build brand-switching as a second mode
+axis; duplicate-and-edit is the correct shape for it, not a limitation to
+route around.
 
 ## How to re-run
 
