@@ -16,23 +16,22 @@
    restoration come from the platform rather than from script.
    ============================================================ */
 
-/* --nav-height-fallback covers the same case --nav-height itself
-   does below: no JS, or the first frame before nav.js's measurement
-   runs. Built from the tokens that actually set the header's height
-   at each breakpoint — the logo's line box on desktop, the taller
-   hamburger target on mobile — so it tracks reality if those change,
-   the same as the measured value does. */
+/* The header's height, computed in CSS from the tokens that set it,
+   so nothing has to measure the header and write the result back
+   onto the page. On desktop the tallest item is whichever is larger,
+   the logo's line box or the X-ray toggle (utilities/xray.css); on
+   mobile it is the hamburger target. */
 :root {
-  --nav-height-fallback: calc(
+  --nav-height: calc(
     (var(--nav-space-inset-y) * 2) +
-    var(--text-line-height-heading-md) +
+    max(var(--text-line-height-heading-md), var(--xray-toggle-block-size)) +
     var(--border-width-hairline)
   );
 }
 
 @media (max-width: 47.9375rem) {
   :root {
-    --nav-height-fallback: calc(
+    --nav-height: calc(
       (var(--nav-space-inset-y) * 2) +
       var(--nav-size-toggle) +
       var(--border-width-hairline)
@@ -170,10 +169,8 @@
    moves that showModal() would otherwise have given us. */
 
 .sheet--nav {
-  /* Meets the bottom of the header exactly. nav.js measures the
-     header and publishes --nav-height; --nav-height-fallback (set
-     above) covers the no-JS case and the first paint. */
-  inset-block-start: var(--nav-height, var(--nav-height-fallback));
+  /* Meets the bottom of the header exactly (--nav-height, above). */
+  inset-block-start: var(--nav-height);
   inset-block-end: 0;
   inset-inline: 0;
   /* Under the sticky header, over the page. */

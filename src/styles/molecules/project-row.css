@@ -41,6 +41,23 @@
   background: var(--surface-color-card);
 }
 
+/* A row with an image sits on the same twelve columns as the case
+   study above it: text in 1–4, image in 5–12, so the image shares
+   its left edge with the content column it follows. Scoped to rows
+   that actually hold an image; résumé entries use the bare row with
+   no media and keep their own two-part split. */
+.project-row:has(> .project-row__media) {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.project-row:has(> .project-row__media) > .project-row__body {
+  grid-column: span 4;
+}
+
+.project-row:has(> .project-row__media) > .project-row__media {
+  grid-column: span 8;
+}
+
 /* Index variant: the Swiss work list. No image — the label group
    (number, title, tag) sits in one column and the prose in the other,
    on the same 12-column grid as .grid: labels 1–4, two columns of
@@ -135,12 +152,27 @@
   .project-row--index .project-row__body {
     grid-column: span 1;
   }
+
+  /* Same degradation as .span-4 and .span-8 in layout/grid.css. */
+  .project-row:has(> .project-row__media) > .project-row__body {
+    grid-column: span 6;
+  }
+
+  .project-row:has(> .project-row__media) > .project-row__media {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 47.9375rem) {
-  .project-row {
+  .project-row,
+  .project-row:has(> .project-row__media) {
     grid-template-columns: 1fr;
     gap: var(--project-row-space-gap-row);
+  }
+
+  .project-row:has(> .project-row__media) > .project-row__body,
+  .project-row:has(> .project-row__media) > .project-row__media {
+    grid-column: 1 / -1;
   }
 
   .project-row--index {

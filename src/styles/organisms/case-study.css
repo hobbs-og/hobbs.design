@@ -25,3 +25,10 @@
 .case-section__support {
   margin-block-start: var(--space-md);
 }
+
+/* An image with a short title and caption under it: a numbered step,
+   one of a pair of screens. The title sits a small step below the
+   image; the caption follows the title directly. */
+.case-figure > h4 {
+  margin-block-start: var(--space-sm);
+}

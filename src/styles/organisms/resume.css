@@ -1,0 +1,12 @@
+/* ============================================================
+   organisms/resume.css — the résumé page
+
+   Each résumé section is a heading and one block under it (the
+   proficiency chips, the list of roles, the education entry). The
+   block sits one xl step below the heading, the same step the case
+   studies use between their blocks.
+   ============================================================ */
+
+.resume-section > * + * {
+  margin-block-start: var(--space-xl);
+}

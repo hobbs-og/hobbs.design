@@ -1,0 +1,143 @@
+/* ============================================================
+   organisms/spec.css — the specimen pages (foundations, components)
+
+   These rules used to live in a <style> block in each page's head,
+   with the per-specimen values (a swatch's color, a bar's width, a
+   paragraph's measure) typed onto the elements as style attributes.
+   Every one of them is a class now, so the markup describes which
+   specimen something is and this file says what that looks like.
+   Semantic tokens only.
+   ============================================================ */
+
+.spec {
+  border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
+  padding-block: var(--space-xl);
+}
+
+.spec__label {
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  line-height: var(--text-line-height-caption);
+  color: var(--text-color-subtle);
+  display: block;
+  margin-block-end: var(--space-sm);
+}
+
+/* A label set inside a framed specimen, clear of the frame's edge. */
+.spec__label--inset {
+  padding: var(--space-sm) var(--space-sm) 0;
+}
+
+/* A label that follows its specimen rather than heading it. */
+.spec__label--trailing {
+  margin-block-start: var(--space-sm);
+}
+
+.spec__frame {
+  border: var(--border-width-hairline) solid var(--border-color-default);
+}
+
+/* Secondary text on a specimen page: the page's version line and
+   its keyboard note. */
+.spec__note {
+  color: var(--text-color-subtle);
+}
+
+/* The explanation under a specimen's heading. It sits on the grid
+   (.grid in the markup, the prose in a .span-6) rather than being
+   capped at a character count, so its edge lands on a column line. */
+.spec__support {
+  margin-block-start: var(--space-md);
+}
+
+.spec__prose > * + * {
+  margin-block-start: var(--space-sm);
+}
+
+/* The specimen itself, one step further down. */
+.spec__demo {
+  margin-block-start: var(--space-xl);
+}
+
+/* A row of small specimens that wrap: chips, buttons. */
+.spec__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* The icon list: each icon drawn at a readable size beside its name. */
+.spec__icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+.spec__icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.spec__icon .icon {
+  inline-size: var(--space-md);
+  block-size: var(--space-md);
+}
+
+.spec__icon .spec__label {
+  margin: 0;
+}
+
+/* Color swatches. One modifier per token shown, named after it. */
+.swatch {
+  border: var(--border-width-hairline) solid var(--border-color-hairline);
+}
+
+.swatch__chip {
+  height: var(--space-2xl);
+}
+
+.swatch__chip--action-color-accent   { background: var(--action-color-accent); }
+.swatch__chip--text-color-link       { background: var(--text-color-link); }
+.swatch__chip--text-color-heading    { background: var(--text-color-heading); }
+.swatch__chip--text-color-body       { background: var(--text-color-body); }
+.swatch__chip--text-color-subtle     { background: var(--text-color-subtle); }
+.swatch__chip--surface-color-page    { background: var(--surface-color-page); }
+.swatch__chip--surface-color-alt     { background: var(--surface-color-alt); }
+.swatch__chip--surface-color-inverse { background: var(--surface-color-inverse); }
+
+.swatch__meta {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--surface-color-card);
+}
+
+.swatch__meta code {
+  font-size: var(--text-size-caption);
+}
+
+/* The spacing scale, one bar per step, each as wide as its step. */
+.bar {
+  background: var(--action-color-accent);
+  height: var(--space-xs);
+  margin-block-end: var(--space-xs);
+}
+
+.bar--xs  { width: var(--space-xs); }
+.bar--sm  { width: var(--space-sm); }
+.bar--md  { width: var(--space-md); }
+.bar--lg  { width: var(--space-lg); }
+.bar--xl  { width: var(--space-xl); }
+.bar--2xl { width: var(--space-2xl); }
+.bar--3xl { width: var(--space-3xl); }
+.bar--4xl { width: var(--space-4xl); }
+
+.grid-demo > div {
+  background: var(--surface-color-card);
+  border: var(--border-width-hairline) solid var(--border-color-default);
+  padding: var(--space-sm);
+  font-family: var(--text-family-mono);
+  font-size: var(--text-size-caption);
+  color: var(--text-color-subtle);
+  text-align: center;
+}

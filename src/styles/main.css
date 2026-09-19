@@ -12,7 +12,7 @@
      molecules/              project-row
      organisms/              nav, sheet, footer, index-hero,
                              how-i-work, case-hero, case-study,
-                             work-index, contact
+                             work-index, contact, spec, resume
      utilities/              xray
 
    Rules, unchanged and inherited from the system:
@@ -44,5 +44,7 @@
 @import url('organisms/case-study.css');
 @import url('organisms/work-index.css');
 @import url('organisms/contact.css');
+@import url('organisms/spec.css');
+@import url('organisms/resume.css');
 
 @import url('utilities/xray.css');

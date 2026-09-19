@@ -16,13 +16,16 @@
 }
 
 /* The background band stays full-bleed; the content column caps
-   and centers exactly like .container so the hero's text lines up
-   with the section content beneath it on wide viewports instead of
-   hugging the true viewport edge. */
+   and centers exactly like .container, and the markup adds .grid, so
+   the hero sits on the same twelve columns as every section below
+   it. Widths come from span classes in the markup, never from a
+   character measure. Row gap is zeroed because the hero's vertical
+   rhythm is set by the margins below, not by the grid. */
 .case-hero__inner {
   max-width: var(--layout-container-max);
   margin-inline: auto;
   padding-inline: var(--space-section-x);
+  row-gap: 0;
 }
 
 .case-hero--inverse {
@@ -45,22 +48,19 @@
   font-weight: var(--text-weight-heading);
   line-height: var(--text-line-height-heading-xl);
   color: var(--_title);
-  max-width: 20ch;
 }
 
 .case-hero__lead {
   font-size: var(--text-size-body-lg);
   line-height: var(--text-line-height-body-lg);
   color: var(--_lead);
-  max-width: 44ch;
   margin-block-start: var(--space-md);
 }
 
+/* A subgrid (.align in the markup), so each entry starts on a column
+   line. Columns come from the grid; only the wrap spacing is set here. */
 .case-hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-sm) var(--case-hero-space-gap);
+  row-gap: var(--space-sm);
   margin-block-start: var(--space-xl);
   padding: 0;
   list-style: none;

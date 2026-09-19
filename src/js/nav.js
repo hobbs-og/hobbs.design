@@ -20,22 +20,6 @@
   var panel = document.querySelector('.sheet--nav');
   if (!toggle || !panel || typeof panel.show !== 'function') return;
 
-  // Publish the header's real height so the panel can sit flush
-  // beneath it. Measured rather than derived: which child is tallest
-  // changes with the breakpoint, and the header may gain content.
-  var header = document.querySelector('.site-nav');
-  function publishHeight() {
-    if (!header) return;
-    var h = header.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--nav-height', h + 'px');
-  }
-  publishHeight();
-  if ('ResizeObserver' in window && header) {
-    new ResizeObserver(publishHeight).observe(header);
-  } else {
-    window.addEventListener('resize', publishHeight, { passive: true });
-  }
-
   function isOpen() {
     return panel.hasAttribute('open');
   }

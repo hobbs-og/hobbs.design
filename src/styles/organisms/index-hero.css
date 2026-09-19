@@ -18,8 +18,8 @@
 .home-fold {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--nav-height, var(--nav-height-fallback)));
-  min-height: calc(100dvh - var(--nav-height, var(--nav-height-fallback)));
+  min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
 }
 
 .home-fold__hero {

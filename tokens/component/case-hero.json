@@ -11,8 +11,7 @@
       "inverse-meta":       { "$value": "{text.color.knockout-muted}", "$type": "color" }
     },
     "space": {
-      "inset-y": { "$value": "{space.3xl}",            "$type": "dimension" },
-      "gap":     { "$value": "{space.grid-column-gap}", "$type": "dimension" }
+      "inset-y": { "$value": "{space.3xl}", "$type": "dimension" }
     }
   }
 }

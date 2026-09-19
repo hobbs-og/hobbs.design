@@ -12,7 +12,6 @@
   --case-hero-color-inverse-lead: var(--text-color-knockout-muted);
   --case-hero-color-inverse-meta: var(--text-color-knockout-muted);
   --case-hero-space-inset-y: var(--space-3xl);
-  --case-hero-space-gap: var(--space-grid-column-gap);
   --nav-color-background: var(--surface-color-page);
   --nav-color-link: var(--text-color-default);
   --nav-color-link-hover: var(--text-color-heading);
