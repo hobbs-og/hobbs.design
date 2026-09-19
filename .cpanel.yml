@@ -44,6 +44,10 @@ deployment:
     - /bin/cp -R rumi.html $DEPLOYPATH
     - /bin/cp -R frictionless.html $DEPLOYPATH
     - /bin/cp -R groundwork.html $DEPLOYPATH
+    # Not linked from the index and not in sitemap.xml: the Bullhorn
+    # case study is live for review only, pending the client's sign-off
+    # on sharing it publicly.
+    - /bin/cp -R bullhorn.html $DEPLOYPATH
     - /bin/cp -R foundations.html $DEPLOYPATH
     - /bin/cp -R components.html $DEPLOYPATH
     - /bin/cp -R favicon.svg $DEPLOYPATH

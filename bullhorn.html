@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bullhorn | hobbs.design</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBES5CDMVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QBES5CDMVZ');
+  </script>
+  <meta name="description" content="A three-month contract to update the look of Bullhorn's platform, starting with its two most-used screens, that became a token system and a 500-component Figma library now used by two engineering teams.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
+  <link rel="stylesheet" href="vendor/design-system/styles/index.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav" data-xray="organism · site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
+
+      <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+      </nav>
+
+      <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
+        <button type="button" data-mode="design" aria-pressed="true">Design</button>
+        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
+      </div>
+
+      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <nav class="sheet__body nav-panel__links" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+    </nav>
+  </dialog>
+
+  <main id="main" data-xray="template · case-study">
+
+    <div class="case-hero" data-xray="organism · case-hero">
+      <div class="case-hero__inner grid">
+        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">Bullhorn · Applicant tracking system</p>
+        <h1 class="case-hero__title span-8">A new look for Bullhorn's platform, built from the smallest pieces up.</h1>
+        <p class="case-hero__lead span-6">Bullhorn brought me in for three months to
+        update how its applicant tracking system looked, across the whole
+        platform. The candidate record and the candidate list came first,
+        because recruiters use them most. Once I saw how many components sat
+        under those screens, I proposed a token system, got
+        engineering behind it, and spent the rest of the contract building
+        it.</p>
+        <span class="span-6"></span>
+        <dl class="case-hero__meta span-6 align">
+          <div class="span-2"><dt>Focus</dt><dd>Design tokens, component library</dd></div>
+          <div class="span-2"><dt>Scope</dt><dd>Full platform, 500+ components</dd></div>
+          <div class="span-2"><dt>Context</dt><dd>Bullhorn, three-month contract via Mondo</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <section class="section case-section" aria-labelledby="bh-brief">
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/candidate-screens-legacy.png" alt="The two screens before the redesign. Left, the candidate record: a dark navy header bar, all-caps tabs, a row of boxed workflow steps, and cards for open tasks, CV, shift availability and details. Right, the candidate list: a blue Add Filter button and a dense table of candidates with name, status, phone and consultant columns." loading="lazy">
+          <figcaption class="text-caption">The candidate record and the candidate list, before.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <div class="span-8 align">
+            <h2 id="bh-brief" class="span-8">The first release focused on the two screens recruiters use most.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The candidate record is where a recruiter
+              reads everything about one person. The candidate list is where
+              they find that person in the first place. Those two get more use
+              than anything else in the product, so they went first.</p>
+              <p class="span-4">Three months is tight for a whole platform. It
+              gets tighter once you find out how much each screen is standing
+              on.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Each screen changes depending on who's signed in and what their account allows.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Neither screen is one layout. Different kinds
+          of users see different versions of it, and features and content
+          switch on and off depending on who's signed in and what their
+          account is allowed to do. Every design had to hold up across all
+          of those.</p>
+          <p class="span-4">Then there were the components, and there were
+          a lot of them. Some came from a separate legacy system. One of
+          the libraries was about to start being tokenized anyway. There
+          was no Figma library behind any of it, so the code was the only
+          record of what anything was supposed to look like.</p>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Atomic elements show up on nearly every screen in the product.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Take the button. Restyle it on two screens
+          and the rest of the platform still needs the same decisions made
+          again. Get it right at the atomic level and every screen that uses
+          it improves with it. If you control the details, you get a lot more change for a
+          lot less work.</p>
+          <p class="span-4">The tokenization work that was about to start was
+          the opening. If values were going to be pulled out of the code
+          anyway, they could come out with names and a structure, and the
+          candidate record and list could be the first screens built from
+          them.</p>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/button-legacy.png" alt="The existing Novo button: basic, primary and secondary rows in default, success, error, warning and disabled, icon and floating action buttons, a standard button group, and secondary buttons in three sizes." loading="lazy">
+            <figcaption class="text-caption">The button as it existed before the work started, documented from production.</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">I mentioned I had a base token system we could easily adapt to accelerate the team.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">It was a basic one, a set of core values with a
+          naming structure on top. The point was to have something real to
+          react to rather than a slide about what a token system could
+          be.</p>
+          <p class="span-4">I worked through it with the engineers to see
+          whether it could ride along with the work they already had
+          planned instead of competing with it. It could. It went into the
+          scope, and my job changed from designing screens to building
+          the system every screen would be made from.</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="bh-subatomic">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="bh-subatomic" class="span-8">The smallest tokens are the only layer with raw values.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">I think of it as the spice rack. Every
+              ingredient the system is allowed to cook with sits here, and
+              nothing gets added anywhere else. The file is called
+              <code>subatomic</code>, and it holds ninety-one core values, the
+              spacing steps and the colour ramps, and names like
+              <code>color.background.subtle-hover</code> that say what those
+              values are for. It exports from Figma as JSON, so engineering
+              reads the same file the designs are built from.</p>
+              <p class="span-4">The core values carry four modes: a default, a
+              warm variant and two brand themes. Components only ever point at
+              names, so a theme is another column of values. Nobody has to
+              duplicate a component to get one.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/tokens-core-greyscale.png" alt="The core greyscale ramp from 0 to 900 with hex values, and a usage row mapping each step to its jobs: backgrounds and surfaces, decorative borders, input and control borders, disabled and subtle text, body text and headlines." loading="lazy">
+            <figcaption class="text-caption">The spice rack. Core greyscale values, and the jobs each step is allowed to do.</figcaption>
+          </figure>
+          <span class="span-4"></span>
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/tokens-semantic-background.png" alt="Tier 2 background tokens: default, subtle, subtle-hover, knockout, knockout-hover, brand, brand-hover and disabled, then utility error, warning, success and info with knockout versions, each labelled with the core value it points at." loading="lazy">
+            <figcaption class="text-caption">One layer up, every background has a name, and every name points at a core value. <code>subtle-hover</code> is <code>color/gray/200</code>.</figcaption>
+          </figure>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <h3 class="span-8">Anyone on the team can check the rule with a text search.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Putting the rule in the structure instead of a
+          guideline means a junior developer can check it as easily as I can.
+          Nobody has to be senior enough to have an opinion.</p>
+          <p class="span-4">It also settles what happens when a component
+          needs something the system doesn't have. The answer is a new named
+          role. A raw number doesn't get in just this once.</p>
+          <span class="span-4"></span>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="bh-components">
+        <div class="grid">
+          <span class="span-4"></span>
+          <div class="span-8 align">
+            <h2 id="bh-components" class="span-8">More than 500 components, named the way the code names them.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The component layer covers everything Novo
+              already had, down to the sub-components. That came to more than
+              five hundred. Each one is named the way the code names it, so the
+              button in Figma is <code>novo-button</code> and nobody has to
+              translate between the file and the repo.</p>
+              <p class="span-4">Its tokens follow one pattern: component,
+              property, variant, then role and state.
+              <code>button.color.icon.content.hover</code> reads as
+              exactly what it styles. Of the 903 component tokens, 889 point at
+              another name instead of a value.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/button-variant-matrix.png" alt="The Novo button component set in Figma: eight variants from base to select in rows, each in three sizes, across default, negative, Amplify and success colour roles, with default, hover, focus, active and disabled states for each." loading="lazy">
+            <figcaption class="text-caption">One component from the library. Eight variants, four colour roles, five states, and a focus state on every one of them. No fill in it is a hex.</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <h3 class="span-8">Focus and disabled states were in every component from the first draft.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Focus and disabled states are part of each
+          component set from the first draft. Adding them after the fact means
+          reopening every variant, and at five hundred components that's the
+          kind of job that quietly never happens.</p>
+          <p class="span-4">The library is built atoms up, the way atomic
+          design describes. A button is an atom, a table row is built from
+          atoms, and screens are built from those, so a fix at the
+          bottom reaches every place it's used.</p>
+        </div>
+
+        <div class="grid">
+          <span class="span-4"></span>
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/candidate-record-updated.png" alt="The redesigned candidate record: a light sidebar with recent records, a header grouping ID, name, status and contact fields, a linear workflow tracker, and cards for details, open submissions, open tasks and recent notes." loading="lazy">
+            <figcaption class="text-caption">The candidate record, redesigned.</figcaption>
+          </figure>
+          <span class="span-4"></span>
+          <figure class="span-8 stack--tight">
+            <img class="img-frame" data-xray="atom · media" src="images/Bullhorn/candidates-listing-updated.png" alt="The redesigned candidate list: a plain-language search field, filter chips for users, keywords, status and location, and a lighter table of candidates with sortable, filterable columns." loading="lazy">
+            <figcaption class="text-caption">The candidate list, redesigned.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="bh-results">
+        <div class="grid">
+          <div class="span-8 align">
+            <h2 id="bh-results" class="span-8">What the engineering team says changed.</h2>
+            <div class="span-8 align case-section__support">
+              <p class="span-4">The designer is the worst person to judge
+              whether a system landed, so I asked the
+              engineer I'd worked with most closely what was different.</p>
+              <p class="span-4">None of the answers are about how anything
+              looks.</p>
+            </div>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <div class="span-4 stack--tight">
+            <h4>There was no Figma library before</h4>
+            <p class="text-caption">The team used existing components in whatever state they were in. The low-level ones hadn't changed in a few years.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Five developers build from the library</h4>
+            <p class="text-caption">Two teams and five developers now build from the Figma library, with more teams on the way.</p>
+          </div>
+          <span class="span-4"></span>
+
+          <div class="span-4 stack--tight">
+            <h4>The new tokens say what they're for</h4>
+            <p class="text-caption">Bullhorn already had tokens. What changed is that the new ones say what they're for, and those are what the team uses now.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>New work uses the new tokens</h4>
+            <p class="text-caption">Novo has about 90,000 lines of CSS. Adoption across that is small and growing, because every new piece of work uses the semantic tokens.</p>
+          </div>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <h3 class="span-8">What's still open.</h3>
+          <span class="span-4"></span>
+          <p class="span-4">Three months doesn't finish a system this
+          size. I'd rather name the gaps than leave them for someone to
+          find.</p>
+          <span class="span-4"></span>
+        </div>
+
+        <div class="grid">
+          <div class="span-4 stack--tight">
+            <h4>Fourteen tokens still hold raw values</h4>
+            <p class="text-caption">Fourteen of the 903 component tokens still hold a raw number, mostly tooltip and popover max-widths. They're small, and they're the kind of leak that spreads if nobody names it.</p>
+          </div>
+          <div class="span-4 stack--tight">
+            <h4>Adoption isn't measured yet</h4>
+            <p class="text-caption">"Small and growing" is the right direction and a weak baseline. Counting semantic-token declarations per build would turn it into a trend line.</p>
+          </div>
+          <span class="span-4"></span>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-label="Closing thought">
+        <div class="grid">
+          <h2 class="span-10">Why I'd make the same call again.</h2>
+          <p class="span-6 case-section__support">I could have spent three months restyling two screens and left. They'd have drifted the same way the old ones did, and the rest of the platform would still be waiting its turn. Starting with the smallest pieces meant every screen after those two starts from the same place, and five developers now build from it instead of working it out.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="bh-next">
+        <h2 class="visually-hidden" id="bh-next">Next project</h2>
+        <article class="project-row" data-xray="molecule · project-row">
+          <div class="project-row__body stack--tight">
+            <p class="project-row__meta">Next · Terafina</p>
+            <h3 class="project-row__title">Applicants weren't finishing Terafina's account-opening flow.</h3>
+            <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+          </div>
+          <div class="project-row__media">
+            <img src="images/Terafina/index-terafina.png" alt="" loading="lazy">
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+
+  <footer class="site-footer" data-xray="organism · site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+      <p><a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></p>
+    </div>
+  </footer>
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
+</body>
+</html>
