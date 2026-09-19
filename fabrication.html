@@ -57,33 +57,35 @@
   <main id="main" data-xray="template · case-study">
 
     <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker" data-xray="atom · section-label">Union Home Mortgage · UI kit and design system</p>
-        <h1 class="case-hero__title">The team was building fast. There was no system to support it.</h1>
-        <p class="case-hero__lead">Union Home Mortgage was building a set of
+      <div class="case-hero__inner grid">
+        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">Union Home Mortgage · UI kit and design system</p>
+        <h1 class="case-hero__title span-8">A backend-heavy team was shipping fast with no design system behind it.</h1>
+        <p class="case-hero__lead span-6">Union Home Mortgage was building a set of
         internal applications to replace parts of a larger, more complex
         lending platform. Each tool was being developed independently, with
         little shared structure across the experience. As the number of
         applications grew, so did the gaps between them.</p>
-        <dl class="case-hero__meta">
-          <div><dt>Focus</dt><dd>UI kit, design system, WCAG tooling</dd></div>
-          <div><dt>Team</dt><dd>Primarily backend engineers</dd></div>
-          <div><dt>Outcome</dt><dd>Adopted across internal tools</dd></div>
+        <span class="span-6"></span>
+        <dl class="case-hero__meta span-6 align">
+          <div class="span-2"><dt>Focus</dt><dd>UI kit, design system, WCAG tooling</dd></div>
+          <div class="span-2"><dt>Team</dt><dd>Primarily backend engineers</dd></div>
+          <div class="span-2"><dt>Outcome</dt><dd>Adopted across internal tools</dd></div>
         </dl>
       </div>
     </div>
 
     <div class="container">
 
-      <section class="section" aria-labelledby="uhm-problem">
-        <figure style="margin-block-end: var(--space-xl);">
+      <section class="section case-section" aria-labelledby="uhm-problem">
+        <figure>
           <img class="img-frame" data-xray="atom · media" src="images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
         </figure>
 
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="uhm-problem" class="span-6">Consistency didn't exist across the applications.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">Interfaces varied widely from one application
               to another, with no shared patterns for layout, hierarchy, or
               interaction. For a team made up primarily of backend
@@ -95,18 +97,14 @@
               to build, harder to scale, and ultimately harder to use.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
-          <figure class="span-8">
-            <img class="img-frame" data-xray="atom · media" src="images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
-            <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">Before the system, the team had been focused on functionality only.</figcaption>
-          </figure>
-        </div>
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
+          <figcaption class="text-caption">Before the system, the team had been focused on functionality only.</figcaption>
+        </figure>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
           <h3 class="span-8">The work focused on creating a system the team could actually use.</h3>
           <span class="span-4"></span>
@@ -120,25 +118,23 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="uhm-approach">
+      <section class="section case-section" aria-labelledby="uhm-approach">
         <div class="grid">
           <div class="span-8 align">
-            <h2 id="uhm-approach" class="span-6">The system needed to be practical, not theoretical.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <h2 id="uhm-approach" class="span-6">The system had to fit how the team already built software.</h2>
+            <div class="span-8 align case-section__support">
               <p class="span-4">I built a UI kit and design system to
               support real development workflows, focusing on reusable
               components, clear patterns, and straightforward
               implementation.</p>
               <p class="span-4">Working closely with a backend-focused
-              team, I focused on making the system something they could
-              rely on, not something they had to interpret.</p>
+              team, I focused on making the system something they could rely on without having to interpret it.</p>
             </div>
           </div>
           <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
+        <div class="grid">
           <div class="span-4 stack--tight">
             <img class="img-frame" data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
             <h4>Atomic design principles</h4>
@@ -153,7 +149,6 @@
             content, so every layout stayed visually coherent across
             applications.</p>
           </div>
-
           <span class="span-4"></span>
           <div class="span-4 stack--tight">
             <img class="img-frame" data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
@@ -169,11 +164,11 @@
             primary and secondary colors, checked automatically against the
             WCAG 2.0 4.5:1 contrast ratio.</p>
           </div>
+          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
-          <h3 class="span-8">Clear structure made the applications easier to build, and easier to use.</h3>
+        <div class="grid">
+          <h3 class="span-8">Shared components made the applications easier to build and to use.</h3>
           <span class="span-4"></span>
           <p class="span-4">Shared components reduced the need to recreate
           patterns across applications, improving efficiency and
@@ -182,14 +177,16 @@
           making interfaces easier to scan and understand. Tools that had
           previously felt disconnected now felt like part of the same
           system.</p>
+          <span class="span-4"></span>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="uhm-outcome">
+      <section class="section case-section" aria-labelledby="uhm-outcome">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="uhm-outcome" class="span-8">The team could now move faster without sacrificing usability.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">With a shared system in place, new
               applications could be built more efficiently and with greater
               consistency.</p>
@@ -199,16 +196,16 @@
               tool.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
-        <figure style="margin-block-start: var(--space-xl);">
+
+        <figure>
           <img class="img-frame" data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
         </figure>
       </section>
 
       <section class="section" aria-label="Closing thought">
         <div class="grid">
-          <h2 class="span-8">Systems create more than consistency, they create momentum. Giving the team the foundation they needed made it easier to build better tools.</h2>
+          <h2 class="span-8">With a shared foundation in place, the team built better tools faster.</h2>
         </div>
       </section>
 
@@ -217,7 +214,7 @@
         <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Proof</p>
-            <h3 class="project-row__title">Sensitive information needs more than security, it needs clarity.</h3>
+            <h3 class="project-row__title">Sharing identity documents with clear control over who sees them</h3>
             <a class="cta" href="proof.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">

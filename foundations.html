@@ -19,44 +19,6 @@
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
   <link rel="stylesheet" href="vendor/design-system/styles/index.css">
   <link rel="stylesheet" href="src/styles/main.css">
-  <style>
-    /* Page-local styles for the specimen UI only. Semantic tokens only. */
-    .spec {
-      border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
-      padding-block: var(--space-xl);
-    }
-    .spec__label {
-      font-family: var(--text-family-mono);
-      font-size: var(--text-size-caption);
-      line-height: var(--text-line-height-caption);
-      color: var(--text-color-subtle);
-      display: block;
-      margin-block-end: var(--space-sm);
-    }
-    .swatch {
-      border: var(--border-width-hairline) solid var(--border-color-hairline);
-    }
-    .swatch__chip { height: var(--space-2xl); }
-    .swatch__meta {
-      padding: var(--space-xs) var(--space-sm);
-      background: var(--surface-color-card);
-    }
-    .swatch__meta code { font-size: var(--text-size-caption); }
-    .bar {
-      background: var(--action-color-accent);
-      height: var(--space-xs);
-      margin-block-end: var(--space-xs);
-    }
-    .grid-demo > div {
-      background: var(--surface-color-card);
-      border: var(--border-width-hairline) solid var(--border-color-default);
-      padding: var(--space-sm);
-      font-family: var(--text-family-mono);
-      font-size: var(--text-size-caption);
-      color: var(--text-color-subtle);
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -96,16 +58,16 @@
     <div class="container">
 
       <section class="section" aria-labelledby="hero-heading">
-        <p class="text-ui" style="color: var(--text-color-subtle);">hobbs.design v5 · foundations</p>
+        <p class="text-ui spec__note">hobbs.design v5 · foundations</p>
         <h1 id="hero-heading">Subatomic to&nbsp;system.</h1>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-md);">
+        <div class="grid grid--baseline spec__support">
           <p class="text-body-lg span-6">
             One source of truth. Raw values live in the subatomic layer, semantic roles
             alias them, components consume roles. Every spacing decision lands on an
             8px grid, and every color pairing on this page passes WCAG&nbsp;AA.
             <a class="cta" href="#type">See the type scale <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </p>
-          <p class="text-ui span-6" style="color: var(--text-color-subtle);">
+          <p class="text-ui span-6 spec__note">
             Tab through this page. Every interactive element has a visible
             focus state.
           </p>
@@ -114,7 +76,7 @@
 
       <section class="spec" id="type" aria-labelledby="type-heading">
         <h2 id="type-heading">Typography</h2>
-        <div class="stack" style="margin-block-start: var(--space-xl);">
+        <div class="stack spec__demo">
           <div>
             <span class="spec__label">display · 80/88 · heavy · neue-haas-grotesk-display</span>
             <p class="text-display">Some of it is taste.</p>
@@ -151,42 +113,46 @@
 
       <section class="spec" id="color" aria-labelledby="color-heading">
         <h2 id="color-heading">Color</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          One accent. The 500 red is display-scale only; body-size links use the 600,
-          which clears 4.5:1 on the page background. Muted text sits at 60%. The old
-          40% failed AA and survives only as <code>disabled</code>.
-        </p>
-        <div class="grid grid--baseline" style="margin-block-start: var(--space-xl);">
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              One accent. The 500 red is display-scale only; body-size links use the 600,
+              which clears 4.5:1 on the page background. Muted text sits at 60%. The old
+              40% failed AA and survives only as <code>disabled</code>.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid--baseline spec__demo">
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--action-color-accent);"></div>
+            <div class="swatch__chip swatch__chip--action-color-accent"></div>
             <div class="swatch__meta"><code>action-color-accent</code><p class="text-caption">#E12A09 · 4.4:1 · large text</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--text-color-link);"></div>
+            <div class="swatch__chip swatch__chip--text-color-link"></div>
             <div class="swatch__meta"><code>text-color-link</code><p class="text-caption">#C11406 · 5.9:1 · AA</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--text-color-heading);"></div>
+            <div class="swatch__chip swatch__chip--text-color-heading"></div>
             <div class="swatch__meta"><code>text-color-heading</code><p class="text-caption">#0F0F0F · 19.5:1 · AAA</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--text-color-body);"></div>
+            <div class="swatch__chip swatch__chip--text-color-body"></div>
             <div class="swatch__meta"><code>text-color-body</code><p class="text-caption">70% black · 9.6:1 · AAA</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--text-color-subtle);"></div>
+            <div class="swatch__chip swatch__chip--text-color-subtle"></div>
             <div class="swatch__meta"><code>text-color-subtle</code><p class="text-caption">60% black · 5.0:1 · AA</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--surface-color-page);"></div>
+            <div class="swatch__chip swatch__chip--surface-color-page"></div>
             <div class="swatch__meta"><code>surface-color-page</code><p class="text-caption">#F8F8F8 · warm near-white</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--surface-color-alt);"></div>
+            <div class="swatch__chip swatch__chip--surface-color-alt"></div>
             <div class="swatch__meta"><code>surface-color-alt</code><p class="text-caption">#FAF9F5 · section alt</p></div>
           </div>
           <div class="swatch span-3">
-            <div class="swatch__chip" style="background: var(--surface-color-inverse);"></div>
+            <div class="swatch__chip swatch__chip--surface-color-inverse"></div>
             <div class="swatch__meta"><code>surface-color-inverse</code><p class="text-caption">#313638 · hero onyx</p></div>
           </div>
         </div>
@@ -194,26 +160,30 @@
 
       <section class="spec" id="space" aria-labelledby="space-heading">
         <h2 id="space-heading">Space</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          Strict 8px foundation. No 4s, no 12s. If a gap isn't divisible by eight,
-          it isn't in the system.
-        </p>
-        <div style="margin-block-start: var(--space-xl);">
-          <div class="bar" style="width: var(--space-xs);"></div>
-          <div class="bar" style="width: var(--space-sm);"></div>
-          <div class="bar" style="width: var(--space-md);"></div>
-          <div class="bar" style="width: var(--space-lg);"></div>
-          <div class="bar" style="width: var(--space-xl);"></div>
-          <div class="bar" style="width: var(--space-2xl);"></div>
-          <div class="bar" style="width: var(--space-3xl);"></div>
-          <div class="bar" style="width: var(--space-4xl);"></div>
-          <span class="spec__label" style="margin-block-start: var(--space-sm);">8 · 16 · 24 · 32 · 48 · 64 · 96 · 128</span>
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              Strict 8px foundation. No 4s, no 12s. If a gap isn't divisible by eight,
+              it isn't in the system.
+            </p>
+          </div>
+        </div>
+        <div class="spec__demo">
+          <div class="bar bar--xs"></div>
+          <div class="bar bar--sm"></div>
+          <div class="bar bar--md"></div>
+          <div class="bar bar--lg"></div>
+          <div class="bar bar--xl"></div>
+          <div class="bar bar--2xl"></div>
+          <div class="bar bar--3xl"></div>
+          <div class="bar bar--4xl"></div>
+          <span class="spec__label spec__label--trailing">8 · 16 · 24 · 32 · 48 · 64 · 96 · 128</span>
         </div>
       </section>
 
       <section class="spec" id="grid" aria-labelledby="grid-heading">
         <h2 id="grid-heading">Grid</h2>
-        <div class="grid grid-demo" style="margin-block-start: var(--space-xl);" aria-hidden="true">
+        <div class="grid grid-demo spec__demo" aria-hidden="true">
           <div class="span-4">span-4</div><div class="span-4">span-4</div><div class="span-4">span-4</div>
           <div class="span-5">span-5</div><div class="span-7">span-7</div>
           <div class="span-12">span-12</div>
@@ -222,7 +192,7 @@
 
       <section class="spec" id="components" aria-labelledby="atoms-heading">
         <h2 id="atoms-heading">Atoms</h2>
-        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
+        <div class="spec__row spec__demo">
           <button class="button" type="button">Primary action</button>
           <button class="button button--quiet" type="button">Quiet action</button>
           <button class="button button--bare" type="button"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-left"></use></svg>Bare action</button>
@@ -234,14 +204,18 @@
 
       <section class="spec" aria-labelledby="molecules-heading">
         <h2 id="molecules-heading">Molecules &amp; organisms</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          The project row is the first molecule. The nav at the top of this page
-          and the footer below it are the first two organisms. Nav and project
-          row carry their own component tokens; the footer runs on semantic
-          tokens alone, because none of its values needed a component-level name.
-        </p>
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              The project row is the first molecule. The nav at the top of this page
+              and the footer below it are the first two organisms. Nav and project
+              row carry their own component tokens; the footer runs on semantic
+              tokens alone, because none of its values needed a component-level name.
+            </p>
+          </div>
+        </div>
 
-        <div style="margin-block-start: var(--space-xl);">
+        <div class="spec__demo">
           <article class="project-row">
             <div class="project-row__body stack--tight">
               <h3 class="project-row__title">Terafina</h3>

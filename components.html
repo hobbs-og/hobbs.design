@@ -19,24 +19,6 @@
   <link rel="stylesheet" href="https://use.typekit.net/kfm4wtt.css">
   <link rel="stylesheet" href="vendor/design-system/styles/index.css">
   <link rel="stylesheet" href="src/styles/main.css">
-  <style>
-    /* Page-local specimen styles only. Semantic tokens only. */
-    .spec {
-      border-block-start: var(--border-width-hairline) solid var(--border-color-hairline);
-      padding-block: var(--space-xl);
-    }
-    .spec__label {
-      font-family: var(--text-family-mono);
-      font-size: var(--text-size-caption);
-      line-height: var(--text-line-height-caption);
-      color: var(--text-color-subtle);
-      display: block;
-      margin-block-end: var(--space-sm);
-    }
-    .spec__frame {
-      border: var(--border-width-hairline) solid var(--border-color-default);
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -95,15 +77,19 @@
 
       <section class="spec" id="case-hero" aria-labelledby="case-hero-heading">
         <h2 id="case-hero-heading">Case study hero</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          Two surfaces, one component. The inverse variant swaps four custom
-          properties and touches no rules. Muted text on onyx uses a
-          70% knockout that measures 6.6:1.
-        </p>
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              Two surfaces, one component. The inverse variant swaps four custom
+              properties and touches no rules. Muted text on onyx uses a
+              70% knockout that measures 6.6:1.
+            </p>
+          </div>
+        </div>
 
-        <div style="margin-block-start: var(--space-xl);" class="stack">
+        <div class="stack spec__demo">
           <div class="spec__frame">
-            <span class="spec__label" style="padding: var(--space-sm) var(--space-sm) 0; display: block;">case-hero · default</span>
+            <span class="spec__label spec__label--inset">case-hero · default</span>
             <div class="case-hero">
               <p class="section-label case-hero__kicker">Union Home Mortgage</p>
               <h3 class="case-hero__title">A design system for a team of backend engineers.</h3>
@@ -119,7 +105,7 @@
           </div>
 
           <div class="spec__frame">
-            <span class="spec__label" style="padding: var(--space-sm) var(--space-sm) 0; display: block;">case-hero · inverse</span>
+            <span class="spec__label spec__label--inset">case-hero · inverse</span>
             <div class="case-hero case-hero--inverse">
               <p class="section-label case-hero__kicker">Terafina, Inc.</p>
               <h3 class="case-hero__title">Clarity was missing at every level.</h3>
@@ -138,14 +124,18 @@
 
       <section class="spec" aria-labelledby="form-heading">
         <h2 id="form-heading">Form fields</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          Labels stay visible, errors are announced through
-          aria-describedby, and the error message spells out the word
-          instead of leaning on red alone. A specimen, not a working
-          form — the site takes contact by email rather than by post.
-        </p>
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              Labels stay visible, errors are announced through
+              aria-describedby, and the error message spells out the word
+              instead of leaning on red alone. A specimen, not a working
+              form — the site takes contact by email rather than by post.
+            </p>
+          </div>
+        </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid spec__demo">
           <div class="field span-4">
             <label class="field__label" for="demo-name">Name</label>
             <input class="field__control" id="demo-name" name="name" type="text" autocomplete="name">
@@ -172,12 +162,16 @@
 
       <section class="spec" aria-labelledby="chips-heading">
         <h2 id="chips-heading">Chips</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          Informational labels. Neutral by default, feedback tints for
-          status. No red: the accent belongs to links and CTAs, and a chip
-          is neither.
-        </p>
-        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              Informational labels. Neutral by default, feedback tints for
+              status. No red: the accent belongs to links and CTAs, and a chip
+              is neither.
+            </p>
+          </div>
+        </div>
+        <div class="spec__row spec__demo">
           <span class="chip">Design systems</span>
           <span class="chip">Accessibility</span>
           <span class="chip">Front-end</span>
@@ -189,30 +183,34 @@
 
       <section class="spec" aria-labelledby="icons-heading">
         <h2 id="icons-heading">Icons</h2>
-        <p style="margin-block-start: var(--space-md); max-width: 60ch;">
-          <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a>,
-          held as an SVG sprite at <code>src/public/icons.svg</code> and pulled in by
-          reference — no icon font, nothing to bundle. Reserved for arrows and other
-          non-letterform marks; never for anything a word can say on its own.
-        </p>
-        <p style="margin-block-start: var(--space-sm); max-width: 60ch;">
-          To use one: <code class="code-sample">&lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="src/public/icons.svg#bi-{name}"&gt;&lt;/use&gt;&lt;/svg&gt;</code>
-          with any icon name from Bootstrap Icons, then run <code>npm run build:icons</code> — it
-          scans the site for <code>#bi-{name}</code> references and pulls just those symbols out
-          of the full library. Nothing to copy or paste by hand.
-        </p>
-        <div style="margin-block-start: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-xl);">
-          <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg>
-            <span class="spec__label" style="margin: 0;">bi-arrow-right</span>
+        <div class="grid spec__support">
+          <div class="span-6 spec__prose">
+            <p>
+              <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a>,
+              held as an SVG sprite at <code>src/public/icons.svg</code> and pulled in by
+              reference — no icon font, nothing to bundle. Reserved for arrows and other
+              non-letterform marks; never for anything a word can say on its own.
+            </p>
+            <p>
+              To use one: <code class="code-sample">&lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="src/public/icons.svg#bi-{name}"&gt;&lt;/use&gt;&lt;/svg&gt;</code>
+              with any icon name from Bootstrap Icons, then run <code>npm run build:icons</code> — it
+              scans the site for <code>#bi-{name}</code> references and pulls just those symbols out
+              of the full library. Nothing to copy or paste by hand.
+            </p>
           </div>
-          <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-down"></use></svg>
-            <span class="spec__label" style="margin: 0;">bi-arrow-down</span>
+        </div>
+        <div class="spec__icons spec__demo">
+          <div class="spec__icon">
+            <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg>
+            <span class="spec__label">bi-arrow-right</span>
           </div>
-          <div style="display: flex; align-items: center; gap: var(--space-sm);">
-            <svg class="icon" style="inline-size: 1.5rem; block-size: 1.5rem;" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg>
-            <span class="spec__label" style="margin: 0;">bi-arrow-up-right-square</span>
+          <div class="spec__icon">
+            <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-down"></use></svg>
+            <span class="spec__label">bi-arrow-down</span>
+          </div>
+          <div class="spec__icon">
+            <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg>
+            <span class="spec__label">bi-arrow-up-right-square</span>
           </div>
         </div>
       </section>

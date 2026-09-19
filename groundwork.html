@@ -57,18 +57,19 @@
   <main id="main" data-xray="template · case-study">
 
     <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker" data-xray="atom · section-label">hobbs.design · Rebuilding this site</p>
-        <h1 class="case-hero__title">A portfolio that argues for systems should be built like one.</h1>
-        <p class="case-hero__lead">I'd spent years telling people I work in
+      <div class="case-hero__inner grid">
+        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">hobbs.design · Rebuilding this site</p>
+        <h1 class="case-hero__title span-8">A portfolio that argues for systems should be built like one.</h1>
+        <p class="case-hero__lead span-6">I'd spent years telling people I work in
         systems and build what I design. The site making that case was five
         years of accumulated markup with the values typed in by hand. So I
         rebuilt it from the token layer up, in public, and left the commit
         history where anyone can read it.</p>
-        <dl class="case-hero__meta">
-          <div><dt>Focus</dt><dd>Design tokens, component library</dd></div>
-          <div><dt>Built with</dt><dd>HTML, CSS, Style Dictionary</dd></div>
-          <div><dt>Source</dt><dd><a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Public on GitHub <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></dd></div>
+        <span class="span-6"></span>
+        <dl class="case-hero__meta span-6 align">
+          <div class="span-2"><dt>Focus</dt><dd>Design tokens, component library</dd></div>
+          <div class="span-2"><dt>Built with</dt><dd>HTML, CSS, Style Dictionary</dd></div>
+          <div class="span-2"><dt>Source</dt><dd><a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Public on GitHub <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></dd></div>
         </dl>
       </div>
     </div>
@@ -82,8 +83,9 @@
         </figure>
 
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
-            <h2 id="site-problem" class="span-8">The old site worked. It just didn't back up anything I was saying.</h2>
+            <h2 id="site-problem" class="span-8">The old site worked but didn't back up anything I was saying.</h2>
             <div class="span-8 align case-section__support">
               <p class="span-4">Every page rendered. Nothing was broken in a
               way a visitor would notice. Underneath, the presentation layer
@@ -98,7 +100,6 @@
               and handing over an interface with no system underneath it.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
         <div class="grid">
@@ -109,9 +110,7 @@
           the work. For design systems and design engineering roles it's
           also a sample of it, because the thing being hired for is the
           layer the visitor never sees.</p>
-          <p class="span-4">That reframed the whole project. The rebuild
-          wasn't a visual refresh with a new grid, it was a working proof
-          that I structure decisions the way I say I do.</p>
+          <p class="span-4">That reframed the whole project. The rebuild was a working proof that I structure decisions the way I say I do.</p>
         </div>
 
         <figure class="stack--tight">
@@ -150,8 +149,7 @@
         </figure>
 
         <div class="grid">
-          <span class="span-4"></span>
-          <h3 class="span-8">A design system isn't a component library, it's an agreement about where decisions live.</h3>
+          <h3 class="span-8">A design system is an agreement about where decisions live.</h3>
           <span class="span-4"></span>
           <p class="span-4">The layering does one useful thing above all
           else: it turns a matter of taste into a rule you can check. A raw
@@ -164,23 +162,25 @@
           <code>--color-brand-primary-600</code> back to a hex, so the
           reasoning is readable from the browser without reading the
           source.</p>
+          <span class="span-4"></span>
         </div>
 
         <div class="grid">
-          <span class="span-4"></span>
           <div class="span-4 stack--tight">
             <h4>The layer is the constraint</h4>
-            <p class="text-caption">If a rule needs a value the semantic layer doesn't have, that means a role is missing, not that a raw value is allowed just this once.</p>
+            <p class="text-caption">If a rule needs a value the semantic layer doesn't have, that means a role is missing. A raw value doesn't get in just this once.</p>
           </div>
           <div class="span-4 stack--tight">
             <h4>Dark mode stopped being a redesign</h4>
             <p class="text-caption">Because every colour is a role, a second set of base values generates the whole dark theme. No stylesheet was edited to add it.</p>
           </div>
+          <span class="span-4"></span>
         </div>
       </section>
 
       <section class="section case-section" aria-labelledby="site-css">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="site-css" class="span-8">Step two gave the stylesheet the same shape as the design.</h2>
             <div class="span-8 align case-section__support">
@@ -196,7 +196,6 @@
               needs to be fought with a higher-specificity selector.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
         <figure class="stack--tight">
@@ -244,8 +243,7 @@
         </figure>
 
         <div class="grid">
-          <span class="span-4"></span>
-          <h3 class="span-8">A page should be assembly. When it isn't, every page becomes a fresh set of decisions.</h3>
+          <h3 class="span-8">A page should be assembled from parts, or every page becomes a fresh set of decisions.</h3>
           <span class="span-4"></span>
           <p class="span-4">The asymmetric measure was carried over from the
           old site deliberately, because it was the one thing about it worth
@@ -259,11 +257,13 @@
           Here the rhythm lives in
           <code>organisms/case-study.css</code>, so the page contains no
           inline styles at all.</p>
+          <span class="span-4"></span>
         </div>
       </section>
 
       <section class="section case-section" aria-labelledby="site-nav-lock">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="site-nav-lock" class="span-8">Step four: locking one component down found bugs I couldn't otherwise see.</h2>
             <div class="span-8 align case-section__support">
@@ -276,22 +276,21 @@
               someone saying so to see it. A global navigation that changes
               from page to page isn't global. The one variation I'd have
               defended was <code>aria-current</code>, which says which page
-              you're on — and that was the thread worth pulling.</p>
+              you're on. That was the thread worth pulling.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
         <div class="grid">
           <span class="span-4"></span>
-          <h3 class="span-8">Consistency is a test, not a finish. What refuses to be identical is usually wrong.</h3>
+          <h3 class="span-8">Treated as a test, consistency finds bugs, because whatever refuses to be identical is usually wrong.</h3>
           <span class="span-4"></span>
           <p class="span-4">Forcing the links to match immediately turned up
           two real defects. The homepage used bare fragment links that only
           worked when you were already on the homepage. And it pointed
           Resume straight at the PDF while eleven other pages pointed at
-          <code>resume.html</code> — one question with two answers, and no
-          single page could tell me which one was right.</p>
+          <code>resume.html</code>. That was one question with two answers,
+          and no single page could tell me which one was right.</p>
           <p class="span-4">Neither was findable by looking at any single
           page, because each page was internally consistent. They only
           surfaced when twelve pages had to agree on one answer. The PDF
@@ -326,7 +325,6 @@
         </figure>
 
         <div class="grid">
-          <span class="span-4"></span>
           <h3 class="span-8">Fix it in the value and it can't quietly come back.</h3>
           <span class="span-4"></span>
           <p class="span-4">This is the argument for tokens that I find most
@@ -341,11 +339,13 @@
           errors are wired through <code>aria-describedby</code> and spell
           out the word Error, because colour on its own isn't an
           affordance.</p>
+          <span class="span-4"></span>
         </div>
       </section>
 
       <section class="section case-section" aria-labelledby="site-xray">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="site-xray" class="span-8">Step six made the site show its own work.</h2>
             <div class="span-8 align case-section__support">
@@ -361,7 +361,6 @@
               them true.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
         <div class="grid">
@@ -402,7 +401,6 @@
         </div>
 
         <div class="grid">
-          <span class="span-4"></span>
           <h3 class="span-8">Work that hasn't shipped is work nobody has seen, however good the repo looks.</h3>
           <span class="span-4"></span>
           <p class="span-4">I'm including this because it's the most common
@@ -411,11 +409,13 @@
           before anyone outside the repo could see any of it.</p>
           <p class="span-4">The fix was boring and it was the whole
           difference between a nice local project and a live site.</p>
+          <span class="span-4"></span>
         </div>
       </section>
 
       <section class="section case-section" aria-labelledby="site-outcome">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="site-outcome" class="span-8">What the rebuild actually bought.</h2>
             <div class="span-8 align case-section__support">
@@ -428,7 +428,6 @@
               change.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
         <div class="grid">
@@ -441,7 +440,6 @@
             <h4>Pages got cheap</h4>
             <p class="text-caption">This page is new markup and one small stylesheet. Every other part of it already existed and was reused as-is.</p>
           </div>
-
           <span class="span-4"></span>
           <div class="span-4 stack--tight">
             <h4>Accessibility is structural</h4>
@@ -463,49 +461,46 @@
               the next few things become small. Some of them are already
               obvious, and a couple of them are still open problems I'd
               rather name than hide.</p>
-              <p class="span-4">These are in the order I expect to get to
-              them, not in order of how impressive they sound.</p>
+              <p class="span-4">They're in the order I expect to get to them.</p>
             </div>
           </div>
           <span class="span-4"></span>
         </div>
 
         <div class="grid">
-          <span class="span-4"></span>
           <div class="span-4 stack--tight">
             <h4>React without a rewrite</h4>
-            <p class="text-caption">Every page already carries the same DOM shape for a given component, with content as the only variable. Converting the locked components into real React components is a translation job, not a redesign.</p>
+            <p class="text-caption">Every page already carries the same DOM shape for a given component, with content as the only variable. Converting the locked components into real React components is a translation job.</p>
           </div>
           <div class="span-4 stack--tight">
             <h4>Deployment is still the weak link</h4>
             <p class="text-caption">Publishing is a manual step, which is precisely how the built work went unseen for a week. Until it runs on merge, the same failure can happen again.</p>
           </div>
-
           <span class="span-4"></span>
           <div class="span-4 stack--tight">
-            <h4>The rules should be tested, not remembered</h4>
+            <h4>A script should check the rules</h4>
             <p class="text-caption">Contrast ratios and the no-raw-values rule are both checkable by a script. Right now they're checked by me noticing, which is the least reliable option available.</p>
           </div>
           <div class="span-4 stack--tight">
-            <h4>Dark mode is generated, not designed</h4>
+            <h4>Nobody has designed the dark mode yet</h4>
             <p class="text-caption">A full set of dark tokens compiles today, but nobody has sat with the result and made judgements about it. Generated is not the same as considered.</p>
           </div>
-
           <span class="span-4"></span>
           <div class="span-4 stack--tight">
-            <h4>The older pages still carry inline styles</h4>
-            <p class="text-caption">The five case studies written before this one hold their spacing in style attributes. The stylesheet that replaces them now exists, so that cleanup is a delete.</p>
+            <h4>The older pages are off inline styles</h4>
+            <p class="text-caption">The five case studies written before this one held their spacing in style attributes. They use the case-study classes now, and no page on the site has a style attribute left.</p>
           </div>
           <div class="span-4 stack--tight">
             <h4>The real test is month six</h4>
             <p class="text-caption">Any system is easy to keep clean in the week you build it. Whether this one still has one source of truth after a year of small edits is the only result that counts.</p>
           </div>
+          <span class="span-4"></span>
         </div>
       </section>
 
       <section class="section case-section" aria-label="Closing thought">
         <div class="grid">
-          <h2 class="span-10">The site isn't really the argument. The commit history is.</h2>
+          <h2 class="span-10">The commit history makes the argument better than the site does.</h2>
           <p class="span-6 case-section__support">A finished page only shows that something was made. The sequence of decisions behind it, why a value moved layers, why a component was locked, why an accessible colour replaced a prettier one, is the part of this work that transfers to a team. That's why the source is public and why this page describes the reasoning instead of the result.</p>
         </div>
       </section>
@@ -515,7 +510,7 @@
         <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Terafina</p>
-            <h3 class="project-row__title">The product worked. People just didn't trust it enough to finish.</h3>
+            <h3 class="project-row__title">Applicants weren't finishing Terafina's account-opening flow.</h3>
             <a class="cta" href="terafina.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">

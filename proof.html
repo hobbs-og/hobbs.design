@@ -57,32 +57,34 @@
   <main id="main" data-xray="template · case-study">
 
     <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker" data-xray="atom · section-label">Proof · Digital identity</p>
-        <h1 class="case-hero__title">Personal information is hard to manage. Sharing it safely, and conveniently, is harder.</h1>
-        <p class="case-hero__lead">Proof explored a digital identity product
+      <div class="case-hero__inner grid">
+        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">Proof · Digital identity</p>
+        <h1 class="case-hero__title span-8">Proof let people share identity documents from their phone and control who saw them.</h1>
+        <p class="case-hero__lead span-6">Proof explored a digital identity product
         for Alberta residents, built around the idea that people should be
         able to securely store, access, and share personally identifiable
         information from the device they already carry.</p>
-        <dl class="case-hero__meta">
-          <div><dt>Focus</dt><dd>MVP, cross-platform design system</dd></div>
-          <div><dt>Platforms</dt><dd>iOS and Android</dd></div>
-          <div><dt>Status</dt><dd>Paused before launch</dd></div>
+        <span class="span-6"></span>
+        <dl class="case-hero__meta span-6 align">
+          <div class="span-2"><dt>Focus</dt><dd>MVP, cross-platform design system</dd></div>
+          <div class="span-2"><dt>Platforms</dt><dd>iOS and Android</dd></div>
+          <div class="span-2"><dt>Status</dt><dd>Paused before launch</dd></div>
         </dl>
       </div>
     </div>
 
     <div class="container">
 
-      <section class="section" aria-labelledby="proof-problem">
-        <figure style="margin-block-end: var(--space-xl);">
+      <section class="section case-section" aria-labelledby="proof-problem">
+        <figure>
           <img class="img-frame" data-xray="atom · media" src="images/Proof/proof-hero.png" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
         </figure>
 
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
-            <h2 id="proof-problem" class="span-8">The challenge wasn't storing documents, it was building trust around access.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <h2 id="proof-problem" class="span-8">The hard part was making people trust who could see their documents.</h2>
+            <div class="span-8 align case-section__support">
               <p class="span-4">Paper records are difficult to organize, easy
               to misplace, and rarely available when people need them most.
               But putting that information on a phone creates a different
@@ -92,12 +94,11 @@
               they could control exactly who had access to what.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
-          <h3 class="span-4">Convenience only works when control is obvious.</h3>
+          <h3 class="span-4">Every request had to show plainly what it was asking for.</h3>
           <span class="span-4"></span>
           <span class="span-4"></span>
           <p class="span-4">The experience needed to make sensitive actions
@@ -109,10 +110,11 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="proof-mvp">
+      <section class="section case-section" aria-labelledby="proof-mvp">
         <div class="grid">
           <h2 id="proof-mvp" class="span-8">The first version had to prove the basic value before the bigger vision could work.</h2>
-          <div class="span-8 align" style="margin-block-start: var(--space-md);">
+          <span class="span-4"></span>
+          <div class="span-8 align case-section__support">
             <p class="span-4">With no directly comparable product to learn
             from, research focused on understanding how people already
             managed identity, documents, and proof of ownership in real
@@ -122,10 +124,10 @@
             practical use cases, including buying a car, getting insurance,
             and interacting with healthcare providers.</p>
           </div>
+          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
+        <div class="grid">
           <h3 class="span-8">People needed to know what they had, who could ask for it, and what they were sharing.</h3>
           <span class="span-4"></span>
           <p class="span-4">The MVP centered on a launchpad experience where
@@ -135,17 +137,19 @@
           point. Show people what they have, what needs attention, and what
           actions are available.</p>
           <span class="span-4"></span>
-          <figure class="span-8">
-            <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
-          </figure>
         </div>
+
+        <figure>
+          <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
+        </figure>
       </section>
 
-      <section class="section" aria-labelledby="proof-sharing">
+      <section class="section case-section" aria-labelledby="proof-sharing">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="proof-sharing" class="span-8">Sharing sensitive information needed to feel deliberate.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">Proof had to support moments where identity
               and access mattered, including high-stress situations where
               someone else may need to act on a user's behalf.</p>
@@ -155,10 +159,9 @@
               needed.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
           <h3 class="span-8">The product had to make access feel possible without making it feel loose.</h3>
           <span class="span-4"></span>
@@ -168,18 +171,18 @@
           confirmation, making sure users understood what they were sharing,
           who they were sharing it with, and what level of access they were
           granting.</p>
-          <span class="span-4"></span>
-          <figure class="span-8">
-            <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
-          </figure>
         </div>
+
+        <figure>
+          <img class="img-frame" data-xray="atom · media" src="images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
+        </figure>
       </section>
 
-      <section class="section" aria-labelledby="proof-system">
+      <section class="section case-section" aria-labelledby="proof-system">
         <div class="grid">
           <div class="span-8 align">
             <h2 id="proof-system" class="span-8">The system needed a visual foundation before it could scale.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">Proof needed to feel secure, modern, and
               easy to understand across platforms. The style guide
               established the visual foundation for that experience,
@@ -190,11 +193,11 @@
               product that felt trustworthy from screen to screen.</p>
             </div>
           </div>
+          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
-          <h3 class="span-8">A product about trust can't afford to feel improvised.</h3>
+        <div class="grid">
+          <h3 class="span-8">A product about trust had to look consistent on every screen.</h3>
           <span class="span-4"></span>
           <p class="span-4">The design system helped make the MVP feel
           cohesive and intentional, even as the product explored unfamiliar
@@ -202,7 +205,10 @@
           <p class="span-4">For a new concept, that consistency mattered. It
           made the experience easier to understand and easier to believe
           in.</p>
+          <span class="span-4"></span>
+        </div>
 
+        <div class="grid">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.0 Typography.png" alt="Proof style guide: the typography system" loading="lazy">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.1 iOS headings.png" alt="Proof style guide: iOS heading specifications" loading="lazy">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/styleguide/1.2 Android headings.png" alt="Proof style guide: Android heading specifications" loading="lazy">
@@ -218,11 +224,12 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="proof-direction">
+      <section class="section case-section" aria-labelledby="proof-direction">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
             <h2 id="proof-direction" class="span-8">The direction changed when the product started to feel more like content than identity.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">Early concepts leaned heavily into
               education, helping users understand the benefits of digital
               identity and what the product could do.</p>
@@ -234,27 +241,29 @@
           </div>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
-          <h3 class="span-8">People weren't asking to be educated, they needed to know what to do next.</h3>
+          <h3 class="span-8">Testers wanted clear next steps more than explanations.</h3>
           <span class="span-4"></span>
           <p class="span-4">The design shifted toward a more
           profile-centered experience, making functionality more apparent
           and helping users understand what actions they could take.</p>
           <p class="span-4">That change brought the product closer to the
-          real user need: managing identity in practical, everyday
-          situations, not learning about it in the abstract.</p>
+          real user need: managing identity in everyday situations.</p>
+        </div>
+
+        <div class="grid">
           <span class="span-4"></span>
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/directions/concept-2.png" alt="An early Proof direction focused on education and awareness." loading="lazy">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Proof/directions/concept-3.png" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
         </div>
       </section>
 
-      <section class="section" aria-labelledby="proof-outcome">
+      <section class="section case-section" aria-labelledby="proof-outcome">
         <div class="grid">
           <div class="span-8 align">
-            <h2 id="proof-outcome" class="span-8">The final direction made identity feel personal, actionable, and easier to manage.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <h2 id="proof-outcome" class="span-8">The final direction centered the app on the person's own identity.</h2>
+            <div class="span-8 align case-section__support">
               <p class="span-4">The refined product brought documents,
               requests, trusted contacts, institutions, and activity history
               into a clearer structure.</p>
@@ -264,10 +273,10 @@
               themselves.</p>
             </div>
           </div>
+          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
+        <div class="grid">
           <h3 class="span-8">The experience worked best when risk was visible and action was clear.</h3>
           <span class="span-4"></span>
           <p class="span-4">Sensitive workflows were designed to slow people
@@ -275,18 +284,20 @@
           the product feel heavy.</p>
           <p class="span-4">That balance was the center of the work, making
           identity easier to use without ever making it feel casual.</p>
+          <span class="span-4"></span>
         </div>
 
-        <figure style="margin-block-start: var(--space-xl);">
+        <figure>
           <img class="img-frame" data-xray="atom · media" src="images/Proof/results/four-up.png" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
         </figure>
       </section>
 
-      <section class="section" aria-labelledby="proof-lesson">
+      <section class="section case-section" aria-labelledby="proof-lesson">
         <div class="grid">
+          <span class="span-4"></span>
           <div class="span-8 align">
-            <h2 id="proof-lesson" class="span-8">The vision had real potential, but timing changed.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <h2 id="proof-lesson" class="span-8">Proof was paused before launch.</h2>
+            <div class="span-8 align case-section__support">
               <p class="span-4">Proof pointed toward a future where people
               could manage, share, delegate, and use identity documents
               without relying on paper records or fragmented processes.</p>
@@ -299,9 +310,9 @@
           </div>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
-          <h3 class="span-8">The product didn't launch, but the problem didn't go away.</h3>
+          <h3 class="span-8">The problem Proof was built for is still there.</h3>
           <span class="span-4"></span>
           <p class="span-4">The strongest lesson was that digital identity
           isn't a storage problem so much as a trust problem, a timing
@@ -315,8 +326,8 @@
         <div class="grid">
           <span class="span-4"></span>
           <div class="span-8 align">
-            <h2 class="span-8">Trust means people understand what's happening and what they control, not just that the system is secure.</h2>
-            <p class="span-4" style="margin-block-start: var(--space-md);">Proof was about more than digitizing documents, it was about giving people clearer access to sensitive information while making every request, permission, and share feel intentional.</p>
+            <h2 class="span-8">People trust a system when they can see what's happening and what they control.</h2>
+            <p class="span-4 case-section__support">Proof was about more than digitizing documents, it was about giving people clearer access to sensitive information while making every request, permission, and share feel intentional.</p>
           </div>
         </div>
       </section>
@@ -326,7 +337,7 @@
         <article class="project-row" data-xray="molecule · project-row">
           <div class="project-row__body stack--tight">
             <p class="project-row__meta">Next · Rümi</p>
-            <h3 class="project-row__title">Making homeownership feel more manageable, without pretending it's simple</h3>
+            <h3 class="project-row__title">Helping homeowners figure out where to start</h3>
             <a class="cta" href="rumi.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
           </div>
           <div class="project-row__media">

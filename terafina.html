@@ -57,52 +57,49 @@
   <main id="main" data-xray="template · case-study">
 
     <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner">
-        <p class="section-label case-hero__kicker" data-xray="atom · section-label">Terafina, Inc. · White-label banking</p>
-        <h1 class="case-hero__title">The problem wasn't functionality, it was perception.</h1>
-        <p class="case-hero__lead">Terafina provides account opening software
+      <div class="case-hero__inner grid">
+        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">Terafina, Inc. · White-label banking</p>
+        <h1 class="case-hero__title span-8">Applicants weren't finishing Terafina's account-opening flow.</h1>
+        <p class="case-hero__lead span-6">Terafina provides account opening software
         for banks and credit unions across digital, call center, and in-branch
         experiences. The platform supported a wide range of financial products,
         but growth had stalled. The product didn't feel trustworthy, and it
         wasn't easy to use.</p>
-        <dl class="case-hero__meta">
-          <div><dt>Focus</dt><dd>Design system, white-label configuration</dd></div>
-          <div><dt>Scope</dt><dd>Web, tablet, and in-branch</dd></div>
-          <div><dt>Outcome</dt><dd>Completion rates up 12%</dd></div>
+        <span class="span-6"></span>
+        <dl class="case-hero__meta span-6 align">
+          <div class="span-2"><dt>Focus</dt><dd>Design system, white-label configuration</dd></div>
+          <div class="span-2"><dt>Scope</dt><dd>Web, tablet, and in-branch</dd></div>
+          <div class="span-2"><dt>Outcome</dt><dd>Completion rates up 12%</dd></div>
         </dl>
       </div>
     </div>
 
     <div class="container">
 
-      <section class="section" aria-labelledby="terafina-problem">
+      <section class="section case-section" aria-labelledby="terafina-problem">
+        <figure class="stack--tight">
+          <img class="img-frame" data-xray="atom · media" src="images/Terafina/before-new.png" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
+          <figcaption class="text-caption">The platform before the redesign.</figcaption>
+        </figure>
+
         <div class="grid">
           <span class="span-4"></span>
-          <figure class="span-8">
-            <img class="img-frame" data-xray="atom · media" src="images/Terafina/before-new.png" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
-            <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">The platform before the redesign.</figcaption>
-          </figure>
-        </div>
-
-        <div class="grid" style="margin-block-start: var(--space-xl);">
           <div class="span-8 align">
             <h2 id="terafina-problem" class="span-8">Clarity was missing at every level.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">The platform was built to be flexible and
               customizable, but the presentation layer hadn't evolved to
               support that. The result was a cluttered, inconsistent
               experience that made it hard for users to understand what they
               were looking at, let alone complete an application.</p>
-              <p class="span-4">That made it harder to sell, harder to
-              adopt, and harder for applicants to complete.</p>
+              <p class="span-4">That made it harder to sell and adopt, and harder for applicants to finish.</p>
             </div>
           </div>
-          <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
+        <div class="grid">
           <span class="span-4"></span>
-          <h3 class="span-8">The work focused on clarity, trust, and making the product easier to adopt.</h3>
+          <h3 class="span-8">The goal was a product clients could adopt and applicants could trust.</h3>
           <span class="span-4"></span>
           <p class="span-4">The work focused on improving clarity and trust
           across the platform, while making it easier for clients to adopt
@@ -113,11 +110,11 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="terafina-approach">
+      <section class="section case-section" aria-labelledby="terafina-approach">
         <div class="grid">
           <div class="span-8 align">
             <h2 id="terafina-approach" class="span-8">We started at the foundation and let the system scale from there.</h2>
-            <div class="span-8 align" style="margin-block-start: var(--space-md);">
+            <div class="span-8 align case-section__support">
               <p class="span-4">Instead of redesigning screens in isolation,
               I focused on rebuilding the system from the ground up, starting
               with atomic elements and letting those decisions scale across
@@ -130,8 +127,7 @@
           <span class="span-4"></span>
         </div>
 
-        <div class="grid" style="margin-block-start: var(--space-xl);">
-          <span class="span-4"></span>
+        <div class="grid">
           <h3 class="span-8">Small changes made the experience feel clearer and more trustworthy.</h3>
           <span class="span-4"></span>
           <p class="span-4">Application flows became clearer and easier to
@@ -143,7 +139,10 @@
           to apply their own branding without heavy development effort. This
           reduced implementation complexity and made the product easier for
           new clients to adopt.</p>
+          <span class="span-4"></span>
+        </div>
 
+        <div class="grid">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-typography.png" alt="Terafina style guide: the typography scale" loading="lazy">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-colors.png" alt="Terafina style guide: the color system" loading="lazy">
           <img class="span-4 img-frame" data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-progressStepper.png" alt="Terafina style guide: the progress stepper component" loading="lazy">
@@ -153,17 +152,15 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="terafina-outcome">
+      <section class="section case-section" aria-labelledby="terafina-outcome">
         <div class="grid">
-          <h2 id="terafina-outcome" class="span-8">The product became easier to use, easier to sell, and easier to adopt.</h2>
-        </div>
-        <div class="grid" style="margin-block-start: var(--space-md);">
+          <span class="span-4"></span>
+          <h2 id="terafina-outcome" class="span-8">Completion rates rose 12% after the rebuild.</h2>
+          <span class="span-4"></span>
           <p class="text-body-lg span-7">The platform became easier to
           understand, giving both users and clients more confidence in how
           it worked.</p>
-        </div>
-
-        <div class="grid" style="margin-block-start: var(--space-md);">
+          <span class="span-1"></span>
           <span class="span-4"></span>
           <p class="span-4">Reducing cognitive load and improving consistency
           led to a measurable decrease in application abandonment, with
@@ -173,15 +170,15 @@
           increasing implementation complexity.</p>
         </div>
 
-        <figure style="margin-block-start: var(--space-xl);">
+        <figure class="stack--tight">
           <img class="img-frame" data-xray="atom · media" src="images/Terafina/after.png" alt="The Terafina platform after the redesign, on a phone, a tablet, and a desktop. The interface is cleaner, more consistent, and easier to follow." loading="lazy">
-          <figcaption class="text-caption" style="margin-block-start: var(--space-xs);">The platform after the rebuild.</figcaption>
+          <figcaption class="text-caption">The platform after the rebuild.</figcaption>
         </figure>
       </section>
 
       <section class="section" aria-label="Closing thought">
         <div class="grid">
-          <h2 class="span-8">In products like this, clarity has to be built into the system, not layered on top. That's what makes the experience hold up over time.</h2>
+          <h2 class="span-8">Clarity that lives in the system holds up when the product changes.</h2>
         </div>
       </section>
 
