@@ -26,6 +26,20 @@
   margin-block-start: var(--space-md);
 }
 
+/* Two screens that belong to one picture, before and after, sharing a
+   single frame so they read as one image rather than two. The gap
+   between them is the frame's own inset. */
+.media-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.media-pair img {
+  display: block;
+  width: 100%;
+}
+
 /* An image with a short title and caption under it: a numbered step,
    one of a pair of screens. The title sits a small step below the
    image; the caption follows the title directly. */
