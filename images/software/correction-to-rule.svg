@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="c2r-title">
+  <title id="c2r-title">One rule traced through four stages: a correction made in a session, written into the global instruction file, applied across the contractor app in one commit, with the one case Claude could not decide left for me</title>
+  <style>
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .name { font-size: 13px; fill: #0f0f0f; letter-spacing: 0.06em; }
+    .num { font-size: 11px; text-anchor: end; }
+    .code { fill: #0f0f0f; }
+    .box { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .hair { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .flow { stroke: rgba(15, 15, 15, 0.6); stroke-width: 1.5; fill: none; }
+    .flow-tip { fill: rgba(15, 15, 15, 0.6); }
+    .held { stroke: #c11406; stroke-width: 1; fill: none; }
+    .trace { fill: #c11406; }
+
+    @media (prefers-color-scheme: dark) {
+      text { fill: rgba(245, 245, 244, 0.6); }
+      .name, .code { fill: #f5f5f4; }
+      .box, .hair { stroke: #686b70; }
+      .flow { stroke: rgba(245, 245, 244, 0.6); }
+      .flow-tip { fill: rgba(245, 245, 244, 0.6); }
+      .held { stroke: #ff7a5c; }
+      .trace { fill: #ff7a5c; }
+    }
+  </style>
+
+  <!-- 01 correction -->
+  <rect class="box" x="8" y="24" width="272" height="272"/>
+  <text class="name" x="32" y="56">Correction</text>
+  <text class="num" x="256" y="56">01</text>
+  <line class="hair" x1="32" y1="72" x2="256" y2="72"/>
+  <text x="32" y="96">Said once, in a session,</text>
+  <text x="32" y="112">about the app.</text>
+  <text class="code" x="32" y="152">No fixed heights unless</text>
+  <text class="code" x="32" y="168">I say so.</text>
+  <text x="32" y="264">On its own it lasts until</text>
+  <text x="32" y="280">the session ends.</text>
+
+  <!-- 02 rule -->
+  <rect class="box" x="312" y="24" width="272" height="272"/>
+  <text class="name" x="336" y="56">~/.claude/CLAUDE.md</text>
+  <text class="num" x="560" y="56">02</text>
+  <line class="hair" x1="336" y1="72" x2="560" y2="72"/>
+  <text x="336" y="96">Written down, dated, with</text>
+  <text x="336" y="112">the boundary spelled out.</text>
+  <text class="code" x="336" y="152">Fixed: height: 48px, h-12</text>
+  <text class="code" x="336" y="168">Fine: 100%, aspect-ratio,</text>
+  <text class="code" x="336" y="184">a min-height from a token</text>
+  <text x="336" y="264">Read at the start of every</text>
+  <text x="336" y="280">session, in every project.</text>
+
+  <!-- 03 sweep -->
+  <rect class="box" x="616" y="24" width="272" height="272"/>
+  <text class="name" x="640" y="56">One commit</text>
+  <text class="num" x="864" y="56">03</text>
+  <line class="hair" x1="640" y1="72" x2="864" y2="72"/>
+  <text x="640" y="96">Claude sweeps the app</text>
+  <text x="640" y="112">for every violation.</text>
+  <text class="code" x="640" y="152">Remove fixed heights</text>
+  <text class="code" x="640" y="176">6 files changed</text>
+  <text x="640" y="216">Checkboxes take their native</text>
+  <text x="640" y="232">size. Swatches get width and</text>
+  <text x="640" y="248">aspect-ratio.</text>
+  <text x="640" y="280">Same day as the rule.</text>
+
+  <!-- 04 held -->
+  <rect class="box" x="920" y="24" width="272" height="272"/>
+  <text class="name" x="944" y="56">Left for me</text>
+  <text class="num" x="1168" y="56">04</text>
+  <line class="hair" x1="944" y1="72" x2="1168" y2="72"/>
+  <text x="944" y="96">What the rule doesn't</text>
+  <text x="944" y="112">settle, it doesn't guess.</text>
+  <rect class="held" x="936" y="136" width="240" height="64"/>
+  <text class="trace" x="944" y="160">"The rail keeps h-screen</text>
+  <text class="trace" x="944" y="176">until Mark decides how it</text>
+  <text class="trace" x="944" y="192">should behave."</text>
+  <text x="944" y="264">A design decision stays</text>
+  <text x="944" y="280">with the designer.</text>
+
+  <path class="flow" d="M280 160 H304"/>
+  <path class="flow-tip" d="M312 160 l-8 -4 v8 z"/>
+  <path class="flow" d="M584 160 H608"/>
+  <path class="flow-tip" d="M616 160 l-8 -4 v8 z"/>
+  <path class="flow" d="M888 160 H912"/>
+  <path class="flow-tip" d="M920 160 l-8 -4 v8 z"/>
+</svg>

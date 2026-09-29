@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="f2p-title">
+  <title id="f2p-title">A token change travelling from two Figma files, through a plugin, a pull request and an automated build and contrast check, into web, iOS and Android outputs, a tagged release, and the contractor app that pins it</title>
+  <style>
+    text {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      fill: rgba(15, 15, 15, 0.6);
+    }
+    .name { font-size: 13px; fill: #0f0f0f; letter-spacing: 0.06em; }
+    .num { font-size: 11px; text-anchor: end; }
+    .code { fill: #0f0f0f; }
+    .box { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .hair { stroke: #cccccc; stroke-width: 1; fill: none; }
+    .flow { stroke: rgba(15, 15, 15, 0.6); stroke-width: 1.5; fill: none; }
+    .flow-tip { fill: rgba(15, 15, 15, 0.6); }
+    .gate { stroke: #c11406; stroke-width: 1; fill: none; }
+    .trace { fill: #c11406; }
+
+    @media (prefers-color-scheme: dark) {
+      text { fill: rgba(245, 245, 244, 0.6); }
+      .name, .code { fill: #f5f5f4; }
+      .box, .hair { stroke: #686b70; }
+      .flow { stroke: rgba(245, 245, 244, 0.6); }
+      .flow-tip { fill: rgba(245, 245, 244, 0.6); }
+      .gate { stroke: #ff7a5c; }
+      .trace { fill: #ff7a5c; }
+    }
+  </style>
+
+  <!-- Row one: Figma to the pull request -->
+
+  <!-- 01 Figma -->
+  <rect class="box" x="8" y="24" width="272" height="208"/>
+  <text class="name" x="32" y="56">Figma</text>
+  <text class="num" x="256" y="56">01</text>
+  <line class="hair" x1="32" y1="72" x2="256" y2="72"/>
+  <text x="32" y="96">Two files hold every value</text>
+  <text x="32" y="112">and every name.</text>
+  <text class="code" x="32" y="152">software-subatomic</text>
+  <text class="code" x="32" y="168">software-components</text>
+  <text x="32" y="208">I design here. Nothing</text>
+  <text x="32" y="224">downstream is typed by hand.</text>
+
+  <!-- 02 plugin -->
+  <rect class="box" x="312" y="24" width="272" height="208"/>
+  <text class="name" x="336" y="56">figma-plugin/</text>
+  <text class="num" x="560" y="56">02</text>
+  <line class="hair" x1="336" y1="72" x2="560" y2="72"/>
+  <text x="336" y="96">Reads the variables, writes</text>
+  <text x="336" y="112">W3C token JSON.</text>
+  <text class="code" x="336" y="152">exportTokens()</text>
+  <rect class="gate" x="328" y="176" width="240" height="48"/>
+  <text class="trace" x="336" y="196">Refuses to export a file</text>
+  <text class="trace" x="336" y="212">that breaks the tier rules.</text>
+
+  <!-- 03 pull request -->
+  <rect class="box" x="616" y="24" width="272" height="208"/>
+  <text class="name" x="640" y="56">Pull request</text>
+  <text class="num" x="864" y="56">03</text>
+  <line class="hair" x1="640" y1="72" x2="864" y2="72"/>
+  <text x="640" y="96">Opened from inside Figma,</text>
+  <text x="640" y="112">one click.</text>
+  <text class="code" x="640" y="152">tokens/figma-2026-09-21-…</text>
+  <text x="640" y="208">Only the JSON changes.</text>
+  <text x="640" y="224">I review the diff.</text>
+
+  <!-- 04 Action -->
+  <rect class="box" x="920" y="24" width="272" height="208"/>
+  <text class="name" x="944" y="56">Tokens workflow</text>
+  <text class="num" x="1168" y="56">04</text>
+  <line class="hair" x1="944" y1="72" x2="1168" y2="72"/>
+  <text x="944" y="96">Builds every platform and</text>
+  <text x="944" y="112">commits it to the branch.</text>
+  <rect class="gate" x="936" y="136" width="240" height="88"/>
+  <text class="trace" x="944" y="156">npm test</text>
+  <text class="trace" x="944" y="180">86 colour pairs, WCAG AA,</text>
+  <text class="trace" x="944" y="196">in every theme. Fails the PR</text>
+  <text class="trace" x="944" y="212">if one falls short.</text>
+
+  <path class="flow" d="M280 128 H304"/>
+  <path class="flow-tip" d="M312 128 l-8 -4 v8 z"/>
+  <path class="flow" d="M584 128 H608"/>
+  <path class="flow-tip" d="M616 128 l-8 -4 v8 z"/>
+  <path class="flow" d="M888 128 H912"/>
+  <path class="flow-tip" d="M920 128 l-8 -4 v8 z"/>
+
+  <!-- Turn down into row two -->
+  <path class="flow" d="M1056 232 V256 H144 V280"/>
+  <path class="flow-tip" d="M144 288 l-4 -8 h8 z"/>
+
+  <!-- Row two: outputs to the product -->
+
+  <!-- 05 platforms -->
+  <rect class="box" x="8" y="288" width="576" height="208"/>
+  <text class="name" x="32" y="320">platforms/</text>
+  <text class="num" x="560" y="320">05</text>
+  <line class="hair" x1="32" y1="336" x2="560" y2="336"/>
+  <text x="32" y="360">One set of tokens, three native forms. Generated, never edited.</text>
+  <text class="code" x="32" y="400">web/tokens.css</text>
+  <text x="240" y="400">619 custom properties, plus grid.css</text>
+  <text class="code" x="32" y="424">ios/SoftwareTokens</text>
+  <text x="240" y="424">Swift package, Dynamic Type</text>
+  <text class="code" x="32" y="448">android/SoftwareTokens.kt</text>
+  <text x="240" y="448">Jetpack Compose, sp sizes</text>
+  <text x="32" y="480">Released as tags, v0.1.0 to v0.6.0.</text>
+
+  <!-- 06 product -->
+  <rect class="box" x="616" y="288" width="576" height="208"/>
+  <text class="name" x="640" y="320">estimates-etc</text>
+  <text class="num" x="1168" y="320">06</text>
+  <line class="hair" x1="640" y1="336" x2="1168" y2="336"/>
+  <text x="640" y="360">The contractor app. Pins a tag, never a moving branch.</text>
+  <text class="code" x="640" y="400">"@hobbs-og/software": "…/v0.5.0.tar.gz"</text>
+  <text x="640" y="440">Buttons, fields, nav, cards, links and chips</text>
+  <text x="640" y="456">read component tokens and follow dark mode.</text>
+  <text x="640" y="480">The rest is marked /* raw */ until Figma covers it.</text>
+
+  <path class="flow" d="M584 392 H608"/>
+  <path class="flow-tip" d="M616 392 l-8 -4 v8 z"/>
+</svg>
