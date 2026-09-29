@@ -266,7 +266,7 @@
     if (!href || href.charAt(0) === '#' || /^https?:/i.test(href)) return;
     if (!/\.html$/.test(href)) return;
     e.preventDefault();
-    if (/terafina|fabrication|proof|rumi|frictionless/.test(href)) {
+    if (/bullhorn|software|terafina|fabrication|proof|rumi|frictionless/.test(href)) {
       swap(href);
     } else {
       window.location.href = href;

@@ -36,8 +36,11 @@
   margin-block-start: var(--space-sm);
 }
 
+/* height: auto lets the width/height attributes reserve the image's
+   ratio before it loads without also fixing its rendered height. */
 .project-row__media img {
   width: 100%;
+  height: auto;
   background: var(--surface-color-card);
 }
 
@@ -59,11 +62,10 @@
 }
 
 /* Index variant: the Swiss work list. No image — the label group
-   (number, title, tag) sits in one column and the prose in the other,
-   on the same 12-column grid as .grid: labels 1–4, two columns of
-   air, prose 7–12. Baseline-aligned like .grid--baseline: the mono
-   number and the prose's first line share a baseline instead of a
-   top edge.
+   (title, tag) sits in one column and the prose in the other, on the
+   same 12-column grid as .grid: labels 1–4, two columns of air, prose
+   7–12. Baseline-aligned like .grid--baseline: the title and the
+   prose's first line share a baseline instead of a top edge.
 
    The row is the whole click target and its rule/hover bleed to the
    true viewport edge — not just the .container's own max-width. No
@@ -118,19 +120,34 @@
   grid-column: 7 / -1;
 }
 
-/* Number, title, and tag are one rhythm — a single gap between all
-   three, not per-element margins. Matches .stack--tight. */
+/* Index row with a thumbnail: labels 1–4, prose 5–9, image 10–12.
+   The :has() selector matches the generic media rules above in
+   specificity, so these win by source order. The row stays
+   baseline-aligned, title to prose.
+   The image opts out: an image's baseline is its bottom edge, which
+   would hang it from the prose's first line. */
+.project-row--index:has(> .project-row__media) > .project-row__body {
+  grid-column: 5 / span 5;
+}
+
+.project-row--index:has(> .project-row__media) > .project-row__media {
+  grid-column: 10 / -1;
+  align-self: start;
+}
+
+/* Every thumbnail is cropped to one 16:9 frame so the rows match,
+   whatever the source image's own proportions. */
+.project-row--index .project-row__media img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Title and tag are one rhythm — a single gap between them, not
+   per-element margins. Matches .stack--tight. */
 .project-row__content {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-}
-
-.project-row__number {
-  font-family: var(--text-family-mono);
-  font-size: var(--text-size-caption);
-  line-height: var(--text-line-height-caption);
-  color: var(--text-color-subtle);
 }
 
 .project-row__tag {
@@ -160,6 +177,28 @@
 
   .project-row:has(> .project-row__media) > .project-row__media {
     grid-column: 1 / -1;
+  }
+
+  /* Index rows at two columns: labels on the left, prose and then
+     the image on the right. The :has() selector outweighs the generic
+     twelve columns set for image rows above. */
+  .project-row--index:has(> .project-row__media) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-row--index:has(> .project-row__media) > .project-row__content {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .project-row--index:has(> .project-row__media) > .project-row__body {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .project-row--index:has(> .project-row__media) > .project-row__media {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
 
@@ -191,5 +230,13 @@
   .project-row--index .project-row__content,
   .project-row--index .project-row__body {
     grid-column: 1 / -1;
+  }
+
+  /* Undo the two-column placement above: one column, source order. */
+  .project-row--index:has(> .project-row__media) > .project-row__media,
+  .project-row--index:has(> .project-row__media) > .project-row__content,
+  .project-row--index:has(> .project-row__media) > .project-row__body {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 }
