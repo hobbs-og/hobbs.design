@@ -57,9 +57,16 @@
   }
 }
 
-/* The overlay. */
-html.xray [data-xray] {
+/* The overlay. Each label anchors to its element, so the element
+   needs a position. :where() drops that to zero specificity: a static
+   element becomes relative, but a component that sets its own
+   position (the sticky .site-nav) keeps it. Sticky and fixed anchor
+   the label just as well. */
+:where(html.xray [data-xray]) {
   position: relative;
+}
+
+html.xray [data-xray] {
   outline: var(--border-width-hairline) dashed var(--_xray, var(--border-color-strong));
   outline-offset: calc(-1 * var(--border-width-hairline));
 }
