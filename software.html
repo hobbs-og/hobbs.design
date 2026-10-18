@@ -59,9 +59,9 @@
     <div class="case-hero" data-xray="organism · case-hero">
       <div class="case-hero__inner grid">
         <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">hobbs.design · Designing with AI</p>
-        <h1 class="case-hero__title span-8">I wasn't an early adopter, but now I'm an evangelist.</h1>
-        <p class="case-hero__lead span-6">Claude writes the code and I make design
-          decisions. Since August I've built two things that way. One is a
+        <h1 class="case-hero__title span-8">Claude writes the code. I make every decision.</h1>
+        <p class="case-hero__lead span-6">Since August I've built two
+          things with Claude Code. One is a
           design system that Figma controls, built for web, iOS and Android.
           The other is a contractor app running on it in production.</p>
         <span class="span-6"></span>
@@ -118,7 +118,7 @@
             <h2 id="ai-system" class="span-8">Figma decides every value, and the repo just keeps the record.</h2>
             <div class="span-8 align case-section__support">
               <p class="span-4">Two Figma files hold every token in the
-                system. One has the primitives, semantic colour and
+                system. One has the primitives, semantic color and
                 type, and the grid. The other has the component tokens. Nobody
                 edits the token or platform files by hand. Not me, and not
                 Claude.</p>
@@ -134,7 +134,7 @@
         </div>
 
         <figure class="stack--tight">
-          <img class="img-frame" data-xray="atom · media" src="images/software/figma-to-product.svg" alt="A token change travelling from two Figma files, through the plugin, a pull request, and a workflow that builds the platforms and checks 86 colour pairs, into web, iOS and Android outputs, a tagged release, and the contractor app that pins that tag." loading="lazy">
+          <img class="img-frame" data-xray="atom · media" src="images/software/figma-to-product.svg" alt="A token change travelling from two Figma files, through the plugin, a pull request, and a workflow that builds the platforms and checks 86 color pairs, into web, iOS and Android outputs, a tagged release, and the contractor app that pins that tag." loading="lazy">
           <figcaption class="text-caption">One change, start to finish. The red boxes are the two places it can get stopped.</figcaption>
         </figure>
 
@@ -144,7 +144,7 @@
           <p class="span-4">The repo has its own <code>CLAUDE.md</code>, the
             file Claude reads before it touches anything. It says the two Figma
             files are the source of truth and that Claude never invents a value
-            to fill a gap. If a component needs a colour with no semantic token,
+            to fill a gap. If a component needs a color with no semantic token,
             that token gets made in Figma first, with a light and a dark
             value.</p>
           <p class="span-4">The build enforces that too, so it doesn't depend
@@ -169,12 +169,12 @@
           </div>
           <div class="span-4 stack--tight">
             <h4>A contrast failure fails the build</h4>
-            <p class="text-caption">86 colour pairs get measured against WCAG 2.1 AA in every theme. If one fails, the repo treats it as my design call. Claude doesn't get to nudge a token until it passes.</p>
+            <p class="text-caption">86 color pairs get measured against WCAG 2.1 AA in every theme. If one fails, the repo treats it as my design call. Claude doesn't get to nudge a token until it passes.</p>
           </div>
           <span class="span-4"></span>
           <div class="span-4 stack--tight">
             <h4>Dark mode can't be skipped</h4>
-            <p class="text-caption">A component colour pointing straight at a primitive looks fine in light mode and wrong in dark. The check fails until it points at a semantic token.</p>
+            <p class="text-caption">A component color pointing straight at a primitive looks fine in light mode and wrong in dark. The check fails until it points at a semantic token.</p>
           </div>
           <div class="span-4 stack--tight">
             <h4>Every platform gets its own units</h4>
@@ -383,7 +383,7 @@
           </div>
           <div class="span-4 stack--tight">
             <h4>Every decision has an owner</h4>
-            <p class="text-caption">The instructions separate what Claude can fix from what it has to ask me about. Contrast failures, grid remaps and layout behaviour all come back to me.</p>
+            <p class="text-caption">The instructions separate what Claude can fix from what it has to ask me about. Contrast failures, grid remaps and layout behavior all come back to me.</p>
           </div>
         </div>
       </section>
