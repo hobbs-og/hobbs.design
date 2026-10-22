@@ -1,0 +1,31 @@
+/* ============================================================
+   system.css: the old system's structure, without its tokens
+
+   Tokens now come from @hobbs-og/software (vendor/software/tokens.css)
+   and this site's component tokens (dist/tokens.components.css).
+   Element defaults, atoms, molecules and the grid still come from
+   @hobbs-og/design-system until each is rebuilt on the new names; the
+   old token names they use are bridged in legacy-tokens.css.
+
+   Left out on purpose: ../dist/tokens.css (replaced). base/fonts.css
+   stays because it self-hosts JetBrains Mono, the mono face; Neue Haas
+   was never in it (that was Typekit, and Typekit is gone).
+   ============================================================ */
+
+@import url('../../vendor/design-system/styles/base/fonts.css');
+@import url('../../vendor/design-system/styles/base/reset.css');
+@import url('../../vendor/design-system/styles/base/global.css');
+
+@import url('../../vendor/design-system/styles/atoms/typography.css');
+@import url('../../vendor/design-system/styles/atoms/link.css');
+@import url('../../vendor/design-system/styles/atoms/button.css');
+@import url('../../vendor/design-system/styles/atoms/chip.css');
+@import url('../../vendor/design-system/styles/atoms/icon.css');
+@import url('../../vendor/design-system/styles/atoms/media.css');
+
+@import url('../../vendor/design-system/styles/molecules/field.css');
+@import url('../../vendor/design-system/styles/molecules/stat.css');
+@import url('../../vendor/design-system/styles/molecules/section-header.css');
+@import url('../../vendor/design-system/styles/molecules/link-list.css');
+
+@import url('../../vendor/design-system/styles/layout/grid.css');

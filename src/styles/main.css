@@ -26,10 +26,11 @@
    it is wrong only here, that is a new organism, not an override.
    ============================================================ */
 
-/* Component tokens for the components below. They alias the system's
-   semantic layer, so this has to load after the system stylesheet —
-   which it does, because that stylesheet is a separate, earlier link. */
-@import url('../../dist/tokens.local.css');
+/* Component tokens from the portfolio-components Figma file, then the
+   bridge from the old token names to the new ones. Both alias
+   @hobbs-og/software, which loads in an earlier <link>. */
+@import url('../../dist/tokens.components.css');
+@import url('legacy-tokens.css');
 
 @import url('molecules/project-row.css');
 

@@ -1,0 +1,223 @@
+/* ============================================================
+   legacy-tokens.css: the old token names, pointed at @hobbs-og/software
+
+   The stylesheets in src/styles/ and the old system's atoms in
+   vendor/design-system/styles/ still say --text-color-heading,
+   --space-md, --nav-color-link. This file defines every one of those
+   names as a pointer to a software token (vendor/software/tokens.css)
+   or a portfolio component token (dist/tokens.components.css), so the
+   site renders through the new system before each stylesheet is
+   rewritten to use the new names directly.
+
+   It is a bridge. Delete a line once nothing references it; delete the
+   file once nothing references any of it.
+
+   Declared on every element that can carry a brand or theme, for the
+   same reason software's tokens.css is: a custom property resolves its
+   var() on the element that declares it.
+
+   "raw:" marks a value software has no token for yet (motion, the
+   menu-toggle geometry, backdrop blur, the mono face). They carry the
+   old system's values unchanged.
+   ============================================================ */
+
+:root,
+[data-theme],
+[data-brand] {
+  /* ---- Text color ---- */
+  --text-color-heading: var(--color-content-headline);
+  --text-color-default: var(--color-content-default);
+  --text-color-body: var(--color-content-body);
+  --text-color-subtle: var(--color-content-subtle);
+  --text-color-disabled: var(--color-content-disabled);
+  --text-color-knockout: var(--color-content-knockout);
+  --text-color-link: var(--color-content-link);
+  --text-color-link-hover: var(--color-content-link-hover);
+  --text-color-link-large: var(--color-content-accent);
+
+  /* ---- Surfaces, borders, actions ---- */
+  --surface-color-page: var(--color-background-default);
+  --surface-color-alt: var(--color-background-subtle);
+  --surface-color-card: var(--color-background-surface);
+  --surface-color-inverse: var(--color-background-knockout);
+  --border-color-hairline: var(--color-border-subtle);
+  --border-color-default: var(--color-border-default);
+  --border-color-strong: var(--color-border-strong);
+  --border-color-focus: var(--color-border-focus);
+  --action-color-accent: var(--color-content-accent);
+  /* ::selection. Production used brand primary 100, which is private in
+     software; the 40% highlight is the nearest public token. */
+  --action-color-subtle: var(--color-background-highlight);
+  --xray-color-atom: var(--color-content-xray-atom);
+  --xray-color-molecule: var(--color-content-xray-molecule);
+  --xray-color-organism: var(--color-content-xray-organism);
+  --xray-color-template: var(--color-content-xray-template);
+
+  /* ---- Type: each old role points at the software style that carries
+     its production values in the Portfolio brand ---- */
+  --text-family-display: var(--typography-font-family-headline);
+  --text-family-base: var(--typography-font-family-base);
+  --text-family-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; /* raw: no mono token */
+  --text-size-display: var(--typography-display-default-font-size);
+  --text-line-height-display: var(--typography-display-default-line-height);
+  --text-size-display-sm: var(--typography-display-default-mobile-font-size);
+  --text-line-height-display-sm: var(--typography-display-default-mobile-line-height);
+  --text-size-heading-xl: var(--typography-headline-default-font-size);
+  --text-line-height-heading-xl: var(--typography-headline-default-line-height);
+  --text-size-heading-lg: var(--typography-headline-sm-font-size);
+  --text-line-height-heading-lg: var(--typography-headline-sm-line-height);
+  --text-size-heading-md: var(--typography-title-sm-font-size);
+  --text-line-height-heading-md: var(--typography-title-sm-line-height);
+  --text-size-body-lg: var(--typography-body-lg-font-size);
+  --text-line-height-body-lg: var(--typography-body-lg-line-height);
+  --text-size-body: var(--typography-body-default-font-size);
+  --text-line-height-body: var(--typography-body-default-line-height);
+  --text-size-ui: var(--typography-meta-default-font-size);
+  --text-line-height-ui: var(--typography-meta-default-line-height);
+  --text-size-caption: var(--typography-meta-sm-font-size);
+  --text-line-height-caption: var(--typography-meta-sm-line-height);
+  --text-weight-display: var(--typography-display-default-font-weight);
+  --text-weight-heading: var(--typography-title-sm-font-weight);
+  --text-weight-editorial: var(--typography-headline-default-font-weight);
+  --text-weight-body: var(--typography-body-default-font-weight);
+  --text-weight-emphasis: var(--typography-label-default-font-weight);
+  --text-weight-brand: var(--typography-headline-sm-font-weight);
+  --text-tracking-default: var(--typography-body-default-letter-spacing);
+
+  /* ---- Space, size, radius ---- */
+  --space-xs: var(--spacing-8);
+  --space-sm: var(--spacing-16);
+  --space-md: var(--spacing-24);
+  --space-lg: var(--spacing-32);
+  --space-xl: var(--spacing-48);
+  --space-2xl: var(--spacing-64);
+  --space-3xl: var(--spacing-96);
+  --space-4xl: var(--spacing-128);
+  --space-section-x: var(--spacing-48);
+  --space-section-y: var(--spacing-48);
+  --space-grid-column-gap: var(--spacing-gap-xlg);
+  --space-grid-row-gap: var(--spacing-gap-lg);
+  --space-stack-tight: var(--spacing-8);
+  --space-stack-default: var(--spacing-24);
+  --layout-container-max: var(--max-width);
+  --border-width-hairline: var(--border-width-default);
+  --border-width-focus: var(--border-width-sm);
+  --radius-md: var(--border-radius-sm);
+  --radius-round: var(--border-radius-round);
+
+  /* ---- Motion: raw, software has no duration or easing tokens ---- */
+  --motion-duration-ui: 160ms; /* raw */
+  --motion-easing-ui: cubic-bezier(0.4, 0, 0.2, 1); /* raw */
+
+  /* ---- site-nav ---- */
+  --nav-color-background: var(--site-nav-color-default-background-default);
+  --nav-color-link: var(--site-nav-color-link-content-default);
+  --nav-color-link-hover: var(--site-nav-color-link-content-hover);
+  --nav-color-link-current: var(--site-nav-color-link-current-content-default);
+  --nav-color-logo: var(--site-nav-color-logo-content-default);
+  --nav-color-logo-hover: var(--site-nav-color-logo-content-hover);
+  --nav-color-logo-highlight: var(--site-nav-color-logo-background-default);
+  --nav-color-bar: var(--site-nav-color-toggle-content-default);
+  --nav-space-inset-y: var(--site-nav-spacing-padding-y);
+  --nav-space-link-gap: var(--site-nav-spacing-links-gap);
+  --nav-space-panel-gap: var(--site-nav-spacing-panel-gap);
+  --nav-size-toggle: 3rem; /* raw: menu-toggle target */
+  --nav-size-bar-inline: 1.75rem; /* raw */
+  --nav-size-bar-gap: 0.375rem; /* raw */
+  --nav-size-bar-stroke: var(--border-width-default);
+  --nav-motion-duration: 160ms; /* raw */
+  --nav-motion-easing: cubic-bezier(0.4, 0, 0.2, 1); /* raw */
+  --nav-motion-toggle-duration: 300ms; /* raw */
+  --nav-motion-toggle-easing: cubic-bezier(0.4, 0, 0.2, 1); /* raw */
+
+  /* ---- sheet ---- */
+  --sheet-color-surface: var(--sheet-color-default-background-default);
+  --sheet-color-scrim: var(--sheet-color-scrim-background-default);
+  --sheet-color-handle: var(--sheet-color-handle-background-default);
+  --sheet-color-chrome: var(--sheet-color-chrome-background-default);
+  --sheet-color-elevate: var(--sheet-color-elevate-background-default);
+  /* Production is 8px. The Tier 3 token sheet/border/radius points at
+     border/radius/md, which is 16 in software, so this uses the 8px step
+     until that token is repointed in Figma. */
+  --sheet-radius-default: var(--border-radius-sm);
+  --sheet-space-inset: var(--sheet-spacing-padding-y);
+  --sheet-size-peek: var(--spacing-64);
+  --sheet-size-handle-inline: var(--spacing-40);
+  --sheet-size-handle-block: var(--border-width-md);
+  --sheet-blur-backdrop: 0.5rem; /* raw */
+  --sheet-motion-duration: 420ms; /* raw */
+  --sheet-motion-easing: cubic-bezier(0.32, 0.72, 0, 1); /* raw */
+
+  /* ---- case-hero ---- */
+  --case-hero-color-background: var(--case-hero-color-default-background-default);
+  --case-hero-color-title: var(--case-hero-color-title-content-default);
+  --case-hero-color-lead: var(--case-hero-color-lead-content-default);
+  --case-hero-color-meta: var(--case-hero-color-meta-content-default);
+  --case-hero-color-inverse-background: var(--case-hero-color-inverse-background-default);
+  --case-hero-color-inverse-title: var(--case-hero-color-inverse-title-content-default);
+  --case-hero-color-inverse-lead: var(--case-hero-color-inverse-lead-content-default);
+  --case-hero-color-inverse-meta: var(--case-hero-color-inverse-meta-content-default);
+  --case-hero-space-inset-y: var(--case-hero-spacing-padding-y);
+
+  /* ---- project-row ---- */
+  --project-row-color-border: var(--project-row-color-default-border-default);
+  --project-row-color-title: var(--project-row-color-title-content-default);
+  --project-row-color-body: var(--project-row-color-body-content-default);
+  --project-row-space-inset-y: var(--project-row-spacing-padding-y);
+  --project-row-space-gap-column: var(--project-row-spacing-gap);
+  --project-row-space-gap-row: var(--spacing-gap-lg);
+
+  /* ---- stat (old system molecule, drawn as stat-band) ---- */
+  --stat-color-background: var(--stat-band-color-default-background-default);
+  --stat-color-value: var(--stat-color-value-content-default);
+  --stat-color-label: var(--stat-color-label-content-default);
+  --stat-color-divider: var(--stat-band-color-divider-border-default);
+  --stat-color-rule-lead: var(--stat-band-color-rule-lead-border-default);
+  --stat-color-rule-trail: var(--stat-band-color-rule-trail-border-default);
+  --stat-size-rule: var(--border-width-sm);
+  --stat-space-inset-y: var(--stat-spacing-padding-y);
+
+  /* ---- button (old system atom) ---- */
+  --button-color-background: var(--color-background-brand);
+  --button-color-background-hover: var(--color-background-brand-hover);
+  --button-color-background-active: var(--color-background-brand-hover);
+  --button-color-text: var(--color-content-knockout);
+  --button-color-quiet-text: var(--button-color-quiet-content-default);
+  --button-color-solid-background: var(--button-color-solid-background-default);
+  --button-color-solid-text: var(--button-color-solid-content-default);
+  --button-radius-default: var(--button-border-radius);
+  --button-space-inset-x: var(--button-spacing-padding-x);
+  --button-space-inset-y: var(--button-spacing-padding-y);
+
+  /* ---- chip and field (old system; not on these pages, mapped so
+     components.html still renders) ---- */
+  --chip-color-background: var(--color-background-surface);
+  --chip-color-text: var(--color-content-default);
+  --chip-color-border: var(--color-border-default);
+  --chip-color-success-background: var(--color-background-utility-success);
+  --chip-color-success-text: var(--color-content-utility-success);
+  --chip-color-warning-background: var(--color-background-utility-warning);
+  --chip-color-warning-text: var(--color-content-utility-warning);
+  --chip-color-error-background: var(--color-background-utility-error);
+  --chip-color-error-text: var(--color-content-utility-error);
+  --chip-radius-default: var(--border-radius-round);
+  --chip-space-inset-x: var(--spacing-16);
+  --chip-space-inset-y: var(--spacing-8);
+  --field-color-background: var(--color-background-surface);
+  --field-color-text: var(--color-content-default);
+  --field-color-label: var(--color-content-headline);
+  --field-color-placeholder: var(--color-content-subtle);
+  --field-color-help: var(--color-content-subtle);
+  --field-color-border: var(--color-border-default);
+  --field-color-border-hover: var(--color-border-strong);
+  --field-color-border-focus: var(--color-border-focus);
+  --field-color-border-error: var(--color-border-utility-error);
+  --field-color-error: var(--color-content-utility-error);
+  --field-radius-default: var(--border-radius-xsm);
+  --field-size-height: var(--spacing-48);
+  --field-space-inset-x: var(--spacing-16);
+  --field-space-stack: var(--spacing-8);
+
+  /* ---- referenced directly by one rule ---- */
+  --space-3xs: var(--spacing-4);
+}
