@@ -10,39 +10,61 @@ the rendered pages. Sloppiness here is visible to the audience.
 
 ---
 
-## This repo consumes the design system; it does not house it
+## This repo is one brand of @hobbs-og/software
 
-Tokens, base styles, atoms, the product-agnostic molecules and the grid live in
-**[@hobbs-og/design-system](https://github.com/hobbs-og/hobbs-design-system)**.
-That repo's `CLAUDE.md` is the full reference — principles, the token surface,
-rules of use. **Read it before styling anything here.**
+Tokens come from **[@hobbs-og/software](https://github.com/hobbs-og/software)**.
+Read its `README.md` and `CLAUDE.md` before styling anything here. Figma
+controls every value: never invent one, never edit a generated file.
+
+- `data-brand="portfolio"` on `<html>` selects this site's brand: the
+  production palette in light and dark (Tier 1 role tokens) and the production
+  type sizes on Inter. The theme follows the visitor's OS.
+- This site's component tokens come from the Figma file **portfolio-components**
+  (`7QdDKyvaM2Mznv89jMwsbF`). Layer names there are the DOM's `tag.class`, and
+  token names follow software's
+  `{component}/color/{variant}/{background|content|border}/{state}` pattern.
+- The old **@hobbs-og/design-system** still supplies the reset, element
+  defaults, atoms, molecules and grid, loaded by `src/styles/system.css`
+  without its tokens. `src/styles/legacy-tokens.css` maps every old token name
+  the CSS still uses to a software or component token. It's a bridge: delete a
+  line once nothing references it.
 
 ```
-@hobbs-og/design-system                       this repo
-  tokens/base/  tokens/semantic/                tokens/component/  nav · sheet
-  styles/  atoms · molecules · grid                                case-hero · project-row
-                                                src/styles/        organisms · xray
-                                                *.html             the pages
+@hobbs-og/software           -> vendor/software/      tokens.css, fonts.css, Inter
+portfolio-components (Figma) -> tokens/component-software/ -> dist/tokens.components.css
+@hobbs-og/design-system      -> vendor/design-system/ structure only (system.css)
+this repo                       src/styles/  legacy-tokens, organisms, xray
+                                *.html       the pages
 ```
 
-Every page links two stylesheets, in this order:
+Every page loads, in this order:
 
 ```html
-<link rel="stylesheet" href="vendor/design-system/styles/index.css">
+<link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="vendor/software/fonts.css">
+<link rel="stylesheet" href="vendor/software/tokens.css">
+<link rel="stylesheet" href="src/styles/system.css">
 <link rel="stylesheet" href="src/styles/main.css">
 ```
+
+`main.css` imports `dist/tokens.components.css`, then `legacy-tokens.css`,
+then the site's own stylesheets.
 
 ### `vendor/` is committed, and that is deliberate
 
 cPanel Git Version Control copies files into `public_html` and **runs nothing**
 — no npm, no build. So anything the browser needs must already be a file in
-this repo. `tools/vendor.mjs` (also a `postinstall` hook) copies the installed
-package into `vendor/design-system/`.
+this repo.
 
+- `tools/vendor-software.mjs` copies software's web build into
+  `vendor/software/`. Point it at a checkout with `SOFTWARE_DIR`, or install a
+  tagged release.
+- `tools/vendor.mjs` (also a `postinstall` hook) copies the old system into
+  `vendor/design-system/`.
 - Never edit `vendor/` directly — the next vendor run reverts it silently.
 - Never gitignore `vendor/` — the deployed site loses its stylesheet.
-- To change a system value: change it upstream, tag a release, bump the ref in
-  `package.json`, then `npm install && npm run vendor` and commit the result.
+- To change a system value: change it in Figma, export it to software and
+  build, then `npm run vendor:software` here and commit the result.
 
 ---
 
@@ -50,25 +72,27 @@ package into `vendor/design-system/`.
 
 | Path | What |
 |---|---|
-| `tokens/component/` | nav, sheet, case-hero, project-row — alias the system's semantic layer |
-| `dist/tokens.local.css` | those compiled; loaded by `main.css` before anything else |
+| `tokens/component-software/` | this site's Tier 3 tokens from portfolio-components; alias software tokens |
+| `dist/tokens.components.css` | those compiled by `tools/component-tokens.mjs` |
+| `src/styles/legacy-tokens.css` | old token names pointed at new ones (the bridge) |
+| `src/styles/system.css` | the old system's structure, without its tokens |
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
 | `src/styles/molecules/` | project-row (the one bespoke molecule) |
 | `src/styles/utilities/` | xray overlay |
 | `src/js/` | nav, sheet, project-row, xray |
 | `src/public/icons.svg` | generated sprite — do not hand-edit |
-| `tools/vendor.mjs` | copies the system out of node_modules |
+| `tools/` | vendor scripts, component-token build, local server |
 | `.cpanel.yml` | deploy manifest — copies only servable paths |
 
-`style-dictionary.config.mjs` sources the system's base + semantic JSON out of
-`node_modules` purely so aliases resolve, then filters them out of the output.
-The "filtered out token references" warning is that filter working.
+`tokens/component/`, `style-dictionary.config.mjs` and `dist/tokens.local.css`
+belong to the old token layer. Nothing loads them any more.
 
 ```bash
-npm install            # installs the system and vendors it
-npm run build:tokens   # -> dist/tokens.local.css
-npm run build:icons    # sprite of only the icons this site references
-npm run serve          # localhost:8123
+npm install                                        # installs the old system and vendors it
+SOFTWARE_DIR=../software npm run vendor:software   # software's web build -> vendor/software/
+npm run build:component-tokens                     # -> dist/tokens.components.css
+npm run build:icons                                # sprite of only the icons this site references
+npm run serve                                      # localhost:8123
 ```
 
 ---

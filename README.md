@@ -9,60 +9,68 @@ no CMS. HTML, CSS, and enough JavaScript to ship the real thing.
 Design decisions live in one place and flow one direction.
 
 ```
-@hobbs-og/design-system                       this repo
-  tokens/base/       raw values                 tokens/component/  nav · sheet
-  tokens/semantic/   roles                                         case-hero · project-row
-  styles/            atoms · molecules · grid   src/styles/        organisms · xray
-                                                *.html             the pages
+Figma: software-subatomic        @hobbs-og/software           this repo
+  Tier 1 values, one mode   -->    tokens.css (every brand)  -->  vendor/software/
+  per brand                        fonts.css + Inter
+Figma: portfolio-components                                      tokens/component-software/
+  this site's component tokens  ---------------------------->    dist/tokens.components.css
+                                                                  src/styles/   organisms, xray
+                                                                  *.html        the pages
 ```
 
-The tokens and the CSS primitives built on them are **not in this repo**.
-They live in [hobbs-design-system](https://github.com/hobbs-og/hobbs-design-system),
-because they are the baseline for anything I build, and copying them into
-every new project is how a system rots into four systems. This repo consumes
-them like any other product would.
+The tokens are not in this repo. They live in
+[software](https://github.com/hobbs-og/software), the system I build
+everything on, and Figma controls every value in it. This site is one brand
+of that system: `data-brand="portfolio"` on `<html>` picks its colors and
+type, and the theme follows the visitor's light or dark setting.
 
-What stays here is what only this site has: its organisms, its pages, and the
-four component-token sets belonging to components the system doesn't carry.
+What stays here is what only this site has: its component tokens, its
+organisms and its pages. The component tokens come from their own Figma
+file and alias the system's semantic layer, so open DevTools on any page and
+`--project-row-color-title-content-default` traces back through
+`--color-content-headline` to a brand value without reading a line of source.
 
-[Style Dictionary](https://styledictionary.com) compiles both halves into
-custom properties on `:root` with the alias chains preserved. Open DevTools
-on any page and you can trace `--text-color-link` back to
-`--color-brand-primary-600` without reading a line of source — across the
-repo boundary, because the chain is just `var()` all the way down.
+The page structure (reset, type atoms, grid) still comes from my older
+design system, loaded without its tokens. `src/styles/legacy-tokens.css`
+points its token names at the new ones. It's a bridge: each line goes once
+nothing uses it, and the file goes when the last stylesheet moves to the
+new names.
 
 ```bash
-npm install            # installs the system and vendors it into vendor/
-npm run build:tokens   # this site's component layer -> dist/tokens.local.css
-npm run build:icons    # sprite of only the icons this site references
+npm install                            # installs the old system and vendors it into vendor/
+SOFTWARE_DIR=../software npm run vendor:software   # copies software's web build into vendor/software/
+npm run build:component-tokens         # tokens/component-software -> dist/tokens.components.css
+npm run build:icons                    # sprite of only the icons this site references
 npm run serve
 ```
 
-Every page links two stylesheets, in this order:
+Every page links these, in this order:
 
 ```html
-<link rel="stylesheet" href="vendor/design-system/styles/index.css">
+<link rel="stylesheet" href="vendor/software/fonts.css">
+<link rel="stylesheet" href="vendor/software/tokens.css">
+<link rel="stylesheet" href="src/styles/system.css">
 <link rel="stylesheet" href="src/styles/main.css">
 ```
 
 `vendor/` is committed rather than installed, which looks wrong until you
 look at the deploy: cPanel copies files into `public_html` and runs nothing.
 There is no npm on the far end, so anything the browser needs has to already
-be a file in this repo. `npm run vendor` refreshes it; commit what it writes.
+be a file in this repo. Refresh it with the vendor scripts and commit what
+they write.
 
-The CSS follows Atomic Design. Every rule below the base layer consumes
-semantic tokens. A raw hex value anywhere but the system's `tokens/base/` is
-a bug.
+Fonts are self-hosted: Inter from software, and JetBrains Mono for the mono
+labels. No font service, no third-party connection.
 
-Spacing is a strict 8px grid. No 4s, no 12s. If a gap isn't divisible by
-eight, it isn't in the system.
+The CSS follows Atomic Design. Every rule consumes tokens. A raw hex value
+in a stylesheet is a bug.
 
 ### Changing a system value
 
-Not here. Change it in the design-system repo, tag a release, bump the ref in
-`package.json`, then `npm install && npm run vendor` and commit the result.
-Editing `vendor/design-system/` directly works right up until the next vendor
-run silently reverts it.
+Not here. Change the variable in Figma, export it to software, and build.
+Then run `npm run vendor:software` here and commit the result. Editing
+`vendor/` directly works right up until the next vendor run silently
+reverts it.
 
 ## Accessibility is structural here
 
@@ -86,13 +94,14 @@ an affordance.
 
 | Path | What it is |
 |---|---|
-| `vendor/design-system/` | The design system, vendored. Generated — never hand-edit |
-| `tokens/component/` | This site's own component tokens, aliasing the system's semantic layer |
-| `dist/tokens.local.css` | Those tokens compiled. Loaded after the system's |
-| `src/styles/` | This site's organisms, one molecule, and the X-ray overlay |
+| `vendor/software/` | software's tokens and Inter, vendored. Generated — never hand-edit |
+| `vendor/design-system/` | The older system's structure (reset, atoms, grid), vendored. Generated — never hand-edit |
+| `tokens/component-software/` | This site's own component tokens, from Figma, aliasing software's semantic layer |
+| `dist/tokens.components.css` | Those tokens compiled |
+| `src/styles/` | This site's organisms, one molecule, the X-ray overlay, and the bridge from old token names to new ones |
 | `src/js/` | Nav, sheet, project-row, X-ray |
 | `*.html` | The site: homepage, foundations, components, six case studies, resume, contact |
-| `tools/vendor.mjs` | Copies the system out of `node_modules` into `vendor/` |
+| `tools/` | Vendor scripts, the component-token build, the local server |
 | `docs/design-tokens.md` | How the two token layers meet |
 | `.cpanel.yml` | Deploy config — copies only the servable paths into `public_html` on the host |
 
