@@ -5,15 +5,17 @@
   "description": "The hobbs.design site, built as the Portfolio brand of @hobbs-og/software. This repo holds the pages, the organisms, and its own component-token layer.",
   "type": "module",
   "scripts": {
-    "build": "npm run build:component-tokens && npm run build:icons && npm run vendor",
+    "build": "npm run build:component-tokens && npm run build:icons && npm run build:pages && npm run vendor",
     "build:component-tokens": "node tools/component-tokens.mjs",
     "vendor:software": "node tools/vendor-software.mjs",
     "build:tokens": "style-dictionary build --config style-dictionary.config.mjs",
     "watch:tokens": "style-dictionary build --config style-dictionary.config.mjs --watch",
-    "build:icons": "hobbs-icons --scan . --out src/public/icons.svg",
+    "build:icons": "hobbs-icons --scan . --out src/public/icons.svg && node tools/custom-icons.mjs",
     "vendor": "node tools/vendor.mjs",
     "serve": "node tools/serve.mjs",
-    "postinstall": "node tools/vendor.mjs"
+    "postinstall": "node tools/vendor.mjs",
+    "build:pages": "node tools/build-pages.mjs",
+    "check:pages": "node tools/build-pages.mjs --check"
   },
   "devDependencies": {
     "@hobbs-og/design-system": "github:hobbs-og/hobbs-design-system#v1.2.0",

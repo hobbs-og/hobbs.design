@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-brand="portfolio">
+<!-- Built by tools/build-pages.mjs from pages/index.html. Edit that file, not this one. -->
+<html lang="en" data-brand="swiss">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,31 +16,36 @@
     gtag('config', 'G-QBES5CDMVZ');
   </script>
   <meta name="description" content="Mark Hobbs designs at the layer where decisions become tokens, components, and code. Design systems, accessibility, and a front end he builds himself.">
-  <meta name="keywords" content="design systems, design engineer, design technologist, product design, UX design, accessibility, design tokens, front-end, component library">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <link rel="stylesheet" href="src/styles/system.css">
-  <link rel="stylesheet" href="src/styles/main.css">
+  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
+       committed (see .gitignore). Delete this link once the swiss mode
+       ships from Figma into vendor/software/tokens.css. -->
+  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="vendor/software/grid.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.css">
+  <script src="src/js/theme.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav" data-xray="organism · site-nav">
     <div class="container site-nav__inner">
-      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
+      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="index.html#about">About</a>
+        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
-      <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
-        <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
+      <div class="site-nav__switches">
+        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -50,7 +56,7 @@
 
   <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
     <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="index.html#about">About</a>
+      <a href="about.html">About</a>
       <a href="index.html#work">Work</a>
       <a href="index.html#contact">Contact</a>
       <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
@@ -62,248 +68,294 @@
       <div class="container home-fold__hero">
 
         <section class="index-hero index-hero--statement" aria-labelledby="hero-title" data-xray="organism · index-hero">
-          <div>
-            <p class="section-label index-hero__eyebrow" data-xray="atom · section-label">Staff / Principal Product Designer</p>
-            <h1 class="index-hero__title" id="hero-title">I design products and the systems that make them work.</h1>
-            <p class="index-hero__lead">
-              Most of my work sits where design turns into code: tokens,
-              component libraries, and the rules that keep them honest.
-              I design it in Figma and build it in HTML and CSS.
-            </p>
-            <div class="index-hero__actions">
-              <a class="button button--solid" href="#work" data-xray="atom · button">View the work</a>
-              <a class="button button--quiet" href="about.html" data-xray="atom · button">How I work <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
+          <div class="index-hero__intro grid">
+            <p class="section-label index-hero__eyebrow span-6" data-xray="atom · section-label">Mark Hobbs <span aria-hidden="true">||</span> Product Designer</p>
+            <h1 class="index-hero__title span-6" id="hero-title">I design and build <br>products and systems.</h1>
           </div>
+          <p class="index-hero__wordmark" role="img" aria-label="hobbs.design" data-xray="atom · wordmark"><span class="index-hero__word index-hero__word--secondary" aria-hidden="true"><span class="index-hero__letter">.</span><span class="index-hero__letter">d</span><span class="index-hero__letter">e</span><span class="index-hero__letter">s</span><span class="index-hero__letter">i</span><span class="index-hero__letter">g</span><span class="index-hero__letter">n</span></span><span class="index-hero__word index-hero__word--primary" aria-hidden="true"><span class="index-hero__letter">h</span><span class="index-hero__letter">o</span><span class="index-hero__letter">b</span><span class="index-hero__letter">b</span><span class="index-hero__letter">s</span></span></p>
         </section>
 
       </div>
 
       <div class="stat-band" data-xray="organism · stat-band">
         <div class="container">
-          <div class="stat-band__rule" data-xray="atom · rule">
-            <span class="stat-band__rule-lead"></span>
-            <span class="stat-band__rule-trail"></span>
-          </div>
-          <div class="grid grid--baseline">
+          <div class="grid stat-band__grid">
+            <span class="span-3"></span>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value">20+</p>
-              <p class="stat__label">Years in product design</p>
+              <p class="stat__value"><span class="visually-hidden">12%</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="1"></span><span class="stat__digit" data-digit="2"></span>%</span></p>
+              <p class="stat__label">Abandonment cut, Terafina</p>
             </div>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value">12%</p>
-              <p class="stat__label">Abandonment reduction, Terafina</p>
+              <p class="stat__value"><span class="visually-hidden">500+</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="5"></span><span class="stat__digit" data-digit="0"></span><span class="stat__digit" data-digit="0"></span>+</span></p>
+              <p class="stat__label">Components, Bullhorn</p>
             </div>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value">3</p>
-              <p class="stat__label">Design systems built from zero</p>
-            </div>
-            <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value">End-to-end</p>
-              <p class="stat__label">Design → system → code</p>
+              <p class="stat__value"><span class="visually-hidden">20+</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="2"></span><span class="stat__digit" data-digit="0"></span>+</span></p>
+              <p class="stat__label">Experience</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-
-      <section class="section" id="about" aria-labelledby="how-heading" data-xray="organism · how-i-work">
-        <div class="section-header">
-          <p class="section-label" data-xray="atom · section-label">01 — What I solve</p>
+    <section class="section work-index" id="work" aria-labelledby="work-lead" data-xray="organism · work-index">
+      <div class="container">
+        <div class="grid work-index__header">
+          <h2 class="work-index__title span-12" id="work-heading" hidden>Featured Work</h2>
+          <h2 class="work-index__lead span-6" id="work-lead">Banking, hiring, housing and teaching. Seven products, and the system under each one.</h2>
         </div>
-        <div class="grid grid--baseline">
-          <div class="span-6">
-            <h2 id="how-heading">I do my best work where nobody agrees yet.</h2>
-          </div>
-          <div class="span-6 how-i-work__body">
-            <p>The hardest product problems rarely start with a blank canvas.
-            They start with competing priorities, unclear ownership,
-            inherited systems, technical constraints, and teams pulling in
-            different directions.</p>
-            <p>My job is to get those pieces on the table, name the
-            tradeoffs, and get to a decision the team can build. Then I
-            put that decision somewhere it lasts: a token, a component,
-            a written rule.</p>
-            <p>I work across product, design and engineering. I care
-            about the experience, the patterns under it, and how it gets
-            built and maintained.</p>
-            <p>The complexity doesn't go away. I make it workable.</p>
-            <div class="index-hero__actions">
-              <a class="button button--solid" href="about.html" data-xray="atom · button">More about me</a>
-              <a class="button button--quiet" href="groundwork.html" data-xray="atom · button">How I rebuilt this site <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
+
+        <div class="grid work-index__list">
+          <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
+            <div class="project-row__media">
+              <img src="images/Bullhorn/index-swiss.png" alt="Bullhorn case study preview" width="4022" height="2342" loading="lazy">
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="work" aria-labelledby="work-heading" data-xray="organism · work-index">
-        <div class="section-header">
-          <p class="section-label" data-xray="atom · section-label">02 — Selected work</p>
-          <p class="section-label">07 case studies</p>
-        </div>
-        <h2 id="work-heading">Seven products, and the system under each one.</h2>
-
-        <div class="work-index__list">
-
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
             <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">01 / 07</span><span class="project-row__tag">Platforms • Systems</span></p>
               <h3 class="project-row__title">Bullhorn</h3>
-              <p class="project-row__tag">Recruiting · Design system</p>
+              <p class="project-row__lead">A new look for Bullhorn's platform, built from the smallest pieces up.</p>
+              <p class="project-row__detail">Bullhorn brought me in for three months to update how its applicant tracking system looked, across the whole platform. The candidate record and the candidate list came first, because recruiters use them most. Once I saw how many components sat under those screens, I proposed a token system, got engineering behind it, and spent the rest of the contract building it.</p>
             </div>
             <div class="project-row__body">
-              <p>Three months to update how Bullhorn looked. Its two busiest
-              screens stood on hundreds of undocumented components, so I built
-              the token system and Figma library they were missing.</p>
-              <a class="cta" href="bullhorn.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/Bullhorn/update.png" alt="" width="2560" height="2624" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Design tokens</li><li>Component library</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Full platform</li><li>500+ components</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Three-month contract</li><li>Via Mondo</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="bullhorn.html" data-sheet="case">View case study<span class="visually-hidden">: Bullhorn</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
 
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--terafina">
+              <img class="project-row__layer" src="images/Terafina/devices/macbook.png" alt="Terafina on MacBook" loading="lazy">
+              <img class="project-row__layer" src="images/Terafina/devices/ipad.png" alt="Terafina on iPad" loading="lazy">
+              <img class="project-row__layer" src="images/Terafina/devices/iphone.png" alt="Terafina on iPhone" loading="lazy">
+            </div>
             <div class="project-row__content">
-              <h3 class="project-row__title">Designing with AI</h3>
-              <p class="project-row__tag">AI workflow · Design system</p>
-            </div>
-            <div class="project-row__body">
-              <p>Claude writes the code and I make every design decision.
-              That's how I built a design system for web, iOS and Android, and
-              the contractor app that runs on it.</p>
-              <a class="cta" href="software.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/software/component-reference.png" alt="" width="1440" height="1100" loading="lazy">
-            </div>
-          </article>
-
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
-            <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">02 / 07</span><span class="project-row__tag">Fintech • Systems</span></p>
               <h3 class="project-row__title">Terafina</h3>
-              <p class="project-row__tag">Fintech · Design system</p>
+              <p class="project-row__lead">The product worked.</p>
+              <p class="project-row__detail">People just didn't trust it enough to finish. I rebuilt the presentation layer from atomic components up, cutting abandonment by 12%.</p>
             </div>
             <div class="project-row__body">
-              <p>The product worked. People just didn't trust it enough to
-              finish. I rebuilt the presentation layer from atomic
-              components up, cutting abandonment by 12%.</p>
-              <a class="cta" href="terafina.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/Terafina/index-terafina.png" alt="" width="2400" height="1350" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Design system</li><li>White-label configuration</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Web</li><li>Tablet</li><li>In-branch</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Account opening</li><li>Completion up 12%</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="terafina.html" data-sheet="case">View case study<span class="visually-hidden">: Terafina</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
 
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media">
+              <img src="images/software/index-swiss.png" alt="Designing with AI case study preview" loading="lazy">
+            </div>
             <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">03 / 07</span><span class="project-row__tag">AI • Systems</span></p>
+              <h3 class="project-row__title">Designing with AI</h3>
+              <p class="project-row__lead">Claude writes the code and I make every design decision.</p>
+              <p class="project-row__detail">That's how I built a design system for web, iOS and Android, and the contractor app that runs on it.</p>
+            </div>
+            <div class="project-row__body">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Design system</li><li>Production app</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Web</li><li>iOS</li><li>Android</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Claude Code</li><li>Figma</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="software.html" data-sheet="case">View case study<span class="visually-hidden">: Designing with AI</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
+            </div>
+          </article>
+
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--uhm">
+              <img class="project-row__layer" src="images/UHM/devices/desktop.png" alt="Union Home Mortgage on laptop" loading="lazy">
+              <img class="project-row__layer" src="images/UHM/devices/iphone-directory.png" alt="Union Home Mortgage on iPhone, loan officer directory" loading="lazy">
+              <img class="project-row__layer" src="images/UHM/devices/iphone-dashboard.png" alt="Union Home Mortgage on iPhone, borrower dashboard" loading="lazy">
+            </div>
+            <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">04 / 07</span><span class="project-row__tag">Tooling • Systems</span></p>
               <h3 class="project-row__title">Union Home Mortgage</h3>
-              <p class="project-row__tag">Internal tooling · Design system</p>
+              <p class="project-row__lead">The first design system for a team of backend engineers that never had one, built with no design partner in the room.</p>
             </div>
             <div class="project-row__body">
-              <p>The first design system for a team of backend engineers that
-              never had one, built with no design partner in the room.</p>
-              <a class="cta" href="fabrication.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="" width="2400" height="1448" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>UI kit</li><li>Design system</li><li>WCAG tooling</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Internal tools</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Backend engineering team</li><li>No design partner</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="fabrication.html" data-sheet="case">View case study<span class="visually-hidden">: Union Home Mortgage</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
 
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--proof">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
+            </div>
             <div class="project-row__content">
-              <h3 class="project-row__title">Proof</h3>
-              <p class="project-row__tag">Digital identity</p>
+              <p class="project-row__meta"><span class="project-row__number">05 / 07</span><span class="project-row__tag">Identity</span></p>
+              <h3 class="project-row__title">Proof Digital Identity</h3>
+              <p class="project-row__lead">Sensitive information needs more than security, it needs clarity.</p>
+              <p class="project-row__detail">An MVP for secure, deliberate sharing.</p>
             </div>
             <div class="project-row__body">
-              <p>An identity app for Alberta residents. People could
-              share a document from their phone and choose exactly who
-              saw it.</p>
-              <a class="cta" href="proof.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/Proof/proof-hero.png" alt="" width="2400" height="1350" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>MVP</li><li>Cross-platform design system</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>iOS</li><li>Android</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Paused before launch</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="proof.html" data-sheet="case">View case study<span class="visually-hidden">: Proof Digital Identity</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
 
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--rumi">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-todo.png" alt="Rümi on iPhone, task detail for installing LED bulbs" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-persona.png" alt="Rümi on iPhone, DIY Guru homeowner persona" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-dashboard.png" alt="Rümi on iPhone, Home Happiness dashboard with the to-do list" loading="lazy">
+            </div>
             <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">06 / 07</span><span class="project-row__tag">Strategy</span></p>
               <h3 class="project-row__title">Rümi</h3>
-              <p class="project-row__tag">Product strategy</p>
+              <p class="project-row__lead">Making homeownership feel manageable, without pretending it's simple.</p>
             </div>
             <div class="project-row__body">
-              <p>New homeowners didn't know where to start. A task list
-              they could shape around their own skills and priorities.</p>
-              <a class="cta" href="rumi.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/Rumi/index-rumi.png" alt="" width="2400" height="1350" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Personalization</li><li>Task system</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Mobile app</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Client: ATCO</li><li>Homeowners</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="rumi.html" data-sheet="case">View case study<span class="visually-hidden">: Rümi</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
 
-          <article class="project-row project-row--index" data-xray="molecule · project-row">
+          <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--mhe">
+              <img class="project-row__layer" src="images/Education/devices/macbook-toc.png" alt="McGraw Hill Education on MacBook, course table of contents open to Chapter 1" loading="lazy">
+              <img class="project-row__layer" src="images/Education/devices/macbook-lesson.png" alt="McGraw Hill Education on MacBook, teacher lesson view with planning information" loading="lazy">
+            </div>
             <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">07 / 07</span><span class="project-row__tag">Edtech • IA</span></p>
               <h3 class="project-row__title">McGraw Hill Education</h3>
-              <p class="project-row__tag">Edtech · IA</p>
+              <p class="project-row__lead">The content was there.</p>
+              <p class="project-row__detail">Finding it fast was the problem. I restructured navigation for two very different audiences.</p>
             </div>
             <div class="project-row__body">
-              <p>The content was there. Finding it fast was the problem. I
-              restructured navigation for two very different audiences.</p>
-              <a class="cta" href="frictionless.html" data-sheet="case">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-            </div>
-            <div class="project-row__media">
-              <img data-xray="atom · media" src="images/Education/index-frictionless.png" alt="" width="2400" height="1199" loading="lazy">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Navigation</li><li>Information architecture</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Teachers</li><li>Administrators</li><li>Reviewers</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Edtech</li><li>State-level adoptions</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="frictionless.html" data-sheet="case">View case study<span class="visually-hidden">: McGraw Hill Education</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
-
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="contact" aria-labelledby="contact-heading" data-xray="organism · contact">
-        <div class="section-header">
-          <p class="section-label" data-xray="atom · section-label">03 — Contact</p>
+
+    <section class="section" id="contact" aria-labelledby="contact-heading" data-xray="organism · contact">
+      <div class="container">
+        <div class="grid contact-section">
+          <h2 class="contact-section__title" id="contact-heading">Wanna have a coffee? I love coffee, <span class="contact__title-accent">we should have a coffee.</span></h2>
+          <div class="contact-section__support">
+            <p>Email is the fastest way to reach me — I read everything that arrives and reply to anything that isn't a pitch.</p>
+            <p class="index-hero__actions"><a class="cta" href="mailto:mark@hobbs.design">mark@hobbs.design</a></p>
+          </div>
+          <ul class="contact-section__links" role="list">
+            <li><a href="https://www.linkedin.com/in/hobbsdesign" target="_blank" rel="noopener"><span class="contact__link-label">LinkedIn</span><span>/in/hobbsdesign ↗<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
+            <li><a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener"><span class="contact__link-label">Code</span><span>Source ↗<span class="visually-hidden">(opens in a new tab)</span></span></a></li>
+            <li><a href="resume.html"><span class="contact__link-label">CV</span><span>Resume, web version</span></a></li>
+          </ul>
         </div>
-        <h2 id="contact-heading">Have a project in mind?<br>Let's talk.</h2>
-        <ul class="link-list contact__links text-mono" role="list">
-          <li><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></li>
-          <li><a href="https://www.linkedin.com/in/hobbsdesign" target="_blank" rel="noopener">/in/hobbsdesign <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
-          <li><a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></li>
-          <li><a href="resume.html">Resume, web version</a></li>
-        </ul>
-
-        <p class="contact__lead">
-          Email is the fastest way to reach me. I read everything and
-          reply to anything that isn't a pitch.
-        </p>
-
-        <a class="button button--solid contact__cta" href="mailto:mark@hobbs.design">Email me</a>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
   <dialog class="sheet sheet--case" aria-label="Case study" data-xray="organism · sheet">
     <div class="sheet__chrome">
       <span class="sheet__handle" aria-hidden="true"></span>
-      <button class="button button--bare sheet__back" type="button"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-left"></use></svg>Back</button>
+      <button class="button button--bare sheet__back" type="button"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-left"></use></svg><span class="sheet__back-label">Back</span></button>
       <button class="button button--bare sheet__close" type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-x-lg"></use></svg></button>
     </div>
     <div class="sheet__body" tabindex="-1"></div>
   </dialog>
 
-  <div class="xray-legend" aria-hidden="true">
-    <span class="legend-atom">Atom</span>
-    <span class="legend-molecule">Molecule</span>
-    <span class="legend-organism">Organism</span>
-    <span class="legend-template">Template</span>
-  </div>
-
   <footer class="site-footer" data-xray="organism · site-footer">
-    <div class="container site-footer__inner">
-      <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
-      <p><a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></p>
+    <div class="container site-footer__inner grid">
+      <p class="site-footer__copy span-6">© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+      <p class="site-footer__contact span-6"><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></p>
     </div>
   </footer>
+
+  <div class="xray-legend" aria-hidden="true"><span class="legend-atom">Atom</span><span class="legend-molecule">Molecule</span><span class="legend-organism">Organism</span><span class="legend-template">Template</span></div>
 
   <script src="src/js/xray.js"></script>
   <script src="src/js/nav.js"></script>

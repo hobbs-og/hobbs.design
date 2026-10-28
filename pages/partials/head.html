@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="swiss">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBES5CDMVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QBES5CDMVZ');
+  </script>
+  <meta name="description" content="{{description}}">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/software/fonts.css">
+  <link rel="stylesheet" href="vendor/software/tokens.css">
+  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
+       committed (see .gitignore). Delete this link once the swiss mode
+       ships from Figma into vendor/software/tokens.css. -->
+  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="vendor/software/grid.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.css">
+  <script src="src/js/theme.js"></script>
+</head>
+<body>

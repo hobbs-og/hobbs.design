@@ -1,11 +1,12 @@
 // Zero-dependency static server for local development.
 // Run from anywhere: node tools/serve.mjs — serves the repo root on :8123.
+// Pass a folder to serve that instead (a design handoff, say): node tools/serve.mjs ../handoff
 import http from 'node:http';
 import { createReadStream, statSync } from 'node:fs';
-import { join, normalize, extname } from 'node:path';
+import { join, normalize, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = fileURLToPath(new URL('..', import.meta.url));
+const root = process.argv[2] ? resolve(process.argv[2]) + sep : fileURLToPath(new URL('..', import.meta.url));
 const types = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
   '.mjs': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml',

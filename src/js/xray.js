@@ -1,22 +1,16 @@
-// X-ray view toggle. Progressive enhancement: without JS the
-// toggle simply does nothing and the page reads normally.
+// X-ray view switch. Progressive enhancement: without JS the
+// switch simply does nothing and the page reads normally.
 (function () {
-  var toggle = document.querySelector('.xray-toggle');
-  if (!toggle) return;
-
-  var buttons = toggle.querySelectorAll('button');
+  var input = document.querySelector('[data-xray-switch]');
+  if (!input) return;
 
   function setMode(on) {
     document.documentElement.classList.toggle('xray', on);
-    buttons.forEach(function (b) {
-      b.setAttribute('aria-pressed', String((b.dataset.mode === 'xray') === on));
-    });
+    input.checked = on;
   }
 
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () {
-      setMode(b.dataset.mode === 'xray');
-    });
+  input.addEventListener('change', function () {
+    setMode(input.checked);
   });
 
   // Escape always returns to the design view.

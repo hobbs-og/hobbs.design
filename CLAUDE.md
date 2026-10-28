@@ -81,6 +81,7 @@ this repo.
 | `src/styles/utilities/` | xray overlay |
 | `src/js/` | nav, sheet, project-row, xray |
 | `src/public/icons.svg` | generated sprite — do not hand-edit |
+| `src/icons/` | this site's own icons (the swiss arrows), appended to the sprite by `tools/custom-icons.mjs` |
 | `tools/` | vendor scripts, component-token build, local server |
 | `.cpanel.yml` | deploy manifest — copies only servable paths |
 
@@ -97,6 +98,67 @@ npm run serve                                      # localhost:8123
 
 ---
 
+## Pages are built from partials (swiss)
+
+Swiss pages are not hand-written at the root. Each one has a source in
+`pages/`, and `tools/build-pages.mjs` writes the finished file to the root,
+where cPanel copies it from. The built HTML is committed because the server
+runs no build. Every built file opens with a comment naming its source.
+
+**Edit `pages/`, never a root `.html` that has the build comment.** Then run
+`npm run build:pages` and commit the source and the output together.
+`npm run check:pages` fails if any built page is out of date.
+
+```html
+<!-- @include site-nav.html -->
+<!-- @include projects/terafina-row.html class="span-6" -->
+```
+
+The path is relative to `pages/partials/`. Attributes become variables:
+`{{class}}` is required and the build stops without it, `{{class?}}` can be
+left out.
+
+| Partial | Used for |
+|---|---|
+| `head.html` | doctype to `<body>`. Takes `title` and `description` |
+| `site-nav.html`, `nav-links.html` | skip link, header, switches, phone menu. One set of links for both navs |
+| `site-footer.html` | footer and the x-ray legend |
+| `next-project.html` | the closing row on a case study. Takes `project` (a slug) |
+| `projects/<slug>-row.html` | a project's row. Takes `class` (span, `project-row--lead`) and `media?` |
+| `projects/<slug>-specs.html` | its Focus / Scope / Context list. Takes `class?` |
+
+A project's specs are written once, then used in its index row, its case-study
+hero and wherever it's the next project. Slugs are the page file names:
+bullhorn, terafina, software, fabrication, proof, rumi, frictionless.
+
+**The case-study template is `pages/bullhorn.html`.** To convert a page, copy
+it and keep the blocks in this order:
+
+1. `.case-hero` with its band, title, lead, body and specs include
+2. `.case-flow`: one `section.case-section.case-section--card` per chapter,
+   each with `__media`, `__head` (h2 + `__support`) and `__body`. A slot with
+   no content stays as an empty element; the grid relies on it
+3. `__body` holds `__part` (h3 + paragraphs), `figure.stack--tight` with an
+   `.img-frame.media-pair` and a `.text-caption`, or `__notes` of `__note`
+4. `<!-- @include next-project.html project="…" -->`
+
+**Soft hyphens.** Chrome won't auto-hyphenate a capitalized or uppercase
+word, and the hero title and section h2s are both uppercase. So long words
+carry `&shy;` at their break points in the source: the hero name
+(`Bull&shy;horn`), and any h2 word that overflows a 320px screen
+(`com&shy;po&shy;nents`). The h2s use them on phones only.
+
+The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
+`.contact-section__title`) belong to the index only. Don't reuse them on
+other pages.
+
+**Stylesheets.** Swiss pages load software's `fonts.css`, `tokens.css`, `grid.css`,
+then `src/styles/base.css` and `src/styles/themes/swiss.css`. They don't load
+`system.css` or `main.css`. The old stack leaks its paddings, borders and type
+into swiss components. Pages not yet converted still use the old stack.
+
+---
+
 ## House rules for this repo
 
 - **No inline styles, anywhere, ever.** If a rule is needed it gets a class.
@@ -107,8 +169,9 @@ npm run serve                                      # localhost:8123
 - **The `.site-nav` header is locked in** — byte-identical on every page:
   structure, `data-xray` hooks, logo markup, the X-ray toggle, and the links
   themselves. A global nav does not change per page; only `aria-current` varies.
-  Canonical links: Work → `index.html#work`, Contact → `index.html#contact`,
-  Resume → `resume.html`. Do not "improve" one page's nav in isolation.
+  Canonical links: About → `about.html`, Work → `index.html#work`, Contact →
+  `index.html#contact`, Resume → the PDF. On swiss pages, `nav-links.html` is the
+  only copy. Do not "improve" one page's nav in isolation.
 - **The footer is one component**, byte-identical on all pages.
 - Links that leave the site carry the external-link icon and open in a new tab
   with `rel="noopener"`.
@@ -138,9 +201,6 @@ deploy key. There is no CI today.
 
 - **Deploy strategy** is unsettled (cPanel vs. an SFTP Action vs. Netlify /
   Cloudflare). Don't automate the deploy without Mark's call.
-- **`groundwork.html`** — whether it joins the homepage as case study 06, which
-  would mean rewriting the "Five systems" heading and the "05 case studies"
-  label; and whether it enters `sitemap.xml`.
 - **Legacy pages** still at the root and not linked from the current site:
   about/info, editorial, web, iusa, lesson.
 - Five of the six case studies still carry the section rhythm as

@@ -19,5 +19,5 @@ if (!source) {
 const out = join(root, 'vendor/software');
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
-for (const file of ['tokens.css', 'fonts.css', 'fonts']) cpSync(join(source, file), join(out, file), { recursive: true });
+for (const file of ['tokens.css', 'fonts.css', 'grid.css', 'fonts']) cpSync(join(source, file), join(out, file), { recursive: true });
 console.log(`vendor/software ← ${source}`);

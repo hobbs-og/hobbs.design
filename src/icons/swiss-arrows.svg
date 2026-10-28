@@ -1,0 +1,13 @@
+<!--
+  Custom icons for the swiss brand, from Claude Design's handoff.
+  12x12, 2px stroke, butt caps, mitre joins. tools/custom-icons.mjs
+  appends every <symbol> here to src/public/icons.svg after
+  hobbs-icons builds the Bootstrap sprite, so they survive a rebuild.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="swiss-arrow-down-left" viewBox="0 0 12 12" overflow="hidden"><path d="M1 11 L11.293 0.707 M1 -1 V11 H13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter"></path></symbol>
+  <symbol id="swiss-arrow-down-right" viewBox="0 0 12 12" overflow="hidden"><path d="M11 11 L0.707 0.707 M11 -1 V11 H-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter"></path></symbol>
+  <symbol id="swiss-arrow-up-right" viewBox="0 0 12 12" overflow="hidden"><path d="M11 1 L0.707 11.293 M-1 1 H11 V13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter"></path></symbol>
+  <symbol id="swiss-arrow-right" viewBox="0 0 12 12" overflow="hidden"><path d="M0 6 H10.5 M5.5 1 L10.5 6 L5.5 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter"></path></symbol>
+  <symbol id="swiss-arrow-left" viewBox="0 0 12 12" overflow="hidden"><path d="M12 6 H1.5 M6.5 1 L1.5 6 L6.5 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter"></path></symbol>
+</svg>

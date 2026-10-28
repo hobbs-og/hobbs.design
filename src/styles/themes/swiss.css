@@ -1,0 +1,3529 @@
+/* ============================================================
+   themes/swiss.css: the swiss brand theme for hobbs.design
+
+   Active only under data-brand="swiss" on <html>. Loads after the
+   system stylesheet and main.css, so every rule is scoped to the
+   brand and wins on specificity, never on !important.
+
+   Colors and type come from @hobbs-og/software's swiss mode
+   (--color-*, --typography-*). This file only aliases them into
+   component tokens and lays the components out.
+
+   Rules:
+   1. Every color, size and space is a custom property declared in
+      the token blocks below. Rules reference tokens only.
+   2. Component tokens alias semantic tokens, so light and dark
+      follow the system theme with no per-theme values here, except
+      for the wordmark blend mode, which has no semantic equivalent.
+   3. Motion is CSS only. Scroll-driven effects sit behind
+      @supports and prefers-reduced-motion: no-preference. The
+      resting state is the finished state, so browsers without
+      support and users who reduce motion see a static page.
+   ============================================================ */
+
+
+/* ---------- Tokens ---------- */
+
+[data-brand="swiss"] {
+  /* Spacing steps swiss uses that software's scale (2–128) doesn't have.
+     Components pick from software's --spacing-* or from these, never a
+     raw value, so changing a step here moves every component that uses it.
+     Promote any that stick to software core. */
+  --swiss-spacing-10: 0.625rem;
+  --swiss-spacing-19: 1.1875rem;
+  --swiss-spacing-20: 1.25rem;
+  --swiss-spacing-72: 4.5rem;
+  --swiss-spacing-120: 7.5rem;
+  --swiss-spacing-144: 9rem;
+  --swiss-spacing-168: 10.5rem;
+  --swiss-spacing-240: 15rem;
+
+  /* Grid gutter follows software's grid token (1 / 1rem below 60em; 48px
+     at large via --swiss-grid-gutter, see the 60em block).
+     To give swiss its own gutter, set --swiss-grid-gutter here, or inside a
+     breakpoint below, e.g. --swiss-grid-gutter: var(--spacing-48). */
+  --page-spacing-gutter: var(--swiss-grid-gutter, var(--container-gutter));
+
+  /* Page grid overlay: the four 3-column modules (two below 35em). */
+  --page-grid-display: block;
+  --page-grid-modules: 2;
+  --page-grid-color-border: color-mix(in srgb, var(--color-content-emphasized) 10%, transparent);
+  --page-grid-border-width: 0.0625rem;
+
+  /* page */
+  --page-color-background-default: var(--color-background-default);
+  --page-color-content-default: var(--color-content-emphasized);
+  --page-color-content-link-hover: var(--color-content-link-hover);
+  --page-color-border-focus: var(--color-border-focus);
+  --page-border-width-focus: 0.125rem;
+  --page-spacing-focus-offset: 0.1875rem;
+  --page-spacing-padding-x: var(--spacing-16);
+  --page-size-max-width: 100rem;
+
+  /* motion */
+  --motion-duration-quick: 200ms;
+  --motion-duration-color: 250ms;
+  --motion-duration-move: 350ms;
+  --motion-duration-draw: 400ms;
+  --motion-delay-icon: 100ms;
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-easing-out: cubic-bezier(0.5, 1, 0.89, 1);
+
+  /* section rhythm */
+  --section-spacing-padding-top: var(--swiss-spacing-168);
+  --section-spacing-header-gap: var(--spacing-8);
+
+  /* eyebrow / section-label */
+  --section-label-color-content-default: var(--color-content-subtle);
+  --section-label-color-content-brand: var(--color-content-eyebrow);
+
+  /* site-nav */
+  --site-nav-color-background-default: color-mix(in srgb, var(--color-background-default) 72%, transparent);
+  --site-nav-color-border-default: var(--color-border-subtle);
+  --site-nav-color-content-default: var(--color-content-emphasized);
+  --site-nav-color-content-hover: var(--color-content-link-hover);
+  --site-nav-color-content-current: var(--color-content-brand);
+  --site-nav-border-width: 0.0625rem;
+  --site-nav-size-blur: 1rem;
+  --site-nav-size-icon: 1rem;
+  --site-nav-spacing-padding-y: var(--swiss-spacing-20);
+  --site-nav-spacing-links-gap-x: var(--spacing-24);
+  --site-nav-spacing-link-gap: var(--spacing-64);
+  --site-nav-spacing-links-gap-y: var(--spacing-8);
+  --site-nav-spacing-toggle-gap: var(--spacing-2);
+  --page-spacing-icon-gap: var(--spacing-8);
+  --site-nav-spacing-toggle-padding-x: var(--spacing-8);
+  --site-nav-spacing-toggle-padding-y: var(--spacing-4);
+  --site-nav-size-toggle-bar-width: 1.25rem;
+  --site-nav-size-toggle-bar-thickness: 0.0625rem;
+  --site-nav-spacing-toggle-bar-gap: 0.3125rem;
+  --site-nav-color-logo-band: color-mix(in srgb, var(--color-background-brand) 40%, transparent);
+  --site-nav-motion-range: 6rem;
+
+  /* switch */
+  --switch-color-border-default: var(--color-border-default);
+  --switch-color-border-hover: var(--color-border-strong);
+  --switch-color-background-off: transparent;
+  --switch-color-background-on: var(--color-content-emphasized);
+  --switch-color-thumb-off: var(--color-border-default);
+  --switch-color-thumb-on: var(--color-background-default);
+  --switch-border-width: 0.0625rem;
+  --switch-size-track-width: 2rem;
+  --switch-size-track-height: 1.125rem;
+  --switch-size-thumb: 0.75rem;
+  --switch-spacing-thumb-inset: 0.125rem;
+  --switch-spacing-gap: var(--page-spacing-icon-gap);
+
+  /* index-hero */
+  --index-hero-color-content-eyebrow: var(--color-content-subtle);
+  --index-hero-color-content-title: var(--color-content-subtitle);
+  --index-hero-spacing-padding-top: var(--spacing-96);
+  /* The wordmark's baseline lands on the bottom edge of the viewport on
+     load. The hero is one screen tall below the nav plus room for the
+     descender of the "g", which hangs below the fold. */
+  --index-hero-size-nav: 4.21875rem;
+  --index-hero-size-descender: 8vw;
+  --index-hero-size-min: calc(100svh - var(--index-hero-size-nav) + var(--index-hero-size-descender));
+  --index-hero-spacing-gap: var(--swiss-spacing-240);
+  --index-hero-spacing-gap-min: var(--swiss-spacing-120);
+  --index-hero-spacing-intro-gap: var(--spacing-24);
+
+  /* wordmark */
+  --wordmark-color-content-primary: color-mix(in srgb, var(--color-background-brand) 86%, white);
+  --wordmark-color-content-secondary: var(--color-content-brand-secondary);
+  --wordmark-blend: multiply;
+  --wordmark-blend-secondary: normal;
+  --wordmark-opacity: 1;
+  --wordmark-opacity-dark: 0.6;
+  --wordmark-spacing-baseline-trim: -0.1367em;
+  --wordmark-spacing-optical-start: -0.05em;
+  --wordmark-spacing-optical-end: -0.05em;
+  --wordmark-motion-amplitude: 0.08em;
+  --wordmark-motion-stagger: 2vh;
+  --wordmark-motion-length: 70vh;
+
+  /* stat-band */
+  --stat-band-color-border-rule: var(--color-border-strong);
+  --stat-band-color-content-label: var(--color-content-subtle);
+  --stat-band-color-content-value: var(--color-content-headline-brand);
+  --stat-band-border-width: 0.0625rem;
+  --stat-band-spacing-margin-top: var(--spacing-24);
+  --stat-band-spacing-padding-bottom: var(--spacing-64);
+  --stat-band-spacing-row-gap: var(--spacing-48);
+  --stat-band-spacing-stat-gap: var(--swiss-spacing-240);
+  --stat-band-spacing-stat-padding-x: var(--spacing-16);
+  --stat-band-spacing-stat-padding-bottom: 0;
+  --stat-band-spacing-stagger: 0;
+  --stat-band-motion-stagger: 15vh;
+  --stat-band-motion-length: 70vh;
+
+  /* work-index */
+  --work-index-color-content-title: var(--color-content-headline);
+  --work-index-color-content-lead: var(--color-content-subtitle);
+  --work-index-spacing-lead-gap: var(--spacing-8);
+  --work-index-spacing-list-margin-top: var(--swiss-spacing-120);
+  --work-index-spacing-card-gap: var(--swiss-spacing-240);
+  --work-index-spacing-row-gap: var(--spacing-48);
+  --work-index-spacing-lead-clearance: var(--swiss-spacing-120);
+
+  /* project-row */
+  --project-row-color-content-meta: var(--color-content-subtle);
+  --project-row-color-content-number: var(--color-content-eyebrow);
+  --project-row-color-content-title: var(--color-content-headline);
+  --project-row-color-content-title-hover: var(--color-content-headline-brand);
+  --project-row-color-content-lead: var(--color-content-subtitle);
+  --project-row-color-content-detail: var(--color-content-default);
+  --project-row-color-content-spec-label: var(--color-content-subtle);
+  --project-row-color-content-spec: var(--color-content-emphasized);
+  --project-row-color-background-bullet: var(--color-background-brand);
+  --project-row-elevation-flat:
+    drop-shadow(0 0.0625rem 0.0625rem color-mix(in srgb, var(--color-elevation-shadow) 16.5%, transparent))
+    drop-shadow(0 0.375rem 0.625rem color-mix(in srgb, var(--color-elevation-shadow) 19.25%, transparent))
+    drop-shadow(0 1.375rem 2rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent));
+  --project-row-elevation-phone:
+    drop-shadow(0 0.125rem 0.1875rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent))
+    drop-shadow(0 1.25rem 2.5rem color-mix(in srgb, var(--color-elevation-shadow) 33%, transparent))
+    drop-shadow(0 3rem 5rem color-mix(in srgb, var(--color-elevation-shadow) 27.5%, transparent));
+  --project-row-size-media: 80%;
+  --project-row-size-bullet: 0.375rem;
+  --project-row-spacing-bullet-offset: -0.125rem;
+  --project-row-spacing-gap: var(--spacing-24);
+  --project-row-spacing-meta-gap-x: var(--spacing-24);
+  --project-row-spacing-meta-gap-y: var(--spacing-4);
+  --project-row-spacing-title-margin-y: var(--spacing-8);
+  --project-row-spacing-media-clearance: var(--spacing-16);
+  --project-row-spacing-body-gap: var(--spacing-8);
+  --project-row-spacing-detail-margin-top: var(--spacing-8);
+  --project-row-spacing-specs-margin-top: var(--spacing-24);
+  --project-row-spacing-lead-specs-margin-top: var(--spacing-32);
+  --project-row-spacing-lead-cta-margin-top: var(--spacing-24);
+  --project-row-spacing-specs-gap-x: var(--page-spacing-gutter);
+  --project-row-spacing-specs-gap-y: var(--spacing-24);
+  --project-row-size-spec-min: 9.375rem;
+  --project-row-spacing-spec-gap: var(--spacing-8);
+  --project-row-spacing-list-gap: var(--spacing-2);
+  --project-row-spacing-item-gap: var(--swiss-spacing-10);
+  --project-row-spacing-cta-margin-top: var(--spacing-24);
+  --project-row-motion-drift: 1.5rem;
+
+  /* cta, button */
+  --cta-color-content-default: var(--color-content-emphasized);
+  --cta-color-content-hover: var(--color-content-brand);
+  --cta-size-underline: 0.125rem;
+  --cta-size-icon: 0.75rem;
+  --cta-spacing-gap: var(--spacing-12);
+  --cta-spacing-padding-y: var(--spacing-16);
+  --cta-spacing-icon-offset: 0.375rem;
+
+  --button-color-solid-content-default: var(--color-content-emphasized);
+  --button-color-solid-border-default: var(--color-border-strong);
+  --button-color-solid-background-hover: var(--color-background-brand);
+  --button-color-solid-content-hover: var(--color-content-knockout);
+  --button-color-solid-border-hover: var(--color-border-brand);
+  --button-color-quiet-content-default: var(--color-content-emphasized);
+  --button-color-quiet-content-hover: var(--color-content-brand);
+  --button-border-width: 0.125rem;
+  --button-spacing-padding-x: var(--spacing-24);
+  --button-spacing-padding-y: var(--spacing-16);
+  --button-spacing-gap: var(--spacing-16);
+  --button-spacing-icon-shift: 0.375rem;
+  --button-spacing-actions-gap-x: var(--spacing-32);
+  --button-spacing-actions-gap-y: var(--spacing-16);
+  --button-scale-active: 0.98;
+
+  /* how-i-work */
+  --how-i-work-color-content-title: var(--color-content-headline);
+  --how-i-work-color-content-body: var(--color-content-default);
+  --how-i-work-color-content-quote: var(--color-content-brand);
+  --how-i-work-spacing-row-gap: var(--spacing-48);
+  --how-i-work-spacing-body-gap: var(--spacing-24);
+  --how-i-work-size-body-column-min: 15rem;
+
+  /* contact */
+  --contact-color-content-title: var(--color-content-headline);
+  --contact-color-content-accent: var(--color-content-headline-brand);
+  --contact-color-content-email: var(--color-content-headline);
+  --contact-color-content-email-hover: var(--color-content-link-hover);
+  --contact-color-content-lead: var(--color-content-default);
+  --contact-color-content-label: var(--color-content-subtle);
+  --contact-spacing-padding-top: var(--spacing-24);
+  --contact-spacing-body-margin-top: var(--spacing-96);
+  --contact-spacing-links-margin-top: var(--swiss-spacing-72);
+  --contact-spacing-email-padding-y: var(--spacing-16);
+  --contact-spacing-link-gap: var(--spacing-8);
+  --contact-spacing-link-padding-top: var(--spacing-8);
+  --contact-spacing-row-gap: var(--spacing-24);
+
+  /* site-footer */
+  --site-footer-color-content-default: var(--color-content-subtle);
+  --site-footer-color-content-label: var(--color-content-emphasized);
+  --site-footer-color-content-link: var(--color-content-emphasized);
+  --site-footer-spacing-padding-top: var(--swiss-spacing-168);
+  --site-footer-spacing-padding-bottom: var(--spacing-48);
+  --site-footer-spacing-row-gap: var(--spacing-24);
+  --site-footer-spacing-inner-padding-top: var(--spacing-16);
+
+  /* case-hero */
+  --case-hero-color-content-title: var(--color-content-headline);
+  --case-hero-color-content-lead: var(--color-content-headline);
+  --case-hero-color-content-kicker: var(--color-content-emphasized);
+  --case-hero-color-content-kicker-brand: var(--color-content-eyebrow);
+  --case-hero-color-content-tag-muted: var(--color-content-subtle);
+  --case-hero-color-content-brief: var(--color-content-default);
+  --case-hero-color-content-meta-label: var(--color-content-subtle);
+  --case-hero-color-content-meta: var(--color-content-emphasized);
+  --case-hero-spacing-padding-top: var(--spacing-48);
+  --case-hero-spacing-media-margin-top: var(--spacing-96);
+  --case-hero-spacing-title-top: var(--swiss-spacing-120);
+  --case-hero-spacing-lead-top: var(--work-index-spacing-lead-gap);
+  --case-hero-spacing-specs-gap-y: var(--spacing-40);
+  --case-hero-color-border-band: var(--color-border-strong);
+  --case-hero-border-width-band: var(--stat-band-border-width);
+  --case-hero-spacing-band-padding-top: var(--spacing-12);
+  --case-hero-spacing-band-gap: var(--spacing-4);
+  --case-hero-spacing-title-margin-top: var(--spacing-96);
+  --case-hero-spacing-title-optical: -0.039em;
+  --case-hero-spacing-lead-margin-top: var(--spacing-96);
+  --case-hero-spacing-brief-margin-top: var(--swiss-spacing-144);
+  --case-hero-spacing-row-gap: var(--spacing-24);
+  --case-hero-spacing-lead-row-gap: var(--spacing-32);
+  --case-hero-spacing-kicker-gap: var(--spacing-24);
+  --case-hero-spacing-tags-gap: var(--spacing-4);
+  --case-hero-spacing-meta-padding-y: var(--spacing-8);
+  --case-hero-spacing-meta-padding-x: var(--spacing-12);
+
+  /* case-section */
+  --case-section-color-content-label: var(--color-content-subtle);
+  --case-section-color-content-heading: var(--color-content-headline);
+  --case-section-color-content-body: var(--color-content-default);
+  --case-section-color-content-number: var(--color-content-emphasized);
+  --case-section-color-content-figure-label: var(--color-content-subtle);
+  --case-section-color-content-figure-label-brand: var(--color-content-eyebrow);
+  --case-section-color-content-caption: var(--color-content-default);
+  --case-section-color-content-closing: var(--color-content-headline);
+  --case-section-color-content-open: var(--color-content-eyebrow);
+  --case-section-spacing-padding-top: var(--swiss-spacing-168);
+  --case-flow-spacing-row-gap: var(--spacing-48);
+  --media-pair-spacing-padding: var(--spacing-16);
+  --case-section-spacing-rule: var(--spacing-64);
+  --case-section-border-width-rule: 0.0625rem;
+  --case-section-color-border-rule: var(--page-grid-color-border);
+  /* Scales with the title: 48px (--spacing-48) at the 136px desktop
+     title, as a share of the title size. A fixed 48px crowds the arrow off the
+     row once the title shrinks on phones. */
+  --case-hero-spacing-title-icon-gap: calc(1em * 48 / 136);
+  --case-hero-spacing-title-row-top: calc(var(--spacing-48) * 4);
+  --case-hero-spacing-title-row-bottom: var(--spacing-40);
+  --case-hero-spacing-title-row-gap: var(--spacing-48);
+  --case-hero-border-width-title-row: 0.25rem;
+  --case-hero-scale-title-with-icon: 0.86;
+  /* Title size: fills the hero (20cqi sets an 8-letter name edge to edge)
+     and stops at display-lg (10rem) on wide screens. Line height stays at
+     display-lg's 1:1 ratio, so it scales with the size. */
+  --case-hero-font-size-title: min(var(--typography-display-lg-font-size), 20cqi);
+  --case-hero-line-height-title: 1;
+  --case-section-size-note-icon: 0.75rem;
+  --case-section-spacing-first-padding-top: var(--swiss-spacing-120);
+  --case-section-spacing-head-padding-top: var(--spacing-24);
+  --case-section-spacing-row-gap: var(--spacing-24);
+  --case-section-spacing-support-margin-top: var(--spacing-24);
+  --case-section-spacing-block-sm: var(--swiss-spacing-72);
+  --case-section-spacing-block-lg: var(--spacing-96);
+  --case-section-spacing-heading-offset: var(--spacing-12);
+  --case-section-spacing-body-offset: var(--swiss-spacing-19);
+  --case-section-spacing-figure-gap: var(--spacing-8);
+  --case-section-spacing-figcaption-gap: var(--spacing-12);
+  --case-section-spacing-figcaption-inline-gap: var(--spacing-16);
+  --case-section-spacing-closing-margin-top: var(--spacing-48);
+  --case-section-spacing-open-gap: var(--spacing-32);
+  --case-section-spacing-open-item-gap: var(--spacing-8);
+  --case-section-spacing-open-item-padding-top: var(--spacing-12);
+
+  /* media-pair: a quiet panel one step off the page (#EDEDEA light,
+     #2E2E2E-ish dark, via the semantic subtle-hover surface). */
+  --media-pair-color-background: var(--color-background-subtle-hover);
+
+  --case-section-spacing-lead-row-gap: var(--spacing-16);
+
+  /* img-frame */
+  --img-frame-color-background-default: var(--color-background-subtle);
+  --img-frame-color-border-default: var(--color-border-subtle);
+  --img-frame-border-width: 0.0625rem;
+
+  /* case-readout, case-notes */
+  --case-readout-color-border-default: var(--color-border-strong);
+  --case-readout-color-content-label: var(--color-content-subtle);
+  --case-readout-color-background-brand: var(--color-background-brand);
+  --case-readout-color-content-brand: var(--color-content-knockout);
+  --case-readout-border-width: 0.0625rem;
+  --case-readout-spacing-padding: var(--spacing-16);
+  --case-readout-spacing-gap: var(--spacing-40);
+  --case-readout-spacing-desc-margin-top: var(--spacing-8);
+  --case-notes-spacing-padding-x: var(--spacing-16);
+  --case-notes-spacing-padding-top: var(--spacing-16);
+  --case-notes-spacing-padding-bottom: var(--spacing-32);
+  --case-notes-spacing-gap: var(--spacing-12);
+
+  /* sheet: values match production (organisms/sheet.css + tokens/component/sheet.json) */
+  --sheet-color-surface: var(--color-background-default);
+  --sheet-color-elevate: color-mix(in srgb, white 5%, transparent);
+  /* Light scrim so the page reads through the translucent sheet. */
+  --sheet-color-scrim: color-mix(in srgb, var(--color-background-knockout) 16%, transparent);
+  --sheet-color-chrome: var(--color-background-subtle);
+  --sheet-color-handle: var(--color-border-default);
+  --sheet-color-hairline: var(--color-border-subtle);
+  --sheet-color-control: var(--color-content-default);
+  --sheet-color-control-hover: var(--color-content-headline);
+  --sheet-size-peek: var(--spacing-64);
+  --sheet-size-container-max: 100rem;
+  --sheet-size-handle-inline: var(--spacing-40);
+  --sheet-size-handle-block: var(--spacing-4);
+  --sheet-size-control: 2.75rem;
+  --sheet-border-width: 0.0625rem;
+  --sheet-radius-default: var(--spacing-8);
+  --sheet-radius-round: 624.9375rem;
+  --sheet-blur-backdrop: var(--spacing-8);
+  --sheet-opacity-surface: 88%;
+  --sheet-blur-surface: var(--spacing-24);
+  --sheet-spacing-inset: var(--spacing-24);
+  --sheet-spacing-chrome-x: var(--spacing-48);
+  --sheet-spacing-chrome-gap: var(--spacing-16);
+  --sheet-spacing-control-gap: var(--spacing-8);
+  --sheet-spacing-icon-shift: var(--spacing-8);
+  --sheet-spacing-mobile-start: var(--spacing-24);
+  --sheet-spacing-mobile-end: var(--spacing-8);
+  --sheet-motion-duration: 420ms;
+  --sheet-motion-easing: cubic-bezier(0.32, 0.72, 0, 1);
+  --sheet-motion-duration-ui: var(--motion-duration-quick);
+
+  /* project-row--next */
+  --next-color-content-title: var(--color-content-headline);
+  --next-spacing-gap: var(--spacing-16);
+}
+
+@media (min-width: 35em) {
+  [data-brand="swiss"] {
+    --page-spacing-padding-x: var(--spacing-24);
+    --page-grid-modules: 4;
+    --stat-band-spacing-stagger: var(--swiss-spacing-120);
+  }
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] {
+    /* Large grid gutter: 48px, per the large grid in software-subatomic.
+       The vendored tokens.css still resolves --container-gutter to
+       --spacing-gap-lg (24px); once the Figma export lands, point this at
+       the exported large-gutter token (or drop it if --container-gutter
+       becomes 48px). Layout and the grid-line overlay both read it. */
+    --swiss-grid-gutter: var(--spacing-48);
+    --page-spacing-padding-x: max(var(--spacing-48), calc((100% - var(--page-size-max-width)) / 2));
+    --stat-band-spacing-stagger: var(--swiss-spacing-120);
+  }
+}
+
+/* The wordmark's two colors overlap; the overlap reads darker on light
+   and lighter on dark. No semantic token carries a blend mode. In dark,
+   the red takes the same accent as the stat numbers
+   (--color-content-headline-brand) and screens over the blue, which
+   on a near-black page only lightens the overlap. The logo is
+   exempt from contrast minimums. */
+@media (prefers-color-scheme: dark) {
+  [data-brand="swiss"]:not([data-theme="light"]) {
+    --wordmark-blend: screen;
+    --wordmark-blend-secondary: normal;
+    --wordmark-color-content-primary: var(--color-content-headline-brand);
+    --wordmark-opacity: var(--wordmark-opacity-dark);
+  }
+}
+
+[data-brand="swiss"][data-theme="dark"],
+[data-brand="swiss"] [data-theme="dark"] {
+  --wordmark-blend: screen;
+  --wordmark-blend-secondary: normal;
+  --wordmark-color-content-primary: var(--color-content-headline-brand);
+    --wordmark-opacity: var(--wordmark-opacity-dark);
+}
+
+
+/* ---------- Page ---------- */
+
+[data-brand="swiss"] body {
+  background: var(--page-color-background-default);
+  color: var(--page-color-content-default);
+  font-family: var(--typography-body-default-font-family);
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  font-weight: var(--typography-body-default-font-weight);
+}
+
+/* Page grid overlay. Each module is three columns; lines mark both edges
+   of every module. Set --page-grid-display: none to hide it. */
+[data-brand="swiss"] body::before {
+  --period: calc((100% + var(--page-spacing-gutter)) / var(--page-grid-modules));
+  content: "";
+  display: var(--page-grid-display);
+  position: fixed;
+  inset-block: 0;
+  inset-inline: var(--page-spacing-padding-x);
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--page-grid-color-border) 0 var(--page-grid-border-width), transparent var(--page-grid-border-width)),
+    linear-gradient(to right, transparent calc(100% - var(--page-spacing-gutter) - var(--page-grid-border-width)), var(--page-grid-color-border) calc(100% - var(--page-spacing-gutter) - var(--page-grid-border-width)) calc(100% - var(--page-spacing-gutter)), transparent calc(100% - var(--page-spacing-gutter)));
+  background-size: var(--period) 100%;
+  background-repeat: repeat-x;
+}
+
+[data-brand="swiss"] a {
+  color: inherit;
+  text-decoration: none;
+}
+
+[data-brand="swiss"] a:hover {
+  color: var(--page-color-content-link-hover);
+}
+
+[data-brand="swiss"] :focus-visible {
+  outline: var(--page-border-width-focus) solid var(--page-color-border-focus);
+  outline-offset: var(--page-spacing-focus-offset);
+}
+
+[data-brand="swiss"] :is(h1, h2, h3, h4, p, dl, dd, figure, ul) {
+  margin: 0;
+}
+
+[data-brand="swiss"] .container {
+  padding-inline: var(--page-spacing-padding-x);
+}
+
+[data-brand="swiss"] .grid {
+  column-gap: var(--page-spacing-gutter);
+  row-gap: 0;
+}
+
+[data-brand="swiss"] .section {
+  padding-block-start: var(--section-spacing-padding-top);
+}
+
+[data-brand="swiss"] .section-label {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--section-label-color-content-default);
+}
+
+[data-brand="swiss"] .img-frame {
+  background: var(--img-frame-color-background-default);
+  border: var(--img-frame-border-width) solid var(--img-frame-color-border-default);
+  inline-size: 100%;
+}
+
+[data-brand="swiss"] code {
+  font-family: inherit;
+}
+
+
+/* ---------- site-nav ---------- */
+
+[data-brand="swiss"] .site-nav {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 40;
+  background-color: var(--site-nav-color-background-default);
+  -webkit-backdrop-filter: blur(var(--site-nav-size-blur));
+  backdrop-filter: blur(var(--site-nav-size-blur));
+  border-block-end: var(--site-nav-border-width) solid var(--site-nav-color-border-default);
+}
+
+[data-brand="swiss"] .site-nav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--site-nav-spacing-links-gap-y) var(--site-nav-spacing-links-gap-x);
+  padding-block: var(--site-nav-spacing-padding-y);
+}
+
+[data-brand="swiss"] .site-nav__logo {
+  margin-inline-end: auto;
+  flex: 1 1 0;
+  color: var(--site-nav-color-content-default);
+  font-size: var(--typography-logo-default-font-size);
+  line-height: var(--typography-logo-default-line-height);
+  font-weight: var(--typography-logo-default-font-weight);
+  white-space: nowrap;
+}
+
+/* Logo, as production (organisms/nav.css): "hobbs." bold against
+   "design" regular at 24/32, with a marker highlight drawn as an inset
+   shadow rising 0.5em from the bottom of the line box. Highlight is the
+   portfolio brand's #E12A0966 (brand red at 40%). The inner span keeps
+   the highlight on the word while the link flexes to centre the nav. */
+[data-brand="swiss"] .site-nav__logo-type {
+  display: inline-block;
+  font-size: var(--typography-font-size-24);
+  line-height: var(--typography-line-height-32);
+  font-weight: var(--typography-font-weight-400);
+  color: var(--color-content-headline);
+  box-shadow: 0 -0.5em 0 var(--site-nav-color-logo-band) inset;
+  transition: color var(--motion-duration-color) ease;
+}
+
+[data-brand="swiss"] .site-nav__logo-mark {
+  font-weight: var(--typography-font-weight-700);
+}
+
+[data-brand="swiss"] .site-nav__logo:hover .site-nav__logo-type {
+  color: var(--color-content-link-hover);
+}
+
+[data-brand="swiss"] .site-nav__switches {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: var(--site-nav-spacing-links-gap-x);
+}
+
+/* Links sit centered in the bar: the logo and the switch group take
+   equal flexible space on either side. */
+[data-brand="swiss"] .site-nav__links {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--site-nav-spacing-links-gap-y) var(--site-nav-spacing-link-gap);
+  font-family: var(--typography-meta-sm-font-family);
+  font-size: var(--typography-meta-sm-font-size);
+  line-height: var(--typography-meta-sm-line-height);
+  font-weight: var(--typography-meta-sm-font-weight);
+  letter-spacing: 0.5px;
+  /* Nav only: meta-sm set in uppercase; the token itself is unchanged. */
+  text-transform: uppercase;
+}
+
+[data-brand="swiss"] .site-nav__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--page-spacing-icon-gap);
+  color: var(--site-nav-color-content-default);
+}
+
+[data-brand="swiss"] .site-nav__links a:hover {
+  color: var(--site-nav-color-content-hover);
+}
+
+[data-brand="swiss"] .site-nav__links a[aria-current] {
+  color: var(--site-nav-color-content-current);
+}
+
+[data-brand="swiss"] .site-nav .icon {
+  inline-size: var(--site-nav-size-icon);
+  block-size: var(--site-nav-size-icon);
+}
+
+/* Standard switches: a native checkbox with role="switch" and a text
+   label. Off: outlined track, thumb left. On: ink track, thumb right. */
+[data-brand="swiss"] .switch {
+  display: none;
+  align-items: baseline;
+  gap: var(--switch-spacing-gap);
+  cursor: pointer;
+  font-size: var(--typography-nav-default-font-size);
+  line-height: var(--typography-nav-default-line-height);
+  color: var(--site-nav-color-content-default);
+}
+
+[data-brand="swiss"] .switch input {
+  appearance: none;
+  position: relative;
+  flex: none;
+  align-self: center;
+  inline-size: var(--switch-size-track-width);
+  block-size: var(--switch-size-track-height);
+  margin: 0;
+  border: var(--switch-border-width) solid var(--switch-color-border-default);
+  border-radius: var(--switch-size-track-height);
+  background: var(--switch-color-background-off);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-quick) ease, border-color var(--motion-duration-quick) ease;
+}
+
+[data-brand="swiss"] .switch input::before {
+  content: "";
+  position: absolute;
+  inset-block-start: var(--switch-spacing-thumb-inset);
+  inset-inline-start: var(--switch-spacing-thumb-inset);
+  inline-size: var(--switch-size-thumb);
+  block-size: var(--switch-size-thumb);
+  border-radius: 50%;
+  background: var(--switch-color-thumb-off);
+  transition: translate var(--motion-duration-quick) var(--motion-easing-standard), background-color var(--motion-duration-quick) ease;
+}
+
+[data-brand="swiss"] .switch input:checked {
+  background: var(--switch-color-background-on);
+  border-color: var(--switch-color-background-on);
+}
+
+[data-brand="swiss"] .switch input:checked::before {
+  background: var(--switch-color-thumb-on);
+  translate: calc(var(--switch-size-track-width) - var(--switch-size-thumb) - var(--switch-spacing-thumb-inset) * 2 - var(--switch-border-width) * 2) 0;
+}
+
+[data-brand="swiss"] .switch .icon {
+  inline-size: var(--site-nav-size-icon);
+  block-size: var(--site-nav-size-icon);
+  align-self: center;
+}
+
+/* Theme switch: sun while light, moon while dark. */
+[data-brand="swiss"] .switch .switch__icon--on,
+[data-brand="swiss"] .switch:has(input:checked) .switch__icon--off {
+  display: none;
+}
+
+[data-brand="swiss"] .switch:has(input:checked) .switch__icon--on {
+  display: block;
+}
+
+[data-brand="swiss"] .switch:hover input {
+  border-color: var(--switch-color-border-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="swiss"] .switch input,
+  [data-brand="swiss"] .switch input::before {
+    transition: none;
+  }
+}
+
+[data-brand="swiss"] .site-nav__toggle {
+  appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--site-nav-spacing-toggle-bar-gap);
+  padding: var(--site-nav-spacing-toggle-padding-x);
+  border: 0;
+  background: transparent;
+  align-self: center;
+}
+
+[data-brand="swiss"] .site-nav__toggle span {
+  display: block;
+  inline-size: var(--site-nav-size-toggle-bar-width);
+  border-block-start: var(--site-nav-size-toggle-bar-thickness) solid var(--site-nav-color-content-default);
+}
+
+@media (min-width: 35em) {
+  [data-brand="swiss"] .site-nav__links,
+  [data-brand="swiss"] .switch {
+    display: flex;
+  }
+
+  [data-brand="swiss"] .site-nav__toggle {
+    display: none;
+  }
+}
+
+
+/* ---------- index-hero + wordmark ---------- */
+
+/* Fixed-height grid so the wordmark baseline always lands on the bottom
+   edge of the viewport: free space above the intro (1fr), then the
+   intro, then a gap that grows to 240px first and shrinks toward 120px on
+   short screens, then the wordmark. The "g" descender hangs into the
+   bottom padding, below the fold. */
+[data-brand="swiss"] .index-hero {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr auto minmax(var(--index-hero-spacing-gap-min), var(--index-hero-spacing-gap)) auto;
+  min-block-size: var(--index-hero-size-min);
+  padding-block: 0 var(--index-hero-size-descender);
+}
+
+[data-brand="swiss"] .index-hero > .index-hero__intro {
+  grid-row: 2;
+}
+
+[data-brand="swiss"] .index-hero > .index-hero__wordmark {
+  grid-row: 4;
+}
+
+[data-brand="swiss"] .index-hero__intro {
+  row-gap: var(--index-hero-spacing-intro-gap);
+  align-items: first baseline;
+}
+
+[data-brand="swiss"] .index-hero__eyebrow {
+  color: var(--index-hero-color-content-eyebrow);
+}
+
+[data-brand="swiss"] .index-hero__title {
+  font-family: var(--typography-display-sm-font-family);
+  font-size: var(--typography-display-sm-font-size);
+  line-height: var(--typography-display-sm-line-height);
+  font-weight: var(--typography-display-sm-font-weight);
+  letter-spacing: var(--typography-display-sm-letter-spacing);
+  color: var(--index-hero-color-content-title);
+  text-wrap: balance;
+}
+
+/* Pull the box's bottom edge up to the alphabetic baseline so the grid
+   row ends on it. Inter at line-height 1 puts the baseline 0.8633em from
+   the top, leaving 0.1367em below it. A metric margin works in every
+   browser, unlike text-box. */
+[data-brand="swiss"] .index-hero__wordmark {
+  margin-block-end: var(--wordmark-spacing-baseline-trim);
+  display: grid;
+  font-family: var(--typography-wordmark-default-font-family);
+  font-size: var(--typography-wordmark-default-font-size);
+  line-height: var(--typography-wordmark-default-line-height);
+  font-weight: var(--typography-wordmark-default-font-weight);
+  letter-spacing: var(--typography-wordmark-default-letter-spacing);
+  white-space: nowrap;
+}
+
+[data-brand="swiss"] .index-hero__word {
+  grid-area: 1 / 1;
+  opacity: var(--wordmark-opacity);
+}
+
+[data-brand="swiss"] .index-hero__word--secondary {
+  justify-self: end;
+  margin-inline-end: var(--wordmark-spacing-optical-end);
+  color: var(--wordmark-color-content-secondary);
+  mix-blend-mode: var(--wordmark-blend-secondary);
+}
+
+[data-brand="swiss"] .index-hero__word--primary {
+  justify-self: start;
+  margin-inline-start: var(--wordmark-spacing-optical-start);
+  color: var(--wordmark-color-content-primary);
+  mix-blend-mode: var(--wordmark-blend);
+}
+
+[data-brand="swiss"] .index-hero__letter {
+  display: inline-block;
+}
+
+/* Each letter's order across both words, its direction (even rises,
+   odd drops) and its speed. */
+[data-brand="swiss"] .index-hero__word--primary .index-hero__letter:nth-child(1) { --i: 0; --dir: -1; --k: 0.55; }
+[data-brand="swiss"] .index-hero__word--primary .index-hero__letter:nth-child(2) { --i: 1; --dir: 1; --k: 1.2; }
+[data-brand="swiss"] .index-hero__word--primary .index-hero__letter:nth-child(3) { --i: 2; --dir: -1; --k: 0.8; }
+[data-brand="swiss"] .index-hero__word--primary .index-hero__letter:nth-child(4) { --i: 3; --dir: 1; --k: 1.45; }
+[data-brand="swiss"] .index-hero__word--primary .index-hero__letter:nth-child(5) { --i: 4; --dir: -1; --k: 0.65; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(1) { --i: 5; --dir: 1; --k: 1.05; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(2) { --i: 6; --dir: -1; --k: 1.6; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(3) { --i: 7; --dir: 1; --k: 0.9; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(4) { --i: 8; --dir: -1; --k: 1.3; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(5) { --i: 9; --dir: 1; --k: 0.7; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(6) { --i: 10; --dir: -1; --k: 1.15; }
+[data-brand="swiss"] .index-hero__word--secondary .index-hero__letter:nth-child(7) { --i: 11; --dir: 1; --k: 1.5; }
+
+
+/* ---------- stat-band ---------- */
+
+[data-brand="swiss"] .stat-band__grid {
+  row-gap: var(--stat-band-spacing-row-gap);
+  align-items: start;
+  margin-block-start: var(--stat-band-spacing-margin-top);
+  padding-block-end: var(--stat-band-spacing-padding-bottom);
+}
+
+[data-brand="swiss"] .stat {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  gap: var(--stat-band-spacing-stat-gap);
+  padding-inline-start: var(--stat-band-spacing-stat-padding-x);
+  padding-block-end: var(--stat-band-spacing-stat-padding-bottom);
+}
+
+[data-brand="swiss"] .stat::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  border-inline-start: var(--stat-band-border-width) solid var(--stat-band-color-border-rule);
+  transform-origin: top;
+}
+
+[data-brand="swiss"] .stat:nth-of-type(2) { --i: 1; margin-block-start: var(--stat-band-spacing-stagger); }
+[data-brand="swiss"] .stat:nth-of-type(3) { --i: 2; margin-block-start: calc(var(--stat-band-spacing-stagger) * 2); }
+[data-brand="swiss"] .stat:nth-of-type(1) { --i: 0; }
+
+[data-brand="swiss"] .stat__label {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--stat-band-color-content-label);
+}
+
+/* Trim the line box to the alphabetic baseline so the column rule ends
+   exactly on the number's baseline. Browsers without text-box show a
+   few pixels of descender space below it. */
+[data-brand="swiss"] .stat__value {
+  text-box: trim-end text alphabetic;
+  font-family: var(--typography-numeral-lg-font-family);
+  font-size: var(--typography-numeral-lg-font-size);
+  line-height: var(--typography-numeral-lg-line-height);
+  font-weight: var(--typography-numeral-lg-font-weight);
+  letter-spacing: var(--typography-numeral-lg-letter-spacing);
+  color: var(--stat-band-color-content-value);
+}
+
+[data-brand="swiss"] .stat__reel {
+  display: inline-flex;
+}
+
+/* One digit window. The hidden ::after sizes it to one glyph; ::before
+   is a strip of 0–9 repeated four times that slides into place. */
+[data-brand="swiss"] .stat__digit {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+[data-brand="swiss"] .stat__digit::after {
+  content: attr(data-digit);
+  visibility: hidden;
+}
+
+[data-brand="swiss"] .stat__digit::before {
+  content: "0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  white-space: pre;
+  text-align: center;
+  translate: 0 calc(var(--d) * -1em);
+}
+
+[data-brand="swiss"] .stat__digit[data-digit="0"] { --d: 0; }
+[data-brand="swiss"] .stat__digit[data-digit="1"] { --d: 1; }
+[data-brand="swiss"] .stat__digit[data-digit="2"] { --d: 2; }
+[data-brand="swiss"] .stat__digit[data-digit="3"] { --d: 3; }
+[data-brand="swiss"] .stat__digit[data-digit="4"] { --d: 4; }
+[data-brand="swiss"] .stat__digit[data-digit="5"] { --d: 5; }
+[data-brand="swiss"] .stat__digit[data-digit="6"] { --d: 6; }
+[data-brand="swiss"] .stat__digit[data-digit="7"] { --d: 7; }
+[data-brand="swiss"] .stat__digit[data-digit="8"] { --d: 8; }
+[data-brand="swiss"] .stat__digit[data-digit="9"] { --d: 9; }
+[data-brand="swiss"] .stat__digit:nth-child(1) { --spin: 20; }
+[data-brand="swiss"] .stat__digit:nth-child(2) { --spin: 30; }
+[data-brand="swiss"] .stat__digit:nth-child(3) { --spin: 20; }
+
+
+
+/* ---------- work-index ---------- */
+
+[data-brand="swiss"] .work-index__header {
+  align-items: baseline;
+}
+
+[data-brand="swiss"] .work-index__title {
+  font-family: var(--typography-display-section-font-family);
+  font-size: var(--typography-display-section-font-size);
+  line-height: var(--typography-display-section-line-height);
+  font-weight: var(--typography-display-section-font-weight);
+  letter-spacing: var(--typography-display-section-letter-spacing);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--work-index-color-content-title);
+}
+
+[data-brand="swiss"] .work-index__lead {
+  margin-block-start: var(--work-index-spacing-lead-gap);
+  font-family: var(--typography-title-lg-font-family);
+  font-size: var(--typography-title-lg-font-size);
+  line-height: var(--typography-title-lg-line-height);
+  font-weight: var(--typography-display-section-font-weight);
+  letter-spacing: var(--typography-display-sm-letter-spacing);
+  color: var(--work-index-color-content-lead);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .work-index__list {
+  margin-block-start: var(--work-index-spacing-list-margin-top);
+  align-items: start;
+}
+
+[data-brand="swiss"] .work-index__list > .project-row + .project-row {
+  margin-block-start: var(--work-index-spacing-card-gap);
+}
+
+/* Below 60em every card runs full width, one under the other. */
+[data-brand="swiss"] .work-index__list > .project-row {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 60em) {
+  /* Cards alternate right, left, right… after the lead study. Each card
+     is three rows (media, content, body) on the list's own row tracks via
+     subgrid, and starts on the previous card's body row, so every card's
+     top lines up with its neighbor's fact list. One row gap spaces
+     everything, inside and between cards. Rows are written out for up to
+     12 cards; add a line per card past that. */
+  [data-brand="swiss"] .work-index__list {
+    row-gap: var(--work-index-spacing-row-gap);
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row + .project-row {
+    margin-block-start: 0;
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row--lead {
+    grid-row: 1;
+    margin-block-end: var(--work-index-spacing-lead-clearance);
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:not(.project-row--lead) {
+    grid-template-rows: subgrid;
+    row-gap: var(--work-index-spacing-row-gap);
+    align-items: start;
+  }
+
+  /* The row gap would add 48px under the image; pull it back so the
+     image rests one clearance step above the headline. */
+  [data-brand="swiss"] .work-index__list > .project-row:not(.project-row--lead) > .project-row__media {
+    margin-block-end: calc(var(--project-row-spacing-media-clearance) - var(--work-index-spacing-row-gap));
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:not(.project-row--lead) > .project-row__body {
+    margin-block-start: 0;
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(even) {
+    grid-column: 7 / span 6;
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(odd):not(:first-child) {
+    grid-column: 1 / span 6;
+  }
+
+  /* Right-column cards: the third list and the CTA sit under the second
+     list, so the card's lower edge reads from the outer module. */
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(even) .project-row__spec:nth-child(3) {
+    grid-column: 2;
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(even) .cta {
+    align-self: flex-start;
+    margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
+  }
+
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(2) { grid-row: 2 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(3) { grid-row: 4 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(4) { grid-row: 6 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(5) { grid-row: 8 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(6) { grid-row: 10 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(7) { grid-row: 12 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(8) { grid-row: 14 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(9) { grid-row: 16 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(10) { grid-row: 18 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(11) { grid-row: 20 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(12) { grid-row: 22 / span 3; }
+  [data-brand="swiss"] .work-index__list > .project-row:nth-child(13) { grid-row: 24 / span 3; }
+}
+
+
+/* ---------- project-row ---------- */
+
+[data-brand="swiss"] .project-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+  min-inline-size: 0;
+}
+
+[data-brand="swiss"] .project-row__media {
+  display: grid;
+  margin-block-end: var(--project-row-spacing-media-clearance);
+}
+
+[data-brand="swiss"] .project-row__media > img {
+  grid-area: 1 / 1;
+  justify-self: start;
+  inline-size: var(--project-row-size-media);
+  filter: var(--project-row-elevation-flat);
+  --drift: var(--project-row-motion-drift);
+}
+
+/* Layered device composites, back to front. Each layer sits on the
+   shared baseline; its lift, width, side and drift come from depth. */
+[data-brand="swiss"] .project-row__media--devices > .project-row__layer {
+  align-self: end;
+  inline-size: var(--layer-width);
+  margin-block-end: var(--layer-lift, 0);
+  margin-inline-start: var(--layer-start, 0);
+  margin-inline-end: var(--layer-end, 0);
+  justify-self: var(--layer-justify, start);
+  filter: var(--layer-blur, ) var(--layer-elevation, var(--project-row-elevation-flat));
+}
+
+[data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(1),
+[data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(1) {
+  --layer-width: 80%; --layer-lift: 4.8%; --drift: 1rem;
+}
+[data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(2) {
+  --layer-width: 33.6%; --layer-justify: end; --layer-end: 20%; --drift: 2rem;
+}
+[data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(3) {
+  --layer-width: 16%; --layer-lift: calc(4.8% - 1.2rem); --drift: 3rem;
+}
+[data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(2) {
+  --layer-width: 13.6%; --layer-justify: end; --layer-end: 20%; --layer-elevation: var(--project-row-elevation-phone); --drift: 2rem;
+}
+[data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(3) {
+  --layer-width: 16%; --layer-justify: end; --layer-end: 39.2%; --layer-lift: calc(4.8% - 1.2rem); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
+}
+[data-brand="swiss"] .project-row__media--mhe > .project-row__layer:nth-child(1) {
+  --layer-width: 52%; --layer-lift: 17.6%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+}
+[data-brand="swiss"] .project-row__media--mhe > .project-row__layer:nth-child(2) {
+  --layer-width: 58%; --layer-start: 22%; --drift: 3rem;
+}
+[data-brand="swiss"] .project-row__media--rumi > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
+[data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(1) {
+  --layer-width: 20%; --layer-start: 4%; --layer-lift: 9.6%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+}
+[data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(2) {
+  --layer-width: 22.4%; --layer-justify: end; --layer-end: 20%; --layer-lift: 4.8%; --layer-blur: blur(0.03125rem); --drift: 2rem;
+}
+[data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(3) {
+  --layer-width: 25.6%; --layer-start: 26.4%; --drift: 3rem;
+}
+[data-brand="swiss"] .project-row__media--proof > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
+[data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(1) {
+  --layer-width: 17.6%; --layer-start: 2.4%; --layer-lift: 10.4%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+}
+[data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(2) {
+  --layer-width: 20%; --layer-justify: end; --layer-end: 21.6%; --layer-lift: 5.6%; --layer-blur: blur(0.03125rem); --drift: 1.6875rem;
+}
+[data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(3) {
+  --layer-width: 22.4%; --layer-start: 16%; --layer-lift: 2.4%; --layer-blur: blur(0.015625rem); --drift: 2.3125rem;
+}
+[data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(4) {
+  --layer-width: 24.8%; --layer-justify: end; --layer-end: 39.2%; --drift: 3rem;
+}
+
+[data-brand="swiss"] .project-row__content {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-brand="swiss"] .project-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
+  font-family: var(--typography-eyebrow-lg-font-family);
+  font-size: var(--typography-eyebrow-lg-font-size);
+  line-height: var(--typography-eyebrow-lg-line-height);
+  font-weight: var(--typography-eyebrow-lg-font-weight);
+  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
+  text-transform: uppercase;
+  color: var(--project-row-color-content-meta);
+}
+
+[data-brand="swiss"] .project-row__number {
+  color: var(--project-row-color-content-number);
+}
+
+[data-brand="swiss"] .project-row__title {
+  font-family: var(--typography-headline-default-font-family);
+  font-size: var(--typography-headline-default-font-size);
+  line-height: var(--typography-line-height-40);
+  font-weight: var(--typography-font-weight-900);
+  letter-spacing: var(--typography-headline-default-letter-spacing);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin-block: var(--project-row-spacing-title-margin-y);
+  color: var(--project-row-color-content-title);
+  transition: color var(--motion-duration-color) ease;
+}
+
+[data-brand="swiss"] .project-row__body {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--project-row-spacing-specs-margin-top);
+}
+
+[data-brand="swiss"] .project-row__lead {
+  font-family: var(--typography-title-default-font-family);
+  font-size: var(--typography-title-default-font-size);
+  line-height: var(--typography-title-default-line-height);
+  font-weight: var(--typography-title-default-font-weight);
+  letter-spacing: var(--typography-title-default-letter-spacing);
+  color: var(--project-row-color-content-lead);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .project-row__detail {
+  margin-block-start: var(--project-row-spacing-detail-margin-top);
+  font-size: var(--typography-body-sm-font-size);
+  line-height: var(--typography-body-sm-line-height);
+  font-weight: var(--typography-body-sm-font-weight);
+  color: var(--project-row-color-content-detail);
+  text-wrap: balance;
+}
+
+/* Two lists per row with the page gutter between them, so in a 6-column
+   card each list sits exactly on one 3-column module; the third wraps
+   under the first. The lead study overrides to three across. */
+[data-brand="swiss"] .project-row__specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--project-row-spacing-specs-gap-y) var(--project-row-spacing-specs-gap-x);
+}
+
+[data-brand="swiss"] .project-row__spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-row-spacing-spec-gap);
+  min-inline-size: 0;
+}
+
+[data-brand="swiss"] .project-row__spec dt {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--project-row-color-content-spec-label);
+}
+
+[data-brand="swiss"] .project-row__spec ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-row-spacing-list-gap);
+  padding: 0;
+  list-style: none;
+  font-size: var(--typography-body-list-font-size);
+  line-height: var(--typography-body-list-line-height);
+  color: var(--project-row-color-content-spec);
+}
+
+[data-brand="swiss"] .project-row__spec li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--project-row-spacing-item-gap);
+}
+
+[data-brand="swiss"] .project-row__spec li::before {
+  content: "";
+  flex: none;
+  inline-size: var(--project-row-size-bullet);
+  aspect-ratio: 1;
+  background: var(--project-row-color-background-bullet);
+  translate: 0 var(--project-row-spacing-bullet-offset);
+}
+
+[data-brand="swiss"] .project-row :is(.cta, .project-row__cta) {
+  align-self: flex-start;
+  margin-block-start: var(--project-row-spacing-cta-margin-top);
+  background-size: 100% var(--cta-size-underline);
+}
+
+/* Card CTA arrow is always shown; on card hover it nudges up and right. */
+[data-brand="swiss"] .project-row .cta .icon {
+  opacity: 1;
+  translate: 0 0;
+}
+
+[data-brand="swiss"] :is(.project-row:hover, .project-row:focus-within) .cta .icon {
+  translate: var(--cta-spacing-icon-offset) calc(var(--cta-spacing-icon-offset) * -1);
+}
+
+/* The whole card is one link: the CTA's hit area stretches over it. */
+[data-brand="swiss"] .project-row :is(.cta, .project-row__cta)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+[data-brand="swiss"] .project-row:is(:hover, :focus-within) .project-row__title {
+  color: var(--project-row-color-content-title-hover);
+}
+
+@media (min-width: 60em) {
+  /* Lead study: image across nine columns from the left edge, text in
+     columns 4–9 below it. */
+  [data-brand="swiss"] .project-row--lead {
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  [data-brand="swiss"] .project-row--lead > .project-row__media {
+    grid-column: 1 / span 9;
+  }
+
+  [data-brand="swiss"] .project-row--lead > .project-row__media:not(.project-row__media--devices) > img {
+    inline-size: 100%;
+  }
+
+  [data-brand="swiss"] .project-row--lead > .project-row__content {
+    grid-column: 4 / span 6;
+  }
+
+  /* The lead's three lists run across columns 4–12, one per 3-column
+     module, so each starts on a visible grid line. */
+  [data-brand="swiss"] .project-row--lead > .project-row__body {
+    grid-column: 4 / -1;
+  }
+
+  [data-brand="swiss"] .project-row--lead .project-row__lead {
+    font-size: var(--typography-title-lg-font-size);
+    line-height: var(--typography-title-lg-line-height);
+  }
+
+  [data-brand="swiss"] .project-row--lead .project-row__specs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  [data-brand="swiss"] .project-row--lead > .project-row__body {
+    margin-block-start: var(--project-row-spacing-lead-specs-margin-top);
+  }
+
+  [data-brand="swiss"] .project-row--lead .cta {
+    margin-block-start: var(--project-row-spacing-lead-cta-margin-top);
+  }
+}
+
+
+/* ---------- cta + button ---------- */
+
+[data-brand="swiss"] .cta,
+[data-brand="swiss"] .button--quiet {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: var(--cta-spacing-gap);
+  padding-block: var(--cta-spacing-padding-y);
+  font-family: var(--typography-label-lg-font-family);
+  font-size: var(--typography-label-lg-font-size);
+  line-height: var(--typography-label-lg-line-height);
+  font-weight: var(--typography-label-lg-font-weight);
+  letter-spacing: var(--typography-label-lg-letter-spacing);
+  color: var(--cta-color-content-default);
+  background: linear-gradient(currentColor, currentColor) left bottom / 0% var(--cta-size-underline) no-repeat;
+  transition:
+    color var(--motion-duration-color) ease,
+    background-size var(--motion-duration-draw) var(--motion-easing-standard);
+}
+
+[data-brand="swiss"] .cta .icon,
+[data-brand="swiss"] .button--quiet .icon {
+  inline-size: var(--cta-size-icon);
+  block-size: var(--cta-size-icon);
+  opacity: 0;
+  translate: calc(var(--cta-spacing-icon-offset) * -1) var(--cta-spacing-icon-offset);
+  transition:
+    opacity var(--motion-duration-quick) ease,
+    translate var(--motion-duration-move) var(--motion-easing-standard);
+}
+
+[data-brand="swiss"] :is(.project-row:hover, .project-row:focus-within) .cta,
+[data-brand="swiss"] .button--quiet:is(:hover, :focus-visible) {
+  color: var(--cta-color-content-hover);
+  background-size: 100% var(--cta-size-underline);
+}
+
+[data-brand="swiss"] .button--quiet:is(:hover, :focus-visible) .icon {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: var(--motion-delay-icon);
+}
+
+/* Standalone CTAs (hero actions) match the card CTA: arrow always shown,
+   underline draws and the arrow nudges up-right on hover. */
+[data-brand="swiss"] .index-hero__actions .cta {
+  background-size: 100% var(--cta-size-underline);
+}
+
+[data-brand="swiss"] .index-hero__actions .cta .icon {
+  opacity: 1;
+  translate: 0 0;
+}
+
+[data-brand="swiss"] .index-hero__actions .cta:is(:hover, :focus-visible) {
+  color: var(--cta-color-content-hover);
+  background-size: 100% var(--cta-size-underline);
+}
+
+[data-brand="swiss"] .index-hero__actions .cta:is(:hover, :focus-visible) .icon {
+  translate: var(--cta-spacing-icon-offset) calc(var(--cta-spacing-icon-offset) * -1);
+}
+
+[data-brand="swiss"] .button--solid {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-spacing-gap);
+  padding: var(--button-spacing-padding-y) var(--button-spacing-padding-x);
+  border: var(--button-border-width) solid var(--button-color-solid-border-default);
+  font-family: var(--typography-label-lg-font-family);
+  font-size: var(--typography-label-lg-font-size);
+  line-height: var(--typography-label-lg-line-height);
+  font-weight: var(--typography-label-lg-font-weight);
+  letter-spacing: var(--typography-label-lg-letter-spacing);
+  color: var(--button-color-solid-content-default);
+  background: linear-gradient(var(--button-color-solid-background-hover), var(--button-color-solid-background-hover)) left / 0% 100% no-repeat;
+  transition:
+    color var(--motion-duration-color) ease,
+    border-color var(--motion-duration-color) ease,
+    background-size var(--motion-duration-draw) var(--motion-easing-standard);
+}
+
+[data-brand="swiss"] .button--solid .icon {
+  inline-size: var(--cta-size-icon);
+  block-size: var(--cta-size-icon);
+  transition: translate var(--motion-duration-move) var(--motion-easing-standard);
+}
+
+[data-brand="swiss"] .button--solid:is(:hover, :focus-visible) {
+  color: var(--button-color-solid-content-hover);
+  border-color: var(--button-color-solid-border-hover);
+  background-size: 100% 100%;
+}
+
+[data-brand="swiss"] .button--solid:is(:hover, :focus-visible) .icon {
+  translate: var(--button-spacing-icon-shift) 0;
+}
+
+[data-brand="swiss"] .button--back:is(:hover, :focus-visible) .icon {
+  translate: calc(var(--button-spacing-icon-shift) * -1) 0;
+}
+
+[data-brand="swiss"] .button--solid:active {
+  scale: var(--button-scale-active);
+}
+
+[data-brand="swiss"] .index-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--button-spacing-actions-gap-y) var(--button-spacing-actions-gap-x);
+}
+
+
+/* ---------- how-i-work ---------- */
+
+[data-brand="swiss"] .how-i-work {
+  row-gap: var(--how-i-work-spacing-row-gap);
+  align-items: baseline;
+}
+
+[data-brand="swiss"] .how-i-work__title {
+  font-family: var(--typography-headline-default-font-family);
+  font-size: var(--typography-headline-default-font-size);
+  line-height: var(--typography-headline-default-line-height);
+  font-weight: var(--typography-headline-default-font-weight);
+  letter-spacing: var(--typography-headline-default-letter-spacing);
+  color: var(--how-i-work-color-content-title);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .how-i-work__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
+  gap: var(--how-i-work-spacing-body-gap) var(--page-spacing-gutter);
+  align-items: start;
+  color: var(--how-i-work-color-content-body);
+}
+
+[data-brand="swiss"] .how-i-work__body p {
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .how-i-work__body > .how-i-work__quote,
+[data-brand="swiss"] .how-i-work__body > .index-hero__actions {
+  grid-column: 1 / -1;
+}
+
+[data-brand="swiss"] .how-i-work__body > .how-i-work__quote {
+  font-family: var(--typography-title-lg-font-family);
+  font-size: var(--typography-title-lg-font-size);
+  line-height: var(--typography-title-lg-line-height);
+  font-weight: var(--typography-headline-lg-font-weight);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  color: var(--how-i-work-color-content-quote);
+  text-wrap: balance;
+}
+
+
+/* ---------- contact ---------- */
+
+[data-brand="swiss"] .contact__header {
+  align-items: baseline;
+  padding-block-start: var(--contact-spacing-padding-top);
+}
+
+[data-brand="swiss"] .contact__title {
+  display: grid;
+  grid-template-columns: subgrid;
+  font-family: var(--typography-display-default-font-family);
+  font-size: var(--typography-display-default-font-size);
+  line-height: var(--typography-display-default-line-height);
+  font-weight: var(--typography-display-default-font-weight);
+  letter-spacing: var(--typography-display-default-letter-spacing);
+  color: var(--contact-color-content-title);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .contact__title > span {
+  grid-column: 1 / -1;
+}
+
+[data-brand="swiss"] .contact__title-accent {
+  color: var(--contact-color-content-accent);
+}
+
+[data-brand="swiss"] .contact__body {
+  row-gap: var(--contact-spacing-row-gap);
+  align-items: baseline;
+  margin-block-start: var(--contact-spacing-body-margin-top);
+}
+
+[data-brand="swiss"] .contact__email {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--contact-spacing-row-gap);
+  padding-block: var(--contact-spacing-email-padding-y);
+  font-family: var(--typography-headline-lg-font-family);
+  font-size: var(--typography-headline-lg-font-size);
+  line-height: var(--typography-headline-lg-line-height);
+  font-weight: var(--typography-headline-lg-font-weight);
+  letter-spacing: var(--typography-headline-lg-letter-spacing);
+  color: var(--contact-color-content-email);
+}
+
+[data-brand="swiss"] .contact__email:hover {
+  color: var(--contact-color-content-email-hover);
+}
+
+[data-brand="swiss"] .contact__lead {
+  color: var(--contact-color-content-lead);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .contact__links {
+  row-gap: var(--contact-spacing-row-gap);
+  align-items: baseline;
+  margin-block-start: var(--contact-spacing-links-margin-top);
+  padding: 0;
+  list-style: none;
+}
+
+[data-brand="swiss"] .contact__links a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-link-gap);
+  padding-block-start: var(--contact-spacing-link-padding-top);
+}
+
+[data-brand="swiss"] .contact__link-label {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--contact-color-content-label);
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .contact__title {
+    grid-column: 4 / -1;
+  }
+
+  [data-brand="swiss"] .contact__title-accent {
+    grid-column: 4 / -1;
+  }
+
+  [data-brand="swiss"] .contact__links > li:first-child {
+    grid-column-start: 4;
+  }
+}
+
+
+/* ---------- site-footer ---------- */
+
+[data-brand="swiss"] .site-footer {
+  padding-block: var(--site-footer-spacing-padding-top) var(--site-footer-spacing-padding-bottom);
+}
+
+[data-brand="swiss"] .site-footer__inner {
+  row-gap: var(--site-footer-spacing-row-gap);
+  padding-block-start: var(--site-footer-spacing-inner-padding-top);
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--site-footer-color-content-default);
+}
+
+/* Footer: copyright on the left, email on the right, one baseline. */
+[data-brand="swiss"] .site-footer__inner {
+  align-items: baseline;
+}
+
+[data-brand="swiss"] .site-footer__contact {
+  text-align: end;
+}
+
+[data-brand="swiss"] .site-footer__contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--site-footer-color-content-link);
+  border-block-end: var(--page-grid-border-width, 1px) solid currentColor;
+}
+
+[data-brand="swiss"] .site-footer .site-footer__contact a > svg.icon {
+  flex: none;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  align-self: center;
+}
+
+[data-brand="swiss"] .site-footer__label {
+  color: var(--site-footer-color-content-label);
+}
+
+[data-brand="swiss"] .site-footer__links {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-brand="swiss"] .site-footer__links a {
+  color: var(--site-footer-color-content-link);
+}
+
+
+/* ---------- case-hero ---------- */
+
+[data-brand="swiss"] .case-hero {
+  padding-block-start: var(--case-hero-spacing-padding-top);
+}
+
+[data-brand="swiss"] .case-hero__bar {
+  row-gap: var(--case-hero-spacing-row-gap);
+  align-items: center;
+}
+
+/* Same type and colors as the index card meta line (.project-row__meta). */
+[data-brand="swiss"] .case-hero__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
+  font-family: var(--typography-eyebrow-lg-font-family);
+  font-size: var(--typography-eyebrow-lg-font-size);
+  line-height: var(--typography-eyebrow-lg-line-height);
+  font-weight: var(--typography-eyebrow-lg-font-weight);
+  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
+  color: var(--project-row-color-content-meta);
+}
+
+[data-brand="swiss"] .case-hero__kicker > :first-child {
+  color: var(--project-row-color-content-number);
+}
+
+[data-brand="swiss"] .case-hero__intro {
+  row-gap: var(--case-hero-spacing-lead-row-gap);
+  align-items: end;
+  margin-block-start: var(--case-hero-spacing-lead-margin-top);
+}
+
+[data-brand="swiss"] .case-hero__tags {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-hero-spacing-tags-gap);
+}
+
+[data-brand="swiss"] .case-hero__tags > :first-child {
+  color: var(--case-hero-color-content-tag-muted);
+}
+
+[data-brand="swiss"] .case-hero__brief {
+  row-gap: 0;
+  align-items: baseline;
+  margin-block-start: var(--case-hero-spacing-brief-margin-top);
+  padding-block-start: var(--case-section-spacing-head-padding-top);
+}
+
+[data-brand="swiss"] .case-hero__brief-text {
+  font-family: var(--typography-body-default-font-family);
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  font-weight: var(--typography-body-default-font-weight);
+  letter-spacing: var(--typography-body-default-letter-spacing);
+  color: var(--case-hero-color-content-brief);
+  text-wrap: pretty;
+}
+
+@media (min-width: 35em) {
+  [data-brand="swiss"] .case-hero__tags {
+    justify-self: end;
+    text-align: end;
+  }
+}
+
+
+/* ---------- case-section ---------- */
+
+[data-brand="swiss"] .case-section {
+  padding-block-start: var(--case-section-spacing-padding-top);
+}
+
+/* A hidden block (the parked "before and after" figure) doesn't count as
+   the section's first child, so the next block starts at the section gap. */
+[data-brand="swiss"] .case-section > [hidden]:first-child + * {
+  margin-block-start: 0;
+}
+
+[data-brand="swiss"] .case-section--compare {
+  padding-block-start: var(--case-section-spacing-first-padding-top);
+}
+
+[data-brand="swiss"] .case-section > * + * {
+  margin-block-start: var(--case-section-spacing-block-sm);
+}
+
+[data-brand="swiss"] .case-section > .case-section__block--lg {
+  margin-block-start: var(--case-section-spacing-block-lg);
+}
+
+[data-brand="swiss"] .case-section .grid {
+  row-gap: var(--case-section-spacing-row-gap);
+  align-items: baseline;
+}
+
+[data-brand="swiss"] .case-section__head {
+  padding-block-start: var(--case-section-spacing-head-padding-top);
+}
+
+[data-brand="swiss"] .case-section__label {
+  color: var(--case-section-color-content-label);
+}
+
+[data-brand="swiss"] .case-section h2 {
+  font-family: var(--typography-headline-sm-font-family);
+  font-size: var(--typography-headline-sm-font-size);
+  line-height: var(--typography-headline-sm-line-height);
+  font-weight: var(--typography-headline-sm-font-weight);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  color: var(--case-section-color-content-heading);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .case-section :is(h3, h4):not(.project-row__title) {
+  font-family: var(--typography-title-default-font-family);
+  font-size: var(--typography-title-default-font-size);
+  line-height: var(--typography-title-default-line-height);
+  font-weight: var(--typography-title-default-font-weight);
+  letter-spacing: var(--typography-title-default-letter-spacing);
+  color: var(--case-section-color-content-heading);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-section__support p,
+[data-brand="swiss"] .case-section__text p {
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-section__number {
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  color: var(--case-section-color-content-number);
+}
+
+[data-brand="swiss"] .case-section__sub > h3 {
+  padding-block-start: var(--case-section-spacing-heading-offset);
+}
+
+[data-brand="swiss"] .case-section__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-row-gap);
+  padding-block-start: var(--case-section-spacing-body-offset);
+  color: var(--case-section-color-content-body);
+}
+
+[data-brand="swiss"] .case-figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-figcaption-gap);
+}
+
+[data-brand="swiss"] .case-figure__caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-figure-gap);
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  line-height: var(--typography-body-sm-line-height);
+  font-weight: var(--typography-body-sm-font-weight);
+  letter-spacing: var(--typography-body-sm-letter-spacing);
+  color: var(--case-section-color-content-caption);
+}
+
+[data-brand="swiss"] .case-figure__caption--inline {
+  flex-direction: row;
+  gap: var(--case-section-spacing-figcaption-inline-gap);
+}
+
+[data-brand="swiss"] .case-figure__number,
+[data-brand="swiss"] .media-pair__label {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--case-section-color-content-figure-label);
+}
+
+[data-brand="swiss"] .case-section__row--end {
+  align-items: end;
+}
+
+[data-brand="swiss"] .case-section__row--start {
+  align-items: start;
+}
+
+/* Before and after: caption, then the two screens on their own columns. */
+[data-brand="swiss"] .media-pair {
+  align-items: end;
+  row-gap: var(--case-section-spacing-row-gap);
+}
+
+[data-brand="swiss"] .media-pair__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-figure-gap);
+}
+
+[data-brand="swiss"] .media-pair__item--after .media-pair__label {
+  color: var(--case-section-color-content-figure-label-brand);
+}
+
+/* Readout: four ruled cells, the last one filled with the brand. */
+[data-brand="swiss"] .case-readout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-inline-start: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
+}
+
+[data-brand="swiss"] .case-readout__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--case-readout-spacing-gap);
+  padding: var(--case-readout-spacing-padding);
+  border-inline-end: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
+}
+
+[data-brand="swiss"] .case-readout__cell dt {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--case-readout-color-content-label);
+}
+
+[data-brand="swiss"] .case-readout__cell dd {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-readout-spacing-desc-margin-top);
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  line-height: var(--typography-body-sm-line-height);
+  font-weight: var(--typography-body-sm-font-weight);
+  letter-spacing: var(--typography-body-sm-letter-spacing);
+}
+
+[data-brand="swiss"] .case-readout__value {
+  font-family: var(--typography-numeral-lg-font-family);
+  font-size: var(--typography-numeral-lg-font-size);
+  line-height: var(--typography-numeral-lg-line-height);
+  font-weight: var(--typography-numeral-lg-font-weight);
+  letter-spacing: var(--typography-numeral-lg-letter-spacing);
+}
+
+[data-brand="swiss"] .case-readout__cell--brand {
+  background: var(--case-readout-color-background-brand);
+  color: var(--case-readout-color-content-brand);
+}
+
+[data-brand="swiss"] .case-readout__cell--brand dt {
+  color: var(--case-readout-color-content-brand);
+}
+
+/* Notes: what the engineers said, in ruled columns. */
+[data-brand="swiss"] .case-notes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-inline-start: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
+}
+
+[data-brand="swiss"] .case-notes__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-notes-spacing-gap);
+  padding: var(--case-notes-spacing-padding-top) var(--case-notes-spacing-padding-x) var(--case-notes-spacing-padding-bottom);
+  border-inline-end: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
+}
+
+[data-brand="swiss"] .case-notes__item .case-section__number {
+  color: var(--case-section-color-content-label);
+}
+
+[data-brand="swiss"] .case-notes__item p,
+[data-brand="swiss"] .case-open__item p {
+  color: var(--case-section-color-content-body);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-open {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-open-gap);
+}
+
+[data-brand="swiss"] .case-open__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-open-item-gap);
+  padding-block-start: var(--case-section-spacing-open-item-padding-top);
+}
+
+[data-brand="swiss"] .case-open__item .section-label {
+  color: var(--case-section-color-content-open);
+}
+
+[data-brand="swiss"] .case-section__closing {
+  margin-block-start: var(--case-section-spacing-closing-margin-top);
+  font-family: var(--typography-title-lg-font-family);
+  font-size: var(--typography-title-lg-font-size);
+  line-height: var(--typography-title-lg-line-height);
+  font-weight: var(--typography-title-lg-font-weight);
+  letter-spacing: var(--typography-title-lg-letter-spacing);
+  color: var(--case-section-color-content-closing);
+  text-wrap: pretty;
+}
+
+@media (min-width: 35em) {
+  [data-brand="swiss"] .case-readout,
+  [data-brand="swiss"] .case-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-readout {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ---------- sheet: case study panel ----------
+   Same structure and behavior as production's organisms/sheet.css,
+   re-pointed at swiss tokens. A native <dialog> opened by sheet.js:
+   slides in from the trailing edge on desktop, rises from the bottom
+   below 48em with a grab handle and close button only. */
+
+[data-brand="swiss"] .sheet {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: none;
+  max-block-size: none;
+  /* Slightly see-through surface; the page behind is blurred. */
+  background:
+    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
+    color-mix(in srgb, var(--sheet-color-surface) var(--sheet-opacity-surface), transparent);
+  -webkit-backdrop-filter: blur(var(--sheet-blur-surface));
+  backdrop-filter: blur(var(--sheet-blur-surface));
+  color: inherit;
+  position: fixed;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  will-change: transform;
+  inset-block: 0;
+  inset-inline-start: var(--sheet-size-peek);
+  inset-inline-end: 0;
+  transform: translateX(100%);
+  transition:
+    transform var(--sheet-motion-duration) var(--sheet-motion-easing),
+    display var(--sheet-motion-duration) allow-discrete,
+    overlay var(--sheet-motion-duration) allow-discrete;
+}
+
+[data-brand="swiss"] .sheet[open] {
+  display: flex;
+  flex-direction: column;
+  transform: none;
+}
+
+@starting-style {
+  [data-brand="swiss"] .sheet[open] {
+    transform: translateX(100%);
+  }
+}
+
+[data-brand="swiss"] .sheet--case {
+  inset-inline-start: auto;
+  inline-size: min(100% - var(--sheet-size-peek), var(--sheet-size-container-max));
+}
+
+[data-brand="swiss"] .sheet--case .case-hero {
+  border-block-end: 0;
+}
+
+/* The case sheet covers the page grid, so it draws its own copy of the
+   overlay, pinned while the body scrolls. */
+[data-brand="swiss"] .sheet--case::before {
+  --period: calc((100% + var(--page-spacing-gutter)) / var(--page-grid-modules));
+  content: "";
+  display: var(--page-grid-display);
+  position: absolute;
+  inset-block: 0;
+  inset-inline: var(--page-spacing-padding-x);
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--page-grid-color-border) 0 var(--page-grid-border-width), transparent var(--page-grid-border-width)),
+    linear-gradient(to right, transparent calc(100% - var(--page-spacing-gutter) - var(--page-grid-border-width)), var(--page-grid-color-border) calc(100% - var(--page-spacing-gutter) - var(--page-grid-border-width)) calc(100% - var(--page-spacing-gutter)), transparent calc(100% - var(--page-spacing-gutter)));
+  background-size: var(--period) 100%;
+  background-repeat: repeat-x;
+}
+
+[data-brand="swiss"] .sheet--case > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-brand="swiss"] .sheet::backdrop {
+  background: var(--sheet-color-scrim);
+  backdrop-filter: blur(var(--sheet-blur-backdrop));
+  -webkit-backdrop-filter: blur(var(--sheet-blur-backdrop));
+  opacity: 0;
+  transition:
+    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
+    display var(--sheet-motion-duration) allow-discrete,
+    overlay var(--sheet-motion-duration) allow-discrete;
+}
+
+[data-brand="swiss"] .sheet[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  [data-brand="swiss"] .sheet[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+[data-brand="swiss"] .sheet__chrome {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sheet-spacing-chrome-gap);
+  padding: var(--sheet-spacing-inset) var(--sheet-spacing-chrome-x);
+  /* Opaque so the sheet's grid overlay stops under the header. */
+  background:
+    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
+    var(--sheet-color-surface);
+  border-block-end: var(--sheet-border-width) solid var(--sheet-color-hairline);
+}
+
+[data-brand="swiss"] .sheet__handle {
+  display: none;
+}
+
+[data-brand="swiss"] .sheet__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+[data-brand="swiss"] .sheet__body:focus {
+  outline: none;
+}
+
+/* .button--bare as production draws it: no fill, border or inset. */
+[data-brand="swiss"] .sheet .button--bare {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sheet-spacing-control-gap);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sheet-color-control);
+  font: inherit;
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color var(--sheet-motion-duration-ui) ease;
+}
+
+[data-brand="swiss"] .sheet .button--bare:is(:hover, :active) {
+  color: var(--sheet-color-control-hover);
+}
+
+[data-brand="swiss"] .sheet .button--bare .icon {
+  transition: transform var(--sheet-motion-duration-ui) ease;
+}
+
+[data-brand="swiss"] .sheet .button--bare:hover .icon {
+  transform: translateX(var(--sheet-spacing-icon-shift));
+}
+
+/* Back: the arrow holds still and the label slides 8px right, like the
+   sheet starting to close. */
+[data-brand="swiss"] .sheet .sheet__back:hover .icon,
+[data-brand="swiss"] .sheet .sheet__close:hover .icon {
+  transform: none;
+}
+
+[data-brand="swiss"] .sheet__back-label {
+  display: inline-block;
+  transition: transform var(--sheet-motion-duration-ui) ease;
+}
+
+[data-brand="swiss"] .sheet .sheet__back:is(:hover, :focus-visible) .sheet__back-label {
+  transform: translateX(var(--spacing-8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="swiss"] .sheet__back-label { transition: none; }
+}
+
+@media (max-width: 47.9375rem) {
+  [data-brand="swiss"] .sheet {
+    inset-block-start: var(--sheet-size-peek);
+    inset-block-end: 0;
+    inset-inline: 0;
+    inline-size: auto;
+    transform: translateY(100%);
+    border-start-start-radius: var(--sheet-radius-default);
+    border-start-end-radius: var(--sheet-radius-default);
+  }
+
+  @starting-style {
+    [data-brand="swiss"] .sheet[open] {
+      transform: translateY(100%);
+    }
+  }
+
+  [data-brand="swiss"] .sheet__chrome {
+    position: relative;
+    justify-content: flex-end;
+    padding-inline-start: var(--sheet-spacing-mobile-start);
+    padding-inline-end: var(--sheet-spacing-mobile-end);
+    padding-block: var(--sheet-spacing-mobile-end);
+    touch-action: none;
+  }
+
+  [data-brand="swiss"] .sheet__handle {
+    display: block;
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    transform: translate(-50%, -50%);
+    inline-size: var(--sheet-size-handle-inline);
+    border-block-start: var(--sheet-size-handle-block) solid var(--sheet-color-handle);
+    border-radius: var(--sheet-radius-round);
+  }
+
+  [data-brand="swiss"] .sheet__close {
+    justify-content: center;
+    min-inline-size: var(--sheet-size-control);
+    min-block-size: var(--sheet-size-control);
+  }
+
+  /* Phones close by the X or a swipe down, so Back goes. Same
+     specificity as .sheet .button--bare, which sets display and would
+     otherwise win. */
+  [data-brand="swiss"] .sheet .sheet__back {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="swiss"] .sheet,
+  [data-brand="swiss"] .sheet::backdrop {
+    transition-duration: 0s;
+  }
+}
+
+
+/* ---------- project-row--next ---------- */
+
+[data-brand="swiss"] .project-row--next {
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  column-gap: var(--page-spacing-gutter);
+  row-gap: var(--case-section-spacing-row-gap);
+  padding-block-start: var(--case-section-spacing-head-padding-top);
+}
+
+[data-brand="swiss"] .project-row--next .project-row__body {
+  gap: var(--next-spacing-gap);
+}
+
+
+
+[data-brand="swiss"] .project-row--next .project-row__media {
+  margin-block-end: 0;
+}
+
+[data-brand="swiss"] .project-row--next .project-row__media > img {
+  inline-size: 100%;
+  filter: none;
+}
+
+
+
+/* ---------- case study: index alignment ----------
+   The study borrows the index card language: meta-style labels with the
+   number in accent, the card fact list for the brief details, and stat
+   numerals for the readout. */
+
+[data-brand="swiss"] .case-section__label,
+[data-brand="swiss"] .case-hero__brief > .section-label,
+[data-brand="swiss"] .case-section .grid > .section-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
+  font-family: var(--typography-eyebrow-lg-font-family);
+  font-size: var(--typography-eyebrow-lg-font-size);
+  line-height: var(--typography-eyebrow-lg-line-height);
+  font-weight: var(--typography-eyebrow-lg-font-weight);
+  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
+  color: var(--project-row-color-content-meta);
+}
+
+[data-brand="swiss"] .case-section__label-number,
+[data-brand="swiss"] .case-section__number,
+[data-brand="swiss"] .case-figure__number {
+  color: var(--project-row-color-content-number);
+}
+
+[data-brand="swiss"] .case-section__number {
+  font-family: var(--typography-eyebrow-lg-font-family);
+  font-size: var(--typography-eyebrow-lg-font-size);
+  line-height: var(--typography-eyebrow-lg-line-height);
+  font-weight: var(--typography-eyebrow-lg-font-weight);
+  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
+}
+
+[data-brand="swiss"] .case-notes__item .case-section__number {
+  color: var(--project-row-color-content-number);
+}
+
+/* Brief details read like the card fact list. */
+[data-brand="swiss"] .case-hero__meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-row-spacing-spec-gap);
+  min-inline-size: 0;
+}
+
+[data-brand="swiss"] .case-hero__meta dt {
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  color: var(--project-row-color-content-spec-label);
+}
+
+[data-brand="swiss"] .case-hero__meta dd {
+  display: flex;
+  align-items: baseline;
+  gap: var(--project-row-spacing-item-gap);
+  font-family: var(--typography-body-list-font-family);
+  font-size: var(--typography-body-list-font-size);
+  line-height: var(--typography-body-list-line-height);
+  font-weight: var(--typography-body-list-font-weight);
+  color: var(--project-row-color-content-spec);
+}
+
+[data-brand="swiss"] .case-hero__meta dd::before {
+  content: "";
+  flex: none;
+  inline-size: var(--project-row-size-bullet);
+  aspect-ratio: 1;
+  background: var(--project-row-color-background-bullet);
+  translate: 0 var(--project-row-spacing-bullet-offset);
+}
+
+/* Readout numbers match the stat band. */
+[data-brand="swiss"] .case-readout__cell:not(.case-readout__cell--brand) .case-readout__value {
+  color: var(--stat-band-color-content-value);
+}
+
+
+/* ---------- case study: production template ----------
+   bullhorn.html keeps the live page's structure (.case-hero__inner grid,
+   .align subgrids, span spacers, .stack--tight figures, .text-caption).
+   These rules dress that structure in the index styles. */
+
+[data-brand="swiss"] .case-hero__inner {
+  max-inline-size: none;
+  padding-inline: var(--page-spacing-padding-x);
+  column-gap: var(--page-spacing-gutter);
+  row-gap: 0;
+}
+
+[data-brand="swiss"] .case-hero__kicker {
+  margin-block-end: var(--case-hero-spacing-kicker-gap);
+}
+
+[data-brand="swiss"] .case-hero__title {
+  font-family: var(--typography-display-sm-font-family);
+  font-size: var(--typography-display-sm-font-size);
+  line-height: var(--typography-display-sm-line-height);
+  font-weight: var(--typography-display-sm-font-weight);
+  letter-spacing: var(--typography-display-sm-letter-spacing);
+  color: var(--case-hero-color-content-title);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .case-hero__lead {
+  margin-block-start: var(--case-hero-spacing-row-gap);
+  font-family: var(--typography-title-default-font-family);
+  font-size: var(--typography-title-default-font-size);
+  line-height: var(--typography-title-default-line-height);
+  font-weight: var(--typography-title-default-font-weight);
+  letter-spacing: var(--typography-title-default-letter-spacing);
+  color: var(--project-row-color-content-lead);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-hero__meta {
+  row-gap: var(--project-row-spacing-specs-gap-y);
+  margin-block-start: var(--project-row-spacing-lead-specs-margin-top);
+  padding: 0;
+}
+
+[data-brand="swiss"] .case-hero__media {
+  inline-size: 100%;
+  /* Full width on the 2-column phone grid. "span 9" there added seven
+     implicit zero-width tracks, each keeping its gutter, which narrowed
+     every full-width row in the hero and pushed the title past the edge.
+     Medium and large set their own placement below. */
+  grid-column: 1 / -1;
+  margin-block-start: var(--work-index-spacing-list-margin-top);
+  filter: var(--project-row-elevation-flat);
+}
+
+[data-brand="swiss"] .case-section__support {
+  margin-block-start: var(--case-section-spacing-support-margin-top);
+  color: var(--case-section-color-content-body);
+}
+
+[data-brand="swiss"] .case-section .grid > p,
+[data-brand="swiss"] .case-section__support p {
+  color: var(--case-section-color-content-body);
+  text-wrap: pretty;
+}
+
+/* Captions: monospace, numbered 1.0, 2.0… down the page. */
+[data-brand="swiss"] main {
+  counter-reset: swiss-figure;
+}
+
+[data-brand="swiss"] .text-caption {
+  counter-increment: swiss-figure;
+  font-family: var(--typography-font-family-mono);
+  font-size: var(--typography-caption-default-font-size);
+  line-height: var(--typography-caption-default-line-height);
+  font-weight: var(--typography-body-default-font-weight);
+  color: var(--case-section-color-content-caption);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .text-caption::before {
+  content: counter(swiss-figure) ".0" "\00a0\00a0";
+  color: var(--project-row-color-content-number);
+}
+
+[data-brand="swiss"] .case-section .grid {
+  row-gap: var(--case-section-spacing-row-gap);
+}
+
+/* Before/after pair: sits on the page, outlined in the grid-line color,
+   gutter-width padding and gap, square-cornered screens. */
+[data-brand="swiss"] .img-frame.media-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--page-spacing-gutter);
+  padding: var(--media-pair-spacing-padding);
+  background: var(--media-pair-color-background);
+  border: var(--page-grid-border-width) solid var(--page-grid-color-border);
+  border-radius: 0;
+}
+
+[data-brand="swiss"] .media-pair img {
+  border: var(--page-grid-border-width) solid var(--page-grid-color-border);
+  border-radius: 0;
+}
+
+[data-brand="swiss"] .media-pair img {
+  inline-size: 100%;
+}
+
+@media (min-width: 60em) {
+  /* Nine columns wide, centred on the 12-column row. */
+  [data-brand="swiss"] .case-hero__media {
+    grid-column: 1 / -1;
+    justify-self: center;
+    inline-size: calc((100% + var(--page-spacing-gutter)) * 9 / 12 - var(--page-spacing-gutter));
+  }
+}
+
+
+/* Hero follows the index lead study: kicker and section-style title,
+   image across columns 1–9, then lead, brief and fact list in 4–9. */
+/* The study's true h1: the one display-lg moment on the site. Sized to
+   the hero's width (cqi) so the name fills the row without overflowing. */
+[data-brand="swiss"] .case-hero__inner {
+  container-type: inline-size;
+}
+
+[data-brand="swiss"] .case-hero__title {
+  margin-block-start: var(--case-hero-spacing-title-top);
+  margin-inline-start: var(--case-hero-spacing-title-optical);
+  font-family: var(--typography-display-lg-font-family);
+  font-size: var(--case-hero-font-size-title);
+  line-height: var(--case-hero-line-height-title);
+  font-weight: var(--typography-display-lg-font-weight);
+  letter-spacing: var(--typography-display-lg-letter-spacing);
+  text-transform: uppercase;
+  /* Names wrap at spaces. Chrome won't auto-hyphenate a capitalized word,
+     so a name too long for one line carries &shy; at its break point. */
+  color: var(--case-hero-color-content-title);
+}
+
+[data-brand="swiss"] .case-hero__inner > .case-hero__lead {
+  inline-size: 100%;
+  max-inline-size: none;
+  margin-block-start: var(--case-hero-spacing-title-row-gap);
+  font-family: var(--typography-headline-default-font-family);
+  font-size: var(--typography-headline-default-font-size);
+  line-height: var(--typography-headline-default-line-height);
+  font-weight: var(--typography-display-sm-font-weight);
+  letter-spacing: var(--typography-headline-default-letter-spacing);
+  color: var(--case-hero-color-content-lead);
+  text-wrap: balance;
+}
+
+/* Info band: four cells on the four 3-column modules, each hung from a
+   default-width ink rule. The study number is the one red mark. */
+[data-brand="swiss"] .case-hero__band {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-24) var(--page-spacing-gutter);
+  margin: 0;
+}
+
+[data-brand="swiss"] .case-hero__band > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-hero-spacing-band-gap);
+  padding-block-start: var(--case-hero-spacing-band-padding-top);
+  border-block-start: var(--case-hero-border-width-band) solid var(--case-hero-color-border-band);
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-hero__band {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Labels stay for assistive tech only; values read as the card meta line. */
+[data-brand="swiss"] .case-hero__band dt {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+[data-brand="swiss"] .case-hero__band dd {
+  margin: 0;
+  font-family: var(--typography-eyebrow-lg-font-family);
+  font-size: var(--typography-eyebrow-lg-font-size);
+  line-height: var(--typography-eyebrow-lg-line-height);
+  font-weight: var(--typography-eyebrow-lg-font-weight);
+  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
+  text-transform: uppercase;
+  color: var(--project-row-color-content-meta);
+}
+
+[data-brand="swiss"] .case-hero__band .case-hero__number {
+  color: var(--project-row-color-content-number);
+}
+
+@media (min-width: 60em) {
+
+}
+
+[data-brand="swiss"] .case-hero__inner > .case-hero__tags {
+  align-self: end;
+  justify-self: end;
+  text-align: end;
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  color: var(--case-hero-color-content-meta);
+}
+
+[data-brand="swiss"] .case-hero__media {
+  margin-block-start: var(--case-hero-spacing-media-margin-top);
+}
+
+/* Lead (columns 1–6) and body (7–12) share one row above the image,
+   top-aligned with the same offset under the title. */
+[data-brand="swiss"] .case-hero__body {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--case-hero-spacing-lead-top);
+}
+
+/* First lines of the lead and the brief share one baseline. */
+[data-brand="swiss"] .case-hero__inner > .case-hero__lead,
+[data-brand="swiss"] .case-hero__inner > .case-hero__body {
+  align-self: first baseline;
+}
+
+[data-brand="swiss"] .case-hero__body > .case-hero__specs {
+  margin-block-start: var(--project-row-spacing-specs-margin-top);
+}
+
+/* All three lists stacked in one column, spaced wider. */
+[data-brand="swiss"] .case-hero__body > .case-hero__specs {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--case-hero-spacing-specs-gap-y);
+}
+
+/* From 60em the brief column splits in half on the page grid (one
+   gutter between halves = columns 7–9 and 10–12): Focus on the left,
+   Scope and Context stacked on the right. */
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-hero__body > .case-hero__specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--page-spacing-gutter);
+  }
+
+  [data-brand="swiss"] .case-hero__specs > .project-row__spec:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  [data-brand="swiss"] .case-hero__specs > .project-row__spec:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  [data-brand="swiss"] .case-hero__specs > .project-row__spec:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+[data-brand="swiss"] .case-hero__body > .case-hero__brief-text {
+  margin-block-start: 0;
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  line-height: var(--typography-body-sm-line-height);
+  font-weight: var(--typography-body-sm-font-weight);
+  color: var(--project-row-color-content-detail);
+}
+
+[data-brand="swiss"] .case-hero__body > .case-hero__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--project-row-size-spec-min), 1fr));
+  gap: var(--project-row-spacing-specs-gap-y) var(--project-row-spacing-specs-gap-x);
+}
+
+/* Medium screens: production's spans assume a 12-column grid that pairs
+   narrow spans into halves and widens the rest. software's grid gives 8
+   columns here, so the case study maps spans the same way production does. */
+@media (min-width: 35em) and (max-width: 59.9375em) {
+  [data-brand="swiss"] :is(.case-hero__inner, .case-section) :is(.span-1, .span-2, .span-3, .span-4) {
+    grid-column: span 4;
+  }
+
+  [data-brand="swiss"] :is(.case-hero__inner, .case-section) :is(.span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11),
+  [data-brand="swiss"] :is(.case-hero__inner, .case-section) .align {
+    grid-column: 1 / -1;
+  }
+
+  [data-brand="swiss"] .case-hero__media {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Lead row: headline and supporting text in columns 1–6, 16px apart;
+   the screen pair runs full width below, one screen per six columns. */
+[data-brand="swiss"] .case-section .grid.case-section__lead-row {
+  row-gap: var(--case-section-spacing-lead-row-gap);
+  align-items: start;
+}
+
+[data-brand="swiss"] .case-section__lead-row > h2 {
+  grid-row: 1;
+}
+
+[data-brand="swiss"] .case-section__lead-row > .case-section__support {
+  grid-row: 2;
+  margin-block-start: 0;
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-section__lead-row > h2,
+  [data-brand="swiss"] .case-section__lead-row > .case-section__support {
+    grid-column: 1 / span 6;
+  }
+
+  [data-brand="swiss"] .case-section__lead-row > .case-section__figure {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-block-start: var(--case-section-spacing-block-sm);
+  }
+}
+
+[data-brand="swiss"] .img-frame.media-pair--stacked {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+
+/* Case study h2: uppercase, 40px, weight 800. Visually hidden h2s are
+   unaffected. */
+[data-brand="swiss"] .case-section h2:not(.visually-hidden) {
+  font-size: var(--typography-headline-default-font-size);
+  font-weight: var(--typography-font-weight-800);
+  text-transform: uppercase;
+}
+
+
+/* ---------- case-flow: study sections as index cards ----------
+   Each h2 section is built like a .project-row: media, head (h2 + support),
+   body (subsections, figures, notes). From 60em the sections alternate
+   right, left, right… on six columns, each on three subgrid rows of the
+   flow and starting on the previous section's body row, so every
+   section's media sits beside its neighbour's body, as on the index. */
+
+[data-brand="swiss"] .case-flow {
+  row-gap: var(--case-flow-spacing-row-gap);
+  align-items: start;
+  margin-block-start: var(--case-section-spacing-rule);
+  position: relative;
+}
+
+/* Every visible h2 block opens on a 1px ink rule that runs the full width
+   of the grid, whatever columns the section sits in. Equal space above
+   (to the image or hero before it) and below (to the h2). The rule is
+   positioned against .case-flow, so nothing between them is positioned. */
+[data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden)) {
+  padding-block-start: var(--case-section-spacing-rule);
+}
+
+/* Below 60em the section stacks with a 48px gap; top it up so the image
+   above also sits one rule step from the line. */
+[data-brand="swiss"] .case-section--card > .case-section__media + .case-section__head:has(> h2:not(.visually-hidden)) {
+  margin-block-start: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-section--card > .case-section__media + .case-section__head:has(> h2:not(.visually-hidden)) {
+    margin-block-start: 0;
+  }
+}
+
+[data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden))::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  block-size: var(--case-section-border-width-rule);
+  background: var(--case-section-color-border-rule);
+  translate: 0 calc(var(--case-section-spacing-rule) * -1);
+}
+
+[data-brand="swiss"] .case-flow > .case-section--card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--case-flow-spacing-row-gap);
+  align-items: start;
+  padding-block-start: 0;
+}
+
+[data-brand="swiss"] .case-section--card > * + * {
+  margin-block-start: 0;
+}
+
+[data-brand="swiss"] .case-section--card > .case-section__media:not(:has(> :not([hidden]))) {
+  display: none;
+}
+
+[data-brand="swiss"] .case-section--card > .case-section__body:not(:has(> *)) {
+  display: none;
+}
+
+[data-brand="swiss"] .case-section__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-section-spacing-lead-row-gap);
+}
+
+[data-brand="swiss"] .case-section--card .case-section__support {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
+  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
+  margin-block-start: 0;
+}
+
+[data-brand="swiss"] .case-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--case-flow-spacing-row-gap);
+}
+
+[data-brand="swiss"] .case-section__part {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
+  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
+  color: var(--case-section-color-content-body);
+}
+
+[data-brand="swiss"] .case-section__part > h3 {
+  grid-column: 1 / -1;
+}
+
+[data-brand="swiss"] .case-section__part > p,
+[data-brand="swiss"] .case-section__notes p {
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-section__notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
+}
+
+/* Figure captions at the meta size (12/16). */
+[data-brand="swiss"] figcaption.text-caption {
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+}
+
+/* Every study image uses the framed panel (.img-frame.media-pair); a
+   single image fills it in one column. */
+[data-brand="swiss"] .img-frame.media-pair:not(:has(> img + img)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Case study image style: every framed image fills the frame's width
+   minus its padding and keeps its own aspect ratio. */
+[data-brand="swiss"] .img-frame.media-pair > img {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: none;
+  block-size: auto;
+  justify-self: stretch;
+}
+
+/* The first section's screen pair stacks vertically. */
+[data-brand="swiss"] .case-flow > .case-section--card:first-child .media-pair {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Hero title arrow: a tight down-left glyph (viewBox trimmed to the drawn
+   stroke) at cap height, sitting on the baseline and pushed to the end of
+   the grid. The title steps down just enough that word + arrow (with at
+   least the 48px gap) still fit one line. */
+[data-brand="swiss"] .case-hero__title:has(.case-hero__title-icon) {
+  /* Title row closes on a default-width ink rule, with section-step
+     space above and the lead's gap below. */
+  /* Optical offset moves to the text (text-indent) so the rule starts on
+     the grid line like the band rules above. */
+  margin-block: var(--case-hero-spacing-title-row-top) 0;
+  margin-inline-start: 0;
+  text-indent: var(--case-hero-spacing-title-optical);
+  padding-block-end: var(--case-hero-spacing-title-row-bottom);
+  border-block-end: var(--case-hero-border-width-title-row) solid var(--case-hero-color-border-band);
+  grid-column: 1 / -1;
+  justify-self: stretch;
+  inline-size: auto;
+  display: flex;
+  align-items: baseline;
+  gap: var(--case-hero-spacing-title-icon-gap);
+  font-size: calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon));
+  /* Snap to the 8px scale (136px at the 160px display size). */
+  font-size: round(down, calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon)), 8px);
+  line-height: var(--case-hero-line-height-title);
+}
+
+[data-brand="swiss"] .case-hero__title-icon {
+  display: inline-block;
+  /* Inter's cap height is 0.727em; 1cap where supported. */
+  inline-size: 0.727em;
+  inline-size: 1cap;
+  block-size: auto;
+  aspect-ratio: 1;
+  flex: none;
+  margin-inline-start: auto;
+  color: var(--color-content-headline-brand);
+}
+
+/* Results: heading led by a hard-edged down-right arrow hung in the
+   margin (16px gap) so the text starts on the grid line; arrow sits on
+   the text baseline. Body text below. */
+[data-brand="swiss"] .case-section__note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+[data-brand="swiss"] .case-section .case-section__note > h4 {
+  /* 20/28 primitives; the swiss theme remaps label-lg to 18/24. */
+  font-size: var(--typography-font-size-20);
+  line-height: var(--typography-line-height-28);
+  font-weight: var(--typography-font-weight-500);
+  display: flex;
+  align-items: first baseline;
+  gap: var(--spacing-16);
+}
+
+[data-brand="swiss"] .case-section__note-icon {
+  flex: none;
+  inline-size: var(--case-section-size-note-icon);
+  block-size: var(--case-section-size-note-icon);
+  color: var(--color-content-headline-brand);
+  align-self: baseline;
+}
+
+@media (min-width: 35em) {
+  [data-brand="swiss"] .case-section__note-icon {
+    margin-inline-start: calc(-1 * (var(--case-section-size-note-icon) + var(--spacing-16)));
+  }
+}
+
+[data-brand="swiss"] .case-section__note > p {
+  font-family: var(--typography-body-default-font-family);
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  font-weight: var(--typography-body-default-font-weight);
+  color: var(--case-section-color-content-body);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .case-section--card figure img {
+  inline-size: 100%;
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-flow > .case-section--card {
+    grid-template-rows: subgrid;
+  }
+
+  /* Text blocks inside a six-column section split into two three-column
+     tracks with one gutter between, so every paragraph sits on the page
+     grid lines. */
+  [data-brand="swiss"] .case-section--card .case-section__support,
+  [data-brand="swiss"] .case-section__part,
+  [data-brand="swiss"] .case-section__notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--page-spacing-gutter);
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(odd) {
+    grid-column: 7 / span 6;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(even) {
+    grid-column: 1 / span 6;
+  }
+
+  /* Media hugs the bottom of its row, one clearance step above its own
+     h2, mirroring the index cards. */
+  [data-brand="swiss"] .case-section--card > .case-section__media {
+    align-self: end;
+    margin-block-end: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
+  }
+
+  /* Sections without media drop the subgrid: head and body stack from the
+     top of their slot, beside the neighbour's body, with no dead column. */
+  [data-brand="swiss"] .case-section--card:not(:has(> .case-section__media > :not([hidden]))) {
+    grid-template-rows: none;
+    align-content: start;
+  }
+
+  /* First section opens the flow across the full width: head on the
+     left, its screens stacked in the left half starting one row lower,
+     beside the body. Later sections shift down one row to clear it. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1 / span 3;
+    grid-template-columns: subgrid;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) > .case-section__head {
+    grid-column: 4 / span 6;
+    grid-row: 1;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) > .case-section__media {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: start;
+    margin-block-end: 0;
+  }
+
+  /* First section's copy is centred in columns 4–9 (three empty columns
+     each side); the screens run full width. Subsections: h3 in 4–9,
+     paragraphs in 4–6 and 7–9. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) > .case-section__body {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) .case-section__part {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) .case-section__part > h3 { grid-column: 4 / span 6; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) .case-section__part > p:nth-of-type(1) { grid-column: 4 / span 3; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) .case-section__part > p:nth-of-type(2) { grid-column: 7 / span 3; }
+
+  /* Study image treatment: every figure sits on columns 4–9, the frame
+     pushed out one gutter each side onto the neighbouring column lines.
+     Sections with figures span the full grid; their media and body become
+     12-column grids so text keeps its own columns. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) {
+    grid-column: 1 / -1;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) > :is(.case-section__media, .case-section__body) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--page-spacing-gutter);
+    row-gap: var(--case-flow-spacing-row-gap);
+    align-content: start;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > figure {
+    grid-column: 4 / span 6;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > figure[hidden] {
+    display: none;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card figure > .img-frame {
+    margin-inline: calc(-1 * var(--page-spacing-gutter));
+    inline-size: calc(100% + 2 * var(--page-spacing-gutter));
+    max-inline-size: none;
+    justify-self: start;
+  }
+
+  /* Every section follows section 1's pattern: h2 on columns 1–6, all
+     other copy (support, subsections, notes) on columns 4–9. */
+  [data-brand="swiss"] .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > :not(figure),
+  [data-brand="swiss"] .case-flow > .case-section--card > .case-section__head > :not(h2) {
+    grid-column: 4 / span 6;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) .case-section__part {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) .case-section__part > h3 { grid-column: 1 / -1; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) .case-section__part > p:nth-of-type(n) { grid-column: auto; }
+
+  /* Every h2 starts on column 1 at six columns wide; the rest of the head
+     keeps its slot. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(n) > .case-section__head {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--page-spacing-gutter);
+    row-gap: var(--spacing-24);
+    align-content: start;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card > .case-section__head > h2 {
+    grid-column: 1 / span 6;
+  }
+
+
+
+  /* At nine columns the legacy pair sits side by side. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(1) .media-pair:has(> img + img) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Second section runs the full grid: its opener stacks down the centre
+     (image, then "Atomic elements…", both in columns 4–9); head and body stay in 1–6 so the
+     next section bricks in beside the body. */
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(2) {
+    grid-row: 4 / span 3;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(2) > .case-section__head,
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(2) > .case-section__body {
+    grid-column: 1 / span 6;
+  }
+
+  /* Every section follows section 1's flow: head (h2 + support), then
+     media, then body, stacked in its own row so nothing overlaps. */
+  [data-brand="swiss"] .case-flow > .case-section.case-section--card:nth-child(n) {
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--case-flow-spacing-row-gap);
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__head { order: -1; }
+
+  [data-brand="swiss"] .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__media:not(:has(> :not([hidden]))),
+  [data-brand="swiss"] .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__body:not(:has(> *)) {
+    display: none;
+  }
+
+  [data-brand="swiss"] .case-flow > .case-section.case-section--card:nth-child(n) > * {
+    align-self: stretch;
+    margin-block: 0;
+  }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(4) { grid-row: 8 / span 3; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(5) { grid-row: 10 / span 3; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(6) { grid-row: 12 / span 3; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(7) { grid-row: 14 / span 3; }
+  [data-brand="swiss"] .case-flow > .case-section--card:nth-child(8) { grid-row: 16 / span 3; }
+}
+
+
+/* Case study h3: bold (the headline-sm weight, 700). Matches the
+   specificity of the shared h3/h4 rule so it wins by order. */
+[data-brand="swiss"] .case-section h3:not(.project-row__title) {
+  font-weight: var(--typography-headline-sm-font-weight);
+}
+
+
+/* ---------- Motion (CSS only) ---------- */
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Header surface fades in over the first stretch of scroll. */
+    [data-brand="swiss"] .site-nav {
+      animation: swiss-nav-surface linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 var(--site-nav-motion-range);
+    }
+
+    /* Wordmark letters drift apart as the page scrolls, each on its own
+       rate and direction, staggered in reading order. */
+    [data-brand="swiss"] .index-hero__letter {
+      animation: swiss-letter-drift var(--motion-easing-out) both;
+      animation-timeline: scroll(root);
+      animation-range:
+        calc(var(--i) * var(--wordmark-motion-stagger))
+        calc(var(--i) * var(--wordmark-motion-stagger) + var(--wordmark-motion-length));
+    }
+
+    /* Stat rules draw down, labels fade in, digits spin to their value. */
+    [data-brand="swiss"] .stat::before {
+      animation: swiss-stat-rule linear both;
+      animation-timeline: scroll(root);
+      animation-range:
+        calc(var(--i) * var(--stat-band-motion-stagger))
+        calc(var(--i) * var(--stat-band-motion-stagger) + var(--stat-band-motion-length));
+    }
+
+    [data-brand="swiss"] .stat__label {
+      animation: swiss-stat-label linear both;
+      animation-timeline: scroll(root);
+      animation-range:
+        calc(var(--i) * var(--stat-band-motion-stagger))
+        calc(var(--i) * var(--stat-band-motion-stagger) + var(--stat-band-motion-length));
+    }
+
+    [data-brand="swiss"] .stat__digit::before {
+      animation: swiss-stat-spin cubic-bezier(0.33, 1, 0.68, 1) both;
+      animation-timeline: scroll(root);
+      animation-range:
+        calc(var(--i) * var(--stat-band-motion-stagger))
+        calc(var(--i) * var(--stat-band-motion-stagger) + var(--stat-band-motion-length));
+    }
+
+    /* Case-study images drift down toward their text as they cross the
+       viewport; device layers drift by depth. */
+    [data-brand="swiss"] .project-row__media > img {
+      animation: swiss-media-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% exit 0%;
+      will-change: translate;
+    }
+  }
+}
+
+@keyframes swiss-nav-surface {
+  from {
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-block-end-color: transparent;
+  }
+}
+
+@keyframes swiss-letter-drift {
+  to {
+    translate: 0 calc(var(--dir) * var(--k) * var(--wordmark-motion-amplitude));
+  }
+}
+
+@keyframes swiss-stat-rule {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes swiss-stat-label {
+  0%,
+  60% {
+    opacity: 0;
+  }
+}
+
+@keyframes swiss-stat-spin {
+  from {
+    translate: 0 calc((var(--d) + var(--spin)) * -1em);
+  }
+}
+
+/* Images start high and settle at their resting position (1rem above the
+   headline) as the card's top leaves the viewport, so the drift never
+   brings them closer than --project-row-spacing-media-clearance. */
+@keyframes swiss-media-drift {
+  from {
+    translate: 0 calc(var(--drift) * -2);
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="swiss"] :is(.cta, .button--quiet, .button--solid, .project-row__title) .icon,
+  [data-brand="swiss"] :is(.cta, .button--quiet, .button--solid) {
+    transition-duration: 0s;
+  }
+}
+
+/* Static media: no scroll drift (used for the next-study card). */
+[data-brand="swiss"] .project-row__media--static > img {
+  animation: none;
+  translate: none;
+}
+
+
+/* Case study headings: every section h2 is 48/48 uppercase; every
+   subsection h3 is 32/40 at medium weight. */
+[data-brand="swiss"] .case-flow .case-section__head > h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  text-transform: uppercase;
+  /* Ignores the &shy; break points on wider screens. */
+  hyphens: none;
+}
+
+/* Phones: at 48px uppercase, a long word ("COMPONENTS,") can be wider than
+   the column, so it breaks at a hyphen there. Chrome won't auto-hyphenate
+   uppercase text, so a word that overflows at 320px carries &shy; in the
+   source. auto also covers browsers that do hyphenate capitals. */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] .case-flow .case-section__head > h2 {
+    hyphens: auto;
+  }
+}
+
+[data-brand="swiss"] .case-flow .case-section h3:not(.project-row__title) {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+}
+
+/* Study motion: each row rises 24px and fades in as it enters the
+   viewport, driven by scroll (no JS). Rows are the hero blocks, each
+   section's head, figure and subsection, and each results note. */
+@keyframes swiss-row-rise {
+  from { translate: 0 var(--spacing-24); }
+  to { translate: 0 0; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-brand="swiss"] .case-hero__inner > *,
+    [data-brand="swiss"] .case-flow .case-section__head > *,
+    [data-brand="swiss"] .case-flow :is(.case-section__media, .case-section__body) > :not(.case-section__notes),
+    [data-brand="swiss"] .case-flow .case-section__notes > * {
+      animation: swiss-row-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+/* Work index lead: an h2 in markup, styled for the index only, at the
+   hero-lead scale (56/64, weight 200). Restates the .work-index__lead
+   type so global h2 styles don't leak in. */
+[data-brand="swiss"] .work-index__header > h2.work-index__lead {
+  margin-block-start: var(--work-index-spacing-lead-gap);
+  font-family: var(--typography-title-lg-font-family);
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 200;
+  letter-spacing: var(--typography-display-sm-letter-spacing);
+  text-transform: none;
+  color: var(--work-index-color-content-lead);
+  text-wrap: balance;
+}
+
+/* Work interstitial: a full-width "what I solve" row between the fourth
+   and fifth studies. Sits on the list's 12 columns (subgrid): label and
+   headline from column 1, copy in 4–6 and 7–9, links under it in 4. */
+[data-brand="swiss"] .work-index__list > .work-interstitial {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: var(--spacing-24);
+  align-content: start;
+  /* Ruled top and bottom with equal, generous space inside and out. */
+  margin-block: var(--swiss-spacing-120);
+  padding-block: var(--swiss-spacing-120);
+  border-block: var(--case-section-border-width-rule) solid var(--case-section-color-border-rule);
+}
+
+[data-brand="swiss"] .work-interstitial > * {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+[data-brand="swiss"] .work-interstitial__title {
+  font-family: var(--typography-headline-sm-font-family);
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: var(--typography-font-weight-800);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  text-transform: uppercase;
+  color: var(--case-section-color-content-heading);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .work-interstitial__text {
+  font-family: var(--typography-body-default-font-family);
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  color: var(--case-section-color-content-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .work-index__list > .work-interstitial {
+    grid-row: 9;
+  }
+
+  [data-brand="swiss"] .work-interstitial__title { grid-column: 1 / span 9; grid-row: 2; }
+  [data-brand="swiss"] .work-interstitial__text:nth-of-type(2) { grid-column: 4 / span 3; }
+  [data-brand="swiss"] .work-interstitial__text:nth-of-type(3) { grid-column: 7 / span 3; }
+  [data-brand="swiss"] .work-interstitial__text { grid-row: 3; }
+  [data-brand="swiss"] .work-interstitial__actions { grid-column: 4 / span 6; grid-row: 4; }
+
+  /* The interstitial shifts later cards one place in the DOM, so flip
+     their columns back: the study after it starts on the left again. */
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) { grid-column: 1 / span 6; }
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) { grid-column: 7 / span 6; }
+
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .project-row__spec:nth-child(3) { grid-column: auto; }
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .cta { margin-inline-start: 0; }
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .project-row__spec:nth-child(3) { grid-column: 2; }
+  [data-brand="swiss"] .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .cta {
+    align-self: flex-start;
+    margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
+  }
+}
+
+/* Contact, built like a case-study section: gridline rule on top, h2 on
+   columns 1–6 (48/48, 800, uppercase), support copy and links in 4–9. */
+[data-brand="swiss"] .contact-section {
+  row-gap: var(--spacing-24);
+  padding-block-start: var(--case-section-spacing-rule);
+  border-block-start: var(--case-section-border-width-rule) solid var(--case-section-color-border-rule);
+}
+
+[data-brand="swiss"] .contact-section > * {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+[data-brand="swiss"] .contact-section__title {
+  font-family: var(--typography-headline-sm-font-family);
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: var(--typography-font-weight-800);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  text-transform: uppercase;
+  color: var(--case-section-color-content-heading);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] :is(.contact-section__support, .contact-section__links) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--spacing-24) var(--page-spacing-gutter);
+  padding: 0;
+  list-style: none;
+}
+
+[data-brand="swiss"] .contact-section__support {
+  align-items: first baseline;
+}
+
+[data-brand="swiss"] .contact-section__support > .index-hero__actions {
+  align-items: first baseline;
+}
+
+[data-brand="swiss"] .contact-section__support > .index-hero__actions > .cta {
+  padding-block: 0;
+}
+
+[data-brand="swiss"] .contact-section__support > * {
+  margin: 0;
+  color: var(--case-section-color-content-body);
+  text-wrap: pretty;
+}
+
+[data-brand="swiss"] .contact-section__links {
+  margin-block-start: var(--case-flow-spacing-row-gap);
+}
+
+[data-brand="swiss"] .contact-section__links a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-spacing-link-gap);
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .contact-section__title { grid-column: 1 / span 6; }
+  [data-brand="swiss"] :is(.contact-section__support, .contact-section__links) {
+    grid-column: 4 / span 6;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* X-ray view (html.xray, toggled by the Code switch via xray.js).
+   Production's behaviour (utilities/xray.css) in the swiss language:
+   solid 1px outlines, square corners, labels set in the 12/16 eyebrow
+   on a solid layer colour. Layer colours: atom brand red, molecule
+   brand blue, organism ink, template subtle grey. */
+[data-brand="swiss"] {
+  --xray-color-atom: var(--color-background-brand);
+  --xray-color-molecule: var(--color-content-brand-secondary, #45b5dd);
+  --xray-color-organism: var(--color-content-headline);
+  --xray-color-template: var(--color-content-subtle);
+}
+
+:where(html[data-brand="swiss"].xray [data-xray]) {
+  position: relative;
+}
+
+html[data-brand="swiss"].xray [data-xray] {
+  outline: var(--page-grid-border-width) solid var(--_xray, var(--xray-color-organism));
+  outline-offset: calc(-1 * var(--page-grid-border-width));
+}
+
+html[data-brand="swiss"].xray [data-xray]::before {
+  content: attr(data-xray);
+  position: absolute;
+  /* Labels sit outside their element (on the top edge, outward) so they
+     never cover content or controls; clicks pass through. */
+  inset-block-end: 100%;
+  inset-inline-start: 0;
+  z-index: 20;
+  padding: 0 var(--spacing-4);
+  background: var(--_xray, var(--xray-color-organism));
+  color: var(--color-background-default);
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: none;
+  translate: none;
+}
+
+/* Templates and organisms label inside their own top-right corner;
+   atoms and molecules label outside, above. No two share an edge. */
+html[data-brand="swiss"].xray [data-xray^="template"]::before,
+html[data-brand="swiss"].xray [data-xray^="organism"]::before {
+  inset-block: 0 auto;
+  inset-inline: auto 0;
+}
+
+/* At the top of the viewport, the nav's parts label below; the nav's
+   own label sits inside its bottom edge, centred under the links. */
+html[data-brand="swiss"].xray .site-nav [data-xray]::before {
+  inset-block: 100% auto;
+}
+
+html[data-brand="swiss"].xray .site-nav[data-xray]::before {
+  inset-block: auto 0;
+  inset-inline: 50% auto;
+  translate: -50% 0;
+}
+
+/* The two switches sit close together: anchor their labels to the
+   right edge and stack the second one a line lower. */
+html[data-brand="swiss"].xray .site-nav__switches > [data-xray]::before {
+  inset-inline: auto 0;
+}
+
+html[data-brand="swiss"].xray .site-nav__switches > [data-xray] + [data-xray]::before {
+  inset-block-start: calc(100% + var(--typography-eyebrow-default-line-height));
+}
+
+html[data-brand="swiss"].xray [data-xray^="atom"] { --_xray: var(--xray-color-atom); }
+html[data-brand="swiss"].xray [data-xray^="molecule"] { --_xray: var(--xray-color-molecule); }
+html[data-brand="swiss"].xray [data-xray^="organism"] { --_xray: var(--xray-color-organism); }
+html[data-brand="swiss"].xray [data-xray^="template"] { --_xray: var(--xray-color-template); }
+
+[data-brand="swiss"] .xray-legend {
+  display: none;
+}
+
+html[data-brand="swiss"].xray .xray-legend {
+  position: fixed;
+  inset-block-end: var(--spacing-24);
+  inset-inline-start: var(--page-spacing-padding-x);
+  z-index: 30;
+  display: flex;
+  gap: var(--spacing-16);
+  padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-background-knockout);
+  color: var(--color-content-knockout);
+  font-family: var(--typography-eyebrow-default-font-family);
+  font-size: var(--typography-eyebrow-default-font-size);
+  line-height: var(--typography-eyebrow-default-line-height);
+  font-weight: var(--typography-eyebrow-default-font-weight);
+  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
+  text-transform: uppercase;
+}
+
+[data-brand="swiss"] .xray-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+[data-brand="swiss"] .xray-legend span::before {
+  content: "";
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
+  background: var(--_dot);
+}
+
+[data-brand="swiss"] .xray-legend .legend-atom { --_dot: var(--xray-color-atom); }
+[data-brand="swiss"] .xray-legend .legend-molecule { --_dot: var(--xray-color-molecule); }
+[data-brand="swiss"] .xray-legend .legend-organism { --_dot: var(--color-content-knockout); }
+[data-brand="swiss"] .xray-legend .legend-template { --_dot: var(--xray-color-template); }
+
+/* In-page navigation scrolls smoothly (CSS only). Anchored sections
+   stop below the sticky header. Reduced motion keeps the instant jump. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-brand="swiss"] {
+    scroll-behavior: smooth;
+  }
+}
+
+[data-brand="swiss"] :is(section, [id]) {
+  scroll-margin-block-start: var(--spacing-96, 6rem);
+}
+
+/* Case sheet header: same surface as the content (transparent over the
+   sheet). The grid overlay starts at the header's bottom edge via anchor
+   positioning, so the lines still stop under it. Browsers without anchor
+   positioning keep the opaque header from earlier. */
+@supports (anchor-name: --sheet-chrome) {
+  [data-brand="swiss"] .sheet--case > .sheet__chrome {
+    anchor-name: --sheet-chrome;
+    background: transparent;
+  }
+
+  [data-brand="swiss"] .sheet--case::before {
+    inset-block-start: anchor(--sheet-chrome bottom);
+  }
+}
+
+/* Footer opens on the same grid-width rule as the contact section, so
+   contact sits between two rules with 168px outside each (section and
+   footer padding) and 64px from the rule to the text. */
+[data-brand="swiss"] .site-footer__inner {
+  /* The rule is painted on the content box (not a border), so it spans
+     the grid like the contact rule instead of the padded container. */
+  padding-block-start: 0;
+  border-block-start: 0;
+  background: linear-gradient(var(--case-section-color-border-rule), var(--case-section-color-border-rule)) top / 100% var(--case-section-border-width-rule) no-repeat content-box;
+}
+
+[data-brand="swiss"] .site-footer__inner > * {
+  padding-block-start: calc(var(--case-section-spacing-rule) + var(--case-section-border-width-rule));
+}
+
+/* The footer rule works like a case-study section rule: 64px from the
+   content above to the rule, 64px from the rule to the text, and 64px
+   under the text. */
+[data-brand="swiss"] .site-footer {
+  padding-block: var(--case-section-spacing-rule);
+}
+
+/* Case sheet: room under the last block so the next-study CTA never
+   sits on the bottom edge of the screen. */
+[data-brand="swiss"] .sheet--case .sheet__body > .container {
+  padding-block-end: var(--swiss-spacing-120);
+}
