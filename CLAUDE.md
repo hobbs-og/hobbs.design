@@ -146,7 +146,11 @@ it and keep the blocks in this order:
 word, and the hero title and section h2s are both uppercase. So long words
 carry `&shy;` at their break points in the source: the hero name
 (`Bull&shy;horn`), and any h2 word that overflows a 320px screen
-(`com&shy;po&shy;nents`). The h2s use them on phones only.
+(`com&shy;po&shy;nents`). The h2s use them on phones only. The hero title
+uses them below 60em. From 60em a multi-word name breaks between words,
+because Chrome otherwise splits a word that would fit on the next line. A
+single-word name too long for the row at 136px adds
+`case-hero__title--hyphenate` to keep its hyphens there (Groundwork does).
 
 The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
 `.contact-section__title`) belong to the index only. Don't reuse them on

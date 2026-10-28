@@ -2430,8 +2430,22 @@
   letter-spacing: var(--typography-display-lg-letter-spacing);
   text-transform: uppercase;
   /* Names wrap at spaces. Chrome won't auto-hyphenate a capitalized word,
-     so a name too long for one line carries &shy; at its break point. */
+     so a name too long for one line carries &shy; at its break point.
+     From 60em the title ignores them (see below), so a multi-word name
+     breaks between words, not inside one. */
   color: var(--case-hero-color-content-title);
+}
+
+@media (min-width: 60em) {
+  [data-brand="swiss"] .case-hero__title {
+    hyphens: none;
+  }
+
+  /* A single-word name too long for the row at 136px (Groundwork) keeps
+     its soft hyphens on wide screens too. */
+  [data-brand="swiss"] .case-hero__title--hyphenate {
+    hyphens: manual;
+  }
 }
 
 [data-brand="swiss"] .case-hero__inner > .case-hero__lead {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-brand="portfolio">
+<!-- Built by tools/build-pages.mjs from pages/rumi.html. Edit that file, not this one. -->
+<html lang="en" data-brand="swiss">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,26 +20,32 @@
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <link rel="stylesheet" href="src/styles/system.css">
-  <link rel="stylesheet" href="src/styles/main.css">
+  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
+       committed (see .gitignore). Delete this link once the swiss mode
+       ships from Figma into vendor/software/tokens.css. -->
+  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="vendor/software/grid.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.css">
+  <script src="src/js/theme.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-nav" data-xray="organism · site-nav">
     <div class="container site-nav__inner">
-      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-mark">hobbs.</span>design<span class="visually-hidden">, home</span></a>
+      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="index.html#about">About</a>
+        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
-      <div class="xray-toggle" role="group" aria-label="View mode" data-xray="atom · toggle">
-        <button type="button" data-mode="design" aria-pressed="true">Design</button>
-        <button type="button" data-mode="xray" aria-pressed="false">Code</button>
+      <div class="site-nav__switches">
+        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
       <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
@@ -49,7 +56,7 @@
 
   <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
     <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="index.html#about">About</a>
+      <a href="about.html">About</a>
       <a href="index.html#work">Work</a>
       <a href="index.html#contact">Contact</a>
       <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
@@ -60,180 +67,191 @@
 
     <div class="case-hero" data-xray="organism · case-hero">
       <div class="case-hero__inner grid">
-        <p class="section-label case-hero__kicker span-12" data-xray="atom · section-label">Rümi · Home services, with ATCO</p>
-        <h1 class="case-hero__title span-8">Rümi helped homeowners figure out where to start.</h1>
-        <p class="case-hero__lead span-6">Tracking maintenance, planning improvements,
-        and managing DIY projects can be overwhelming, especially for new
-        homeowners. ATCO wanted a product that helped people stay on top of
-        the work that comes with owning a home, while connecting them to
-        trusted services in a way that felt useful and didn't intrude.</p>
-        <span class="span-6"></span>
-        <dl class="case-hero__meta span-6 align">
-          <div class="span-2"><dt>Focus</dt><dd>Personalization, task system</dd></div>
-          <div class="span-2"><dt>Client</dt><dd>ATCO</dd></div>
-          <div class="span-2"><dt>Platform</dt><dd>Mobile</dd></div>
+        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
+          <div><dt>Study</dt><dd class="case-hero__number">Case Study 06</dd></div>
+          <div><dt>Client</dt><dd>ATCO</dd></div>
+          <div><dt>Discipline</dt><dd>Strategy</dd></div>
         </dl>
+        <h1 class="case-hero__title span-12">Rümi<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="case-hero__lead span-6">Rümi helped homeowners figure out where to start.</p>
+        <div class="case-hero__body span-6">
+          <p class="case-hero__brief-text">Tracking maintenance, planning improvements, and managing DIY projects can be overwhelming, especially for new homeowners. ATCO wanted a product that helped people stay on top of the work that comes with owning a home, while connecting them to trusted services in a way that felt useful and didn't intrude.</p>
+          <dl class="project-row__specs case-hero__specs">
+            <div class="project-row__spec">
+              <dt>Focus</dt>
+              <dd><ul><li>Personalization</li><li>Task system</li></ul></dd>
+            </div>
+            <div class="project-row__spec">
+              <dt>Scope</dt>
+              <dd><ul><li>Mobile app</li></ul></dd>
+            </div>
+            <div class="project-row__spec">
+              <dt>Context</dt>
+              <dd><ul><li>Client: ATCO</li><li>Homeowners</li></ul></dd>
+            </div>
+          </dl>
+        </div>
+        <img class="case-hero__media span-9" data-xray="atom · media" src="images/Rumi/index-rumi.png" alt="Rümi on three iPhones: the DIY Guru homeowner type, the Home Happiness dashboard with 26 tasks done, and the task detail for installing LED bulbs" width="2400" height="1350">
       </div>
     </div>
 
     <div class="container">
 
-      <section class="section case-section" aria-labelledby="rumi-problem">
-        <figure>
-          <img class="img-frame" data-xray="atom · media" src="images/Rumi/rumi-hero.png" alt="Rümi screens showing a homeowner task list and a task detail view with guidance, supplies, and service options." loading="lazy">
-        </figure>
+      <div class="grid case-flow">
+        <section class="case-section case-section--card" aria-labelledby="rumi-problem">
+          <div class="case-section__media">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/rumi-hero.png" alt="Rümi screens showing a homeowner task list and a task detail view with guidance, supplies, and service options." loading="lazy">
+              </div>
+            </figure>
+          </div>
+          <div class="case-section__head">
+          <h2 id="rumi-problem">People needed guidance that matched where they were.</h2>
+          <div class="case-section__support">
+            <p>Homeowners didn't approach the same problems in the same way. Some were comfortable taking on projects themselves. Others needed more guidance, reassurance, or help from a professional.</p>
+            <p>The experience needed to account for that difference without anything feeling heavy or over-engineered.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>Personalization worked best when it felt lightweight.</h3>
+              <p>Persona selection gave users a way to define their comfort level, goals, and starting point up front.</p>
+              <p>That made it possible to shape the guidance around the person using the product, without forcing them into a rigid path or asking them to understand the whole system before getting value from it.</p>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/persona-select.png" alt="Rümi onboarding screens with persona options: DIY, landscaping, cooking, entertaining, and technology." loading="lazy">
+              </div>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/reorder.png" alt="Rümi onboarding screens showing a user adjusting and reordering their preferences." loading="lazy">
+              </div>
+            </figure>
+          </div>
+        </section>
 
-        <div class="grid">
-          <span class="span-4"></span>
-          <div class="span-8 align">
-            <h2 id="rumi-problem" class="span-8">People needed guidance that matched where they were.</h2>
-            <div class="span-8 align case-section__support">
-              <p class="span-4">Homeowners didn't approach the same problems
-              in the same way. Some were comfortable taking on projects
-              themselves. Others needed more guidance, reassurance, or help
-              from a professional.</p>
-              <p class="span-4">The experience needed to account for that
-              difference without anything feeling heavy or
-              over-engineered.</p>
+        <section class="case-section case-section--card" aria-labelledby="rumi-direction">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="rumi-direction">Early concepts tried gam&shy;i&shy;fi&shy;ca&shy;tion, and it was the wrong direction.</h2>
+          <div class="case-section__support">
+            <p>Initial concepts leaned toward gamification, but it quickly became clear that homeownership isn't something people want to win.</p>
+            <p>Progress isn't linear. Maintenance is recurring. Priorities change. Turning that into points, scores, or rewards made the experience feel disconnected from how people actually manage their homes.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>People wanted to know what needed attention next.</h3>
+              <p>The stronger direction was to make the product more useful.</p>
+              <p>People needed to understand what needed attention, what could wait, and what action made sense next.</p>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/option-3.png" alt="A concept where users select a persona up front to define their experience level and comfort with home maintenance." loading="lazy">
+              </div>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/option-5.png" alt="A chosen persona and the confirmation of that selection." loading="lazy">
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="rumi-solution">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="rumi-solution">The solution was a checklist people could shape them&shy;selves.</h2>
+          <div class="case-section__support">
+            <p>The experience shifted toward a flexible, user-driven checklist that organized tasks into three clear categories: what to do next, routine maintenance, and longer-term goals.</p>
+            <p>Users could prioritize, complete, or dismiss tasks, letting the system adapt to their workflow instead of forcing them into one.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>A clear structure with room to reorder it made the checklist usable.</h3>
+              <p>The goal was to make homeownership easier to move through.</p>
+              <p>By giving people a clear structure without locking them into one path, the product could support different levels of confidence, urgency, and experience.</p>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Rumi/index-rumi.png" alt="Final Rümi task list and detail screens showing prioritized tasks, supplies, timing, and service options." loading="lazy">
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="rumi-outcome">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="rumi-outcome">Each task came with what someone needed to act on it.</h2>
+          <div class="case-section__support">
+            <p>Every task had instructions, a supplies list, and a way to reach a trusted professional. The real gap sat between knowing something needed attention and feeling ready to act on it.</p>
+            <p>Users could personalize the experience, organize tasks around their own priorities, and move from guidance to action without leaving the flow.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>What held people back was confidence.</h3>
+              <p>Homeowners generally know their home needs work. What stops them is not knowing where to start, whether they're capable of handling it, or what doing it wrong might cost them.</p>
+              <p>So every task came with instructions, and with someone to call if it was more than they wanted to take on.</p>
             </div>
           </div>
-        </div>
+        </section>
+      </div>
 
+      <section class="section" aria-labelledby="next-project">
+        <h2 class="visually-hidden" id="next-project">Next project</h2>
         <div class="grid">
-          <span class="span-4"></span>
-          <h3 class="span-4">Personalization worked best when it felt lightweight.</h3>
-          <span class="span-4"></span>
-          <span class="span-4"></span>
-          <p class="span-4">Persona selection gave users a way to define
-          their comfort level, goals, and starting point up front.</p>
-          <p class="span-4">That made it possible to shape the guidance
-          around the person using the product, without forcing them into a
-          rigid path or asking them to understand the whole system before
-          getting value from it.</p>
-        </div>
-
-        <div class="grid">
-          <span class="span-4"></span>
-          <img class="span-4 img-frame" data-xray="atom · media" src="images/Rumi/persona-select.png" alt="Rümi onboarding screens with persona options: DIY, landscaping, cooking, entertaining, and technology." loading="lazy">
-          <img class="span-4 img-frame" data-xray="atom · media" src="images/Rumi/reorder.png" alt="Rümi onboarding screens showing a user adjusting and reordering their preferences." loading="lazy">
-        </div>
-      </section>
-
-      <section class="section case-section" aria-labelledby="rumi-direction">
-        <div class="grid">
-          <div class="span-8 align">
-            <h2 id="rumi-direction" class="span-8">Early concepts tried gamification, and it was the wrong direction.</h2>
-            <div class="span-8 align case-section__support">
-              <p class="span-4">Initial concepts leaned toward gamification,
-              but it quickly became clear that homeownership isn't something
-              people want to win.</p>
-              <p class="span-4">Progress isn't linear. Maintenance is
-              recurring. Priorities change. Turning that into points,
-              scores, or rewards made the experience feel disconnected from
-              how people actually manage their homes.</p>
+          <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
+            <div class="project-row__media project-row__media--devices project-row__media--mhe project-row__media--static">
+              <img class="project-row__layer" src="images/Education/devices/macbook-toc.png" alt="McGraw Hill Education on MacBook, course table of contents open to Chapter 1" loading="lazy">
+              <img class="project-row__layer" src="images/Education/devices/macbook-lesson.png" alt="McGraw Hill Education on MacBook, teacher lesson view with planning information" loading="lazy">
             </div>
-          </div>
-          <span class="span-4"></span>
-        </div>
-
-        <div class="grid">
-          <h3 class="span-8">People wanted to know what needed attention next.</h3>
-          <span class="span-4"></span>
-          <p class="span-4">The stronger direction was to make the product more useful.</p>
-          <p class="span-4">People needed to understand what needed
-          attention, what could wait, and what action made sense next.</p>
-          <span class="span-4"></span>
-        </div>
-
-        <div class="grid">
-          <img class="span-4 img-frame" data-xray="atom · media" src="images/Rumi/option-3.png" alt="A concept where users select a persona up front to define their experience level and comfort with home maintenance." loading="lazy">
-          <img class="span-4 img-frame" data-xray="atom · media" src="images/Rumi/option-5.png" alt="A chosen persona and the confirmation of that selection." loading="lazy">
-          <span class="span-4"></span>
-        </div>
-      </section>
-
-      <section class="section case-section" aria-labelledby="rumi-solution">
-        <div class="grid">
-          <span class="span-4"></span>
-          <div class="span-8 align">
-            <h2 id="rumi-solution" class="span-8">The solution was a checklist people could shape themselves.</h2>
-            <div class="span-8 align case-section__support">
-              <p class="span-4">The experience shifted toward a flexible,
-              user-driven checklist that organized tasks into three clear
-              categories: what to do next, routine maintenance, and
-              longer-term goals.</p>
-              <p class="span-4">Users could prioritize, complete, or dismiss
-              tasks, letting the system adapt to their workflow instead of
-              forcing them into one.</p>
+            <div class="project-row__content">
+              <p class="project-row__meta"><span class="project-row__number">07 / 07</span><span class="project-row__tag">Edtech • IA</span></p>
+              <h3 class="project-row__title">McGraw Hill Education</h3>
+              <p class="project-row__lead">The content was there.</p>
+              <p class="project-row__detail">Finding it fast was the problem. I restructured navigation for two very different audiences.</p>
             </div>
-          </div>
-        </div>
-
-        <div class="grid">
-          <span class="span-4"></span>
-          <h3 class="span-8">A clear structure with room to reorder it made the checklist usable.</h3>
-          <span class="span-4"></span>
-          <p class="span-4">The goal was to make homeownership easier to move through.</p>
-          <p class="span-4">By giving people a clear structure without
-          locking them into one path, the product could support different
-          levels of confidence, urgency, and experience.</p>
-        </div>
-
-        <figure>
-          <img class="img-frame" data-xray="atom · media" src="images/Rumi/index-rumi.png" alt="Final Rümi task list and detail screens showing prioritized tasks, supplies, timing, and service options." loading="lazy">
-        </figure>
-      </section>
-
-      <section class="section case-section" aria-labelledby="rumi-outcome">
-        <div class="grid">
-          <div class="span-8 align">
-            <h2 id="rumi-outcome" class="span-8">Each task came with what someone needed to act on it.</h2>
-            <div class="span-8 align case-section__support">
-              <p class="span-4">Every task had instructions, a supplies
-              list, and a way to reach a trusted professional. The real gap sat between knowing something needed attention and feeling ready to act on it.</p>
-              <p class="span-4">Users could personalize the experience,
-              organize tasks around their own priorities, and move from
-              guidance to action without leaving the flow.</p>
+            <div class="project-row__body">
+              <dl class="project-row__specs">
+                <div class="project-row__spec">
+                  <dt>Focus</dt>
+                  <dd><ul><li>Navigation</li><li>Information architecture</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Scope</dt>
+                  <dd><ul><li>Teachers</li><li>Administrators</li><li>Reviewers</li></ul></dd>
+                </div>
+                <div class="project-row__spec">
+                  <dt>Context</dt>
+                  <dd><ul><li>Edtech</li><li>State-level adoptions</li></ul></dd>
+                </div>
+              </dl>
+              <a class="cta" href="frictionless.html" data-sheet="case">View case study<span class="visually-hidden">: McGraw Hill Education</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
-          </div>
-          <span class="span-4"></span>
+          </article>
         </div>
-
-        <div class="grid">
-          <h3 class="span-8">What held people back was confidence.</h3>
-          <span class="span-4"></span>
-          <p class="span-4">Homeowners generally know their home needs work.
-          What stops them is not knowing where to start, whether they're
-          capable of handling it, or what doing it wrong might cost
-          them.</p>
-          <p class="span-4">So every task came with instructions, and with someone to call if it was more than they wanted to take on.</p>
-          <span class="span-4"></span>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="rumi-next">
-        <h2 class="visually-hidden" id="rumi-next">Next project</h2>
-        <article class="project-row" data-xray="molecule · project-row">
-          <div class="project-row__body stack--tight">
-            <p class="project-row__meta">Next · McGraw Hill Education</p>
-            <h3 class="project-row__title">Simplifying content discovery for educators</h3>
-            <a class="cta" href="frictionless.html">View project <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-right"></use></svg></a>
-          </div>
-          <div class="project-row__media">
-            <img src="images/Education/index-frictionless.png" alt="" loading="lazy">
-          </div>
-        </article>
       </section>
 
     </div>
   </main>
 
   <footer class="site-footer" data-xray="organism · site-footer">
-    <div class="container site-footer__inner">
-      <p>© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
-      <p><a href="foundations.html">Foundations</a> · <a href="components.html">Components</a> · <a href="https://github.com/hobbs-og/hobbs.design" target="_blank" rel="noopener">Source <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(opens in a new tab)</span></a></p>
+    <div class="container site-footer__inner grid">
+      <p class="site-footer__copy span-6">© 2026 hobbs.design. Mark Hobbs. All rights reserved.</p>
+      <p class="site-footer__contact span-6"><a href="mailto:mark@hobbs.design">mark@hobbs.design</a></p>
     </div>
   </footer>
+
+  <div class="xray-legend" aria-hidden="true"><span class="legend-atom">Atom</span><span class="legend-molecule">Molecule</span><span class="legend-organism">Organism</span><span class="legend-template">Template</span></div>
+
   <script src="src/js/xray.js"></script>
   <script src="src/js/nav.js"></script>
 </body>

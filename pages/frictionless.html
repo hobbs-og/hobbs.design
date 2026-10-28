@@ -1,0 +1,190 @@
+<!-- @include head.html title="McGraw Hill Education | hobbs.design" description="Redesigning content discovery in McGraw Hill's Open Learning Platform: persistent navigation and a full-page table of contents that made deep curriculum structure visible." -->
+  <!-- @include site-nav.html -->
+
+  <main id="main" data-xray="template · case-study">
+
+    <div class="case-hero" data-xray="organism · case-hero">
+      <div class="case-hero__inner grid">
+        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
+          <div><dt>Study</dt><dd class="case-hero__number">Case Study 07</dd></div>
+          <div><dt>Client</dt><dd>McGraw Hill Education</dd></div>
+          <div><dt>Discipline</dt><dd>Edtech</dd></div>
+          <div><dt>Discipline</dt><dd>IA</dd></div>
+        </dl>
+        <h1 class="case-hero__title span-12">McGraw Hill Ed&shy;u&shy;ca&shy;tion<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="case-hero__lead span-6">Teachers couldn't find content that was already in the platform.</p>
+        <div class="case-hero__body span-6">
+          <p class="case-hero__brief-text">McGraw Hill's Open Learning Platform powered K-12 instructional content for teachers and students, but the way that content was structured made it difficult to navigate in practice. Teachers had to drill through multiple layers to find a single resource, and that friction disrupted the classroom moment when speed mattered most.</p>
+          <!-- @include projects/frictionless-specs.html class="case-hero__specs" -->
+        </div>
+        <img class="case-hero__media span-9" data-xray="atom · media" src="images/Education/index-frictionless.png" alt="The redesigned biology course: a full-page table of contents, and a lesson view with the course navigation kept open beside it" width="2400" height="1199">
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="grid case-flow">
+        <section class="case-section case-section--card" aria-labelledby="mh-problem">
+          <div class="case-section__media">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/index-frictionless.png" alt="McGraw Hill's Open Learning Platform, showing the nested course structure that made content hard to find." loading="lazy">
+              </div>
+            </figure>
+          </div>
+          <div class="case-section__head">
+          <h2 id="mh-problem">The hierarchy made simple tasks feel harder than they should have.</h2>
+          <div class="case-section__support">
+            <p>The platform's content model was deeply nested, with multiple layers that could each hold content or simply act as containers. In practice, teachers often had to click through several levels before reaching anything usable.</p>
+            <p>That structure slowed people down, broke their flow, and made content discovery feel heavier than it needed to be. For administrators reviewing the platform at a state level, it also made it harder to understand what was actually inside the curriculum.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>Teachers and reviewers needed different things from the same structure.</h3>
+              <p>The problem wasn't the same for every user. Teachers often knew exactly what they were trying to find and needed to get there fast. Reviewers were looking for the opposite: a high-level view that made the breadth and structure of the curriculum easier to understand.</p>
+              <p>The work had to support both experiences at once, without making either one feel compromised.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="mh-existing">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="mh-existing">The existing navigation asked for too much effort up front.</h2>
+          <div class="case-section__support">
+            <p>To reach the course structure, teachers first had to open a separate Browse This Course view, then decide whether to enter a container or expand it, then continue drilling down until something actionable appeared.</p>
+            <p>That step-by-step model created unnecessary friction, especially during live instruction when teachers needed quick access and very little interruption. The deeper the structure went, the more work it took just to understand where useful content actually lived.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>Too many clicks were spent uncovering structure instead of accessing content.</h3>
+              <p>The hierarchy was complex, and it was also hidden. Users had to progressively unpack the platform before they could decide where to go next, which made navigation feel slow and opaque.</p>
+              <p>That made even well-organized content feel harder to use than it actually was.</p>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/TOC/navFlow-1.png" alt="The original flow, step one: the course page before any structure is visible." loading="lazy">
+              </div>
+              <figcaption class="text-caption">Step one. Teachers first had to click Browse This Course just to expose the content structure.</figcaption>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/TOC/navFlow-2.png" alt="The original flow, step two: choosing between entering a container or expanding it." loading="lazy">
+              </div>
+              <figcaption class="text-caption">Step two. Each container offered a link into it or an arrow to peek inside, one level at a time.</figcaption>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/TOC/navFlow-3.png" alt="The original flow, step three: the contents of a single parent folder." loading="lazy">
+              </div>
+              <figcaption class="text-caption">Step three. Only inside the parent folder could a teacher finally see what it held.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="mh-solution">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="mh-solution">The redesign made the course structure visible.</h2>
+          <div class="case-section__support">
+            <p>The redesign focused on making navigation more transparent, more persistent, and easier to scan at a glance. Instead of forcing users in and out of containers, the experience was restructured to keep the course hierarchy in view and make movement through it feel more direct.</p>
+            <p>A persistent left-hand navigation panel gave teachers immediate access to course content without losing their place, while a full-page table of contents created a higher-level view for broader scanning and faster orientation.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/index-frictionless-cnp.png" alt="The redesigned view with a persistent navigation panel beside lesson content." loading="lazy">
+              </div>
+              <figcaption class="text-caption">Content discovery. Lesson subject matter stays in view without jumping in and out of containers.</figcaption>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/index-frictionless-toc.png" alt="The full-page table of contents showing the entire curriculum in context." loading="lazy">
+              </div>
+              <figcaption class="text-caption">The whole curriculum on one screen. State-level administrators can see all of it in context.</figcaption>
+            </figure>
+            <div class="case-section__part">
+              <h3>The redesign kept the complexity and made it navigable.</h3>
+              <p>The content still needed to support a wide range of educational structures, products, and roles. The work left that system intact and made it easier for people to see where they were and what was available.</p>
+              <p>That shift made the platform feel more responsive to real classroom use and more legible to people evaluating it from a distance.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="mh-outcome">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="mh-outcome">Teachers reached lesson content without drilling through con&shy;tain&shy;ers.</h2>
+          <div class="case-section__support">
+            <p>With the updated navigation in place, teachers no longer had to drill through intermediate containers to reach instructional materials. Content hierarchy became actionable at a glance, and the table of contents stayed reachable from every content page.</p>
+            <p>The full-screen table of contents also gave administrators and reviewers a clearer view of the curriculum in context, helping them understand the structure and scope of the product more quickly. That mattered in higher-stakes evaluation settings, where discoverability and clarity directly influenced adoption decisions.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>Better navigation helped most during live instruction.</h3>
+              <p>The persistent panel and full-screen table of contents cut out the clicking it used to take to reach a lesson.</p>
+              <p>These changes supported more confident, responsive classroom instruction, helping educators keep their flow even when pivoting to new content mid-lesson.</p>
+            </div>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Reduced unnecessary friction</h4>
+                <p>Content hierarchy and materials became actionable at a glance, without drilling through intermediate containers.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Navigation stays in view</h4>
+                <p>The panel stays open beside the lesson, so teachers move between topics without losing their place.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Built for live instruction</h4>
+                <p>Teachers could switch to new content mid-lesson with very little interruption.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The table of contents on every page</h4>
+                <p>Regardless of a teacher's location, the table of contents stayed reachable from the Browse This Course action on every content page.</p>
+              </div>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/TOC/navNew-cnp-2.png" alt="The redesigned persistent navigation panel in use during a lesson." loading="lazy">
+              </div>
+            </figure>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/Education/TOC/navNew-toc.png" alt="The redesigned full-page table of contents." loading="lazy">
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-label="Closing thought">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2>The friction here came from a structure people couldn't see.</h2>
+          <div class="case-section__support">
+            <p>The content didn't change. Teachers could finally see where it was, and reviewers could see all of it at once.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+          </div>
+        </section>
+      </div>
+
+      <!-- @include next-project.html project="bullhorn" -->
+
+    </div>
+  </main>
+
+  <!-- @include site-footer.html -->
+
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
+</body>
+</html>

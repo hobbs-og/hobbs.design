@@ -1,0 +1,266 @@
+<!-- @include head.html title="Designing with AI | hobbs.design" description="How I build with Claude Code: a design system Figma controls, built for web, iOS and Android, and the contractor app that runs on it. Claude writes most of the code. The design decisions stay mine." -->
+  <!-- @include site-nav.html -->
+
+  <main id="main" data-xray="template · case-study">
+
+    <div class="case-hero" data-xray="organism · case-hero">
+      <div class="case-hero__inner grid">
+        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
+          <div><dt>Study</dt><dd class="case-hero__number">Case Study 03</dd></div>
+          <div><dt>Client</dt><dd>hobbs.design</dd></div>
+          <div><dt>Discipline</dt><dd>AI</dd></div>
+          <div><dt>Discipline</dt><dd>Systems</dd></div>
+        </dl>
+        <h1 class="case-hero__title span-12">De&shy;sign&shy;ing with AI<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="case-hero__lead span-6">Claude writes the code. I make every decision.</p>
+        <div class="case-hero__body span-6">
+          <p class="case-hero__brief-text">Since August I've built two things with Claude Code. One is a design system that Figma controls, built for web, iOS and Android. The other is a contractor app running on it in production.</p>
+          <!-- @include projects/software-specs.html class="case-hero__specs" -->
+        </div>
+        <img class="case-hero__media span-9" data-xray="atom · media" src="images/software/index-swiss.png" alt="The component reference for the contractor app on a laptop: token documentation for the status chip and the alert, each shown in light and dark" width="4022" height="2342">
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="grid case-flow">
+        <section class="case-section case-section--card" aria-labelledby="ai-problem">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-problem">AI will fill any gap you leave, and it'll look right doing it.</h2>
+          <div class="case-section__support">
+            <p>Ask for a gap between two icons and you'll get one. If the token doesn't exist, Claude writes the token name anyway and tucks a fallback value behind it, and the fallback is what ships. The contractor app had three of them. <code>var(--space-3xs, 0.25rem)</code> points at a token my system never had, so each one rendered a 4px gap on a grid that doesn't allow 4px.</p>
+            <p>Nothing looked broken, which is what worried me. A value I didn't choose looks exactly like one I did, and it gets through review because it's wearing a token's name. Give it enough sessions and a codebase fills up with decisions nobody made.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>So I set the work up around where Claude gets to decide and where it has to stop and ask.</h3>
+              <p>Speed was never the problem. Claude can write a build script, a Swift package or a PDF renderer faster than I can read one. What it can't know is which of two reasonable values I meant. It also won't tell you when it's guessing.</p>
+              <p>I didn't fix that with better prompts. Values come from one place Claude can't write to. The rules live in files it reads at the start of every session. And when either one gets ignored, a check fails.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-system">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-system">Figma decides every value, and the repo just keeps the record.</h2>
+          <div class="case-section__support">
+            <p>Two Figma files hold every token in the system. One has the primitives, semantic color and type, and the grid. The other has the component tokens. Nobody edits the token or platform files by hand. Not me, and not Claude.</p>
+            <p>Figma's Variables REST API is Enterprise-only and I'm on Pro, so Claude and I built a plugin to bridge the gap. It reads the variables, writes standard token JSON and opens a pull request right from Figma. A GitHub workflow takes it from there. It builds the web, iOS and Android files, commits them to the branch and runs the accessibility checks.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/software/figma-to-product.svg" alt="A token change travelling from two Figma files, through the plugin, a pull request, and a workflow that builds the platforms and checks 86 color pairs, into web, iOS and Android outputs, a tagged release, and the contractor app that pins that tag." loading="lazy">
+              </div>
+              <figcaption class="text-caption">One change, start to finish. The red boxes are the two places it can get stopped.</figcaption>
+            </figure>
+            <div class="case-section__part">
+              <h3>Claude can build the pipeline, but it can't put a value into it.</h3>
+              <p>The repo has its own <code>CLAUDE.md</code>, the file Claude reads before it touches anything. It says the two Figma files are the source of truth and that Claude never invents a value to fill a gap. If a component needs a color with no semantic token, that token gets made in Figma first, with a light and a dark value.</p>
+              <p>The build enforces that too, so it doesn't depend on Claude remembering. From September 17 to 26, nineteen pull requests came out of Figma this way. Each one only changed token JSON, and each one got rebuilt and checked before I merged it.</p>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/software/figma-plugin.png" alt="The plugin panel open in Figma: it names the repository hobbs-og/software and the base branch main, holds a masked GitHub token, offers an optional note about what changed, and ends with a button reading Export and open pull request." loading="lazy">
+              </div>
+              <figcaption class="text-caption">The plugin, inside Figma. One button exports every variable in the file and opens the pull request, and there's no other way into the token folder.</figcaption>
+            </figure>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The plugin says no</h4>
+                <p>If a variable points into another library, a name is both a token and a group, or a component collection has more than one mode, the export stops and tells you why.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>A contrast failure fails the build</h4>
+                <p>86 color pairs get measured against WCAG 2.1 AA in every theme. If one fails, the repo treats it as my design call. Claude doesn't get to nudge a token until it passes.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Dark mode can't be skipped</h4>
+                <p>A component color pointing straight at a primitive looks fine in light mode and wrong in dark. The check fails until it points at a semantic token.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Every platform gets its own units</h4>
+                <p>Rem on the web, sp on Android, Dynamic Type on iOS, so text size follows the reader's settings everywhere. The apps use the system font. Only the web loads Inter.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-product">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-product">The con&shy;trac&shy;tor app is where the system has to hold up.</h2>
+          <div class="case-section__support">
+            <p>estimates-etc is built for independent contractors. Every job starts with a client, and the client's address is the job site. From there it's an estimate, change orders the client signs off on, an invoice that picks up the approved changes, and payment. It runs in production, and its PDFs are laid out to match a working contractor's real invoices.</p>
+            <p>It pins a tagged release of the system, v0.5.0 right now, never a moving branch. Buttons, fields, navigation, cards, links and status chips all read their component tokens, so they follow dark mode and get their focus rings straight from Figma. Everything at page level uses semantic tokens.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/software/component-reference.png" alt="The app's component reference page: a status key reading component tokens, semantic tokens and raw values, a sidebar listing every component under the status it has, and the button component drawn in light and dark with its variants, the files its styles and code live in, and the screens that use it." loading="lazy">
+              </div>
+              <figcaption class="text-caption">The tracking page, rebuilt from the production CSS on every deploy. Each component carries the status it actually has, so the raw ones can't hide.</figcaption>
+            </figure>
+            <div class="case-section__part">
+              <h3>Whatever the system doesn't cover yet gets labelled in the code instead of quietly filled in.</h3>
+              <p>Four components don't have tokens in Figma yet: the filter segment, the file input, the dialog scrim and the sheet. Where they need a value, it's marked <code>/* raw: &lt;component&gt; */</code>. There are 39 of those today. Anyone can search for them, and together they're the to-do list for the components file.</p>
+              <p>The product rules are written down the same way. Client first. An invoice built from an estimate is locked, so to fix one you void it and reissue it. Change order numbers build on the estimate's number. The app's <code>CLAUDE.md</code> records each one as my decision, so a later session can't "simplify" it away.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-rules">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-rules">If a cor&shy;rec&shy;tion isn't written down, it's gone by to&shy;mor&shy;row.</h2>
+          <div class="case-section__support">
+            <p>Claude starts every session with no memory of the last one. Anything I say once disappears unless it lands in a file. I keep those files at three levels. A global one covers how I work on every project. Each repo has its own for that repo's rules. And commit messages record why each change happened, right where it happened.</p>
+            <p>Once a correction applies everywhere, it goes in the global file. Prefer plain CSS. No inline styles, ever. No fixed heights. Measure a craft choice before you defend it. Every one of those started as something I'd had to say more than once.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/software/correction-to-rule.svg" alt="One rule traced through four stages: no fixed heights, said in a session, then written into the global instruction file with the boundary spelled out, then applied across six files of the contractor app in one commit the same day, with the sidebar rail left for the designer to decide." loading="lazy">
+              </div>
+              <figcaption class="text-caption">The fixed-height rule, from the day I wrote it. Look at the last box.</figcaption>
+            </figure>
+            <div class="case-section__part">
+              <h3>A good rule is as clear about where to stop as it is about what to do.</h3>
+              <p>"No fixed heights" on its own would have led to a sweep that broke things. The written rule draws the line. An absolute length is fixed. A percentage, a viewport unit, an aspect ratio or a minimum height from a token isn't. That's why Claude could fix six files in one commit.</p>
+              <p>It's also why the sweep stopped where it did. The sidebar rail kept its full-screen height, and the commit says it stays that way until I decide how the rail should behave. That's the right call. How the rail behaves is a design question, and the rule doesn't answer it.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-measure">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-measure">I work numbers out instead of picking them, so Claude never has to guess one.</h2>
+          <div class="case-section__support">
+            <p>The app shrinks a long estimate to fit the page. The limit on that was a hand-picked 0.55. The smallest text on the sheet is an 8pt table header, so an overlong estimate printed that header at 4.4pt. Fine print on a contract, and unreadable for the person signing it.</p>
+            <p>Now the limit comes from a legibility rule. Divide 6pt by the smallest size on the page and you get 0.75. Past that, the document runs onto a second page. A normal estimate still prints full size on one page. The long test document stops at 0.75 and runs three pages, and its smallest text is exactly 6pt.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>A formula carries into the next session, and a hand-picked number doesn't.</h3>
+              <p>That formula lives in my global instructions now, with the rest of my print rules. Measure the paper. Keep margins in one place. Load the fonts before the snapshot. Tag the PDF for screen readers on purpose instead of trusting a library default.</p>
+              <p>Fonts got the same treatment. Before deciding whether to load Inter from Google's CDN, we measured it. One 73KB variable file covers every weight for Latin. The CDN adds two extra connections and a render-blocking stylesheet, and browsers don't share that cache between sites anymore. So the system hosts its own files.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-wrong">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-wrong">When something broke, the fix was a better check.</h2>
+          <div class="case-section__support">
+            <p>Emailing an estimate failed in production, and the config check kept saying everything was fine. The problem was a fallback. When the sender address was missing, the code swapped in a default that happened to be a real address, so the check passed on the default. Claude read that pass as proof its fix had worked, when it hadn't.</p>
+            <p>Two other failures looked just like it. A stale container passed for the current release twice. And six rounds of deploy instructions said "your app service" without ever naming the project, on a host that makes up its own project names.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__part">
+              <h3>If a check passes the same way whether things work or not, it isn't checking anything.</h3>
+              <p>Every fix made the system tell the truth, instead of asking Claude to be more careful. The production fallback is gone. The app now reports the commit that's actually live, and we read that instead of assuming. Its <code>CLAUDE.md</code> names the host's project, service and environment every time.</p>
+              <p>The design system had one of these too. I added a second type mode in Figma, the build merged it over the first, and the web output shipped the wrong fonts as the default. Now modes work like brands, where each one only overrides what's different. The repo's instructions warn against merging them again.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-outcome">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-outcome">What working this way got me.</h2>
+          <div class="case-section__support">
+            <p>One token source now builds three platforms. The contractor app got to production in 60 commits since August 21, and every one is co-authored with Claude, right there in the history. The system's rules are public in its repo.</p>
+            <p>The bigger win is a way of working I can take to the next product.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Changing a value means editing Figma</h4>
+                <p>Change the variable, open the pull request from the plugin, read the diff, merge. The web, Swift and Compose files follow, and nobody types a value.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Rules outlast the session</h4>
+                <p>Every standing correction lives in a file Claude reads before it starts. A new session in a new repo starts with the same rules as the last one.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Gaps are out in the open</h4>
+                <p>Anything the system doesn't cover yet is marked raw in the product and counted, so my next round of Figma work is already listed.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Every decision has an owner</h4>
+                <p>The instructions separate what Claude can fix from what it has to ask me about. Contrast failures, grid remaps and layout behavior all come back to me.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="ai-next-steps">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="ai-next-steps">What's still open.</h2>
+          <div class="case-section__support">
+            <p>Both projects are young and some of this is unfinished. I'd rather list it than pretend it's done.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>39 raw values to retire</h4>
+                <p>Each one goes away when its component gets tokens in Figma. None of them get fixed by slapping a token name on them in code.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Payment confirmation is next</h4>
+                <p>Recording a payment and emailing a receipt is the last step in the job flow. Removing a payment doesn't update the invoice's status yet.</p>
+              </div>
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The foldable grid needs checking</h4>
+                <p>The iOS grid values for iPhone Duo assume a display scale Apple hasn't published. They need a check in the Simulator before anyone relies on them.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-label="Closing thought">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2>Claude made the build fast, and keeping the decisions mine is what made it good.</h2>
+          <div class="case-section__support">
+            <p>Anyone with an AI tool can turn out a lot of code quickly. What carries over to a team is the setup around it. Values come from one place AI can't write to, and the rules and checks make it stop and ask before it decides anything. That's what this page is about, and the commit history in both repos backs it up.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+          </div>
+        </section>
+      </div>
+
+      <!-- @include next-project.html project="fabrication" -->
+
+    </div>
+  </main>
+
+  <!-- @include site-footer.html -->
+
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
+</body>
+</html>

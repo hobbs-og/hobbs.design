@@ -1,0 +1,160 @@
+<!-- @include head.html title="Union Home Mortgage | hobbs.design" description="A UI kit and design system built for a team of backend engineers at Union Home Mortgage. Atomic components, a shared type and color scale, and automated WCAG contrast checks." -->
+  <!-- @include site-nav.html -->
+
+  <main id="main" data-xray="template · case-study">
+
+    <div class="case-hero" data-xray="organism · case-hero">
+      <div class="case-hero__inner grid">
+        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
+          <div><dt>Study</dt><dd class="case-hero__number">Case Study 04</dd></div>
+          <div><dt>Client</dt><dd>Union Home Mortgage</dd></div>
+          <div><dt>Discipline</dt><dd>Tooling</dd></div>
+          <div><dt>Discipline</dt><dd>Systems</dd></div>
+        </dl>
+        <h1 class="case-hero__title span-12">Union Home Mort&shy;gage<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="case-hero__lead span-6">A backend-heavy team was shipping fast with no design system behind it.</p>
+        <div class="case-hero__body span-6">
+          <p class="case-hero__brief-text">Union Home Mortgage was building a set of internal applications to replace parts of a larger, more complex lending platform. Each tool was being developed independently, with little shared structure across the experience. As the number of applications grew, so did the gaps between them.</p>
+          <!-- @include projects/fabrication-specs.html class="case-hero__specs" -->
+        </div>
+        <img class="case-hero__media span-9" data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="Four Union Home Mortgage screens: a pipeline invoice list, a loan officer profile, a borrower's application progress at 42%, and the trade management list" width="2400" height="1448">
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="grid case-flow">
+        <section class="case-section case-section--card" aria-labelledby="uhm-problem">
+          <div class="case-section__media">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
+              </div>
+            </figure>
+          </div>
+          <div class="case-section__head">
+          <h2 id="uhm-problem">Con&shy;sis&shy;ten&shy;cy didn't exist across the ap&shy;pli&shy;ca&shy;tions.</h2>
+          <div class="case-section__support">
+            <p>Interfaces varied widely from one application to another, with no shared patterns for layout, hierarchy, or interaction. For a team made up primarily of backend engineers, usability and presentation weren't a primary focus, leading to inconsistency and added cognitive load for users.</p>
+            <p>Without a shared structure, every decision had to be made from scratch. That made the applications harder to build, harder to scale, and ultimately harder to use.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
+              </div>
+              <figcaption class="text-caption">Before the system, the team had been focused on functionality only.</figcaption>
+            </figure>
+            <div class="case-section__part">
+              <h3>The work focused on creating a system the team could actually use.</h3>
+              <p>The goal was to introduce a shared foundation that would bring consistency to the UI, reduce decision-making overhead, and make it easier to build new applications.</p>
+              <p>That meant building components atomic enough for a backend-heavy team to implement without a designer in the room, and locking down type, color, and grid so nobody had to make those decisions twice.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="uhm-approach">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="uhm-approach">The system had to fit how the team already built software.</h2>
+          <div class="case-section__support">
+            <p>I built a UI kit and design system to support real development workflows, focusing on reusable components, clear patterns, and straightforward implementation.</p>
+            <p>The team was mostly backend engineers, so every component had to be clear enough to build from the written guidance alone.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+              </div>
+            </figure>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Atomic design principles</h4>
+                <p>A modular approach that broke interfaces down into fundamental components, keeping them consistent and reusable.</p>
+              </div>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+              </div>
+            </figure>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Grid system</h4>
+                <p>A consistent structure for organizing content, so every layout stayed visually coherent across applications.</p>
+              </div>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+              </div>
+            </figure>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Typography</h4>
+                <p>A grotesk sans-serif typeface chosen for legibility, with clear hierarchy through data-heavy content.</p>
+              </div>
+            </div>
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+              </div>
+            </figure>
+            <div class="case-section__notes">
+              <div class="case-section__note">
+                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Color palette</h4>
+                <p>A shared color scale from the brand's primary and secondary colors, checked automatically against the WCAG 2.0 4.5:1 contrast ratio.</p>
+              </div>
+            </div>
+            <div class="case-section__part">
+              <h3>Shared components made the applications easier to build and to use.</h3>
+              <p>Shared components reduced the need to recreate patterns across applications, improving efficiency and alignment.</p>
+              <p>Layouts and hierarchy became more predictable, making interfaces easier to scan and understand. Tools that had previously felt disconnected now felt like part of the same system.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-labelledby="uhm-outcome">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2 id="uhm-outcome">The team could now move faster without sac&shy;ri&shy;fic&shy;ing usability.</h2>
+          <div class="case-section__support">
+            <p>With a shared system in place, new applications could be built more efficiently and with greater consistency.</p>
+            <p>The experience became easier to navigate and more reliable for internal users, while reducing the effort required from the team to design and build each new tool.</p>
+          </div>
+          </div>
+          <div class="case-section__body">
+            <figure class="stack--tight">
+              <div class="img-frame media-pair" data-xray="molecule · media-pair">
+                <img data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section case-section--card" aria-label="Closing thought">
+          <div class="case-section__media">
+          </div>
+          <div class="case-section__head">
+          <h2>A shared foun&shy;da&shy;tion meant nobody had to make the same decision twice.</h2>
+          </div>
+          <div class="case-section__body">
+          </div>
+        </section>
+      </div>
+
+      <!-- @include next-project.html project="proof" -->
+
+    </div>
+  </main>
+
+  <!-- @include site-footer.html -->
+
+  <script src="src/js/xray.js"></script>
+  <script src="src/js/nav.js"></script>
+</body>
+</html>
