@@ -18,7 +18,8 @@
      restoring it on close
    - a history entry, so Back closes the sheet rather than leaving
      the site
-   - fetching and swapping case study content
+   - fetching and swapping case study content, and falling back to
+     an ordinary page load when the fetch fails
    ============================================================ */
 (function () {
   // Scoped to the case variant: the navigation panel is also a
@@ -34,6 +35,8 @@
   var inFlight = {};
   var savedScrollY = 0;
   var isOpen = false;
+  var currentUrl = null;
+  var leavingTo = null;
   var suppressHistory = false;
 
   // Closing the sheet pops a history entry, and the browser would
@@ -44,9 +47,16 @@
   function fetchCase(url) {
     if (cache[url]) return Promise.resolve(cache[url]);
     if (inFlight[url]) return inFlight[url];
+    // fetch() only rejects on a network error, so a 404 or a host
+    // error page has to be rejected here. A failure leaves inFlight
+    // so the next attempt fetches again instead of reusing it.
     inFlight[url] = fetch(url)
-      .then(function (r) { return r.text(); })
-      .then(function (html) { cache[url] = html; return html; });
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (html) { cache[url] = html; return html; })
+      .catch(function (err) { delete inFlight[url]; throw err; });
     return inFlight[url];
   }
 
@@ -90,6 +100,34 @@
     return true;
   }
 
+  // The sheet can't show this case study, but its page may still
+  // load, so close and go there the way the link would without
+  // JavaScript. The navigation waits for the popstate that closing
+  // causes. Replacing the entry open() pushed instead looks simpler,
+  // but Chrome still treats it as the index's document, so Back would
+  // change the URL and leave the case study on screen.
+  function leave(url) {
+    leavingTo = url;
+    dismiss();
+  }
+
+  // The shared half of open and swap. A response that arrives after
+  // the sheet closed, or moved on to another case study, is dropped.
+  function load(url, onLoaded) {
+    currentUrl = url;
+    sheet.setAttribute('aria-busy', 'true');
+    fetchCase(url).then(function (html) {
+      if (!isOpen || url !== currentUrl) return;
+      if (!populate(html)) throw new Error('No <main> in ' + url);
+      sheet.removeAttribute('aria-busy');
+      if (onLoaded) onLoaded();
+      body.focus();
+    }).catch(function () {
+      delete cache[url];
+      if (isOpen && url === currentUrl) leave(url);
+    });
+  }
+
   // `restoring` is set when the sheet is being reopened by a Forward
   // navigation, where the history entry already exists.
   function open(url, restoring) {
@@ -97,29 +135,18 @@
 
     lockScroll();
     isOpen = true;
-    sheet.setAttribute('aria-busy', 'true');
     sheet.showModal();
 
     if (!restoring) history.pushState({ sheet: url }, '', url);
 
-    fetchCase(url).then(function (html) {
-      if (!isOpen) return;
-      populate(html);
-      sheet.removeAttribute('aria-busy');
-      body.focus();
-    });
+    load(url);
   }
 
   // Navigating between case studies while the sheet is already up:
   // replace content and the history entry, no slide.
   function swap(url) {
-    sheet.setAttribute('aria-busy', 'true');
-    fetchCase(url).then(function (html) {
-      if (!isOpen) return;
-      populate(html);
-      sheet.removeAttribute('aria-busy');
+    load(url, function () {
       history.replaceState({ sheet: url }, '', url);
-      body.focus();
     });
   }
 
@@ -274,11 +301,11 @@
   });
 
   // Prefetch on intent, so content is usually ready before the slide
-  // finishes.
+  // finishes. A failed prefetch can stay quiet: opening fetches again.
   ['mouseenter', 'touchstart', 'focusin'].forEach(function (evt) {
     document.addEventListener(evt, function (e) {
       var a = e.target.closest && e.target.closest('a[data-sheet="case"]');
-      if (a) fetchCase(a.getAttribute('href'));
+      if (a) fetchCase(a.getAttribute('href')).catch(function () {});
     }, { capture: true, passive: true });
   });
 
@@ -292,7 +319,10 @@
 
   // Back closes without pushing another entry; Forward re-opens.
   window.addEventListener('popstate', function (e) {
-    if (isOpen) {
+    if (leavingTo) {
+      window.location.href = leavingTo;
+      leavingTo = null;
+    } else if (isOpen) {
       suppressHistory = true;
       dismiss();
     } else if (e.state && e.state.sheet) {
