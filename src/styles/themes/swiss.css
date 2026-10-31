@@ -88,6 +88,9 @@
   --site-nav-size-blur: 1rem;
   --site-nav-size-icon: 1rem;
   --site-nav-spacing-padding-y: var(--swiss-spacing-20);
+  /* One row of logo plus the padding and border around it, so the height
+     follows those tokens and is never typed in. */
+  --site-nav-size-height: calc(var(--site-nav-spacing-padding-y) * 2 + var(--typography-line-height-32) + var(--site-nav-border-width));
   --site-nav-spacing-links-gap-x: var(--spacing-24);
   --site-nav-spacing-link-gap: var(--spacing-24);
   --site-nav-spacing-links-gap-y: var(--spacing-8);
@@ -119,7 +122,7 @@
   --switch-color-thumb-on: var(--color-background-default);
   --switch-border-width: 0.0625rem;
   --switch-size-track-width: 2rem;
-  --switch-size-track-height: 1.125rem;
+  --switch-aspect-ratio-track: 16 / 9;
   --switch-size-thumb: 0.75rem;
   --switch-spacing-thumb-inset: 0.125rem;
   --switch-spacing-gap: var(--page-spacing-icon-gap);
@@ -131,9 +134,8 @@
   /* The wordmark's baseline lands on the bottom edge of the viewport on
      load. The hero is one screen tall below the nav plus room for the
      descender of the "g", which hangs below the fold. */
-  --index-hero-size-nav: 4.21875rem;
   --index-hero-size-descender: 8vw;
-  --index-hero-size-min: calc(100svh - var(--index-hero-size-nav) + var(--index-hero-size-descender));
+  --index-hero-size-min: calc(100svh - var(--site-nav-size-height) + var(--index-hero-size-descender));
   --index-hero-spacing-gap: var(--swiss-spacing-240);
   --index-hero-spacing-gap-min: var(--swiss-spacing-120);
   --index-hero-spacing-intro-gap: var(--spacing-24);
@@ -671,7 +673,7 @@
 
 [data-brand="swiss"] .site-nav .icon {
   inline-size: var(--site-nav-size-icon);
-  block-size: var(--site-nav-size-icon);
+  aspect-ratio: 1;
 }
 
 /* Standard switches: a native checkbox with role="switch" and a text
@@ -692,10 +694,10 @@
   flex: none;
   align-self: center;
   inline-size: var(--switch-size-track-width);
-  block-size: var(--switch-size-track-height);
+  aspect-ratio: var(--switch-aspect-ratio-track);
   margin: 0;
   border: var(--switch-border-width) solid var(--switch-color-border-default);
-  border-radius: var(--switch-size-track-height);
+  border-radius: var(--border-radius-round);
   background: var(--switch-color-background-off);
   cursor: pointer;
   transition: background-color var(--motion-duration-quick) ease, border-color var(--motion-duration-quick) ease;
@@ -707,7 +709,7 @@
   inset-block-start: var(--switch-spacing-thumb-inset);
   inset-inline-start: var(--switch-spacing-thumb-inset);
   inline-size: var(--switch-size-thumb);
-  block-size: var(--switch-size-thumb);
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--switch-color-thumb-off);
   transition: translate var(--motion-duration-quick) var(--motion-easing-standard), background-color var(--motion-duration-quick) ease;
@@ -725,7 +727,7 @@
 
 [data-brand="swiss"] .switch .icon {
   inline-size: var(--site-nav-size-icon);
-  block-size: var(--site-nav-size-icon);
+  aspect-ratio: 1;
   align-self: center;
 }
 
@@ -787,7 +789,7 @@
 
 /* ---------- index-hero + wordmark ---------- */
 
-/* Fixed-height grid so the wordmark baseline always lands on the bottom
+/* One-screen grid so the wordmark baseline always lands on the bottom
    edge of the viewport: free space above the intro (1fr), then the
    intro, then a gap that grows to 240px first and shrinks toward 120px on
    short screens, then the wordmark. The "g" descender hangs into the
@@ -1476,7 +1478,7 @@
 [data-brand="swiss"] .cta .icon,
 [data-brand="swiss"] .button--quiet .icon {
   inline-size: var(--cta-size-icon);
-  block-size: var(--cta-size-icon);
+  aspect-ratio: 1;
   opacity: 0;
   translate: calc(var(--cta-spacing-icon-offset) * -1) var(--cta-spacing-icon-offset);
   transition:
@@ -1537,7 +1539,7 @@
 
 [data-brand="swiss"] .button--solid .icon {
   inline-size: var(--cta-size-icon);
-  block-size: var(--cta-size-icon);
+  aspect-ratio: 1;
   transition: translate var(--motion-duration-move) var(--motion-easing-standard);
 }
 
@@ -3056,7 +3058,7 @@
 [data-brand="swiss"] .case-section__note-icon {
   flex: none;
   inline-size: var(--case-section-size-note-icon);
-  block-size: var(--case-section-size-note-icon);
+  aspect-ratio: 1;
   color: var(--color-content-headline-brand);
   align-self: baseline;
 }
@@ -3910,7 +3912,7 @@ html[data-brand="swiss"].xray .xray-legend {
 [data-brand="swiss"] .xray-legend span::before {
   content: "";
   inline-size: var(--spacing-8);
-  block-size: var(--spacing-8);
+  aspect-ratio: 1;
   background: var(--_dot);
 }
 

@@ -60,7 +60,7 @@ img {
 
 .icon {
   inline-size: 1em;
-  block-size: 1em;
+  aspect-ratio: 1;
   fill: currentColor;
   flex: none;
 }
