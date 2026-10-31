@@ -20,10 +20,7 @@
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
-       committed (see .gitignore). Delete this link once the swiss mode
-       ships from Figma into vendor/software/tokens.css. -->
-  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.tokens.css">
   <link rel="stylesheet" href="vendor/software/grid.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="src/styles/themes/swiss.css">
@@ -37,14 +34,14 @@
       <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
       <div class="site-nav__switches">
-        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
         <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
@@ -52,16 +49,24 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
 
-  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
-    <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
-    </nav>
-  </dialog>
+    <!-- Inside the header so it can open from the header's bottom edge
+         (top: 100%) without knowing the header's height. -->
+    <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+      <div class="sheet__body nav-panel">
+        <nav class="nav-panel__links" aria-label="Primary">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+        </nav>
+        <div class="nav-panel__switches">
+          <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+          <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
+        </div>
+      </div>
+    </dialog>
+  </header>
 
   <main id="main" data-xray="template · home">
     <div class="home-fold">
@@ -70,7 +75,7 @@
         <section class="index-hero index-hero--statement" aria-labelledby="hero-title" data-xray="organism · index-hero">
           <div class="index-hero__intro grid">
             <p class="section-label index-hero__eyebrow span-6" data-xray="atom · section-label">Mark Hobbs <span aria-hidden="true">||</span> Product Designer</p>
-            <h1 class="index-hero__title span-6" id="hero-title">I design and build <br>products and systems.</h1>
+            <h1 class="index-hero__title span-6" id="hero-title">I design and build products and systems.</h1>
           </div>
           <p class="index-hero__wordmark" role="img" aria-label="hobbs.design" data-xray="atom · wordmark"><span class="index-hero__word index-hero__word--secondary" aria-hidden="true"><span class="index-hero__letter">.</span><span class="index-hero__letter">d</span><span class="index-hero__letter">e</span><span class="index-hero__letter">s</span><span class="index-hero__letter">i</span><span class="index-hero__letter">g</span><span class="index-hero__letter">n</span></span><span class="index-hero__word index-hero__word--primary" aria-hidden="true"><span class="index-hero__letter">h</span><span class="index-hero__letter">o</span><span class="index-hero__letter">b</span><span class="index-hero__letter">b</span><span class="index-hero__letter">s</span></span></p>
         </section>
@@ -82,16 +87,25 @@
           <div class="grid stat-band__grid">
             <span class="span-3"></span>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value"><span class="visually-hidden">12%</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="1"></span><span class="stat__digit" data-digit="2"></span>%</span></p>
-              <p class="stat__label">Abandonment cut, Terafina</p>
+              <div class="stat__figure">
+                <p class="stat__value"><span class="visually-hidden">20+</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="2"></span><span class="stat__digit" data-digit="0"></span>+</span></p>
+                <p class="stat__meta">And still finding new answers.</p>
+              </div>
+              <p class="stat__label">Years questioning “why?”</p>
             </div>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value"><span class="visually-hidden">500+</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="5"></span><span class="stat__digit" data-digit="0"></span><span class="stat__digit" data-digit="0"></span>+</span></p>
-              <p class="stat__label">Components, Bullhorn</p>
+              <div class="stat__figure">
+                <p class="stat__value"><span class="visually-hidden">404</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="4"></span><span class="stat__digit" data-digit="0"></span><span class="stat__digit" data-digit="4"></span></span></p>
+                <p class="stat__meta">Strong opinions. Loosely held.</p>
+              </div>
+              <p class="stat__label">Ego not found</p>
             </div>
             <div class="stat span-3" data-xray="molecule · stat">
-              <p class="stat__value"><span class="visually-hidden">20+</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="2"></span><span class="stat__digit" data-digit="0"></span>+</span></p>
-              <p class="stat__label">Experience</p>
+              <div class="stat__figure">
+                <p class="stat__value"><span class="visually-hidden">0</span><span class="stat__reel" aria-hidden="true"><span class="stat__digit" data-digit="0"></span></span></p>
+                <p class="stat__meta">That's the goal, anyway.</p>
+              </div>
+              <p class="stat__label">Unnecessary design variants</p>
             </div>
           </div>
         </div>
@@ -102,16 +116,16 @@
       <div class="container">
         <div class="grid work-index__header">
           <h2 class="work-index__title span-12" id="work-heading" hidden>Featured Work</h2>
-          <h2 class="work-index__lead span-6" id="work-lead">Banking, hiring, housing and teaching. Seven products, and the system under each one.</h2>
+          <h2 class="work-index__lead span-9" id="work-lead">Banking, hiring, housing and teaching. Seven products, and the system under each one.</h2>
         </div>
 
         <div class="grid work-index__list">
           <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
             <div class="project-row__media">
-              <img src="images/Bullhorn/index-swiss.png" alt="Bullhorn case study preview" width="4022" height="2342" loading="lazy">
+              <img src="images/Bullhorn/index-swiss.png" alt="Bullhorn's redesigned candidate record and token documentation" width="4022" height="2342" loading="lazy">
             </div>
             <div class="project-row__content">
-              <p class="project-row__meta"><span class="project-row__number">01 / 07</span><span class="project-row__tag">Platforms • Systems</span></p>
+              <p class="project-row__meta"><span class="project-row__number">01 / 07</span><span class="project-row__tag">B2B <abbr>SaaS</abbr> • Systems</span></p>
               <h3 class="project-row__title">Bullhorn</h3>
               <p class="project-row__lead">A new look for Bullhorn's platform, built from the smallest pieces up.</p>
               <p class="project-row__detail">Bullhorn brought me in for three months to update how its applicant tracking system looked, across the whole platform. The candidate record and the candidate list came first, because recruiters use them most. Once I saw how many components sat under those screens, I proposed a token system, got engineering behind it, and spent the rest of the contract building it.</p>
@@ -137,15 +151,15 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--terafina">
-              <img class="project-row__layer" src="images/Terafina/devices/macbook.png" alt="Terafina on MacBook" loading="lazy">
-              <img class="project-row__layer" src="images/Terafina/devices/ipad.png" alt="Terafina on iPad" loading="lazy">
-              <img class="project-row__layer" src="images/Terafina/devices/iphone.png" alt="Terafina on iPhone" loading="lazy">
+              <img class="project-row__layer" src="images/Terafina/devices/macbook.png" width="4022" height="2342" alt="Terafina on MacBook" loading="lazy">
+              <img class="project-row__layer" src="images/Terafina/devices/ipad.png" width="1314" height="1816" alt="Terafina on iPad" loading="lazy">
+              <img class="project-row__layer" src="images/Terafina/devices/iphone.png" width="854" height="1716" alt="Terafina on iPhone" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">02 / 07</span><span class="project-row__tag">Fintech • Systems</span></p>
               <h3 class="project-row__title">Terafina</h3>
-              <p class="project-row__lead">The product worked.</p>
-              <p class="project-row__detail">People just didn't trust it enough to finish. I rebuilt the presentation layer from atomic components up, cutting abandonment by 12%.</p>
+              <p class="project-row__lead">People didn't trust the product enough to finish.</p>
+              <p class="project-row__detail">I rebuilt the presentation layer from atomic components up, and abandonment dropped 12%.</p>
             </div>
             <div class="project-row__body">
               <dl class="project-row__specs">
@@ -168,7 +182,7 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media">
-              <img src="images/software/index-swiss.png" alt="Designing with AI case study preview" loading="lazy">
+              <img src="images/software/index-swiss.png" alt="The component reference for the contractor app on a laptop: token documentation for the status chip and the alert, each shown in light and dark" width="4022" height="2342" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">03 / 07</span><span class="project-row__tag">AI • Systems</span></p>
@@ -197,14 +211,14 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--uhm">
-              <img class="project-row__layer" src="images/UHM/devices/desktop.png" alt="Union Home Mortgage on laptop" loading="lazy">
-              <img class="project-row__layer" src="images/UHM/devices/iphone-directory.png" alt="Union Home Mortgage on iPhone, loan officer directory" loading="lazy">
-              <img class="project-row__layer" src="images/UHM/devices/iphone-dashboard.png" alt="Union Home Mortgage on iPhone, borrower dashboard" loading="lazy">
+              <img class="project-row__layer" src="images/UHM/devices/desktop.png" width="4022" height="2342" alt="Union Home Mortgage on laptop" loading="lazy">
+              <img class="project-row__layer" src="images/UHM/devices/iphone-directory.png" width="846" height="1716" alt="Union Home Mortgage on iPhone, loan officer directory" loading="lazy">
+              <img class="project-row__layer" src="images/UHM/devices/iphone-dashboard.png" width="846" height="1716" alt="Union Home Mortgage on iPhone, borrower dashboard" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">04 / 07</span><span class="project-row__tag">Tooling • Systems</span></p>
               <h3 class="project-row__title">Union Home Mortgage</h3>
-              <p class="project-row__lead">The first design system for a team of backend engineers that never had one, built with no design partner in the room.</p>
+              <p class="project-row__lead">The first design system for a team of backend engineers, built with no other designer in the room.</p>
             </div>
             <div class="project-row__body">
               <dl class="project-row__specs">
@@ -227,15 +241,15 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--proof">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">05 / 07</span><span class="project-row__tag">Identity</span></p>
               <h3 class="project-row__title">Proof Digital Identity</h3>
-              <p class="project-row__lead">Sensitive information needs more than security, it needs clarity.</p>
+              <p class="project-row__lead">Sharing sensitive information only works when people understand what they're sharing.</p>
               <p class="project-row__detail">An MVP for secure, deliberate sharing.</p>
             </div>
             <div class="project-row__body">
@@ -259,9 +273,9 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--rumi">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-todo.png" alt="Rümi on iPhone, task detail for installing LED bulbs" loading="lazy">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-persona.png" alt="Rümi on iPhone, DIY Guru homeowner persona" loading="lazy">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-dashboard.png" alt="Rümi on iPhone, Home Happiness dashboard with the to-do list" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-todo.png" width="846" height="1716" alt="Rümi on iPhone, task detail for installing LED bulbs" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-persona.png" width="846" height="1716" alt="Rümi on iPhone, DIY Guru homeowner persona" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-dashboard.png" width="846" height="1716" alt="Rümi on iPhone, Home Happiness dashboard with the to-do list" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">06 / 07</span><span class="project-row__tag">Strategy</span></p>
@@ -289,14 +303,14 @@
 
           <article class="project-row project-row--index span-6" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--mhe">
-              <img class="project-row__layer" src="images/Education/devices/macbook-toc.png" alt="McGraw Hill Education on MacBook, course table of contents open to Chapter 1" loading="lazy">
-              <img class="project-row__layer" src="images/Education/devices/macbook-lesson.png" alt="McGraw Hill Education on MacBook, teacher lesson view with planning information" loading="lazy">
+              <img class="project-row__layer" src="images/Education/devices/macbook-toc.png" width="4022" height="2342" alt="McGraw Hill Education on MacBook, course table of contents open to Chapter 1" loading="lazy">
+              <img class="project-row__layer" src="images/Education/devices/macbook-lesson.png" width="4022" height="2342" alt="McGraw Hill Education on MacBook, teacher lesson view with planning information" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">07 / 07</span><span class="project-row__tag">Edtech • IA</span></p>
               <h3 class="project-row__title">McGraw Hill Education</h3>
-              <p class="project-row__lead">The content was there.</p>
-              <p class="project-row__detail">Finding it fast was the problem. I restructured navigation for two very different audiences.</p>
+              <p class="project-row__lead">Teachers couldn't find content that was already there.</p>
+              <p class="project-row__detail">I restructured navigation for two very different audiences.</p>
             </div>
             <div class="project-row__body">
               <dl class="project-row__specs">
@@ -321,12 +335,28 @@
     </section>
 
 
+    <section class="section" id="about" aria-labelledby="about-heading" data-xray="organism · about">
+      <div class="container">
+        <div class="grid contact-section">
+          <h2 class="contact-section__title" id="about-heading">I do my best work <span class="contact__title-accent">where nobody agrees yet.</span></h2>
+          <div class="contact-section__support">
+            <p>The hardest product problems start with competing priorities, unclear ownership, inherited systems, technical limits and teams pulling in different directions. My job is to get those pieces on the table, name the tradeoffs and land on a decision the team can build.</p>
+            <p>Then I build that decision into the system, so nobody has to make it again. I work across product, design and engineering, and I care as much about how something gets built and maintained as how it feels to use. I can't make the complexity go away, but I can make it workable.</p>
+            <div class="index-hero__actions contact-section__actions">
+              <a class="cta" href="about.html" data-sheet="case">More about me<svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
+              <a class="cta" href="groundwork.html" data-sheet="case">How I rebuilt this site<svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact" aria-labelledby="contact-heading" data-xray="organism · contact">
       <div class="container">
         <div class="grid contact-section">
           <h2 class="contact-section__title" id="contact-heading">Wanna have a coffee? I love coffee, <span class="contact__title-accent">we should have a coffee.</span></h2>
           <div class="contact-section__support">
-            <p>Email is the fastest way to reach me — I read everything that arrives and reply to anything that isn't a pitch.</p>
+            <p>Email is the fastest way to reach me. I read everything and reply to anything that isn't a pitch.</p>
             <p class="index-hero__actions"><a class="cta" href="mailto:mark@hobbs.design">mark@hobbs.design</a></p>
           </div>
           <ul class="contact-section__links" role="list">

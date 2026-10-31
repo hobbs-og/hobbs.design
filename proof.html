@@ -20,10 +20,7 @@
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
-       committed (see .gitignore). Delete this link once the swiss mode
-       ships from Figma into vendor/software/tokens.css. -->
-  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.tokens.css">
   <link rel="stylesheet" href="vendor/software/grid.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="src/styles/themes/swiss.css">
@@ -37,14 +34,14 @@
       <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
       <div class="site-nav__switches">
-        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
         <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
@@ -52,16 +49,24 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
 
-  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
-    <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
-    </nav>
-  </dialog>
+    <!-- Inside the header so it can open from the header's bottom edge
+         (top: 100%) without knowing the header's height. -->
+    <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+      <div class="sheet__body nav-panel">
+        <nav class="nav-panel__links" aria-label="Primary">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+        </nav>
+        <div class="nav-panel__switches">
+          <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+          <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
+        </div>
+      </div>
+    </dialog>
+  </header>
 
   <main id="main" data-xray="template · case-study">
 
@@ -75,7 +80,7 @@
         <h1 class="case-hero__title span-12">Proof Dig&shy;i&shy;tal Iden&shy;ti&shy;ty<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
         <p class="case-hero__lead span-6">Proof let people share identity documents from their phone and control who saw them.</p>
         <div class="case-hero__body span-6">
-          <p class="case-hero__brief-text">Proof explored a digital identity product for Alberta residents, built around the idea that people should be able to securely store, access, and share personally identifiable information from the device they already carry.</p>
+          <p class="case-hero__brief-text">Proof was a digital identity product for Alberta residents that would let people store, open and share their personal information securely from the phone they already carry.</p>
           <dl class="project-row__specs case-hero__specs">
             <div class="project-row__spec">
               <dt>Focus</dt>
@@ -91,7 +96,12 @@
             </div>
           </dl>
         </div>
-        <img class="case-hero__media span-9" data-xray="atom · media" src="images/Proof/directions/index-proof.png" alt="Three design directions for Proof's launchpad on Android phones, each with incoming credential requests from Wawanesa Insurance" width="2400" height="1350">
+        <div class="project-row__media project-row__media--devices project-row__media--proof case-hero__media span-12">
+          <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
+          <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
+          <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
+          <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
+        </div>
       </div>
     </div>
 
@@ -102,21 +112,21 @@
           <div class="case-section__media">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/proof-hero.png" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/proof-hero.png" width="2400" height="1350" alt="Proof dashboard explorations showing ways to organize credentials, contacts, institutions, incoming requests, and recent activity." loading="lazy">
               </div>
             </figure>
           </div>
           <div class="case-section__head">
-          <h2 id="proof-problem">The hard part was making people trust who could see their doc&shy;u&shy;ments.</h2>
+          <h2 id="proof-problem"><span class="case-section__title-text">The hard part was making people trust who could see their documents.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Paper records are difficult to organize, easy to misplace, and rarely available when people need them most. But putting that information on a phone creates a different kind of problem.</p>
+            <p>Paper records are hard to organize, easy to lose, and rarely at hand when people need them. Putting them on a phone creates a different problem.</p>
             <p>People needed to feel confident that their identity was secure, that sharing was intentional, and that they could control exactly who had access to what.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>Every request had to show plainly what it was asking for.</h3>
-              <p>The experience needed to make sensitive actions feel deliberate. Requests had to be visible, understandable, and easy to approve or deny without making users feel like they were handing over more than they intended.</p>
+              <p>Sensitive actions had to feel deliberate. Every request had to be easy to see, understand, and approve or deny, without anyone feeling they'd handed over more than they meant to.</p>
               <p>This meant designing around trust as much as access.</p>
             </div>
           </div>
@@ -126,21 +136,21 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-mvp">The first version had to prove the basic value before the bigger vision could work.</h2>
+          <h2 id="proof-mvp"><span class="case-section__title-text">The first version had to prove the basic value before the bigger vision could work.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>With no directly comparable product to learn from, research focused on understanding how people already managed identity, documents, and proof of ownership in real situations.</p>
-            <p>The team looked at existing behaviors around MyAlberta Digital ID and interviewed Albertans to identify practical use cases, including buying a car, getting insurance, and interacting with healthcare providers.</p>
+            <p>There was no comparable product to learn from, so research looked at how people already handled identity, documents and proof of ownership in real life.</p>
+            <p>The team looked at existing behaviors around MyAlberta Digital ID and interviewed Albertans to find practical use cases, like buying a car, getting insurance, and dealing with healthcare providers.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>People needed to know what they had, who could ask for it, and what they were sharing.</h3>
-              <p>The MVP centered on a launchpad experience where users could quickly access documents, trusted contacts, institutions, and incoming requests.</p>
+              <p>The MVP centered on a launchpad, one screen with documents, trusted contacts, institutions and incoming requests.</p>
               <p>That foundation gave the product a clear starting point. Show people what they have, what needs attention, and what actions are available.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/intro/intro.png" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/intro/intro.png" width="2400" height="1350" alt="Proof screens showing the launchpad dashboard and an incoming credential request from a trusted institution." loading="lazy">
               </div>
             </figure>
           </div>
@@ -150,9 +160,9 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-sharing">Sharing sensitive in&shy;for&shy;ma&shy;tion needed to feel de&shy;lib&shy;er&shy;ate.</h2>
+          <h2 id="proof-sharing"><span class="case-section__title-text">Sharing sensitive information needed to feel deliberate.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Proof had to support moments where identity and access mattered, including high-stress situations where someone else may need to act on a user's behalf.</p>
+            <p>Proof had to work in stressful moments too, when someone else might need to act for the user.</p>
             <p>A trusted contact could access delegated credentials, like identification, insurance details, or medical proxy information, when immediate action was needed.</p>
           </div>
           </div>
@@ -160,11 +170,11 @@
             <div class="case-section__part">
               <h3>The product had to make access feel possible without making it feel loose.</h3>
               <p>Users could manage who had access to each document and control which fields were shared.</p>
-              <p>The sharing flow included a confirmation step, making sure users understood what they were sharing, who they were sharing it with, and what level of access they were granting.</p>
+              <p>The sharing flow ended with a confirmation step, so people knew what they were sharing, who with, and how much access they were granting.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/intro/sharing.png" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/intro/sharing.png" width="1600" height="900" alt="Proof sharing screens: a driver's license, selectable credential fields, trusted contacts, and a confirmation step before sharing." loading="lazy">
               </div>
             </figure>
           </div>
@@ -174,76 +184,76 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-system">The system needed a visual foun&shy;da&shy;tion before it could scale.</h2>
+          <h2 id="proof-system"><span class="case-section__title-text">The system needed a visual foundation before it could scale.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Proof needed to feel secure, modern, and easy to understand across platforms. The style guide established the visual foundation for that experience, including color, typography, spacing, button styles, and core tile components.</p>
-            <p>More than visual consistency, the style guide gave engineering a usable framework for building a product that felt trustworthy from screen to screen.</p>
+            <p>Proof needed to feel secure and easy to understand on every platform. The style guide set the basics: color, typography, spacing, buttons and the core tile components.</p>
+            <p>It also gave engineering a framework they could build from, so the product felt trustworthy from screen to screen.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>A product about trust had to look consistent on every screen.</h3>
-              <p>The design system helped make the MVP feel cohesive, even as the product explored unfamiliar behaviors around identity, delegation, and secure sharing.</p>
-              <p>For a new concept, that consistency mattered. It made the experience easier to understand and easier to believe in.</p>
+              <p>The design system held the MVP together while the product tried out unfamiliar ideas around identity, delegation and secure sharing.</p>
+              <p>For a new kind of product, that consistency made it easier to understand and easier to believe in.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/1.0 Typography.png" alt="Proof style guide: the typography system" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/1.0 Typography.png" width="1000" height="712" alt="Proof style guide: the typography system" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/1.1 iOS headings.png" alt="Proof style guide: iOS heading specifications" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/1.1 iOS headings.png" width="1000" height="712" alt="Proof style guide: iOS heading specifications" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/1.2 Android headings.png" alt="Proof style guide: Android heading specifications" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/1.2 Android headings.png" width="1000" height="712" alt="Proof style guide: Android heading specifications" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/2.0 Colors.png" alt="Proof style guide: the color palette" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/2.0 Colors.png" width="2400" height="1707" alt="Proof style guide: the color palette" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/2.1 Primary.png" alt="Proof style guide: primary color definitions" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/2.1 Primary.png" width="1000" height="712" alt="Proof style guide: primary color definitions" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/2.2 Secondary.png" alt="Proof style guide: secondary color definitions" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/2.2 Secondary.png" width="1000" height="712" alt="Proof style guide: secondary color definitions" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/2.3 Tertiary.png" alt="Proof style guide: tertiary color definitions" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/2.3 Tertiary.png" width="1000" height="712" alt="Proof style guide: tertiary color definitions" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/2.6 Grayscale.png" alt="Proof style guide: grayscale definitions" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/2.6 Grayscale.png" width="1000" height="712" alt="Proof style guide: grayscale definitions" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/4.0 Tiles-1.png" alt="Proof style guide: request tile anatomy" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/4.0 Tiles-1.png" width="1000" height="712" alt="Proof style guide: request tile anatomy" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/4.1 Tile Types.png" alt="Proof style guide: tile types" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/4.1 Tile Types.png" width="1000" height="712" alt="Proof style guide: tile types" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/5.0 Buttons.png" alt="Proof style guide: button styles and states" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/5.0 Buttons.png" width="1000" height="712" alt="Proof style guide: button styles and states" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/styleguide/6.0 Tabs.png" alt="Proof style guide: tab patterns" loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/styleguide/6.0 Tabs.png" width="1000" height="712" alt="Proof style guide: tab patterns" loading="lazy">
               </div>
             </figure>
           </div>
@@ -253,17 +263,17 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-direction">The direction changed when the product started to feel more like content than identity.</h2>
+          <h2 id="proof-direction"><span class="case-section__title-text">The direction changed when the product started to feel more like content than identity.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Early concepts leaned heavily into education, helping users understand the benefits of digital identity and what the product could do.</p>
-            <p>Testing revealed that this made the experience feel too much like a content app. Users expected something more personal, more useful, and more centered around their own identity.</p>
+            <p>Early concepts leaned heavily on education, explaining the benefits of digital identity and what the product could do.</p>
+            <p>Testing showed it felt too much like a content app. People expected something more personal, built around their own identity.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>Testers wanted clear next steps more than explanations.</h3>
-              <p>The design shifted toward a more profile-centered experience, making functionality more apparent and helping users understand what actions they could take.</p>
-              <p>That change brought the product closer to the real user need: managing identity in everyday situations.</p>
+              <p>The design moved a profile to the center, so people could see what the app did and what they could do next.</p>
+              <p>That brought the product closer to what people actually needed, which was managing their identity day to day.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
@@ -272,7 +282,7 @@
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/directions/concept-3.png" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/directions/concept-3.png" width="1109" height="2400" alt="A content-first Proof direction that testing showed was wrong for new users." loading="lazy">
               </div>
             </figure>
           </div>
@@ -282,7 +292,7 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-outcome">The final direction centered the app on the person's own identity.</h2>
+          <h2 id="proof-outcome"><span class="case-section__title-text">The final direction centered the app on the person's own identity.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
             <p>The refined product brought documents, requests, trusted contacts, institutions, and activity history into a clearer structure.</p>
             <p>Users could respond to credential requests, manage access, review their history, and understand the state of their identity without having to piece the system together themselves.</p>
@@ -292,11 +302,11 @@
             <div class="case-section__part">
               <h3>The experience worked best when risk was visible and action was clear.</h3>
               <p>Sensitive workflows were designed to slow people down just enough to understand what was happening, without making the product feel heavy.</p>
-              <p>That balance was the center of the work, making identity easier to use without ever making it feel casual.</p>
+              <p>That balance was most of the work. Identity had to get easier to use without ever feeling casual.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Proof/results/four-up.png" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
+                <img data-xray="atom · media" src="images/Proof/results/four-up.png" width="2400" height="1350" alt="Four final Proof screens showing documents, requests, contacts, and activity in a clear structure." loading="lazy">
               </div>
             </figure>
           </div>
@@ -306,16 +316,16 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="proof-lesson">Proof was paused before launch.</h2>
+          <h2 id="proof-lesson"><span class="case-section__title-text">Proof was paused before launch.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Proof pointed toward a future where people could manage, share, delegate, and use identity documents without relying on paper records or fragmented processes.</p>
+            <p>Proof would have let people manage, share and delegate their identity documents without paper records or scattered processes.</p>
             <p>Before the product could launch, priorities shifted and the initiative was paused. The problem hasn't gone away. People still need to share sensitive information safely, sometimes in a hurry, and sometimes through someone acting for them.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>The problem Proof was built for is still there.</h3>
-              <p>The biggest lesson: digital identity is a trust problem more than a storage problem.</p>
+              <p>The biggest lesson was that digital identity is a trust problem more than a storage problem.</p>
               <p>Design had to make the system feel useful without making it feel risky.</p>
             </div>
           </div>
@@ -325,7 +335,7 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2>People trust a system when they can see what's happening and what they control.</h2>
+          <h2><span class="case-section__title-text">People trust a system when they can see what's happening and what they control.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
             <p>Every request, permission and share showed the person what they were handing over, and to whom.</p>
           </div>
@@ -340,9 +350,9 @@
         <div class="grid">
           <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--rumi project-row__media--static">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-todo.png" alt="Rümi on iPhone, task detail for installing LED bulbs" loading="lazy">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-persona.png" alt="Rümi on iPhone, DIY Guru homeowner persona" loading="lazy">
-              <img class="project-row__layer" src="images/Rumi/devices/iphone-dashboard.png" alt="Rümi on iPhone, Home Happiness dashboard with the to-do list" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-todo.png" width="846" height="1716" alt="Rümi on iPhone, task detail for installing LED bulbs" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-persona.png" width="846" height="1716" alt="Rümi on iPhone, DIY Guru homeowner persona" loading="lazy">
+              <img class="project-row__layer" src="images/Rumi/devices/iphone-dashboard.png" width="846" height="1716" alt="Rümi on iPhone, Home Happiness dashboard with the to-do list" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">06 / 07</span><span class="project-row__tag">Strategy</span></p>

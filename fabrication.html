@@ -20,10 +20,7 @@
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
-       committed (see .gitignore). Delete this link once the swiss mode
-       ships from Figma into vendor/software/tokens.css. -->
-  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.tokens.css">
   <link rel="stylesheet" href="vendor/software/grid.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="src/styles/themes/swiss.css">
@@ -37,14 +34,14 @@
       <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
       <div class="site-nav__switches">
-        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
         <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
@@ -52,16 +49,24 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
 
-  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
-    <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
-    </nav>
-  </dialog>
+    <!-- Inside the header so it can open from the header's bottom edge
+         (top: 100%) without knowing the header's height. -->
+    <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+      <div class="sheet__body nav-panel">
+        <nav class="nav-panel__links" aria-label="Primary">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+        </nav>
+        <div class="nav-panel__switches">
+          <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+          <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
+        </div>
+      </div>
+    </dialog>
+  </header>
 
   <main id="main" data-xray="template · case-study">
 
@@ -76,7 +81,7 @@
         <h1 class="case-hero__title span-12">Union Home Mort&shy;gage<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
         <p class="case-hero__lead span-6">A backend-heavy team was shipping fast with no design system behind it.</p>
         <div class="case-hero__body span-6">
-          <p class="case-hero__brief-text">Union Home Mortgage was building a set of internal applications to replace parts of a larger, more complex lending platform. Each tool was being developed independently, with little shared structure across the experience. As the number of applications grew, so did the gaps between them.</p>
+          <p class="case-hero__brief-text">Union Home Mortgage was building a set of internal applications to replace parts of a larger, more complex lending platform. Each tool was being built on its own, and they shared very little structure. As the number of applications grew, so did the gaps between them.</p>
           <dl class="project-row__specs case-hero__specs">
             <div class="project-row__spec">
               <dt>Focus</dt>
@@ -92,7 +97,11 @@
             </div>
           </dl>
         </div>
-        <img class="case-hero__media span-9" data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="Four Union Home Mortgage screens: a pipeline invoice list, a loan officer profile, a borrower's application progress at 42%, and the trade management list" width="2400" height="1448">
+        <div class="project-row__media project-row__media--devices project-row__media--uhm case-hero__media span-12">
+          <img class="project-row__layer" src="images/UHM/devices/desktop.png" width="4022" height="2342" alt="Union Home Mortgage on laptop" loading="lazy">
+          <img class="project-row__layer" src="images/UHM/devices/iphone-directory.png" width="846" height="1716" alt="Union Home Mortgage on iPhone, loan officer directory" loading="lazy">
+          <img class="project-row__layer" src="images/UHM/devices/iphone-dashboard.png" width="846" height="1716" alt="Union Home Mortgage on iPhone, borrower dashboard" loading="lazy">
+        </div>
       </div>
     </div>
 
@@ -100,30 +109,24 @@
 
       <div class="grid case-flow">
         <section class="case-section case-section--card" aria-labelledby="uhm-problem">
-          <div class="case-section__media">
-            <figure class="stack--tight">
-              <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/system/fabrication-devices.png" alt="Multiple mobile devices showing different internal applications built on the same system." loading="lazy">
-              </div>
-            </figure>
-          </div>
+          <div class="case-section__media"></div>
           <div class="case-section__head">
-          <h2 id="uhm-problem">Con&shy;sis&shy;ten&shy;cy didn't exist across the ap&shy;pli&shy;ca&shy;tions.</h2>
+          <h2 id="uhm-problem"><span class="case-section__title-text">No two applications looked or worked the same way.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Interfaces varied widely from one application to another, with no shared patterns for layout, hierarchy, or interaction. For a team made up primarily of backend engineers, usability and presentation weren't a primary focus, leading to inconsistency and added cognitive load for users.</p>
-            <p>Without a shared structure, every decision had to be made from scratch. That made the applications harder to build, harder to scale, and ultimately harder to use.</p>
+            <p>Layout, hierarchy and interaction changed from one application to the next. The team was mostly backend engineers, and usability and presentation weren't their focus. Users paid for that with extra effort on every screen.</p>
+            <p>Without a shared structure, every decision started from scratch. The applications got harder to build and harder to use.</p>
           </div>
           </div>
           <div class="case-section__body">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/old.png" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/old.png" width="2400" height="1770" alt="A lending application screen before the system: bright colors, inconsistent typography, and no clear hierarchy." loading="lazy">
               </div>
               <figcaption class="text-caption">Before the system, the team had been focused on functionality only.</figcaption>
             </figure>
             <div class="case-section__part">
               <h3>The work focused on creating a system the team could actually use.</h3>
-              <p>The goal was to introduce a shared foundation that would bring consistency to the UI, reduce decision-making overhead, and make it easier to build new applications.</p>
+              <p>The goal was a shared foundation, so the UI matched across tools and each new application started with most decisions already made.</p>
               <p>That meant building components atomic enough for a backend-heavy team to implement without a designer in the room, and locking down type, color, and grid so nobody had to make those decisions twice.</p>
             </div>
           </div>
@@ -133,49 +136,49 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="uhm-approach">The system had to fit how the team already built software.</h2>
+          <h2 id="uhm-approach"><span class="case-section__title-text">The system had to fit how the team already built software.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>I built a UI kit and design system to support real development workflows, focusing on reusable components, clear patterns, and straightforward implementation.</p>
+            <p>I built a UI kit and design system around how the team already worked. The components were reusable and the patterns were simple to implement.</p>
             <p>The team was mostly backend engineers, so every component had to be clear enough to build from the written guidance alone.</p>
           </div>
           </div>
           <div class="case-section__body">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" width="2560" height="1462" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
               </div>
             </figure>
             <div class="case-section__notes">
               <div class="case-section__note">
                 <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Atomic design principles</h4>
-                <p>A modular approach that broke interfaces down into fundamental components, keeping them consistent and reusable.</p>
+                <p>Interfaces broken down into small components the team could reuse anywhere.</p>
               </div>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" width="2560" height="1462" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
               </div>
             </figure>
             <div class="case-section__notes">
               <div class="case-section__note">
                 <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Grid system</h4>
-                <p>A consistent structure for organizing content, so every layout stayed visually coherent across applications.</p>
+                <p>One grid for every application, so layouts lined up from tool to tool.</p>
               </div>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" width="2560" height="1462" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
               </div>
             </figure>
             <div class="case-section__notes">
               <div class="case-section__note">
                 <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Typography</h4>
-                <p>A grotesk sans-serif typeface chosen for legibility, with clear hierarchy through data-heavy content.</p>
+                <p>A grotesk sans-serif picked for legibility, with a clear hierarchy for data-heavy screens.</p>
               </div>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/system/screens/cover.png" width="2560" height="1462" alt="Screens from multiple internal applications sharing the same components, grid, and type system." loading="lazy">
               </div>
             </figure>
             <div class="case-section__notes">
@@ -186,8 +189,8 @@
             </div>
             <div class="case-section__part">
               <h3>Shared components made the applications easier to build and to use.</h3>
-              <p>Shared components reduced the need to recreate patterns across applications, improving efficiency and alignment.</p>
-              <p>Layouts and hierarchy became more predictable, making interfaces easier to scan and understand. Tools that had previously felt disconnected now felt like part of the same system.</p>
+              <p>With shared components, nobody had to rebuild the same pattern for each application.</p>
+              <p>Layouts and hierarchy became predictable, so screens were easier to scan. Tools that used to feel unrelated now felt like one product.</p>
             </div>
           </div>
         </section>
@@ -196,16 +199,16 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="uhm-outcome">The team could now move faster without sac&shy;ri&shy;fic&shy;ing usability.</h2>
+          <h2 id="uhm-outcome"><span class="case-section__title-text">The team moved faster, and the tools got easier to use.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>With a shared system in place, new applications could be built more efficiently and with greater consistency.</p>
-            <p>The experience became easier to navigate and more reliable for internal users, while reducing the effort required from the team to design and build each new tool.</p>
+            <p>New applications came together faster, and they matched the rest.</p>
+            <p>Internal users found the tools easier to navigate, and each new tool took the team less effort to design and build.</p>
           </div>
           </div>
           <div class="case-section__body">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/UHM/index-fabrication.png" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
+                <img data-xray="atom · media" src="images/UHM/index-fabrication.png" width="2400" height="1448" alt="Refined application screens showing a cohesive experience across the internal tools." loading="lazy">
               </div>
             </figure>
           </div>
@@ -215,7 +218,7 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2>A shared foun&shy;da&shy;tion meant nobody had to make the same decision twice.</h2>
+          <h2><span class="case-section__title-text">A shared foundation meant nobody had to make the same decision twice.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           </div>
           <div class="case-section__body">
           </div>
@@ -227,15 +230,15 @@
         <div class="grid">
           <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--devices project-row__media--proof project-row__media--static">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
-              <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-profile.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, profile and credentials" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-learn.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, Digital ID onboarding" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-launchpad.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, launchpad" loading="lazy">
+              <img class="project-row__layer" src="images/Proof/devices/iphone-final.png" width="846" height="1716" alt="Proof Digital Identity on iPhone, final launchpad design" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">05 / 07</span><span class="project-row__tag">Identity</span></p>
               <h3 class="project-row__title">Proof Digital Identity</h3>
-              <p class="project-row__lead">Sensitive information needs more than security, it needs clarity.</p>
+              <p class="project-row__lead">Sharing sensitive information only works when people understand what they're sharing.</p>
               <p class="project-row__detail">An MVP for secure, deliberate sharing.</p>
             </div>
             <div class="project-row__body">

@@ -24,7 +24,8 @@ http.createServer((req, res) => {
     const file = normalize(join(root, path));
     if (!file.startsWith(root)) { res.writeHead(403); return res.end(); }
     statSync(file);
-    res.writeHead(200, { 'content-type': types[extname(file)] ?? 'application/octet-stream' });
+    // no-store: a local edit shows on the next reload, never a cached copy.
+    res.writeHead(200, { 'content-type': types[extname(file)] ?? 'application/octet-stream', 'cache-control': 'no-store' });
     createReadStream(file).pipe(res);
   } catch {
     res.writeHead(404, { 'content-type': 'text/plain' });

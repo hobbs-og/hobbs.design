@@ -8,7 +8,7 @@
         <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
           <div><dt>Study</dt><dd class="case-hero__number">Case Study 01</dd></div>
           <div><dt>Client</dt><dd>Bullhorn</dd></div>
-          <div><dt>Discipline</dt><dd>B2B SaaS</dd></div>
+          <div><dt>Discipline</dt><dd>B2B <abbr>SaaS</abbr></dd></div>
           <div><dt>Discipline</dt><dd>Systems</dd></div>
         </dl>
         <h1 class="case-hero__title span-12">Bull&shy;horn<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
@@ -17,7 +17,7 @@
           <p class="case-hero__brief-text">Bullhorn brought me in for three months to update how its applicant tracking system looked, across the whole platform. The candidate record and the candidate list came first, because recruiters use them most. Once I saw how many components sat under those screens, I proposed a token system, got engineering behind it, and spent the rest of the contract building it.</p>
           <!-- @include projects/bullhorn-specs.html class="case-hero__specs" -->
         </div>
-        <img class="case-hero__media span-9" data-xray="atom · media" src="images/Bullhorn/index-swiss.png" alt="Bullhorn's redesigned candidate record and token documentation" width="4022" height="2342">
+        <!-- @include projects/bullhorn-media.html class="case-hero__media span-12" -->
       </div>
     </div>
 
@@ -28,21 +28,21 @@
           <div class="case-section__media">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/candidate-record-legacy.png" alt="The legacy candidate record: a dark navy top bar, a header row of contact fields, all-caps tabs, boxed workflow steps from Prescreen to Placement, and Details, Open Tasks, CV and Shift Availability cards." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/candidate-record-legacy.png" width="5120" height="3200" alt="The legacy candidate record: a dark navy top bar, a header row of contact fields, all-caps tabs, boxed workflow steps from Prescreen to Placement, and Details, Open Tasks, CV and Shift Availability cards." loading="lazy">
               </div>
               <figcaption class="text-caption">The candidate record, before the redesign.</figcaption>
             </figure>
             <!-- "Before and after": hidden for later use. Remove the hidden attribute to show it. -->
             <figure class="stack--tight before-and-after" hidden>
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/legacy.png" alt="The candidate record before the redesign: a dark navy header bar, all-caps tabs, boxed workflow steps, and a details card listing consultant, status, employment preference and address." loading="lazy">
-                <img data-xray="atom · media" src="images/Bullhorn/update.png" alt="The same record redesigned: a lighter sidebar, the header grouping ID, name, status and email, a linear workflow tracker, and cards for details, open tasks and submissions." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/legacy.png" width="2560" height="2624" alt="The candidate record before the redesign: a dark navy header bar, all-caps tabs, boxed workflow steps, and a details card listing consultant, status, employment preference and address." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/update.png" width="2560" height="2624" alt="The same record redesigned: a lighter sidebar, the header grouping ID, name, status and email, a linear workflow tracker, and cards for details, open tasks and submissions." loading="lazy">
               </div>
               <figcaption class="text-caption">The candidate record, before and after.</figcaption>
             </figure>
           </div>
           <div class="case-section__head">
-            <h2 id="bh-brief">The first release focused on the two screens re&shy;cruit&shy;ers use most.</h2>
+            <h2 id="bh-brief"><span class="case-section__title-text">The first release focused on the two screens recruiters use most.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
             <div class="case-section__support">
               <p>The candidate record is where a recruiter reads everything about one person. The candidate list is where they find that person in the first place. Those two get more use than anything else in the product, so they went first.</p>
               <p>Three months is tight for a whole platform. It gets tighter once you find out how much each screen is standing on.</p>
@@ -56,12 +56,12 @@
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/candidates-listing-legacy.png" alt="The legacy candidate list: a dark navy top bar, a search field with filter buttons, and a table of candidates with name, status, mobile phone, consultant and employment preference columns." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/candidates-listing-legacy.png" width="2560" height="1600" alt="The legacy candidate list: a dark navy top bar, a search field with filter buttons, and a table of candidates with name, status, mobile phone, consultant and employment preference columns." loading="lazy">
               </div>
               <figcaption class="text-caption">The candidate list, before the redesign.</figcaption>
             </figure>
             <div class="case-section__part">
-              <h3>I mentioned I had a base token system we could easily adapt to accelerate the team.</h3>
+              <h3>I offered a base token system the team could adapt quickly.</h3>
               <p>It was a basic one, a set of core values with a naming structure on top. The point was to have something real to react to rather than a slide about what a token system could be.</p>
               <p>I worked through it with the engineers to see whether it could ride along with the work they already had planned instead of competing with it. It could. It went into the scope, and my job changed from designing screens to building the system every screen would be made from.</p>
             </div>
@@ -77,28 +77,28 @@
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/button-legacy.png" alt="The Novo button in the system documentation: basic, primary, secondary, icon and floating action rows, each across default, success, error, warning and disabled." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/button-legacy.png" width="1600" height="547" alt="The Novo button in the system documentation: basic, primary, secondary, icon and floating action rows, each across default, success, error, warning and disabled." loading="lazy">
               </div>
               <figcaption class="text-caption">The button as the Novo documentation shipped it, before the work started.</figcaption>
             </figure>
           </div>
           <div class="case-section__head">
-            <h2 id="bh-subatomic">The smallest tokens are the only layer with raw values.</h2>
+            <h2 id="bh-subatomic"><span class="case-section__title-text">The smallest tokens are the only layer with raw values.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
             <div class="case-section__support">
-              <p>I think of it as the spice rack. Every ingredient the system is allowed to cook with sits here, and nothing gets added anywhere else. The file is called <code>subatomic</code>, and it holds ninety-one core values, the spacing steps and the colour ramps, and names like <code>color.background.subtle-hover</code> that say what those values are for. It exports from Figma as JSON, so engineering reads the same file the designs are built from.</p>
+              <p>I think of it as the spice rack. Every ingredient the system is allowed to cook with sits here, and nothing gets added anywhere else. The file is called <code>subatomic</code>, and it holds ninety-one core values, the spacing steps and the color ramps, and names like <code>color.background.subtle-hover</code> that say what those values are for. It exports from Figma as JSON, so engineering reads the same file the designs are built from.</p>
               <p>The core values carry four modes: a default, a warm variant and two brand themes. Components only ever point at names, so a theme is another column of values. Nobody has to duplicate a component to get one.</p>
             </div>
           </div>
           <div class="case-section__body">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/tokens-core-greyscale.png" alt="The core greyscale ramp from 0 to 900 with hex values, and a usage row mapping each step to its jobs: backgrounds and surfaces, decorative borders, input and control borders, disabled and subtle text, body text and headlines." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/tokens-core-greyscale.png" width="1154" height="589" alt="The core grayscale ramp from 0 to 900 with hex values, and a usage row mapping each step to its jobs: backgrounds and surfaces, decorative borders, input and control borders, disabled and subtle text, body text and headlines." loading="lazy">
               </div>
-              <figcaption class="text-caption">The spice rack. Core greyscale values, and the jobs each step is allowed to do.</figcaption>
+              <figcaption class="text-caption">The spice rack. Core grayscale values, and the jobs each step is allowed to do.</figcaption>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/tokens-semantic-background.png" alt="Tier 2 background tokens: default, subtle, subtle-hover, knockout, knockout-hover, brand, brand-hover and disabled, then utility error, warning, success and info with knockout versions, each labelled with the core value it points at." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/tokens-semantic-background.png" width="1113" height="593" alt="Tier 2 background tokens: default, subtle, subtle-hover, knockout, knockout-hover, brand, brand-hover and disabled, then utility error, warning, success and info with knockout versions, each labelled with the core value it points at." loading="lazy">
               </div>
               <figcaption class="text-caption">One layer up, every background has a name, and every name points at a core value. <code>subtle-hover</code> is <code>color/gray/100</code>.</figcaption>
             </figure>
@@ -114,13 +114,13 @@
           <div class="case-section__media">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/button-variant-matrix.png" alt="The Novo button component set in Figma: eight variants from base to select in rows, each in three sizes, across default, negative, Amplify and success colour roles, with default, hover, focus, active and disabled states for each." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/button-variant-matrix.png" width="2400" height="1197" alt="The Novo button component set in Figma: eight variants from base to select in rows, each in three sizes, across default, negative, Amplify and success colour roles, with default, hover, focus, active and disabled states for each." loading="lazy">
               </div>
-              <figcaption class="text-caption">One component from the library. Eight variants, four colour roles, five states, and a focus state on every one of them. No fill in it is a hex.</figcaption>
+              <figcaption class="text-caption">One component from the library. Eight variants, four color roles, five states, and a focus state on every one of them. No fill in it is a hex.</figcaption>
             </figure>
           </div>
           <div class="case-section__head">
-            <h2 id="bh-components">More than 500 com&shy;po&shy;nents, named the way the code names them.</h2>
+            <h2 id="bh-components"><span class="case-section__title-text">More than 500 components, named the way the code names them.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
             <div class="case-section__support">
               <p>The component layer covers everything Novo already had, down to the sub-components. That came to more than five hundred. Each one is named the way the code names it, so the button in Figma is <code>novo-button</code> and nobody has to translate between the file and the repo.</p>
               <p>Its tokens follow one pattern: component, property, variant, then role and state. <code>button.color.icon.content.hover</code> reads as exactly what it styles. Of the 903 component tokens, 889 point at another name instead of a value.</p>
@@ -134,13 +134,13 @@
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/candidate-record-updated.png" alt="The redesigned candidate record: a light sidebar with recent records, a header grouping ID, name, status and contact fields, a linear workflow tracker, and cards for details, open submissions, open tasks and recent notes." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/candidate-record-updated.png" width="1440" height="1024" alt="The redesigned candidate record: a light sidebar with recent records, a header grouping ID, name, status and contact fields, a linear workflow tracker, and cards for details, open submissions, open tasks and recent notes." loading="lazy">
               </div>
               <figcaption class="text-caption">The candidate record, redesigned.</figcaption>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Bullhorn/candidates-listing-updated.png" alt="The redesigned candidate list: a plain-language search field, filter chips for users, keywords, status and location, and a lighter table of candidates with sortable, filterable columns." loading="lazy">
+                <img data-xray="atom · media" src="images/Bullhorn/candidates-listing-updated.png" width="1440" height="900" alt="The redesigned candidate list: a plain-language search field, filter chips for users, keywords, status and location, and a lighter table of candidates with sortable, filterable columns." loading="lazy">
               </div>
               <figcaption class="text-caption">The candidate list, redesigned.</figcaption>
             </figure>
@@ -152,7 +152,7 @@
 
           </div>
           <div class="case-section__head">
-            <h2 id="bh-results">What the en&shy;gi&shy;neer&shy;ing team says changed.</h2>
+            <h2 id="bh-results"><span class="case-section__title-text">What the engineering team says changed.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
             <div class="case-section__support">
               <p>The designer is the worst person to judge whether a system landed, so I asked the engineer I'd worked with most closely what was different.</p>
               <p>None of the answers are about how anything looks.</p>
@@ -199,7 +199,7 @@
 
           </div>
           <div class="case-section__head">
-            <h2>Why I'd make the same call again.</h2>
+            <h2><span class="case-section__title-text">Why I'd make the same call again.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
             <div class="case-section__support">
               <p>I could have spent three months restyling two screens and left. They'd have drifted the same way the old ones did, and the rest of the platform would still be waiting its turn. Starting with the smallest pieces meant every screen after those two starts from the same place, and five developers now build from it instead of working it out.</p>
             </div>

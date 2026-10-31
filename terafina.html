@@ -20,10 +20,7 @@
   <link rel="preload" href="vendor/software/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="vendor/software/fonts.css">
   <link rel="stylesheet" href="vendor/software/tokens.css">
-  <!-- TEMPORARY: the handoff's stand-in for software's swiss mode. Not
-       committed (see .gitignore). Delete this link once the swiss mode
-       ships from Figma into vendor/software/tokens.css. -->
-  <link rel="stylesheet" href="vendor/swiss-preview/swiss.preview.css">
+  <link rel="stylesheet" href="src/styles/themes/swiss.tokens.css">
   <link rel="stylesheet" href="vendor/software/grid.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="src/styles/themes/swiss.css">
@@ -37,14 +34,14 @@
       <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
       <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
-        <a href="about.html">About</a>
         <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
       <div class="site-nav__switches">
-        <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+        <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
         <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
@@ -52,16 +49,24 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
 
-  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
-    <nav class="sheet__body nav-panel__links" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
-    </nav>
-  </dialog>
+    <!-- Inside the header so it can open from the header's bottom edge
+         (top: 100%) without knowing the header's height. -->
+    <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+      <div class="sheet__body nav-panel">
+        <nav class="nav-panel__links" aria-label="Primary">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
+        </nav>
+        <div class="nav-panel__switches">
+          <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
+          <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
+        </div>
+      </div>
+    </dialog>
+  </header>
 
   <main id="main" data-xray="template · case-study">
 
@@ -76,7 +81,7 @@
         <h1 class="case-hero__title span-12">Tera&shy;fina<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
         <p class="case-hero__lead span-6">Applicants weren't finishing Terafina's account-opening flow.</p>
         <div class="case-hero__body span-6">
-          <p class="case-hero__brief-text">Terafina provides account opening software for banks and credit unions across digital, call center, and in-branch experiences. The platform supported a wide range of financial products, but growth had stalled. The product didn't feel trustworthy, and it wasn't easy to use.</p>
+          <p class="case-hero__brief-text">Terafina makes account-opening software for banks and credit unions, used online, in call centers and in branches. It handled a wide range of financial products, but growth had stalled. The product didn't feel trustworthy, and it was hard to use.</p>
           <dl class="project-row__specs case-hero__specs">
             <div class="project-row__spec">
               <dt>Focus</dt>
@@ -92,7 +97,11 @@
             </div>
           </dl>
         </div>
-        <img class="case-hero__media span-9" data-xray="atom · media" src="images/Terafina/index-terafina.png" alt="Terafina's account-opening flow for North Capital Trust Bank on a MacBook, an iPad and an iPhone" width="2400" height="1350">
+        <div class="project-row__media project-row__media--devices project-row__media--terafina case-hero__media span-12">
+          <img class="project-row__layer" src="images/Terafina/devices/macbook.png" width="4022" height="2342" alt="Terafina on MacBook" loading="lazy">
+          <img class="project-row__layer" src="images/Terafina/devices/ipad.png" width="1314" height="1816" alt="Terafina on iPad" loading="lazy">
+          <img class="project-row__layer" src="images/Terafina/devices/iphone.png" width="854" height="1716" alt="Terafina on iPhone" loading="lazy">
+        </div>
       </div>
     </div>
 
@@ -103,23 +112,23 @@
           <div class="case-section__media">
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/before-new.png" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/before-new.png" width="2400" height="1350" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
               </div>
               <figcaption class="text-caption">The platform before the redesign.</figcaption>
             </figure>
           </div>
           <div class="case-section__head">
-          <h2 id="terafina-problem">Ap&shy;pli&shy;cants couldn't tell what they were looking at.</h2>
+          <h2 id="terafina-problem"><span class="case-section__title-text">Applicants couldn't tell what they were looking at.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>The platform was built to be flexible and customizable, but the presentation layer hadn't evolved to support that. The result was a cluttered, inconsistent experience that made it hard for users to understand what they were looking at, let alone complete an application.</p>
-            <p>That made it harder to sell and adopt, and harder for applicants to finish.</p>
+            <p>The platform was built to be flexible and customizable, but the presentation layer hadn't kept up. Screens were cluttered and inconsistent. Applicants struggled to understand what they were looking at, let alone finish an application.</p>
+            <p>It also made the product harder for banks to buy and roll out.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>The goal was a product clients could adopt and applicants could trust.</h3>
-              <p>The work focused on improving clarity and trust across the platform, while making it easier for clients to adopt and customize.</p>
-              <p>That meant rethinking the presentation layer, simplifying application flows, and introducing a more flexible system for branding and configuration.</p>
+              <p>I set out to make the platform clearer and more trustworthy, and easier for clients to brand and roll out.</p>
+              <p>That meant rebuilding the presentation layer and simplifying the application flows. Branding and configuration needed a more flexible system too.</p>
             </div>
           </div>
         </section>
@@ -128,46 +137,46 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="terafina-approach">We started at the foun&shy;da&shy;tion and let the system scale from there.</h2>
+          <h2 id="terafina-approach"><span class="case-section__title-text">We started at the foundation and let the system scale from there.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           <div class="case-section__support">
-            <p>Instead of redesigning screens in isolation, I focused on rebuilding the system from the ground up, starting with atomic elements and letting those decisions scale across the product.</p>
+            <p>I rebuilt the system from its atomic elements up, so each decision carried across the whole product instead of living on one screen.</p>
             <p>That made the front end consistent without touching the Salesforce platform underneath it.</p>
           </div>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
               <h3>A progress stepper told applicants where they were and how much was left.</h3>
-              <p>Application flows became clearer and easier to follow. I introduced a progress stepper across devices, giving users a better sense of where they were and what remained. Hierarchy and content were reworked to reduce friction, surfacing important information instead of hiding it.</p>
-              <p>A white-label system made it easier for clients to apply their own branding without heavy development effort. This reduced implementation complexity and made the product easier for new clients to adopt.</p>
+              <p>I added a progress stepper on every device, so applicants could see where they were and what was left. I reworked the hierarchy and content so important information came first instead of getting buried.</p>
+              <p>A white-label system let clients apply their own branding without much development work. That made the product simpler to implement and easier for new clients to adopt.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-typography.png" alt="Terafina style guide: the typography scale" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-typography.png" width="1000" height="1000" alt="Terafina style guide: the typography scale" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-colors.png" alt="Terafina style guide: the color system" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-colors.png" width="1000" height="1000" alt="Terafina style guide: the color system" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-progressStepper.png" alt="Terafina style guide: the progress stepper component" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-progressStepper.png" width="1000" height="1000" alt="Terafina style guide: the progress stepper component" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-1.png" alt="Terafina style guide: general UI components" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-1.png" width="1000" height="1000" alt="Terafina style guide: general UI components" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-2.png" alt="Terafina style guide: form and card components" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-generalUI-2.png" width="1000" height="1000" alt="Terafina style guide: form and card components" loading="lazy">
               </div>
             </figure>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-dropdowns.png" alt="Terafina style guide: dropdown states" loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/styleguide/styleGuide-dropdowns.png" width="1000" height="1000" alt="Terafina style guide: dropdown states" loading="lazy">
               </div>
             </figure>
           </div>
@@ -177,17 +186,17 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2 id="terafina-outcome">Aban&shy;don&shy;ment dropped 12% after the rebuild.</h2>
+          <h2 id="terafina-outcome"><span class="case-section__title-text">Abandonment dropped 12% after the rebuild.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           </div>
           <div class="case-section__body">
             <div class="case-section__part">
-              <p>The platform became easier to understand, giving both users and clients more confidence in how it worked.</p>
+              <p>The platform got easier to understand, and both applicants and clients trusted it more.</p>
               <p>Fewer applicants gave up partway through, because the flow was easier to follow and every screen behaved the same way.</p>
-              <p>The flexible branding system made the product more accessible to new clients, supporting adoption without increasing implementation complexity.</p>
+              <p>The branding system made it easier for new clients to adopt the product without adding implementation work.</p>
             </div>
             <figure class="stack--tight">
               <div class="img-frame media-pair" data-xray="molecule · media-pair">
-                <img data-xray="atom · media" src="images/Terafina/after.png" alt="The Terafina platform after the redesign, on a phone, a tablet, and a desktop. The interface is cleaner, more consistent, and easier to follow." loading="lazy">
+                <img data-xray="atom · media" src="images/Terafina/after.png" width="2400" height="1350" alt="The Terafina platform after the redesign, on a phone, a tablet, and a desktop. The interface is cleaner, more consistent, and easier to follow." loading="lazy">
               </div>
               <figcaption class="text-caption">The platform after the rebuild.</figcaption>
             </figure>
@@ -198,7 +207,7 @@
           <div class="case-section__media">
           </div>
           <div class="case-section__head">
-          <h2>Clarity that lives in the system holds up when the product changes.</h2>
+          <h2><span class="case-section__title-text">Clarity that lives in the system holds up when the product changes.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           </div>
           <div class="case-section__body">
           </div>
@@ -210,7 +219,7 @@
         <div class="grid">
           <article class="project-row project-row--index project-row--lead span-12" data-xray="molecule · project-row">
             <div class="project-row__media project-row__media--static">
-              <img src="images/software/index-swiss.png" alt="Designing with AI case study preview" loading="lazy">
+              <img src="images/software/index-swiss.png" alt="The component reference for the contractor app on a laptop: token documentation for the status chip and the alert, each shown in light and dark" width="4022" height="2342" loading="lazy">
             </div>
             <div class="project-row__content">
               <p class="project-row__meta"><span class="project-row__number">03 / 07</span><span class="project-row__tag">AI • Systems</span></p>

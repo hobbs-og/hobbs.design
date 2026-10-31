@@ -30,6 +30,10 @@ img {
   block-size: auto;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
+
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -83,4 +87,10 @@ dialog:not([open]) {
 
 [hidden] {
   display: none !important;
+}
+
+/* Abbreviations keep their own case inside uppercase labels, so "SaaS"
+   doesn't render as "SAAS". */
+abbr {
+  text-transform: none;
 }

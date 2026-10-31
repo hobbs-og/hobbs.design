@@ -9,18 +9,24 @@
     </nav>
 
     <div class="site-nav__switches">
-      <label class="switch xray-toggle" data-xray="atom · switch"><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
-      <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
+      <!-- @include switches.html -->
     </div>
 
     <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
       <span></span><span></span><span></span>
     </button>
   </div>
-</header>
 
-<dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
-  <nav class="sheet__body nav-panel__links" aria-label="Primary">
-    <!-- @include nav-links.html -->
-  </nav>
-</dialog>
+  <!-- Inside the header so it can open from the header's bottom edge
+       (top: 100%) without knowing the header's height. -->
+  <dialog class="sheet sheet--nav" id="nav-panel" aria-label="Menu">
+    <div class="sheet__body nav-panel">
+      <nav class="nav-panel__links" aria-label="Primary">
+        <!-- @include nav-links.html -->
+      </nav>
+      <div class="nav-panel__switches">
+        <!-- @include switches.html -->
+      </div>
+    </div>
+  </dialog>
+</header>

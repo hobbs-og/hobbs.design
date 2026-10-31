@@ -64,7 +64,7 @@
   // The panel is a mobile affordance; if the viewport grows past the
   // breakpoint while it is open, the desktop links take over and it
   // should not be left hanging.
-  var wide = window.matchMedia('(min-width: 48rem)');
+  var wide = window.matchMedia('(min-width: 35em)');
   var onChange = function (e) { if (e.matches) closePanel(false); };
   if (typeof wide.addEventListener === 'function') wide.addEventListener('change', onChange);
 })();

@@ -13,8 +13,9 @@ the rendered pages. Sloppiness here is visible to the audience.
 ## This repo is one brand of @hobbs-og/software
 
 Tokens come from **[@hobbs-og/software](https://github.com/hobbs-og/software)**.
-Read its `README.md` and `CLAUDE.md` before styling anything here. Figma
-controls every value: never invent one, never edit a generated file.
+Read its `README.md` and `CLAUDE.md` before styling anything here. Never
+invent a value and never edit a generated file. Figma doesn't control the
+swiss brand's values; this repo does (see the house rules).
 
 - `data-brand="portfolio"` on `<html>` selects this site's brand: the
   production palette in light and dark (Tier 1 role tokens) and the production
@@ -74,6 +75,7 @@ this repo.
 |---|---|
 | `tokens/component-software/` | this site's Tier 3 tokens from portfolio-components; alias software tokens |
 | `dist/tokens.components.css` | those compiled by `tools/component-tokens.mjs` |
+| `src/styles/themes/swiss.tokens.css` | the swiss brand's values: color ramps, semantic colors, type roles |
 | `src/styles/legacy-tokens.css` | old token names pointed at new ones (the bridge) |
 | `src/styles/system.css` | the old system's structure, without its tokens |
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
@@ -121,11 +123,12 @@ left out.
 | Partial | Used for |
 |---|---|
 | `head.html` | doctype to `<body>`. Takes `title` and `description` |
-| `site-nav.html`, `nav-links.html` | skip link, header, switches, phone menu. One set of links for both navs |
+| `site-nav.html`, `nav-links.html`, `switches.html` | skip link, header and the phone menu. The menu sits inside the header so it opens from the header's bottom edge. Links and switches are shared by both |
 | `site-footer.html` | footer and the x-ray legend |
 | `next-project.html` | the closing row on a case study. Takes `project` (a slug) |
 | `projects/<slug>-row.html` | a project's row. Takes `class` (span, `project-row--lead`) and `media?` |
 | `projects/<slug>-specs.html` | its Focus / Scope / Context list. Takes `class?` |
+| `projects/<slug>-media.html` | its image or device combo. The index row and the case-study hero both use it, so they always match. Takes `class?` |
 
 A project's specs are written once, then used in its index row, its case-study
 hero and wherever it's the next project. Slugs are the page file names:
@@ -137,17 +140,31 @@ it and keep the blocks in this order:
 1. `.case-hero` with its band, title, lead, body and specs include
 2. `.case-flow`: one `section.case-section.case-section--card` per chapter,
    each with `__media`, `__head` (h2 + `__support`) and `__body`. A slot with
-   no content stays as an empty element; the grid relies on it
+   no content stays as an empty element; the grid relies on it. Every h2 is
+   `<h2 id="…"><span class="case-section__title-text">…</span>` followed by the
+   `case-section__title-icon` svg (`#swiss-arrow-down-left`). The span keeps
+   the text on columns 1–6 while the arrow sits at the grid's end
 3. `__body` holds `__part` (h3 + paragraphs), `figure.stack--tight` with an
    `.img-frame.media-pair` and a `.text-caption`, or `__notes` of `__note`
 4. `<!-- @include next-project.html project="…" -->`
 
+**Type steps with the screen.** Every heading has a phone, tablet and
+desktop size from system roles (mostly `headline-lg`'s 32 / 40 / 56 steps).
+Desktop sizes are the design's; smaller screens step down below 60em and
+35em. A new heading style needs the same steps, not one fixed size.
+
+**No one-word last lines, in CSS only.** Headings and short display text
+use `text-wrap: balance`; paragraphs and captions use `pretty`. Where a
+browser ignores them, the line wraps however it wraps. Never put `&nbsp;`,
+`<br>` or other characters in copy to steer a line break: they change what
+a screen reader and a translator get, to fix something visual (Mark,
+2026-10-28).
+
 **Soft hyphens.** Chrome won't auto-hyphenate a capitalized or uppercase
-word, and the hero title and section h2s are both uppercase. So long words
-carry `&shy;` at their break points in the source: the hero name
-(`Bull&shy;horn`), and any h2 word that overflows a 320px screen
-(`com&shy;po&shy;nents`). The h2s use them on phones only. The hero title
-uses them below 60em. From 60em a multi-word name breaks between words,
+word. The hero name is uppercase and fills the row, so long names carry
+`&shy;` at their break points in the source (`Bull&shy;horn`). Section
+h2s don't need them: at 32px on a phone, the longest word fits a 320px
+screen. The hero title uses soft hyphens below 60em. From 60em a multi-word name breaks between words,
 because Chrome otherwise splits a word that would fit on the next line. A
 single-word name too long for the row at 136px adds
 `case-hero__title--hyphenate` to keep its hyphens there (Groundwork does).
@@ -156,8 +173,9 @@ The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
 `.contact-section__title`) belong to the index only. Don't reuse them on
 other pages.
 
-**Stylesheets.** Swiss pages load software's `fonts.css`, `tokens.css`, `grid.css`,
-then `src/styles/base.css` and `src/styles/themes/swiss.css`. They don't load
+**Stylesheets.** Swiss pages load software's `fonts.css` and `tokens.css`, then
+`src/styles/themes/swiss.tokens.css`, software's `grid.css`,
+`src/styles/base.css` and `src/styles/themes/swiss.css`. They don't load
 `system.css` or `main.css`. The old stack leaks its paddings, borders and type
 into swiss components. Pages not yet converted still use the old stack.
 
@@ -168,6 +186,21 @@ into swiss components. Pages not yet converted still use the old stack.
 - **No inline styles, anywhere, ever.** If a rule is needed it gets a class.
   `src/styles/organisms/case-study.css` exists because of this rule
   (`.case-section`, `.case-section__support`).
+- **Type comes from software's typography tokens**, unless Mark says
+  otherwise: a role (`--typography-headline-lg-*`) where one fits, else a core
+  step (`--typography-font-size-48`). Never a raw `rem` or `px`. The one
+  exception is the case-hero title's fill-width formula, which Mark chose.
+- **Images declare no width** (Mark, 2026-10-27). The column sizes them:
+  they stretch to their grid or flex column, capped by `max-inline-size:
+  100%` in `base.css`. The only image widths are the device-combo
+  `--layer-width` percentages, which are the composition itself.
+- **The swiss brand's values live in this repo** (Mark, 2026-10-30). Edit
+  them in `src/styles/themes/swiss.tokens.css`, with no Figma step. Anything
+  that overrides software goes there too, never in `vendor/`. Values are
+  still Mark's call: if the one you need isn't there, ask.
+- **360px is the narrowest supported width** (Mark, 2026-10-29). Test
+  layouts, reflow and horizontal scroll at 360, not 320. Nothing has to fit
+  a narrower screen.
 - **Components are classes on semantic HTML** (`article.project-row`), not
   custom elements. Decided explicitly.
 - **The `.site-nav` header is locked in** — byte-identical on every page:

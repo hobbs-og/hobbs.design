@@ -49,7 +49,5 @@ curl_test.php
 test.html
 grid.html
 
-# ---- Swiss preview stand-in (temporary) ----
-# The handoff's approximation of software's swiss mode. It stays local and
-# goes away once the mode ships from Figma; see pages/partials/head.html.
-vendor/swiss-preview/
+# ---- Project-local npm cache ----
+.npm-cache/

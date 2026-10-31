@@ -1,11 +1,11 @@
 /* ============================================================
    themes/swiss.css: the swiss brand theme for hobbs.design
 
-   Active only under data-brand="swiss" on <html>. Loads after the
-   system stylesheet and main.css, so every rule is scoped to the
+   Active only under data-brand="swiss" on <html>. Loads last, after
+   swiss.tokens.css and base.css, so every rule is scoped to the
    brand and wins on specificity, never on !important.
 
-   Colors and type come from @hobbs-og/software's swiss mode
+   Colors and type come from swiss.tokens.css and @hobbs-og/software
    (--color-*, --typography-*). This file only aliases them into
    component tokens and lays the components out.
 
@@ -44,9 +44,10 @@
      breakpoint below, e.g. --swiss-grid-gutter: var(--spacing-48). */
   --page-spacing-gutter: var(--swiss-grid-gutter, var(--container-gutter));
 
-  /* Page grid overlay: the four 3-column modules (two below 35em). */
+  /* Page grid overlay: the four modules from 35em. Phones draw one, the
+     outer edges only (Mark, 2026-10-27). */
   --page-grid-display: block;
-  --page-grid-modules: 2;
+  --page-grid-modules: 1;
   --page-grid-color-border: color-mix(in srgb, var(--color-content-emphasized) 10%, transparent);
   --page-grid-border-width: 0.0625rem;
 
@@ -88,7 +89,7 @@
   --site-nav-size-icon: 1rem;
   --site-nav-spacing-padding-y: var(--swiss-spacing-20);
   --site-nav-spacing-links-gap-x: var(--spacing-24);
-  --site-nav-spacing-link-gap: var(--spacing-64);
+  --site-nav-spacing-link-gap: var(--spacing-24);
   --site-nav-spacing-links-gap-y: var(--spacing-8);
   --site-nav-spacing-toggle-gap: var(--spacing-2);
   --page-spacing-icon-gap: var(--spacing-8);
@@ -99,6 +100,15 @@
   --site-nav-spacing-toggle-bar-gap: 0.3125rem;
   --site-nav-color-logo-band: color-mix(in srgb, var(--color-background-brand) 40%, transparent);
   --site-nav-motion-range: 6rem;
+
+  /* nav-panel: the phone menu, under the header */
+  --nav-panel-spacing-padding-x: var(--page-spacing-padding-x);
+  --nav-panel-spacing-padding-top: var(--spacing-48);
+  --nav-panel-spacing-links-gap: var(--spacing-16);
+  --nav-panel-spacing-switches-margin-top: var(--spacing-48);
+  --nav-panel-spacing-switches-gap: var(--spacing-24);
+  --nav-panel-color-content-link: var(--site-nav-color-content-default);
+  --nav-panel-color-content-link-hover: var(--site-nav-color-content-hover);
 
   /* switch */
   --switch-color-border-default: var(--color-border-default);
@@ -127,6 +137,10 @@
   --index-hero-spacing-gap: var(--swiss-spacing-240);
   --index-hero-spacing-gap-min: var(--swiss-spacing-120);
   --index-hero-spacing-intro-gap: var(--spacing-24);
+  /* Empty line box above the wordmark's letters: its baseline sits
+     0.8633em from the box top and Inter's ascender (h, b, d at opsz 32)
+     is 0.7275em tall, so the ink starts 0.1358em down. */
+  --index-hero-spacing-wordmark-ink-top: calc(var(--typography-wordmark-default-font-size) * (0.8633 - 0.7275));
 
   /* wordmark */
   --wordmark-color-content-primary: color-mix(in srgb, var(--color-background-brand) 86%, white);
@@ -146,6 +160,7 @@
   --stat-band-color-border-rule: var(--color-border-strong);
   --stat-band-color-content-label: var(--color-content-subtle);
   --stat-band-color-content-value: var(--color-content-headline-brand);
+  --stat-band-color-content-meta: var(--color-content-subtle);
   --stat-band-border-width: 0.0625rem;
   --stat-band-spacing-margin-top: var(--spacing-24);
   --stat-band-spacing-padding-bottom: var(--spacing-64);
@@ -153,7 +168,8 @@
   --stat-band-spacing-stat-gap: var(--swiss-spacing-240);
   --stat-band-spacing-stat-padding-x: var(--spacing-16);
   --stat-band-spacing-stat-padding-bottom: 0;
-  --stat-band-spacing-stagger: 0;
+  --stat-band-spacing-meta-gap: var(--spacing-8);
+  --stat-band-spacing-stagger: var(--swiss-spacing-120);
   --stat-band-motion-stagger: 15vh;
   --stat-band-motion-length: 70vh;
 
@@ -184,7 +200,6 @@
     drop-shadow(0 0.125rem 0.1875rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent))
     drop-shadow(0 1.25rem 2.5rem color-mix(in srgb, var(--color-elevation-shadow) 33%, transparent))
     drop-shadow(0 3rem 5rem color-mix(in srgb, var(--color-elevation-shadow) 27.5%, transparent));
-  --project-row-size-media: 80%;
   --project-row-size-bullet: 0.375rem;
   --project-row-spacing-bullet-offset: -0.125rem;
   --project-row-spacing-gap: var(--spacing-24);
@@ -230,6 +245,12 @@
   --button-spacing-actions-gap-x: var(--spacing-32);
   --button-spacing-actions-gap-y: var(--spacing-16);
   --button-scale-active: 0.98;
+
+  /* skip-link: a solid button's knockout surface */
+  --skip-link-color-default-background-default: var(--color-background-knockout);
+  --skip-link-color-default-content-default: var(--color-content-knockout);
+  --skip-link-spacing-padding-x: var(--button-spacing-padding-x);
+  --skip-link-spacing-padding-y: var(--button-spacing-padding-y);
 
   /* how-i-work */
   --how-i-work-color-content-title: var(--color-content-headline);
@@ -307,6 +328,9 @@
   --media-pair-spacing-padding: var(--spacing-16);
   --case-section-spacing-rule: var(--spacing-64);
   --case-section-border-width-rule: 0.0625rem;
+  /* The rule under each h2 matches the hero title row's 4px rule. */
+  --case-section-border-width-title: var(--case-hero-border-width-title-row);
+  --case-section-color-border-title: var(--case-hero-color-border-band);
   --case-section-color-border-rule: var(--page-grid-color-border);
   /* Scales with the title: 48px (--spacing-48) at the 136px desktop
      title, as a share of the title size. A fixed 48px crowds the arrow off the
@@ -323,6 +347,9 @@
   --case-hero-font-size-title: min(var(--typography-display-lg-font-size), 20cqi);
   --case-hero-line-height-title: 1;
   --case-section-size-note-icon: 0.75rem;
+  --case-section-spacing-note-icon-gap: var(--spacing-8);
+  /* Same ratio as the hero title arrow: 48px at 136px type. */
+  --case-section-spacing-title-icon-gap: calc(1em * 48 / 136);
   --case-section-spacing-first-padding-top: var(--swiss-spacing-120);
   --case-section-spacing-head-padding-top: var(--spacing-24);
   --case-section-spacing-row-gap: var(--spacing-24);
@@ -367,8 +394,9 @@
   /* sheet: values match production (organisms/sheet.css + tokens/component/sheet.json) */
   --sheet-color-surface: var(--color-background-default);
   --sheet-color-elevate: color-mix(in srgb, white 5%, transparent);
-  /* Light scrim so the page reads through the translucent sheet. */
-  --sheet-color-scrim: color-mix(in srgb, var(--color-background-knockout) 16%, transparent);
+  /* The system's overlay color behind an open sheet (Mark, 2026-10-27:
+     darker than the design's 16% knockout mix). */
+  --sheet-color-scrim: var(--color-background-knockout-translucent);
   --sheet-color-chrome: var(--color-background-subtle);
   --sheet-color-handle: var(--color-border-default);
   --sheet-color-hairline: var(--color-border-subtle);
@@ -405,20 +433,15 @@
   [data-brand="swiss"] {
     --page-spacing-padding-x: var(--spacing-24);
     --page-grid-modules: 4;
-    --stat-band-spacing-stagger: var(--swiss-spacing-120);
   }
 }
 
 @media (min-width: 60em) {
   [data-brand="swiss"] {
-    /* Large grid gutter: 48px, per the large grid in software-subatomic.
-       The vendored tokens.css still resolves --container-gutter to
-       --spacing-gap-lg (24px); once the Figma export lands, point this at
-       the exported large-gutter token (or drop it if --container-gutter
-       becomes 48px). Layout and the grid-line overlay both read it. */
+    /* Large grid gutter: 48px. --container-gutter stops at 24px, so swiss
+       sets its own. Layout and the grid-line overlay both read it. */
     --swiss-grid-gutter: var(--spacing-48);
     --page-spacing-padding-x: max(var(--spacing-48), calc((100% - var(--page-size-max-width)) / 2));
-    --stat-band-spacing-stagger: var(--swiss-spacing-120);
   }
 }
 
@@ -489,6 +512,19 @@
   outline-offset: var(--page-spacing-focus-offset);
 }
 
+/* :hover is listed so the a:hover link colour can't reach the knockout surface */
+[data-brand="swiss"] .skip-link,
+[data-brand="swiss"] .skip-link:hover {
+  padding: var(--skip-link-spacing-padding-y) var(--skip-link-spacing-padding-x);
+  font-family: var(--typography-label-lg-font-family);
+  font-size: var(--typography-label-lg-font-size);
+  line-height: var(--typography-label-lg-line-height);
+  font-weight: var(--typography-label-lg-font-weight);
+  letter-spacing: var(--typography-label-lg-letter-spacing);
+  color: var(--skip-link-color-default-content-default);
+  background: var(--skip-link-color-default-background-default);
+}
+
 [data-brand="swiss"] :is(h1, h2, h3, h4, p, dl, dd, figure, ul) {
   margin: 0;
 }
@@ -549,7 +585,7 @@
 
 [data-brand="swiss"] .site-nav__logo {
   margin-inline-end: auto;
-  flex: 1 1 0;
+  flex: none;
   color: var(--site-nav-color-content-default);
   font-size: var(--typography-logo-default-font-size);
   line-height: var(--typography-logo-default-line-height);
@@ -580,17 +616,31 @@
   color: var(--color-content-link-hover);
 }
 
+/* The switch group sits on the links' baseline: it takes the links' type
+   so it has a real line box (the switch's own text is visually hidden,
+   so on its own it had no baseline and its bottom edge sat on the
+   links' baseline, 4px high). The switch centers on the middle of the
+   link caps (Mark, 2026-10-28). Its baseline comes from its first item,
+   the icon's bottom edge, and the icon and track share one center, so
+   it's raised half the cap height (Inter caps are 0.727em) less half
+   the icon's height. */
 [data-brand="swiss"] .site-nav__switches {
-  flex: 1 1 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-  gap: var(--site-nav-spacing-links-gap-x);
+  flex: none;
+  display: block;
+  text-align: end;
+  font-size: var(--typography-meta-sm-font-size);
+  line-height: var(--typography-meta-sm-line-height);
 }
 
-/* Links sit centered in the bar: the logo and the switch group take
-   equal flexible space on either side. */
+[data-brand="swiss"] .site-nav__switches .switch {
+  vertical-align: calc(var(--typography-meta-sm-font-size) * 0.727 / 2 - var(--site-nav-size-icon) / 2);
+}
+
+/* The links center in the space between the logo and the toggle, not
+   on the page (Mark, 2026-10-28): the logo and switch group take their
+   own widths and the links take the rest. */
 [data-brand="swiss"] .site-nav__links {
+  flex: 1 1 auto;
   display: none;
   flex-wrap: wrap;
   justify-content: center;
@@ -599,7 +649,7 @@
   font-size: var(--typography-meta-sm-font-size);
   line-height: var(--typography-meta-sm-line-height);
   font-weight: var(--typography-meta-sm-font-weight);
-  letter-spacing: 0.5px;
+  letter-spacing: var(--typography-letter-spacing-half);
   /* Nav only: meta-sm set in uppercase; the token itself is unchanged. */
   text-transform: uppercase;
 }
@@ -725,6 +775,10 @@
     display: flex;
   }
 
+  [data-brand="swiss"] .site-nav__switches .switch {
+    display: inline-flex;
+  }
+
   [data-brand="swiss"] .site-nav__toggle {
     display: none;
   }
@@ -755,6 +809,31 @@
   grid-row: 4;
 }
 
+/* Desktop: the intro sits centered between the header and the top of the
+   wordmark's letters (Mark, 2026-10-27). It takes the whole space above
+   the wordmark as one row and centers in it. Its top and bottom padding
+   add up to the 240px gap the layout always reserved, so the fold's
+   height and the wordmark's place don't change. The padding is shifted by
+   half the wordmark's empty line box, so the visible gaps come out even:
+   header to intro equals intro to the tops of the letters. */
+@media (min-width: 60em) {
+  [data-brand="swiss"] .index-hero {
+    grid-template-rows: 1fr auto;
+  }
+
+  [data-brand="swiss"] .index-hero > .index-hero__intro {
+    grid-row: 1;
+    align-content: center;
+    padding-block:
+      calc(var(--index-hero-spacing-gap) / 2 + var(--index-hero-spacing-wordmark-ink-top) / 2)
+      calc(var(--index-hero-spacing-gap) / 2 - var(--index-hero-spacing-wordmark-ink-top) / 2);
+  }
+
+  [data-brand="swiss"] .index-hero > .index-hero__wordmark {
+    grid-row: 2;
+  }
+}
+
 [data-brand="swiss"] .index-hero__intro {
   row-gap: var(--index-hero-spacing-intro-gap);
   align-items: first baseline;
@@ -781,6 +860,11 @@
 [data-brand="swiss"] .index-hero__wordmark {
   margin-block-end: var(--wordmark-spacing-baseline-trim);
   display: grid;
+  /* One column exactly the grid's width. An auto column grows to fit
+     ".design" (a hair wider than the grid at 37.5cqi), which pushed its
+     end past the grid line. Fixed to the grid, justify-self: end keeps
+     the n on the right edge and the dot's side bearing absorbs the rest. */
+  grid-template-columns: minmax(0, 1fr);
   font-family: var(--typography-wordmark-default-font-family);
   font-size: var(--typography-wordmark-default-font-size);
   line-height: var(--typography-wordmark-default-line-height);
@@ -810,6 +894,14 @@
 
 [data-brand="swiss"] .index-hero__letter {
   display: inline-block;
+}
+
+/* Tracking is added after every letter, the last one included, which
+   left ".design"'s final n 0.1em past its box and past the grid. With
+   the trailing tracking gone, the -0.05em optical offset cancels the
+   glyph's side bearing and the ink sits on the grid edge. */
+[data-brand="swiss"] .index-hero__letter:last-child {
+  letter-spacing: 0;
 }
 
 /* Each letter's order across both words, its direction (even rises,
@@ -860,6 +952,27 @@
 [data-brand="swiss"] .stat:nth-of-type(3) { --i: 2; margin-block-start: calc(var(--stat-band-spacing-stagger) * 2); }
 [data-brand="swiss"] .stat:nth-of-type(1) { --i: 0; }
 
+/* The stats share one staggered row at every width. Desktop: the spacer
+   fills the first 3-column module and each stat takes one module after
+   it. Tablet mirrors that on the 8-column grid's 2-column modules
+   (columns 3-4, 5-6, 7-8), so the rules sit on the grid lines. Phones
+   have two modules for three stats, so they split the width evenly. */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] .stat-band__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  [data-brand="swiss"] .stat-band__grid > .stat {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 35em) and (max-width: 59.9375em) {
+  [data-brand="swiss"] .stat-band__grid > .stat:nth-of-type(1) { grid-column: 3 / span 2; }
+  [data-brand="swiss"] .stat-band__grid > .stat:nth-of-type(2) { grid-column: 5 / span 2; }
+  [data-brand="swiss"] .stat-band__grid > .stat:nth-of-type(3) { grid-column: 7 / span 2; }
+}
+
 [data-brand="swiss"] .stat__label {
   font-family: var(--typography-eyebrow-default-font-family);
   font-size: var(--typography-eyebrow-default-font-size);
@@ -868,11 +981,23 @@
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
   color: var(--stat-band-color-content-label);
+  /* Labels wrap when they need to (Mark, 2026-10-28). One line ran
+     "Unnecessary design variants" off the screen below 60em. */
+  text-wrap: balance;
 }
 
-/* Trim the line box to the alphabetic baseline so the column rule ends
-   exactly on the number's baseline. Browsers without text-box show a
-   few pixels of descender space below it. */
+/* The number with its supporting line 8px under it (Mark, 2026-10-28).
+   column-reverse on .stat puts this pair at the bottom and the label at
+   the top. */
+[data-brand="swiss"] .stat__figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stat-band-spacing-meta-gap);
+}
+
+/* Trim the line box to the alphabetic baseline so the 8px gap to the
+   supporting line starts at the number's baseline. Browsers without
+   text-box show a few pixels of descender space below it. */
 [data-brand="swiss"] .stat__value {
   text-box: trim-end text alphabetic;
   font-family: var(--typography-numeral-lg-font-family);
@@ -883,16 +1008,31 @@
   color: var(--stat-band-color-content-value);
 }
 
+[data-brand="swiss"] .stat__meta {
+  font-family: var(--typography-meta-default-font-family);
+  font-size: var(--typography-meta-default-font-size);
+  line-height: var(--typography-meta-default-line-height);
+  font-weight: var(--typography-meta-default-font-weight);
+  letter-spacing: var(--typography-meta-default-letter-spacing);
+  text-transform: var(--typography-meta-default-text-transform);
+  color: var(--stat-band-color-content-meta);
+  text-wrap: pretty;
+}
+
 [data-brand="swiss"] .stat__reel {
   display: inline-flex;
 }
 
 /* One digit window. The hidden ::after sizes it to one glyph; ::before
-   is a strip of 0–9 repeated four times that slides into place. */
+   is a strip of 0–9 repeated four times that slides into place. The
+   window clips only top and bottom. The numerals' negative tracking
+   makes each box narrower than its glyph, so clipping the sides too cut
+   the right edge off every digit (Mark saw it on the last one). The
+   sides extend by the tracking, the width the box lost. */
 [data-brand="swiss"] .stat__digit {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  clip-path: inset(0 min(0em, var(--typography-numeral-lg-letter-spacing)));
 }
 
 [data-brand="swiss"] .stat__digit::after {
@@ -1053,10 +1193,10 @@
   margin-block-end: var(--project-row-spacing-media-clearance);
 }
 
+/* Images take no width of their own: they stretch to the column. */
 [data-brand="swiss"] .project-row__media > img {
   grid-area: 1 / 1;
-  justify-self: start;
-  inline-size: var(--project-row-size-media);
+  justify-self: stretch;
   filter: var(--project-row-elevation-flat);
   --drift: var(--project-row-motion-drift);
 }
@@ -1073,50 +1213,56 @@
   filter: var(--layer-blur, ) var(--layer-elevation, var(--project-row-elevation-flat));
 }
 
+/* Each composite runs edge to edge of its box (Mark, 2026-10-27). The
+   design's layouts filled 76-80% of the box, so every width, offset and
+   lift is the design's value divided by that span (0.8 or 0.76), minus
+   its left inset where the composite didn't start at 0. The composition
+   is unchanged, only scaled to the box. Lifts are % of the box width too,
+   so they scale with it. */
 [data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(1),
 [data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(1) {
-  --layer-width: 80%; --layer-lift: 4.8%; --drift: 1rem;
+  --layer-width: calc(80% / 0.8); --layer-lift: calc(4.8% / 0.8); --drift: 1rem;
 }
 [data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(2) {
-  --layer-width: 33.6%; --layer-justify: end; --layer-end: 20%; --drift: 2rem;
+  --layer-width: calc(33.6% / 0.8); --layer-justify: end; --layer-end: 0%; --drift: 2rem;
 }
 [data-brand="swiss"] .project-row__media--terafina > .project-row__layer:nth-child(3) {
-  --layer-width: 16%; --layer-lift: calc(4.8% - 1.2rem); --drift: 3rem;
+  --layer-width: calc(16% / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --drift: 3rem;
 }
 [data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(2) {
-  --layer-width: 13.6%; --layer-justify: end; --layer-end: 20%; --layer-elevation: var(--project-row-elevation-phone); --drift: 2rem;
+  --layer-width: calc(13.6% / 0.8); --layer-justify: end; --layer-end: 0%; --layer-elevation: var(--project-row-elevation-phone); --drift: 2rem;
 }
 [data-brand="swiss"] .project-row__media--uhm > .project-row__layer:nth-child(3) {
-  --layer-width: 16%; --layer-justify: end; --layer-end: 39.2%; --layer-lift: calc(4.8% - 1.2rem); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
+  --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
 }
 [data-brand="swiss"] .project-row__media--mhe > .project-row__layer:nth-child(1) {
-  --layer-width: 52%; --layer-lift: 17.6%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.0625rem); --drift: 1rem;
 }
 [data-brand="swiss"] .project-row__media--mhe > .project-row__layer:nth-child(2) {
-  --layer-width: 58%; --layer-start: 22%; --drift: 3rem;
+  --layer-width: calc(58% / 0.8); --layer-start: calc(22% / 0.8); --drift: 3rem;
 }
 [data-brand="swiss"] .project-row__media--rumi > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
 [data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(1) {
-  --layer-width: 20%; --layer-start: 4%; --layer-lift: 9.6%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.0625rem); --drift: 1rem;
 }
 [data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(2) {
-  --layer-width: 22.4%; --layer-justify: end; --layer-end: 20%; --layer-lift: 4.8%; --layer-blur: blur(0.03125rem); --drift: 2rem;
+  --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.03125rem); --drift: 2rem;
 }
 [data-brand="swiss"] .project-row__media--rumi > .project-row__layer:nth-child(3) {
-  --layer-width: 25.6%; --layer-start: 26.4%; --drift: 3rem;
+  --layer-width: calc(25.6% / 0.76); --layer-start: calc((26.4% - 4%) / 0.76); --drift: 3rem;
 }
 [data-brand="swiss"] .project-row__media--proof > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
 [data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(1) {
-  --layer-width: 17.6%; --layer-start: 2.4%; --layer-lift: 10.4%; --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(17.6% / 0.76); --layer-start: 0%; --layer-lift: calc(10.4% / 0.76); --layer-blur: blur(0.0625rem); --drift: 1rem;
 }
 [data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(2) {
-  --layer-width: 20%; --layer-justify: end; --layer-end: 21.6%; --layer-lift: 5.6%; --layer-blur: blur(0.03125rem); --drift: 1.6875rem;
+  --layer-width: calc(20% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(5.6% / 0.76); --layer-blur: blur(0.03125rem); --drift: 1.6875rem;
 }
 [data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(3) {
-  --layer-width: 22.4%; --layer-start: 16%; --layer-lift: 2.4%; --layer-blur: blur(0.015625rem); --drift: 2.3125rem;
+  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.015625rem); --drift: 2.3125rem;
 }
 [data-brand="swiss"] .project-row__media--proof > .project-row__layer:nth-child(4) {
-  --layer-width: 24.8%; --layer-justify: end; --layer-end: 39.2%; --drift: 3rem;
+  --layer-width: calc(24.8% / 0.76); --layer-justify: end; --layer-end: calc((39.2% - 21.6%) / 0.76); --drift: 3rem;
 }
 
 [data-brand="swiss"] .project-row__content {
@@ -1176,7 +1322,7 @@
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-sm-font-weight);
   color: var(--project-row-color-content-detail);
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 /* Two lists per row with the page gutter between them, so in a 6-column
@@ -1270,10 +1416,6 @@
     grid-column: 1 / span 9;
   }
 
-  [data-brand="swiss"] .project-row--lead > .project-row__media:not(.project-row__media--devices) > img {
-    inline-size: 100%;
-  }
-
   [data-brand="swiss"] .project-row--lead > .project-row__content {
     grid-column: 4 / span 6;
   }
@@ -1322,6 +1464,13 @@
   transition:
     color var(--motion-duration-color) ease,
     background-size var(--motion-duration-draw) var(--motion-easing-standard);
+}
+
+/* The arrow CTA ("View case study", "More about me", the About page
+   links) is set in capitalized words (Mark, 2026-10-28). The plain email
+   link has no arrow and stays as typed. */
+[data-brand="swiss"] .cta:has(> .icon) {
+  text-transform: capitalize;
 }
 
 [data-brand="swiss"] .cta .icon,
@@ -1738,7 +1887,7 @@
   font-weight: var(--typography-title-default-font-weight);
   letter-spacing: var(--typography-title-default-letter-spacing);
   color: var(--case-section-color-content-heading);
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 [data-brand="swiss"] .case-section__support p,
@@ -2205,7 +2354,6 @@
 }
 
 [data-brand="swiss"] .project-row--next .project-row__media > img {
-  inline-size: 100%;
   filter: none;
 }
 
@@ -2336,11 +2484,9 @@
 }
 
 [data-brand="swiss"] .case-hero__media {
-  inline-size: 100%;
-  /* Full width on the 2-column phone grid. "span 9" there added seven
-     implicit zero-width tracks, each keeping its gutter, which narrowed
-     every full-width row in the hero and pushed the title past the edge.
-     Medium and large set their own placement below. */
+  /* All columns at every width (Mark, 2026-10-27). "span 9" on the
+     2-column phone grid added seven implicit zero-width tracks, each
+     keeping its gutter, which narrowed every full-width row in the hero. */
   grid-column: 1 / -1;
   margin-block-start: var(--work-index-spacing-list-margin-top);
   filter: var(--project-row-elevation-flat);
@@ -2398,18 +2544,13 @@
   border-radius: 0;
 }
 
-[data-brand="swiss"] .media-pair img {
-  inline-size: 100%;
-}
-
-@media (min-width: 60em) {
-  /* Nine columns wide, centred on the 12-column row. */
-  [data-brand="swiss"] .case-hero__media {
-    grid-column: 1 / -1;
-    justify-self: center;
-    inline-size: calc((100% + var(--page-spacing-gutter)) * 9 / 12 - var(--page-spacing-gutter));
+/* Phones: the frame's inset drops to 8px (Mark, 2026-10-27). */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] {
+    --media-pair-spacing-padding: var(--spacing-8);
   }
 }
+
 
 
 /* Hero follows the index lead study: kicker and section-style title,
@@ -2524,6 +2665,21 @@
 
 [data-brand="swiss"] .case-hero__media {
   margin-block-start: var(--case-hero-spacing-media-margin-top);
+}
+
+/* The hero shows the project's index media, from the same partial as its
+   index row (projects/<slug>-media.html): one image, or a device combo
+   whose layers are sized as percentages of this box. The images carry
+   their own elevation, so the wrapper doesn't add a second shadow, and
+   the row's clearance under the media doesn't apply here. */
+[data-brand="swiss"] .case-hero__media.project-row__media {
+  margin-block-end: 0;
+  filter: none;
+  /* The hero drifts like the index rows (Mark, 2026-10-28), at half the
+     travel. Its text sits above the media, 96px away, and the deepest
+     layers rise 2 × 3rem on the index, so Proof's touched its specs on
+     load. One times the drift keeps the depth ratios and a 48px floor. */
+  --drift-travel: -1;
 }
 
 /* Lead (columns 1–6) and body (7–12) share one row above the image,
@@ -2665,33 +2821,57 @@
   position: relative;
 }
 
-/* Every visible h2 block opens on a 1px ink rule that runs the full width
-   of the grid, whatever columns the section sits in. Equal space above
+/* Every visible h2 block opens on a 1px ink rule (full page width, see
+   below), whatever columns the section sits in. Equal space above
    (to the image or hero before it) and below (to the h2). The rule is
    positioned against .case-flow, so nothing between them is positioned. */
 [data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden)) {
   padding-block-start: var(--case-section-spacing-rule);
 }
 
-/* Below 60em the section stacks with a 48px gap; top it up so the image
-   above also sits one rule step from the line. */
-[data-brand="swiss"] .case-section--card > .case-section__media + .case-section__head:has(> h2:not(.visually-hidden)) {
-  margin-block-start: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
+/* Every section reads copy first at every width: head (h2 + support),
+   then media, then body, whatever the markup order. From 60em the
+   desktop block below restates this for its flex layout. */
+[data-brand="swiss"] .case-section--card > .case-section__head {
+  order: -1;
 }
 
-@media (min-width: 60em) {
-  [data-brand="swiss"] .case-section--card > .case-section__media + .case-section__head:has(> h2:not(.visually-hidden)) {
-    margin-block-start: 0;
-  }
+/* The rule above each h2 runs the full width of the page, or of the
+   case sheet when the study opens there (Mark, 2026-10-29): it reaches
+   from the centered grid out to the edges of the nearest page-width
+   container, main or the sheet body. 100cqi leaves out the scrollbar,
+   where 100vw would not. */
+[data-brand="swiss"] :is(main, .sheet__body) {
+  container-type: inline-size;
 }
 
 [data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden))::before {
   content: "";
   position: absolute;
-  inset-inline: 0;
+  inset-inline: calc(50% - 50cqi);
   block-size: var(--case-section-border-width-rule);
   background: var(--case-section-color-border-rule);
   translate: 0 calc(var(--case-section-spacing-rule) * -1);
+}
+
+/* A second rule closes the h2, inside the grid, with the same space
+   above it as the top rule has below it, and the same again below it
+   (Mark, 2026-10-29): the head's gap to the support copy is the rule
+   spacing, and a head with no support copy pads out what the section's
+   row gap is short of it. */
+[data-brand="swiss"] .case-section__head > h2:not(.visually-hidden) {
+  padding-block-end: var(--case-section-spacing-rule);
+  border-block-end: var(--case-section-border-width-title) solid var(--case-section-color-border-title);
+}
+
+[data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden)) {
+  gap: var(--case-section-spacing-rule);
+}
+
+/* Padding, not margin: the desktop card resets its children's block
+   margins. */
+[data-brand="swiss"] .case-section__head:has(> h2:not(.visually-hidden)):not(:has(> .case-section__support)) {
+  padding-block-end: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
 }
 
 [data-brand="swiss"] .case-flow > .case-section--card {
@@ -2728,7 +2908,10 @@
   margin-block-start: 0;
 }
 
-[data-brand="swiss"] .case-section__body {
+/* Media and body stack their blocks (parts, figures, notes) on the same
+   48px rhythm below 60em; from 60em both become 12-column grids with the
+   same row gap. */
+[data-brand="swiss"] :is(.case-section__media, .case-section__body) {
   display: flex;
   flex-direction: column;
   gap: var(--case-flow-spacing-row-gap);
@@ -2756,6 +2939,14 @@
   gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
 }
 
+/* Phones: one column. Two 136px columns at 320 wrapped the 20px note
+   headings word by word. */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] .case-section__notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Figure captions at the meta size (12/16). */
 [data-brand="swiss"] figcaption.text-caption {
   font-size: var(--typography-eyebrow-default-font-size);
@@ -2768,12 +2959,10 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* Case study image style: every framed image fills the frame's width
-   minus its padding and keeps its own aspect ratio. */
+/* Case study image style: every framed image stretches to its column
+   of the frame and keeps its own aspect ratio. No width of its own. */
 [data-brand="swiss"] .img-frame.media-pair > img {
   display: block;
-  inline-size: 100%;
-  max-inline-size: none;
   block-size: auto;
   justify-self: stretch;
 }
@@ -2784,8 +2973,8 @@
 }
 
 /* Hero title arrow: a tight down-left glyph (viewBox trimmed to the drawn
-   stroke) at cap height, sitting on the baseline and pushed to the end of
-   the grid. The title steps down just enough that word + arrow (with at
+   stroke) at cap height, sitting on the last line's baseline and pushed
+   to the end of the grid. The title steps down just enough that word + arrow (with at
    least the 48px gap) still fit one line. */
 [data-brand="swiss"] .case-hero__title:has(.case-hero__title-icon) {
   /* Title row closes on a default-width ink rule, with section-step
@@ -2801,11 +2990,13 @@
   justify-self: stretch;
   inline-size: auto;
   display: flex;
-  align-items: baseline;
+  /* The arrow sits on the last line's baseline, so a wrapped name ends
+     on it (Mark, 2026-10-28). */
+  align-items: last baseline;
   gap: var(--case-hero-spacing-title-icon-gap);
   font-size: calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon));
   /* Snap to the 8px scale (136px at the 160px display size). */
-  font-size: round(down, calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon)), 8px);
+  font-size: round(down, calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon)), var(--spacing-8));
   line-height: var(--case-hero-line-height-title);
 }
 
@@ -2821,9 +3012,31 @@
   color: var(--color-content-headline-brand);
 }
 
+/* Section h2 arrow, on every case study (Mark, 2026-10-29): the hero
+   title's down-left arrow at the h2's cap height, on the heading's last
+   line's baseline. Below 60em the h2 already spans the grid, so the
+   arrow is pushed to its end here; from 60em see the case-flow rules. */
+[data-brand="swiss"] .case-section h2:has(> .case-section__title-icon) {
+  display: flex;
+  align-items: last baseline;
+  gap: var(--case-section-spacing-title-icon-gap);
+}
+
+[data-brand="swiss"] .case-section__title-icon {
+  flex: none;
+  /* Inter's cap height is 0.727em; 1cap where supported. */
+  inline-size: 0.727em;
+  inline-size: 1cap;
+  block-size: auto;
+  aspect-ratio: 1;
+  margin-inline-start: auto;
+  color: var(--color-content-headline-brand);
+}
+
 /* Results: heading led by a hard-edged down-right arrow hung in the
-   margin (16px gap) so the text starts on the grid line; arrow sits on
-   the text baseline. Body text below. */
+   margin (8px gap, Mark 2026-10-28; 16px clipped the arrow at the case
+   sheet's edge on smaller screens) so the text starts on the grid line;
+   arrow sits on the text baseline. Body text below. */
 [data-brand="swiss"] .case-section__note {
   display: flex;
   flex-direction: column;
@@ -2837,7 +3050,7 @@
   font-weight: var(--typography-font-weight-500);
   display: flex;
   align-items: first baseline;
-  gap: var(--spacing-16);
+  gap: var(--case-section-spacing-note-icon-gap);
 }
 
 [data-brand="swiss"] .case-section__note-icon {
@@ -2850,7 +3063,7 @@
 
 @media (min-width: 35em) {
   [data-brand="swiss"] .case-section__note-icon {
-    margin-inline-start: calc(-1 * (var(--case-section-size-note-icon) + var(--spacing-16)));
+    margin-inline-start: calc(-1 * (var(--case-section-size-note-icon) + var(--case-section-spacing-note-icon-gap)));
   }
 }
 
@@ -2861,10 +3074,6 @@
   font-weight: var(--typography-body-default-font-weight);
   color: var(--case-section-color-content-body);
   text-wrap: pretty;
-}
-
-[data-brand="swiss"] .case-section--card figure img {
-  inline-size: 100%;
 }
 
 @media (min-width: 60em) {
@@ -2994,12 +3203,43 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: var(--page-spacing-gutter);
-    row-gap: var(--spacing-24);
+    row-gap: var(--case-section-spacing-rule);
     align-content: start;
   }
 
+  /* The h2 spans the grid so its closing rule does; the text keeps six
+     columns. The end padding is half the grid plus half a gutter, which
+     leaves exactly columns 1-6 for the text. */
   [data-brand="swiss"] .case-flow > .case-section--card > .case-section__head > h2 {
+    grid-column: 1 / -1;
+    padding-inline-end: calc(50% + var(--page-spacing-gutter) / 2);
+  }
+
+  /* With an arrow, the h2 spans the whole grid as a subgrid: the text
+     keeps columns 1-6 and the arrow sits on the grid's end, like the hero
+     title's, so every section's arrow lands on the same line (Mark,
+     2026-10-29). normal gap = the head grid's gutter. */
+  [data-brand="swiss"] .case-flow > .case-section--card > .case-section__head > h2:has(> .case-section__title-icon) {
+    grid-column: 1 / -1;
+    padding-inline-end: 0;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: normal;
+    align-items: last baseline;
+  }
+
+  [data-brand="swiss"] .case-flow .case-section__head > h2 > .case-section__title-text {
     grid-column: 1 / span 6;
+    grid-row: 1;
+  }
+
+  /* The arrow's area is the half the text doesn't use. At 1024 the
+     arrow (1cap of 48px) is wider than one column, so a single-column
+     area pushed it past the grid end. */
+  [data-brand="swiss"] .case-flow .case-section__head > h2 > .case-section__title-icon {
+    grid-column: 7 / -1;
+    grid-row: 1;
+    justify-self: end;
   }
 
 
@@ -3103,6 +3343,25 @@
         calc(var(--i) * var(--stat-band-motion-stagger) + var(--stat-band-motion-length));
     }
 
+    /* Phones: the stats are tall (wrapped labels and meta) and the band
+       sits just under the fold, so on the page timeline the rules drew
+       below the screen and looked static. Each stat runs on its own
+       view timeline instead: everything plays from the moment its top
+       enters until its middle reaches the middle of the screen, so the
+       rule's tip climbs into view. */
+    @media (max-width: 34.9375em) {
+      [data-brand="swiss"] .stat {
+        view-timeline: --stat block;
+      }
+
+      [data-brand="swiss"] .stat::before,
+      [data-brand="swiss"] .stat__label,
+      [data-brand="swiss"] .stat__digit::before {
+        animation-timeline: --stat;
+        animation-range: cover 0% cover 50%;
+      }
+    }
+
     /* Case-study images drift down toward their text as they cross the
        viewport; device layers drift by depth. */
     [data-brand="swiss"] .project-row__media > img {
@@ -3153,7 +3412,7 @@
    brings them closer than --project-row-spacing-media-clearance. */
 @keyframes swiss-media-drift {
   from {
-    translate: 0 calc(var(--drift) * -2);
+    translate: 0 calc(var(--drift) * var(--drift-travel, -2));
   }
   to {
     translate: 0 0;
@@ -3177,27 +3436,39 @@
 /* Case study headings: every section h2 is 48/48 uppercase; every
    subsection h3 is 32/40 at medium weight. */
 [data-brand="swiss"] .case-flow .case-section__head > h2 {
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: var(--typography-font-size-48);
+  line-height: var(--typography-line-height-48);
   text-transform: uppercase;
-  /* Ignores the &shy; break points on wider screens. */
-  hyphens: none;
-}
-
-/* Phones: at 48px uppercase, a long word ("COMPONENTS,") can be wider than
-   the column, so it breaks at a hyphen there. Chrome won't auto-hyphenate
-   uppercase text, so a word that overflows at 320px carries &shy; in the
-   source. auto also covers browsers that do hyphenate capitals. */
-@media (max-width: 34.9375em) {
-  [data-brand="swiss"] .case-flow .case-section__head > h2 {
-    hyphens: auto;
-  }
 }
 
 [data-brand="swiss"] .case-flow .case-section h3:not(.project-row__title) {
-  font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: 500;
+  font-size: var(--typography-headline-sm-font-size);
+  line-height: var(--typography-headline-sm-line-height);
+  font-weight: var(--typography-font-weight-500);
+}
+
+/* Headings below 60em. Desktop keeps its sizes; smaller screens step
+   down on system roles. headline-lg steps 32/40 (small) and 40/48
+   (medium), which is also where the hero lead already sits on tablets.
+   The row title keeps its 40 line height. */
+@media (max-width: 59.9375em) {
+  [data-brand="swiss"] .case-flow .case-section__head > h2,
+  [data-brand="swiss"] .case-hero__inner > .case-hero__lead {
+    font-size: var(--typography-headline-lg-font-size);
+    line-height: var(--typography-headline-lg-line-height);
+  }
+
+  [data-brand="swiss"] .project-row__title {
+    font-size: var(--typography-headline-lg-font-size);
+  }
+}
+
+/* Phones: subsection h3 steps to title-default (24/32). */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] .case-flow .case-section h3:not(.project-row__title) {
+    font-size: var(--typography-title-default-font-size);
+    line-height: var(--typography-title-default-line-height);
+  }
 }
 
 /* Study motion: each row rises 24px and fades in as it enters the
@@ -3222,14 +3493,14 @@
 }
 
 /* Work index lead: an h2 in markup, styled for the index only, at the
-   hero-lead scale (56/64, weight 200). Restates the .work-index__lead
+   display-sm role, the h1's (56/64, weight 200). Restates the .work-index__lead
    type so global h2 styles don't leak in. */
 [data-brand="swiss"] .work-index__header > h2.work-index__lead {
   margin-block-start: var(--work-index-spacing-lead-gap);
-  font-family: var(--typography-title-lg-font-family);
-  font-size: 3.5rem;
-  line-height: 4rem;
-  font-weight: 200;
+  font-family: var(--typography-display-sm-font-family);
+  font-size: var(--typography-display-sm-font-size);
+  line-height: var(--typography-display-sm-line-height);
+  font-weight: var(--typography-display-sm-font-weight);
   letter-spacing: var(--typography-display-sm-letter-spacing);
   text-transform: none;
   color: var(--work-index-color-content-lead);
@@ -3258,8 +3529,8 @@
 
 [data-brand="swiss"] .work-interstitial__title {
   font-family: var(--typography-headline-sm-font-family);
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: var(--typography-font-size-48);
+  line-height: var(--typography-line-height-48);
   font-weight: var(--typography-font-weight-800);
   letter-spacing: var(--typography-headline-sm-letter-spacing);
   text-transform: uppercase;
@@ -3315,13 +3586,44 @@
 
 [data-brand="swiss"] .contact-section__title {
   font-family: var(--typography-headline-sm-font-family);
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: var(--typography-font-size-48);
+  line-height: var(--typography-line-height-48);
   font-weight: var(--typography-font-weight-800);
   letter-spacing: var(--typography-headline-sm-letter-spacing);
   text-transform: uppercase;
   color: var(--case-section-color-content-heading);
   text-wrap: balance;
+}
+
+/* Index headings below 60em: the fixed 48–56px desktop sizes overrun a
+   phone, so all three step with the screen on headline-lg (32/40 small,
+   40/48 medium, the same 56/64 the h1 and lead use on desktop). Each
+   keeps its desktop weight at every width (Mark, 2026-10-28). Desktop
+   is unchanged. */
+@media (max-width: 59.9375em) {
+  [data-brand="swiss"] .index-hero__title,
+  [data-brand="swiss"] .work-index__header > h2.work-index__lead,
+  [data-brand="swiss"] .contact-section__title {
+    font-size: var(--typography-headline-lg-font-size);
+    line-height: var(--typography-headline-lg-line-height);
+  }
+
+  /* Full width, so the h1 stacks under the eyebrow as on phones and the
+     lead doesn't run 6–8 lines in half the grid. */
+  [data-brand="swiss"] .index-hero__title,
+  [data-brand="swiss"] .work-index__header > h2.work-index__lead {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Tablet h1: 40/48 left the portrait screen bare (Mark, 2026-10-28), so
+   the h1 alone steps up to 64/72 between 35em and 60em. text-wrap:
+   balance sets the breaks: two lines from 768px, three near 600px. */
+@media (min-width: 35em) and (max-width: 59.9375em) {
+  [data-brand="swiss"] .index-hero__title {
+    font-size: var(--typography-font-size-64);
+    line-height: var(--typography-line-height-72);
+  }
 }
 
 [data-brand="swiss"] :is(.contact-section__support, .contact-section__links) {
@@ -3340,7 +3642,9 @@
   align-items: first baseline;
 }
 
-[data-brand="swiss"] .contact-section__support > .index-hero__actions > .cta {
+/* The plain email link sits flat beside its paragraph. Arrow CTAs keep
+   the standard CTA padding so they match "View case study" exactly. */
+[data-brand="swiss"] .contact-section__support > .index-hero__actions > .cta:not(:has(> .icon)) {
   padding-block: 0;
 }
 
@@ -3348,6 +3652,15 @@
   margin: 0;
   color: var(--case-section-color-content-body);
   text-wrap: pretty;
+}
+
+/* A stacked pair of CTAs sits in the support grid's right column, under
+   the second paragraph (Mark, 2026-10-29). On phones that's the only
+   column. */
+[data-brand="swiss"] .contact-section__support > .contact-section__actions {
+  grid-column: -2 / -1;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 [data-brand="swiss"] .contact-section__links {
@@ -3367,6 +3680,125 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ---------- nav-panel (phone menu) ----------
+   Not in the handoff; built from swiss patterns. The panel sits inside
+   the sticky header and opens from its bottom edge (top: 100%), so it
+   never needs the header's height. The header's backdrop blur stops a
+   nested panel from blurring the page, so the surface is the opaque
+   sheet surface, as on the case sheet's header. Links use the case h2
+   style (uppercase, 800) at headline-lg size; the switches sit below. */
+[data-brand="swiss"] .sheet--nav {
+  position: absolute;
+  /* Below the header's bottom border, which top: 100% would cover. */
+  inset-block: calc(100% + var(--site-nav-border-width)) auto;
+  inset-inline: 0;
+  block-size: 100dvh;
+  border-radius: 0;
+  background:
+    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
+    var(--sheet-color-surface);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    transform var(--sheet-motion-duration) var(--sheet-motion-easing),
+    opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
+    display var(--sheet-motion-duration) allow-discrete,
+    overlay var(--sheet-motion-duration) allow-discrete;
+}
+
+[data-brand="swiss"] .sheet--nav[open] {
+  transform: none;
+  opacity: 1;
+}
+
+@starting-style {
+  [data-brand="swiss"] .sheet--nav[open] {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+[data-brand="swiss"] .nav-panel {
+  display: flex;
+  flex-direction: column;
+  padding: var(--nav-panel-spacing-padding-top) var(--nav-panel-spacing-padding-x);
+}
+
+[data-brand="swiss"] .nav-panel__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--nav-panel-spacing-links-gap);
+}
+
+[data-brand="swiss"] .nav-panel__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-family: var(--typography-headline-sm-font-family);
+  font-size: var(--typography-headline-lg-font-size);
+  line-height: var(--typography-headline-lg-line-height);
+  font-weight: var(--typography-font-weight-800);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nav-panel-color-content-link);
+  transition: color var(--motion-duration-color) ease;
+}
+
+[data-brand="swiss"] .nav-panel__links a:is(:hover, :focus-visible) {
+  color: var(--nav-panel-color-content-link-hover);
+}
+
+[data-brand="swiss"] .nav-panel__switches {
+  display: flex;
+  gap: var(--nav-panel-spacing-switches-gap);
+  margin-block-start: var(--nav-panel-spacing-switches-margin-top);
+}
+
+/* .switch is hidden on phones in the header; in the panel it shows. */
+[data-brand="swiss"] .nav-panel__switches .switch {
+  display: flex;
+}
+
+/* Open: the hamburger becomes the X that closes the panel. Outer bars
+   meet on the middle one (one gap plus one bar) and turn 45°. */
+[data-brand="swiss"] .site-nav__toggle span {
+  transition:
+    transform var(--motion-duration-quick) var(--motion-easing-standard),
+    opacity var(--motion-duration-quick) var(--motion-easing-standard);
+}
+
+[data-brand="swiss"] .site-nav__toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(calc(var(--site-nav-spacing-toggle-bar-gap) + var(--site-nav-size-toggle-bar-thickness))) rotate(45deg);
+}
+
+[data-brand="swiss"] .site-nav__toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+[data-brand="swiss"] .site-nav__toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(calc(-1 * (var(--site-nav-spacing-toggle-bar-gap) + var(--site-nav-size-toggle-bar-thickness)))) rotate(-45deg);
+}
+
+/* From 35em the header links show and the toggle hides, so the panel
+   never stays open there (nav.js also closes it on the way past). */
+@media (min-width: 35em) {
+  [data-brand="swiss"] .sheet--nav[open] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="swiss"] .sheet--nav,
+  [data-brand="swiss"] .site-nav__toggle span {
+    transition: none;
+  }
+}
+
 
 /* X-ray view (html.xray, toggled by the Code switch via xray.js).
    Production's behaviour (utilities/xray.css) in the swiss language:

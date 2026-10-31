@@ -1,16 +1,19 @@
 // X-ray view switch. Progressive enhancement: without JS the
-// switch simply does nothing and the page reads normally.
+// switch simply does nothing and the page reads normally. There is
+// one switch in the header and one in the phone menu; both stay in sync.
 (function () {
-  var input = document.querySelector('[data-xray-switch]');
-  if (!input) return;
+  var inputs = document.querySelectorAll('[data-xray-switch]');
+  if (!inputs.length) return;
 
   function setMode(on) {
     document.documentElement.classList.toggle('xray', on);
-    input.checked = on;
+    inputs.forEach(function (i) { i.checked = on; });
   }
 
-  input.addEventListener('change', function () {
-    setMode(input.checked);
+  inputs.forEach(function (input) {
+    input.addEventListener('change', function () {
+      setMode(input.checked);
+    });
   });
 
   // Escape always returns to the design view.

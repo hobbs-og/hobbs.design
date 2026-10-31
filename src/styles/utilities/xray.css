@@ -133,3 +133,9 @@ html.xray .xray-legend {
 .xray-legend .legend-molecule { --_dot: var(--xray-color-molecule); }
 .xray-legend .legend-organism { --_dot: var(--xray-color-organism); }
 .xray-legend .legend-template { --_dot: var(--xray-color-template); }
+
+/* The toggle is hidden until it's redesigned (Mark, 2026-10-28). The
+   rules above set display, which would otherwise beat [hidden]. */
+.xray-toggle[hidden] {
+  display: none;
+}
