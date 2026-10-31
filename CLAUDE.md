@@ -154,8 +154,10 @@ Desktop sizes are the design's; smaller screens step down below 60em and
 35em. A new heading style needs the same steps, not one fixed size.
 
 **No one-word last lines, in CSS only.** Headings and short display text
-use `text-wrap: balance`; paragraphs and captions use `pretty`. Where a
-browser ignores them, the line wraps however it wraps. Never put `&nbsp;`,
+use `text-wrap: balance`; paragraphs and captions start on `pretty`, and
+take `balance` where it looks better. The presentation decides, not the
+line count (Mark, 2026-10-31). Where a browser ignores them, the line
+wraps however it wraps. Never put `&nbsp;`,
 `<br>` or other characters in copy to steer a line break: they change what
 a screen reader and a translator get, to fix something visual (Mark,
 2026-10-28).

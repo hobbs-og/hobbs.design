@@ -130,15 +130,16 @@
   /* index-hero */
   --index-hero-color-content-eyebrow: var(--color-content-subtle);
   --index-hero-color-content-title: var(--color-content-subtitle);
+  --index-hero-color-content-sub: var(--color-content-subtle);
   --index-hero-spacing-padding-top: var(--spacing-96);
   /* The wordmark's baseline lands on the bottom edge of the viewport on
      load. The hero is one screen tall below the nav plus room for the
      descender of the "g", which hangs below the fold. */
   --index-hero-size-descender: 8vw;
   --index-hero-size-min: calc(100svh - var(--site-nav-size-height) + var(--index-hero-size-descender));
-  --index-hero-spacing-gap: var(--swiss-spacing-240);
   --index-hero-spacing-gap-min: var(--swiss-spacing-120);
   --index-hero-spacing-intro-gap: var(--spacing-24);
+  --index-hero-spacing-statement-gap: var(--spacing-8);
   /* Empty line box above the wordmark's letters: its baseline sits
      0.8633em from the box top and Inter's ascender (h, b, d at opsz 32)
      is 0.7275em tall, so the ink starts 0.1358em down. */
@@ -790,15 +791,15 @@
 /* ---------- index-hero + wordmark ---------- */
 
 /* One-screen grid so the wordmark baseline always lands on the bottom
-   edge of the viewport: free space above the intro (1fr), then the
-   intro, then a gap that grows to 240px first and shrinks toward 120px on
-   short screens, then the wordmark. The "g" descender hangs into the
+   edge of the viewport: free space above the intro, then the intro, then
+   a gap that takes three parts of that free space to the top's one and
+   stops at 120px on short screens, then the wordmark. The "g" descender hangs into the
    bottom padding, below the fold. */
 [data-brand="swiss"] .index-hero {
   container-type: inline-size;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 1fr auto minmax(var(--index-hero-spacing-gap-min), var(--index-hero-spacing-gap)) auto;
+  grid-template-rows: 1fr auto minmax(var(--index-hero-spacing-gap-min), 3fr) auto;
   min-block-size: var(--index-hero-size-min);
   padding-block: 0 var(--index-hero-size-descender);
 }
@@ -814,8 +815,9 @@
 /* Desktop: the intro sits centered between the header and the top of the
    wordmark's letters (Mark, 2026-10-27). It takes the whole space above
    the wordmark as one row and centers in it. Its top and bottom padding
-   add up to the 240px gap the layout always reserved, so the fold's
-   height and the wordmark's place don't change. The padding is shifted by
+   add up to the 120px minimum gap, and the row's free space does the
+   rest, so the taller intro doesn't push the wordmark past the fold.
+   The padding is shifted by
    half the wordmark's empty line box, so the visible gaps come out even:
    header to intro equals intro to the tops of the letters. */
 @media (min-width: 60em) {
@@ -827,8 +829,8 @@
     grid-row: 1;
     align-content: center;
     padding-block:
-      calc(var(--index-hero-spacing-gap) / 2 + var(--index-hero-spacing-wordmark-ink-top) / 2)
-      calc(var(--index-hero-spacing-gap) / 2 - var(--index-hero-spacing-wordmark-ink-top) / 2);
+      calc(var(--index-hero-spacing-gap-min) / 2 + var(--index-hero-spacing-wordmark-ink-top) / 2)
+      calc(var(--index-hero-spacing-gap-min) / 2 - var(--index-hero-spacing-wordmark-ink-top) / 2);
   }
 
   [data-brand="swiss"] .index-hero > .index-hero__wordmark {
@@ -852,6 +854,21 @@
   font-weight: var(--typography-display-sm-font-weight);
   letter-spacing: var(--typography-display-sm-letter-spacing);
   color: var(--index-hero-color-content-title);
+  text-wrap: balance;
+}
+
+[data-brand="swiss"] .index-hero__statement {
+  display: grid;
+  row-gap: var(--index-hero-spacing-statement-gap);
+}
+
+[data-brand="swiss"] .index-hero__sub {
+  font-family: var(--typography-body-default-font-family);
+  font-size: var(--typography-body-default-font-size);
+  line-height: var(--typography-body-default-line-height);
+  font-weight: var(--typography-body-default-font-weight);
+  letter-spacing: var(--typography-body-default-letter-spacing);
+  color: var(--index-hero-color-content-sub);
   text-wrap: balance;
 }
 
@@ -3612,7 +3629,7 @@
 
   /* Full width, so the h1 stacks under the eyebrow as on phones and the
      lead doesn't run 6–8 lines in half the grid. */
-  [data-brand="swiss"] .index-hero__title,
+  [data-brand="swiss"] .index-hero__statement,
   [data-brand="swiss"] .work-index__header > h2.work-index__lead {
     grid-column: 1 / -1;
   }
@@ -3625,6 +3642,14 @@
   [data-brand="swiss"] .index-hero__title {
     font-size: var(--typography-font-size-64);
     line-height: var(--typography-line-height-72);
+  }
+}
+
+/* Phone h1: 48/56 (Mark, 2026-10-31). */
+@media (max-width: 34.9375em) {
+  [data-brand="swiss"] .index-hero__title {
+    font-size: var(--typography-font-size-48);
+    line-height: var(--typography-line-height-56);
   }
 }
 
