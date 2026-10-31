@@ -81,7 +81,7 @@ this repo.
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
 | `src/styles/molecules/` | project-row (the one bespoke molecule) |
 | `src/styles/utilities/` | xray overlay |
-| `src/js/` | nav, sheet, project-row, xray |
+| `src/js/` | nav, sheet, sheet-reload, project-row, xray |
 | `src/public/icons.svg` | generated sprite — do not hand-edit |
 | `src/icons/` | this site's own icons (the swiss arrows), appended to the sprite by `tools/custom-icons.mjs` |
 | `tools/` | vendor scripts, component-token build, local server |
