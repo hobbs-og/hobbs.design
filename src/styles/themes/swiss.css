@@ -414,8 +414,6 @@
   --sheet-radius-default: var(--spacing-8);
   --sheet-radius-round: 624.9375rem;
   --sheet-blur-backdrop: var(--spacing-8);
-  --sheet-opacity-surface: 88%;
-  --sheet-blur-surface: var(--spacing-24);
   --sheet-spacing-inset: var(--spacing-24);
   --sheet-spacing-chrome-x: var(--spacing-48);
   --sheet-spacing-chrome-gap: var(--spacing-16);
@@ -2127,12 +2125,10 @@
   block-size: auto;
   max-inline-size: none;
   max-block-size: none;
-  /* Slightly see-through surface; the page behind is blurred. */
+  /* Opaque: text contrast can't depend on the scrim behind the panel. */
   background:
     linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
-    color-mix(in srgb, var(--sheet-color-surface) var(--sheet-opacity-surface), transparent);
-  -webkit-backdrop-filter: blur(var(--sheet-blur-surface));
-  backdrop-filter: blur(var(--sheet-blur-surface));
+    var(--sheet-color-surface);
   color: inherit;
   position: fixed;
   overflow: hidden;
@@ -3711,10 +3707,8 @@
 /* ---------- nav-panel (phone menu) ----------
    Not in the handoff; built from swiss patterns. The panel sits inside
    the sticky header and opens from its bottom edge (top: 100%), so it
-   never needs the header's height. The header's backdrop blur stops a
-   nested panel from blurring the page, so the surface is the opaque
-   sheet surface, as on the case sheet's header. Links use the case h2
-   style (uppercase, 800) at headline-lg size; the switches sit below. */
+   never needs the header's height. Links use the case h2 style
+   (uppercase, 800) at headline-lg size; the switches sit below. */
 [data-brand="swiss"] .sheet--nav {
   position: absolute;
   /* Below the header's bottom border, which top: 100% would cover. */
@@ -3722,11 +3716,6 @@
   inset-inline: 0;
   block-size: 100dvh;
   border-radius: 0;
-  background:
-    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
-    var(--sheet-color-surface);
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
   transform: translateY(-100%);
   opacity: 0;
   transition:
