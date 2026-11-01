@@ -1,14 +1,15 @@
 /* ============================================================
-   base.css: element defaults and utilities for the swiss pages
+   base.css: element defaults and utilities for the component pages
 
-   The swiss design was built on this base, not on the old
+   The components were built on this base, not on the old
    @hobbs-og/design-system stack (system.css + main.css). Loading
    the old stack underneath leaks its paddings, borders and type
-   into swiss components, so swiss pages load only:
+   into the components, so these pages load only:
 
      vendor/software/fonts.css, tokens.css, grid.css
      src/styles/base.css          this file
-     src/styles/themes/swiss.css  the design
+     src/styles/components.css    the components
+     src/styles/themes/*.tokens.css  the theme, loaded last
 
    Values are tokens, except the 1px clip pattern in
    .visually-hidden, which is the standard technique.

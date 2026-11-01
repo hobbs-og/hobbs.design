@@ -75,7 +75,8 @@ this repo.
 |---|---|
 | `tokens/component-software/` | this site's Tier 3 tokens from portfolio-components; alias software tokens |
 | `dist/tokens.components.css` | those compiled by `tools/component-tokens.mjs` |
-| `src/styles/themes/swiss.tokens.css` | what Figma can't carry for swiss: em letter spacing, breakpoint type steps, site-only type roles, the mono stack |
+| `src/styles/components.css` | the components: component tokens, layout and motion for every theme |
+| `src/styles/themes/swiss.tokens.css` | what Figma can't carry for swiss: em letter spacing and breakpoint type steps |
 | `src/styles/legacy-tokens.css` | old token names pointed at new ones (the bridge) |
 | `src/styles/system.css` | the old system's structure, without its tokens |
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
@@ -175,11 +176,19 @@ The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
 `.contact-section__title`) belong to the index only. Don't reuse them on
 other pages.
 
-**Stylesheets.** Swiss pages load software's `fonts.css` and `tokens.css`, then
-`src/styles/themes/swiss.tokens.css`, software's `grid.css`,
-`src/styles/base.css` and `src/styles/themes/swiss.css`. They don't load
-`system.css` or `main.css`. The old stack leaks its paddings, borders and type
-into swiss components. Pages not yet converted still use the old stack.
+**Stylesheets.** Swiss pages load software's `fonts.css`, `tokens.css` and
+`grid.css`, then `src/styles/base.css`, `src/styles/components.css` and last
+the theme, `src/styles/themes/swiss.tokens.css`. They don't load `system.css`
+or `main.css`. The old stack leaks its paddings, borders and type into the
+components. Pages not yet converted still use the old stack.
+
+**Themes.** `components.css` belongs to no theme, so no selector in it may name
+a brand. Changing `data-brand` on `<html>` restyles every component. A new
+theme is a mode in software-subatomic plus, if it needs one, a
+`themes/<name>.tokens.css` that loads last and can override any token. Below
+60em, type roles read their `-mobile` tokens, so every theme steps down with
+the screen. Pick a theme's fonts before you ship it: software self-hosts only
+Inter.
 
 ---
 
@@ -200,10 +209,11 @@ into swiss components. Pages not yet converted still use the old stack.
   rule). Swiss is a mode on Tier 1 and semantic typography in software-subatomic,
   so a new theme is a new mode. Change colors and core type there, export to
   software, then vendor them here. `src/styles/themes/swiss.tokens.css` holds
-  only what Figma can't carry: em letter spacing, the 35em and 60em type steps,
-  type roles only this site uses, and the mono stack. Anything that overrides
-  software goes there, never in `vendor/`. Values are still Mark's call: if
-  the one you need isn't there, ask.
+  only what Figma can't carry: em letter spacing and the 35em and 60em type
+  steps. Type roles only this site uses are defaults in `components.css`.
+  Anything that overrides software goes in one of those files, never in
+  `vendor/`. Values are still Mark's call: if the one you need isn't there,
+  ask.
 - **360px is the narrowest supported width** (Mark, 2026-10-29). Test
   layouts, reflow and horizontal scroll at 360, not 320. Nothing has to fit
   a narrower screen.

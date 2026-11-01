@@ -1,51 +1,19 @@
 /* ============================================================
-   themes/swiss.tokens.css: what the site adds to the swiss brand
+   themes/swiss.tokens.css: what the swiss theme adds to its mode
 
    Swiss is a mode in the software-subatomic Figma file, so its
    colors and most of its type come from vendor/software/tokens.css
    (Mark, 2026-11-01). Change those in Figma, never here.
 
-   This file holds only what Figma can't carry:
-   the mono font stack, em letter spacing, sizes that step at the
-   grid breakpoints, and type roles only this site uses.
+   This file holds only what Figma can't carry: em letter spacing
+   and sizes that step at the grid breakpoints. Site-only type roles
+   are defaults in components.css.
 
-   Loads after vendor/software/tokens.css, so anything set under
-   data-brand="swiss" wins over software's values.
+   A theme loads last, so it can override any component token too.
+   Copy this file to start a new theme.
    ============================================================ */
 
 [data-brand="swiss"] {
-  --typography-font-family-jetbrains-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --typography-font-family-mono: var(--typography-font-family-jetbrains-mono);
-}
-
-/* Site type. Letter spacing stays in em so it scales with the size. Sizes
-   here are the phone step, and they rise at the grid breakpoints below. */
-[data-brand="swiss"] {
-  --typography-eyebrow-default-font-size: 0.75rem;
-  --typography-eyebrow-default-line-height: 1rem;
-  --typography-eyebrow-default-font-weight: 500;
-  --typography-eyebrow-default-letter-spacing: 0.06em;
-  --typography-eyebrow-default-font-family: var(--typography-font-family-base);
-  --typography-eyebrow-lg-font-size: 0.75rem;
-  --typography-eyebrow-lg-line-height: 1rem;
-  --typography-eyebrow-lg-font-weight: 500;
-  --typography-eyebrow-lg-letter-spacing: 0.06em;
-  --typography-eyebrow-lg-font-family: var(--typography-font-family-base);
-  --typography-nav-default-font-size: 0.875rem;
-  --typography-nav-default-line-height: 1.5rem;
-  --typography-nav-default-font-weight: 400;
-  --typography-nav-default-letter-spacing: 0;
-  --typography-nav-default-font-family: var(--typography-font-family-base);
-  --typography-logo-default-font-size: 1rem;
-  --typography-logo-default-line-height: 1.5rem;
-  --typography-logo-default-font-weight: 600;
-  --typography-logo-default-letter-spacing: 0;
-  --typography-logo-default-font-family: var(--typography-font-family-base);
-  --typography-body-list-font-size: 0.9375rem;
-  --typography-body-list-line-height: 1.375rem;
-  --typography-body-list-font-weight: 400;
-  --typography-body-list-letter-spacing: 0;
-  --typography-body-list-font-family: var(--typography-font-family-base);
   --typography-label-lg-letter-spacing: -0.01em;
   --typography-title-default-letter-spacing: -0.015em;
   --typography-title-lg-letter-spacing: -0.015em;
@@ -54,30 +22,10 @@
   --typography-headline-lg-font-size: 2rem;
   --typography-headline-lg-line-height: 2.5rem;
   --typography-headline-lg-letter-spacing: -0.03em;
-  --typography-display-lg-font-size: 10rem;
-  --typography-display-lg-line-height: 10rem;
-  --typography-display-lg-font-weight: 900;
-  --typography-display-lg-letter-spacing: -0.05em;
-  --typography-display-lg-font-family: var(--typography-font-family-base);
   --typography-display-sm-letter-spacing: -0.03em;
-  --typography-display-section-font-size: clamp(2.5rem, 11vw, 4.5rem);
-  --typography-display-section-line-height: 1.111;
-  --typography-display-section-font-weight: 300;
-  --typography-display-section-letter-spacing: -0.05em;
-  --typography-display-section-font-family: var(--typography-font-family-base);
   --typography-display-default-font-size: 2.5rem;
   --typography-display-default-line-height: 3rem;
   --typography-display-default-letter-spacing: -0.035em;
-  --typography-numeral-lg-font-size: 2rem;
-  --typography-numeral-lg-line-height: 1;
-  --typography-numeral-lg-font-weight: 900;
-  --typography-numeral-lg-letter-spacing: -0.04em;
-  --typography-numeral-lg-font-family: var(--typography-font-family-base);
-  --typography-wordmark-default-font-size: 37.5cqi;
-  --typography-wordmark-default-line-height: 1;
-  --typography-wordmark-default-font-weight: 700;
-  --typography-wordmark-default-letter-spacing: -0.1em;
-  --typography-wordmark-default-font-family: var(--typography-font-family-base);
 }
 
 @media (min-width: 35em) {
@@ -87,7 +35,6 @@
     --typography-headline-lg-line-height: 3rem;
     --typography-display-default-font-size: 4rem;
     --typography-display-default-line-height: 4.5rem;
-    --typography-numeral-lg-font-size: 2.5rem;
   }
 }
 
@@ -97,6 +44,5 @@
     --typography-headline-lg-line-height: 4rem;
     --typography-display-default-font-size: 6rem;
     --typography-display-default-line-height: 6.5rem;
-    --typography-numeral-lg-font-size: 3.5rem;
   }
 }
