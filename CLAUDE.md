@@ -14,12 +14,12 @@ the rendered pages. Sloppiness here is visible to the audience.
 
 Tokens come from **[@hobbs-og/software](https://github.com/hobbs-og/software)**.
 Read its `README.md` and `CLAUDE.md` before styling anything here. Never
-invent a value and never edit a generated file. Figma doesn't control the
-swiss brand's values; this repo does (see the house rules).
+invent a value and never edit a generated file. Swiss is a brand mode in
+software-subatomic, so Figma controls its values (see the house rules).
 
-- `data-brand="portfolio"` on `<html>` selects this site's brand: the
-  production palette in light and dark (Tier 1 role tokens) and the production
-  type sizes on Inter. The theme follows the visitor's OS.
+- `data-brand="swiss"` on `<html>` selects the current design. Pages not yet
+  converted use `data-brand="portfolio"`: the old production palette and type
+  sizes on Inter. The theme follows the visitor's OS unless they pick one.
 - This site's component tokens come from the Figma file **portfolio-components**
   (`7QdDKyvaM2Mznv89jMwsbF`). Layer names there are the DOM's `tag.class`, and
   token names follow software's
@@ -75,7 +75,7 @@ this repo.
 |---|---|
 | `tokens/component-software/` | this site's Tier 3 tokens from portfolio-components; alias software tokens |
 | `dist/tokens.components.css` | those compiled by `tools/component-tokens.mjs` |
-| `src/styles/themes/swiss.tokens.css` | the swiss brand's values: color ramps, semantic colors, type roles |
+| `src/styles/themes/swiss.tokens.css` | what Figma can't carry for swiss: em letter spacing, breakpoint type steps, site-only type roles, the mono stack |
 | `src/styles/legacy-tokens.css` | old token names pointed at new ones (the bridge) |
 | `src/styles/system.css` | the old system's structure, without its tokens |
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
@@ -196,10 +196,14 @@ into swiss components. Pages not yet converted still use the old stack.
   they stretch to their grid or flex column, capped by `max-inline-size:
   100%` in `base.css`. The only image widths are the device-combo
   `--layer-width` percentages, which are the composition itself.
-- **The swiss brand's values live in this repo** (Mark, 2026-10-30). Edit
-  them in `src/styles/themes/swiss.tokens.css`, with no Figma step. Anything
-  that overrides software goes there too, never in `vendor/`. Values are
-  still Mark's call: if the one you need isn't there, ask.
+- **Swiss values live in Figma** (Mark, 2026-11-01, reversing his 2026-10-30
+  rule). Swiss is a mode on Tier 1 and semantic typography in software-subatomic,
+  so a new theme is a new mode. Change colors and core type there, export to
+  software, then vendor them here. `src/styles/themes/swiss.tokens.css` holds
+  only what Figma can't carry: em letter spacing, the 35em and 60em type steps,
+  type roles only this site uses, and the mono stack. Anything that overrides
+  software goes there, never in `vendor/`. Values are still Mark's call: if
+  the one you need isn't there, ask.
 - **360px is the narrowest supported width** (Mark, 2026-10-29). Test
   layouts, reflow and horizontal scroll at 360, not 320. Nothing has to fit
   a narrower screen.
