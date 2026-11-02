@@ -260,7 +260,7 @@
   --project-row-size-spec-min: 9.375rem;
   --project-row-spacing-spec-gap: var(--spacing-8);
   --project-row-spacing-list-gap: var(--spacing-2);
-  --project-row-spacing-item-gap: var(--spacing-16);
+  --project-row-spacing-item-gap: var(--spacing-8);
   --project-row-spacing-cta-margin-top: var(--spacing-24);
   --project-row-motion-drift: 1.5rem;
 
@@ -1073,30 +1073,30 @@ code {
   --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
 }
 .project-row__media--mhe > .project-row__layer:nth-child(1) {
-  --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
 .project-row__media--mhe > .project-row__layer:nth-child(2) {
   --layer-width: calc(58% / 0.8); --layer-start: calc(22% / 0.8); --drift: 3rem;
 }
 .project-row__media--rumi > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
 .project-row__media--rumi > .project-row__layer:nth-child(1) {
-  --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
 .project-row__media--rumi > .project-row__layer:nth-child(2) {
-  --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.03125rem); --drift: 2rem;
+  --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.015rem); --drift: 2rem;
 }
 .project-row__media--rumi > .project-row__layer:nth-child(3) {
   --layer-width: calc(25.6% / 0.76); --layer-start: calc((26.4% - 4%) / 0.76); --drift: 3rem;
 }
 .project-row__media--proof > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
 .project-row__media--proof > .project-row__layer:nth-child(1) {
-  --layer-width: calc(17.6% / 0.76); --layer-start: 0%; --layer-lift: calc(10.4% / 0.76); --layer-blur: blur(0.0625rem); --drift: 1rem;
+  --layer-width: calc(17.6% / 0.76); --layer-start: 0%; --layer-lift: calc(10.4% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
 .project-row__media--proof > .project-row__layer:nth-child(2) {
-  --layer-width: calc(20% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(5.6% / 0.76); --layer-blur: blur(0.03125rem); --drift: 1.6875rem;
+  --layer-width: calc(20% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(5.6% / 0.76); --layer-blur: blur(0.015rem); --drift: 1.6875rem;
 }
 .project-row__media--proof > .project-row__layer:nth-child(3) {
-  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.015625rem); --drift: 2.3125rem;
+  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.01rem); --drift: 2.3125rem;
 }
 .project-row__media--proof > .project-row__layer:nth-child(4) {
   --layer-width: calc(24.8% / 0.76); --layer-justify: end; --layer-end: calc((39.2% - 21.6%) / 0.76); --drift: 3rem;
