@@ -1262,7 +1262,23 @@ code {
   max-inline-size: none;
   padding-inline: var(--page-spacing-padding-x);
   column-gap: var(--page-spacing-gutter);
-  row-gap: 0;
+  row-gap: var(--page-hero-spacing-media-margin-top);
+}
+
+/* Heading and summary, then the summary's lead and body, each spaced by
+   their group's gap. */
+.page-hero__intro {
+  row-gap: var(--page-hero-spacing-title-row-gap);
+}
+
+.page-hero__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-hero-spacing-title-row-top);
+}
+
+.page-hero__summary {
+  row-gap: var(--page-hero-spacing-lead-top);
 }
 
 .page-hero__title {
@@ -1276,7 +1292,6 @@ code {
 }
 
 .page-hero__lead {
-  margin-block-start: var(--page-hero-spacing-row-gap);
   font-family: var(--typography-title-default-font-family);
   font-size: var(--typography-title-default-font-size);
   line-height: var(--typography-title-default-line-height);
@@ -1291,7 +1306,6 @@ code {
      2-column phone grid added seven implicit zero-width tracks, each
      keeping its gutter, which narrowed every full-width row in the hero. */
   grid-column: 1 / -1;
-  margin-block-start: var(--feature-list-spacing-list-margin-top);
   filter: var(--feature-row-elevation-flat);
 }
 
@@ -1361,10 +1375,9 @@ main {
   }
 }
 
-.page-hero__inner > .page-hero__lead {
+.page-hero__summary > .page-hero__lead {
   inline-size: 100%;
   max-inline-size: none;
-  margin-block-start: var(--page-hero-spacing-title-row-gap);
   font-family: var(--typography-headline-default-font-family);
   font-size: var(--typography-headline-default-font-size);
   line-height: var(--typography-headline-default-line-height);
@@ -1422,10 +1435,6 @@ main {
   color: var(--feature-row-color-number-content-default);
 }
 
-.page-hero__media {
-  margin-block-start: var(--page-hero-spacing-media-margin-top);
-}
-
 /* The hero shows the project's index media, from the same partial as its
    index row (projects/<slug>-media.html): one image, or a device combo
    whose layers are sized as percentages of this box. The images carry
@@ -1441,17 +1450,15 @@ main {
   --drift-travel: -1;
 }
 
-/* Lead (columns 1–6) and body (7–12) share one row above the image,
-   top-aligned with the same offset under the title. */
+/* Lead (columns 1–6) and body (7–12) share the summary row. */
 .page-hero__body {
   display: flex;
   flex-direction: column;
-  margin-block-start: var(--page-hero-spacing-lead-top);
 }
 
 /* First lines of the lead and the brief share one baseline. */
-.page-hero__inner > .page-hero__lead,
-.page-hero__inner > .page-hero__body {
+.page-hero__summary > .page-hero__lead,
+.page-hero__summary > .page-hero__body {
   align-self: first baseline;
 }
 
@@ -1667,7 +1674,7 @@ figcaption.text-caption {
      space above and the lead's gap below. */
   /* Optical offset moves to the text (text-indent) so the rule starts on
      the grid line like the band rules above. */
-  margin-block: var(--page-hero-spacing-title-row-top) 0;
+  margin-block: 0;
   margin-inline-start: 0;
   text-indent: var(--page-hero-spacing-title-optical);
   padding-block-end: var(--page-hero-spacing-title-row-bottom);
@@ -2140,7 +2147,7 @@ figcaption.text-caption {
    The row title keeps its 40 line height. */
 @media (max-width: 59.9375em) {
   .case-flow .content-section__head > h2,
-  .page-hero__inner > .page-hero__lead {
+  .page-hero__summary > .page-hero__lead {
     font-size: var(--typography-headline-lg-font-size);
     line-height: var(--typography-headline-lg-line-height);
   }
@@ -2168,7 +2175,9 @@ figcaption.text-caption {
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .page-hero__inner > *,
+    .page-hero__heading > *,
+    .page-hero__summary > *,
+    .page-hero__inner > .page-hero__media,
     .case-flow .content-section__head > *,
     .case-flow :is(.content-section__media, .content-section__body) > :not(.content-section__notes),
     .case-flow .content-section__notes > * {
