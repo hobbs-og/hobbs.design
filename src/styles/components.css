@@ -281,10 +281,8 @@
   --case-hero-color-content-lead: var(--color-content-headline);
   --case-hero-color-content-kicker: var(--color-content-emphasized);
   --case-hero-color-content-kicker-brand: var(--color-content-eyebrow);
-  --case-hero-color-content-tag-muted: var(--color-content-subtle);
   --case-hero-color-content-brief: var(--color-content-default);
   --case-hero-color-content-meta-label: var(--color-content-subtle);
-  --case-hero-color-content-meta: var(--color-content-emphasized);
   --case-hero-spacing-padding-top: var(--spacing-48);
   --case-hero-spacing-media-margin-top: var(--spacing-96);
   --case-hero-spacing-title-top: var(--spacing-120);
@@ -296,12 +294,7 @@
   --case-hero-spacing-band-gap: var(--spacing-4);
   --case-hero-spacing-title-margin-top: var(--spacing-96);
   --case-hero-spacing-title-optical: -0.039em;
-  --case-hero-spacing-lead-margin-top: var(--spacing-96);
-  --case-hero-spacing-brief-margin-top: var(--spacing-144);
   --case-hero-spacing-row-gap: var(--spacing-24);
-  --case-hero-spacing-lead-row-gap: var(--spacing-32);
-  --case-hero-spacing-kicker-gap: var(--spacing-24);
-  --case-hero-spacing-tags-gap: var(--spacing-4);
   --case-hero-spacing-meta-padding-y: var(--spacing-8);
   --case-hero-spacing-meta-padding-x: var(--spacing-12);
 
@@ -346,7 +339,6 @@
   --case-section-spacing-row-gap: var(--spacing-24);
   --case-section-spacing-support-margin-top: var(--spacing-24);
   --case-section-spacing-block-sm: var(--spacing-72);
-  --case-section-spacing-block-lg: var(--spacing-96);
   --case-section-spacing-heading-offset: var(--spacing-12);
   --case-section-spacing-body-offset: var(--spacing-16);
   --case-section-spacing-figure-gap: var(--spacing-8);
@@ -958,7 +950,8 @@ code {
      subgrid, and starts on the previous card's body row, so every card's
      top lines up with its neighbor's fact list. One row gap spaces
      everything, inside and between cards. Rows are written out for up to
-     12 cards; add a line per card past that. */
+     12 cards; add a line per card past that. Counting "of .project-row"
+     means a block between cards never shifts their sides or rows. */
   .work-index__list {
     row-gap: var(--work-index-spacing-row-gap);
   }
@@ -988,37 +981,37 @@ code {
     margin-block-start: 0;
   }
 
-  .work-index__list > .project-row:nth-child(even) {
+  .work-index__list > .project-row:nth-child(even of .project-row) {
     grid-column: 7 / span 6;
   }
 
-  .work-index__list > .project-row:nth-child(odd):not(:first-child) {
+  .work-index__list > .project-row:nth-child(odd of .project-row):not(.project-row--lead) {
     grid-column: 1 / span 6;
   }
 
   /* Right-column cards: the third list and the CTA sit under the second
      list, so the card's lower edge reads from the outer module. */
-  .work-index__list > .project-row:nth-child(even) .project-row__spec:nth-child(3) {
+  .work-index__list > .project-row:nth-child(even of .project-row) .project-row__spec:nth-child(3) {
     grid-column: 2;
   }
 
-  .work-index__list > .project-row:nth-child(even) .hyperlink--cta {
+  .work-index__list > .project-row:nth-child(even of .project-row) .hyperlink--cta {
     align-self: flex-start;
     margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
   }
 
-  .work-index__list > .project-row:nth-child(2) { grid-row: 2 / span 3; }
-  .work-index__list > .project-row:nth-child(3) { grid-row: 4 / span 3; }
-  .work-index__list > .project-row:nth-child(4) { grid-row: 6 / span 3; }
-  .work-index__list > .project-row:nth-child(5) { grid-row: 8 / span 3; }
-  .work-index__list > .project-row:nth-child(6) { grid-row: 10 / span 3; }
-  .work-index__list > .project-row:nth-child(7) { grid-row: 12 / span 3; }
-  .work-index__list > .project-row:nth-child(8) { grid-row: 14 / span 3; }
-  .work-index__list > .project-row:nth-child(9) { grid-row: 16 / span 3; }
-  .work-index__list > .project-row:nth-child(10) { grid-row: 18 / span 3; }
-  .work-index__list > .project-row:nth-child(11) { grid-row: 20 / span 3; }
-  .work-index__list > .project-row:nth-child(12) { grid-row: 22 / span 3; }
-  .work-index__list > .project-row:nth-child(13) { grid-row: 24 / span 3; }
+  .work-index__list > .project-row:nth-child(2 of .project-row) { grid-row: 2 / span 3; }
+  .work-index__list > .project-row:nth-child(3 of .project-row) { grid-row: 4 / span 3; }
+  .work-index__list > .project-row:nth-child(4 of .project-row) { grid-row: 6 / span 3; }
+  .work-index__list > .project-row:nth-child(5 of .project-row) { grid-row: 8 / span 3; }
+  .work-index__list > .project-row:nth-child(6 of .project-row) { grid-row: 10 / span 3; }
+  .work-index__list > .project-row:nth-child(7 of .project-row) { grid-row: 12 / span 3; }
+  .work-index__list > .project-row:nth-child(8 of .project-row) { grid-row: 14 / span 3; }
+  .work-index__list > .project-row:nth-child(9 of .project-row) { grid-row: 16 / span 3; }
+  .work-index__list > .project-row:nth-child(10 of .project-row) { grid-row: 18 / span 3; }
+  .work-index__list > .project-row:nth-child(11 of .project-row) { grid-row: 20 / span 3; }
+  .work-index__list > .project-row:nth-child(12 of .project-row) { grid-row: 22 / span 3; }
+  .work-index__list > .project-row:nth-child(13 of .project-row) { grid-row: 24 / span 3; }
 }
 
 
@@ -1407,46 +1400,6 @@ code {
   align-items: center;
 }
 
-/* Same type and colors as the index card meta line (.project-row__meta). */
-.case-hero__kicker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
-  font-family: var(--typography-eyebrow-lg-font-family);
-  font-size: var(--typography-eyebrow-lg-font-size);
-  line-height: var(--typography-eyebrow-lg-line-height);
-  font-weight: var(--typography-eyebrow-lg-font-weight);
-  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  color: var(--project-row-color-content-meta);
-}
-
-.case-hero__kicker > :first-child {
-  color: var(--project-row-color-content-number);
-}
-
-.case-hero__intro {
-  row-gap: var(--case-hero-spacing-lead-row-gap);
-  align-items: end;
-  margin-block-start: var(--case-hero-spacing-lead-margin-top);
-}
-
-.case-hero__tags {
-  display: flex;
-  flex-direction: column;
-  gap: var(--case-hero-spacing-tags-gap);
-}
-
-.case-hero__tags > :first-child {
-  color: var(--case-hero-color-content-tag-muted);
-}
-
-.case-hero__brief {
-  row-gap: 0;
-  align-items: baseline;
-  margin-block-start: var(--case-hero-spacing-brief-margin-top);
-  padding-block-start: var(--case-section-spacing-head-padding-top);
-}
-
 .case-hero__brief-text {
   font-family: var(--typography-body-default-font-family);
   font-size: var(--typography-body-default-font-size);
@@ -1457,36 +1410,20 @@ code {
   text-wrap: pretty;
 }
 
-@media (min-width: 35em) {
-  .case-hero__tags {
-    justify-self: end;
-    text-align: end;
-  }
-}
-
 
 /* ---------- case-section ---------- */
 
+/* Blocks stack on the gap. A hidden block takes no gap, so the parked
+   "before and after" figure needs no rule of its own. */
 .case-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--case-section-spacing-block-sm);
   padding-block-start: var(--case-section-spacing-padding-top);
-}
-
-/* A hidden block (the parked "before and after" figure) doesn't count as
-   the section's first child, so the next block starts at the section gap. */
-.case-section > [hidden]:first-child + * {
-  margin-block-start: 0;
 }
 
 .case-section--compare {
   padding-block-start: var(--case-section-spacing-first-padding-top);
-}
-
-.case-section > * + * {
-  margin-block-start: var(--case-section-spacing-block-sm);
-}
-
-.case-section > .case-section__block--lg {
-  margin-block-start: var(--case-section-spacing-block-lg);
 }
 
 .case-section .grid {
@@ -1812,7 +1749,6 @@ code {
    numerals for the readout. */
 
 .case-section__label,
-.case-hero__brief > .section-label,
 .case-section .grid > .section-label {
   display: flex;
   flex-wrap: wrap;
@@ -1897,10 +1833,6 @@ code {
   padding-inline: var(--page-spacing-padding-x);
   column-gap: var(--page-spacing-gutter);
   row-gap: 0;
-}
-
-.case-hero__kicker {
-  margin-block-end: var(--case-hero-spacing-kicker-gap);
 }
 
 .case-hero__title {
@@ -2071,18 +2003,6 @@ main {
   color: var(--project-row-color-content-number);
 }
 
-@media (min-width: 60em) {
-
-}
-
-.case-hero__inner > .case-hero__tags {
-  align-self: end;
-  justify-self: end;
-  text-align: end;
-  font-size: var(--typography-body-default-font-size);
-  line-height: var(--typography-body-default-line-height);
-  color: var(--case-hero-color-content-meta);
-}
 
 .case-hero__media {
   margin-block-start: var(--case-hero-spacing-media-margin-top);
@@ -2128,27 +2048,17 @@ main {
 }
 
 /* From 60em the brief column splits in half on the page grid (one
-   gutter between halves = columns 7–9 and 10–12): Focus on the left,
-   Scope and Context stacked on the right. */
+   gutter between halves = columns 7–9 and 10–12): the tall list on the
+   left, the others stacked on the right by auto-placement. */
 @media (min-width: 60em) {
   .case-hero__body > .case-hero__specs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--page-spacing-gutter);
   }
 
-  .case-hero__specs > .project-row__spec:nth-child(1) {
+  .case-hero__specs > .project-row__spec--tall {
     grid-column: 1;
     grid-row: 1 / span 2;
-  }
-
-  .case-hero__specs > .project-row__spec:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .case-hero__specs > .project-row__spec:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
   }
 }
 
@@ -2182,35 +2092,6 @@ main {
 
   .case-hero__media {
     grid-column: 1 / -1;
-  }
-}
-
-/* Lead row: headline and supporting text in columns 1–6, 16px apart;
-   the screen pair runs full width below, one screen per six columns. */
-.case-section .grid.case-section__lead-row {
-  row-gap: var(--case-section-spacing-lead-row-gap);
-  align-items: start;
-}
-
-.case-section__lead-row > h2 {
-  grid-row: 1;
-}
-
-.case-section__lead-row > .case-section__support {
-  grid-row: 2;
-  margin-block-start: 0;
-}
-
-@media (min-width: 60em) {
-  .case-section__lead-row > h2,
-  .case-section__lead-row > .case-section__support {
-    grid-column: 1 / span 6;
-  }
-
-  .case-section__lead-row > .case-section__figure {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    margin-block-start: var(--case-section-spacing-block-sm);
   }
 }
 
@@ -2297,10 +2178,6 @@ main {
   row-gap: var(--case-flow-spacing-row-gap);
   align-items: start;
   padding-block-start: 0;
-}
-
-.case-section--card > * + * {
-  margin-block-start: 0;
 }
 
 .case-section--card > .case-section__media:not(:has(> :not([hidden]))) {
@@ -2913,70 +2790,6 @@ figcaption.text-caption {
   text-transform: none;
   color: var(--work-index-color-content-lead);
   text-wrap: balance;
-}
-
-/* Work interstitial: a full-width "what I solve" row between the fourth
-   and fifth studies. Sits on the list's 12 columns (subgrid): label and
-   headline from column 1, copy in 4–6 and 7–9, links under it in 4. */
-.work-index__list > .work-interstitial {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: subgrid;
-  row-gap: var(--spacing-24);
-  align-content: start;
-  /* Ruled top and bottom with equal, generous space inside and out. */
-  margin-block: var(--spacing-120);
-  padding-block: var(--spacing-120);
-  border-block: var(--case-section-border-width-rule) solid var(--case-section-color-border-rule);
-}
-
-.work-interstitial > * {
-  grid-column: 1 / -1;
-  margin: 0;
-}
-
-.work-interstitial__title {
-  font-family: var(--typography-headline-sm-font-family);
-  font-size: var(--typography-font-size-48);
-  line-height: var(--typography-line-height-48);
-  font-weight: var(--typography-font-weight-800);
-  letter-spacing: var(--typography-headline-sm-letter-spacing);
-  text-transform: uppercase;
-  color: var(--case-section-color-content-heading);
-  text-wrap: balance;
-}
-
-.work-interstitial__text {
-  font-family: var(--typography-body-default-font-family);
-  font-size: var(--typography-body-default-font-size);
-  line-height: var(--typography-body-default-line-height);
-  color: var(--case-section-color-content-body);
-  text-wrap: pretty;
-}
-
-@media (min-width: 60em) {
-  .work-index__list > .work-interstitial {
-    grid-row: 9;
-  }
-
-  .work-interstitial__title { grid-column: 1 / span 9; grid-row: 2; }
-  .work-interstitial__text:nth-of-type(2) { grid-column: 4 / span 3; }
-  .work-interstitial__text:nth-of-type(3) { grid-column: 7 / span 3; }
-  .work-interstitial__text { grid-row: 3; }
-  .work-interstitial__actions { grid-column: 4 / span 6; grid-row: 4; }
-
-  /* The interstitial shifts later cards one place in the DOM, so flip
-     their columns back: the study after it starts on the left again. */
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) { grid-column: 1 / span 6; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) { grid-column: 7 / span 6; }
-
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .project-row__spec:nth-child(3) { grid-column: auto; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .hyperlink--cta { margin-inline-start: 0; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .project-row__spec:nth-child(3) { grid-column: 2; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .hyperlink--cta {
-    align-self: flex-start;
-    margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
-  }
 }
 
 /* Index headings below 60em: the fixed 48–56px desktop sizes overrun a
