@@ -216,52 +216,52 @@
   --stat-band-motion-stagger: 15vh;
   --stat-band-motion-length: 70vh;
 
-  /* work-index */
-  --work-index-color-content-title: var(--color-content-headline);
-  --work-index-color-content-lead: var(--color-content-subtitle);
-  --work-index-spacing-lead-gap: var(--spacing-8);
-  --work-index-spacing-list-margin-top: var(--spacing-120);
-  --work-index-spacing-card-gap: var(--spacing-240);
-  --work-index-spacing-row-gap: var(--spacing-48);
-  --work-index-spacing-lead-clearance: var(--spacing-120);
+  /* feature-list */
+  --feature-list-color-content-title: var(--color-content-headline);
+  --feature-list-color-content-lead: var(--color-content-subtitle);
+  --feature-list-spacing-lead-gap: var(--spacing-8);
+  --feature-list-spacing-list-margin-top: var(--spacing-120);
+  --feature-list-spacing-card-gap: var(--spacing-240);
+  --feature-list-spacing-row-gap: var(--spacing-48);
+  --feature-list-spacing-lead-clearance: var(--spacing-120);
 
-  /* project-row */
-  --project-row-color-content-meta: var(--color-content-subtle);
-  --project-row-color-content-number: var(--color-content-eyebrow);
-  --project-row-color-content-title: var(--color-content-headline);
-  --project-row-color-content-title-hover: var(--color-content-headline-brand);
-  --project-row-color-content-lead: var(--color-content-subtitle);
-  --project-row-color-content-detail: var(--color-content-default);
-  --project-row-color-content-spec-label: var(--color-content-subtle);
-  --project-row-color-content-spec: var(--color-content-emphasized);
-  --project-row-color-background-bullet: var(--color-background-brand);
-  --project-row-elevation-flat:
+  /* feature-row */
+  --feature-row-color-content-meta: var(--color-content-subtle);
+  --feature-row-color-content-number: var(--color-content-eyebrow);
+  --feature-row-color-content-title: var(--color-content-headline);
+  --feature-row-color-content-title-hover: var(--color-content-headline-brand);
+  --feature-row-color-content-lead: var(--color-content-subtitle);
+  --feature-row-color-content-detail: var(--color-content-default);
+  --feature-row-color-content-spec-label: var(--color-content-subtle);
+  --feature-row-color-content-spec: var(--color-content-emphasized);
+  --feature-row-color-background-bullet: var(--color-background-brand);
+  --feature-row-elevation-flat:
     drop-shadow(0 0.0625rem 0.0625rem color-mix(in srgb, var(--color-elevation-shadow) 16.5%, transparent))
     drop-shadow(0 0.375rem 0.625rem color-mix(in srgb, var(--color-elevation-shadow) 19.25%, transparent))
     drop-shadow(0 1.375rem 2rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent));
-  --project-row-elevation-phone:
+  --feature-row-elevation-phone:
     drop-shadow(0 0.125rem 0.1875rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent))
     drop-shadow(0 1.25rem 2.5rem color-mix(in srgb, var(--color-elevation-shadow) 33%, transparent))
     drop-shadow(0 3rem 5rem color-mix(in srgb, var(--color-elevation-shadow) 27.5%, transparent));
-  --project-row-spacing-bullet-offset: -0.125rem;
-  --project-row-spacing-gap: var(--spacing-24);
-  --project-row-spacing-meta-gap-x: var(--spacing-24);
-  --project-row-spacing-meta-gap-y: var(--spacing-4);
-  --project-row-spacing-title-margin-y: var(--spacing-8);
-  --project-row-spacing-media-clearance: var(--spacing-16);
-  --project-row-spacing-body-gap: var(--spacing-8);
-  --project-row-spacing-detail-margin-top: var(--spacing-8);
-  --project-row-spacing-specs-margin-top: var(--spacing-24);
-  --project-row-spacing-lead-specs-margin-top: var(--spacing-32);
-  --project-row-spacing-lead-cta-margin-top: var(--spacing-24);
-  --project-row-spacing-specs-gap-x: var(--page-spacing-gutter);
-  --project-row-spacing-specs-gap-y: var(--spacing-24);
-  --project-row-size-spec-min: 9.375rem;
-  --project-row-spacing-spec-gap: var(--spacing-8);
-  --project-row-spacing-list-gap: var(--spacing-2);
-  --project-row-spacing-item-gap: var(--spacing-8);
-  --project-row-spacing-cta-margin-top: var(--spacing-24);
-  --project-row-motion-drift: 1.5rem;
+  --feature-row-spacing-bullet-offset: -0.125rem;
+  --feature-row-spacing-gap: var(--spacing-24);
+  --feature-row-spacing-meta-gap-x: var(--spacing-24);
+  --feature-row-spacing-meta-gap-y: var(--spacing-4);
+  --feature-row-spacing-title-margin-y: var(--spacing-8);
+  --feature-row-spacing-media-clearance: var(--spacing-16);
+  --feature-row-spacing-body-gap: var(--spacing-8);
+  --feature-row-spacing-detail-margin-top: var(--spacing-8);
+  --feature-row-spacing-specs-margin-top: var(--spacing-24);
+  --feature-row-spacing-lead-specs-margin-top: var(--spacing-32);
+  --feature-row-spacing-lead-cta-margin-top: var(--spacing-24);
+  --feature-row-spacing-specs-gap-x: var(--page-spacing-gutter);
+  --feature-row-spacing-specs-gap-y: var(--spacing-24);
+  --feature-row-size-spec-min: 9.375rem;
+  --feature-row-spacing-spec-gap: var(--spacing-8);
+  --feature-row-spacing-list-gap: var(--spacing-2);
+  --feature-row-spacing-item-gap: var(--spacing-8);
+  --feature-row-spacing-cta-margin-top: var(--spacing-24);
+  --feature-row-motion-drift: 1.5rem;
 
   /* index-hero actions */
   --button-spacing-actions-gap-x: var(--spacing-32);
@@ -275,80 +275,80 @@
   --how-i-work-spacing-body-gap: var(--spacing-24);
   --how-i-work-size-body-column-min: 15rem;
 
-  /* case-hero */
-  --case-hero-color-content-title: var(--color-content-headline);
-  --case-hero-color-content-lead: var(--color-content-headline);
-  --case-hero-color-content-kicker: var(--color-content-emphasized);
-  --case-hero-color-content-kicker-brand: var(--color-content-eyebrow);
-  --case-hero-color-content-brief: var(--color-content-default);
-  --case-hero-color-content-meta-label: var(--color-content-subtle);
-  --case-hero-spacing-padding-top: var(--spacing-48);
-  --case-hero-spacing-media-margin-top: var(--spacing-96);
-  --case-hero-spacing-title-top: var(--spacing-120);
-  --case-hero-spacing-lead-top: var(--work-index-spacing-lead-gap);
-  --case-hero-spacing-specs-gap-y: var(--spacing-40);
-  --case-hero-color-border-band: var(--color-border-strong);
-  --case-hero-border-width-band: var(--stat-band-border-width-default);
-  --case-hero-spacing-band-padding-top: var(--spacing-12);
-  --case-hero-spacing-band-gap: var(--spacing-4);
-  --case-hero-spacing-title-margin-top: var(--spacing-96);
-  --case-hero-spacing-title-optical: -0.039em;
-  --case-hero-spacing-row-gap: var(--spacing-24);
-  --case-hero-spacing-meta-padding-y: var(--spacing-8);
-  --case-hero-spacing-meta-padding-x: var(--spacing-12);
+  /* page-hero */
+  --page-hero-color-content-title: var(--color-content-headline);
+  --page-hero-color-content-lead: var(--color-content-headline);
+  --page-hero-color-content-kicker: var(--color-content-emphasized);
+  --page-hero-color-content-kicker-brand: var(--color-content-eyebrow);
+  --page-hero-color-content-brief: var(--color-content-default);
+  --page-hero-color-content-meta-label: var(--color-content-subtle);
+  --page-hero-spacing-padding-top: var(--spacing-48);
+  --page-hero-spacing-media-margin-top: var(--spacing-96);
+  --page-hero-spacing-title-top: var(--spacing-120);
+  --page-hero-spacing-lead-top: var(--feature-list-spacing-lead-gap);
+  --page-hero-spacing-specs-gap-y: var(--spacing-40);
+  --page-hero-color-border-band: var(--color-border-strong);
+  --page-hero-border-width-band: var(--stat-band-border-width-default);
+  --page-hero-spacing-band-padding-top: var(--spacing-12);
+  --page-hero-spacing-band-gap: var(--spacing-4);
+  --page-hero-spacing-title-margin-top: var(--spacing-96);
+  --page-hero-spacing-title-optical: -0.039em;
+  --page-hero-spacing-row-gap: var(--spacing-24);
+  --page-hero-spacing-meta-padding-y: var(--spacing-8);
+  --page-hero-spacing-meta-padding-x: var(--spacing-12);
 
-  /* case-section */
-  --case-section-color-content-label: var(--color-content-subtle);
-  --case-section-color-content-heading: var(--color-content-headline);
-  --case-section-color-content-body: var(--color-content-default);
-  --case-section-color-content-number: var(--color-content-emphasized);
-  --case-section-color-content-figure-label: var(--color-content-subtle);
-  --case-section-color-content-figure-label-brand: var(--color-content-eyebrow);
-  --case-section-color-content-caption: var(--color-content-default);
-  --case-section-color-content-closing: var(--color-content-headline);
-  --case-section-color-content-open: var(--color-content-eyebrow);
-  --case-section-spacing-padding-top: var(--spacing-168);
+  /* content-section */
+  --content-section-color-content-label: var(--color-content-subtle);
+  --content-section-color-content-heading: var(--color-content-headline);
+  --content-section-color-content-body: var(--color-content-default);
+  --content-section-color-content-number: var(--color-content-emphasized);
+  --content-section-color-content-figure-label: var(--color-content-subtle);
+  --content-section-color-content-figure-label-brand: var(--color-content-eyebrow);
+  --content-section-color-content-caption: var(--color-content-default);
+  --content-section-color-content-closing: var(--color-content-headline);
+  --content-section-color-content-open: var(--color-content-eyebrow);
+  --content-section-spacing-padding-top: var(--spacing-168);
   --case-flow-spacing-row-gap: var(--spacing-48);
-  --case-section-spacing-rule: var(--spacing-64);
-  --case-section-border-width-rule: 0.0625rem;
+  --content-section-spacing-rule: var(--spacing-64);
+  --content-section-border-width-rule: 0.0625rem;
   /* The rule under each h2 matches the hero title row's 4px rule. */
-  --case-section-border-width-title: var(--case-hero-border-width-title-row);
-  --case-section-color-border-title: var(--case-hero-color-border-band);
-  --case-section-color-border-rule: var(--page-grid-color-border);
+  --content-section-border-width-title: var(--page-hero-border-width-title-row);
+  --content-section-color-border-title: var(--page-hero-color-border-band);
+  --content-section-color-border-rule: var(--page-grid-color-border);
   /* Scales with the title: 48px (--spacing-48) at the 136px desktop
      title, as a share of the title size. A fixed 48px crowds the arrow off the
      row once the title shrinks on phones. */
-  --case-hero-spacing-title-icon-gap: calc(1em * 48 / 136);
-  --case-hero-spacing-title-row-top: calc(var(--spacing-48) * 4);
-  --case-hero-spacing-title-row-bottom: var(--spacing-40);
-  --case-hero-spacing-title-row-gap: var(--spacing-48);
-  --case-hero-border-width-title-row: 0.25rem;
-  --case-hero-scale-title-with-icon: 0.86;
+  --page-hero-spacing-title-icon-gap: calc(1em * 48 / 136);
+  --page-hero-spacing-title-row-top: calc(var(--spacing-48) * 4);
+  --page-hero-spacing-title-row-bottom: var(--spacing-40);
+  --page-hero-spacing-title-row-gap: var(--spacing-48);
+  --page-hero-border-width-title-row: 0.25rem;
+  --page-hero-scale-title-with-icon: 0.86;
   /* Title size: fills the hero (20cqi sets an 8-letter name edge to edge)
      and stops at display-lg (10rem) on wide screens. Line height stays at
      display-lg's 1:1 ratio, so it scales with the size. */
-  --case-hero-font-size-title: min(var(--typography-display-lg-font-size), 20cqi);
-  --case-hero-line-height-title: 1;
-  --case-section-size-note-icon: 0.75rem;
-  --case-section-spacing-note-icon-gap: var(--spacing-8);
+  --page-hero-font-size-title: min(var(--typography-display-lg-font-size), 20cqi);
+  --page-hero-line-height-title: 1;
+  --content-section-size-note-icon: 0.75rem;
+  --content-section-spacing-note-icon-gap: var(--spacing-8);
   /* Same ratio as the hero title arrow: 48px at 136px type. */
-  --case-section-spacing-title-icon-gap: calc(1em * 48 / 136);
-  --case-section-spacing-first-padding-top: var(--spacing-120);
-  --case-section-spacing-head-padding-top: var(--spacing-24);
-  --case-section-spacing-row-gap: var(--spacing-24);
-  --case-section-spacing-support-margin-top: var(--spacing-24);
-  --case-section-spacing-block-sm: var(--spacing-72);
-  --case-section-spacing-heading-offset: var(--spacing-12);
-  --case-section-spacing-body-offset: var(--spacing-16);
-  --case-section-spacing-figure-gap: var(--spacing-8);
-  --case-section-spacing-figcaption-gap: var(--spacing-12);
-  --case-section-spacing-figcaption-inline-gap: var(--spacing-16);
-  --case-section-spacing-closing-margin-top: var(--spacing-48);
-  --case-section-spacing-open-gap: var(--spacing-32);
-  --case-section-spacing-open-item-gap: var(--spacing-8);
-  --case-section-spacing-open-item-padding-top: var(--spacing-12);
+  --content-section-spacing-title-icon-gap: calc(1em * 48 / 136);
+  --content-section-spacing-first-padding-top: var(--spacing-120);
+  --content-section-spacing-head-padding-top: var(--spacing-24);
+  --content-section-spacing-row-gap: var(--spacing-24);
+  --content-section-spacing-support-margin-top: var(--spacing-24);
+  --content-section-spacing-block-sm: var(--spacing-72);
+  --content-section-spacing-heading-offset: var(--spacing-12);
+  --content-section-spacing-body-offset: var(--spacing-16);
+  --content-section-spacing-figure-gap: var(--spacing-8);
+  --content-section-spacing-figcaption-gap: var(--spacing-12);
+  --content-section-spacing-figcaption-inline-gap: var(--spacing-16);
+  --content-section-spacing-closing-margin-top: var(--spacing-48);
+  --content-section-spacing-open-gap: var(--spacing-32);
+  --content-section-spacing-open-item-gap: var(--spacing-8);
+  --content-section-spacing-open-item-padding-top: var(--spacing-12);
 
-  --case-section-spacing-lead-row-gap: var(--spacing-16);
+  --content-section-spacing-lead-row-gap: var(--spacing-16);
 
   /* case-readout, case-notes */
   --case-readout-color-border-default: var(--color-border-strong);
@@ -370,7 +370,7 @@
   --sheet-motion-easing: cubic-bezier(0.32, 0.72, 0, 1);
   --sheet-motion-duration-ui: var(--motion-duration-sm);
 
-  /* project-row--next */
+  /* feature-row--next */
   --next-color-content-title: var(--color-content-headline);
   --next-spacing-gap: var(--spacing-16);
 }
@@ -901,13 +901,13 @@ code {
 
 
 
-/* ---------- work-index ---------- */
+/* ---------- feature-list ---------- */
 
-.work-index__header {
+.feature-list__header {
   align-items: baseline;
 }
 
-.work-index__title {
+.feature-list__title {
   font-family: var(--typography-display-section-font-family);
   font-size: var(--typography-display-section-font-size);
   line-height: var(--typography-display-section-line-height);
@@ -915,31 +915,31 @@ code {
   letter-spacing: var(--typography-display-section-letter-spacing);
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--work-index-color-content-title);
+  color: var(--feature-list-color-content-title);
 }
 
-.work-index__lead {
-  margin-block-start: var(--work-index-spacing-lead-gap);
+.feature-list__lead {
+  margin-block-start: var(--feature-list-spacing-lead-gap);
   font-family: var(--typography-title-lg-font-family);
   font-size: var(--typography-title-lg-font-size);
   line-height: var(--typography-title-lg-line-height);
   font-weight: var(--typography-display-section-font-weight);
   letter-spacing: var(--typography-display-sm-letter-spacing);
-  color: var(--work-index-color-content-lead);
+  color: var(--feature-list-color-content-lead);
   text-wrap: balance;
 }
 
-.work-index__list {
-  margin-block-start: var(--work-index-spacing-list-margin-top);
+.feature-list__list {
+  margin-block-start: var(--feature-list-spacing-list-margin-top);
   align-items: start;
 }
 
-.work-index__list > .project-row + .project-row {
-  margin-block-start: var(--work-index-spacing-card-gap);
+.feature-list__list > .feature-row + .feature-row {
+  margin-block-start: var(--feature-list-spacing-card-gap);
 }
 
 /* Below 60em every card runs full width, one under the other. */
-.work-index__list > .project-row {
+.feature-list__list > .feature-row {
   grid-column: 1 / -1;
 }
 
@@ -949,74 +949,74 @@ code {
      subgrid, and starts on the previous card's body row, so every card's
      top lines up with its neighbor's fact list. One row gap spaces
      everything, inside and between cards. Rows are written out for up to
-     12 cards; add a line per card past that. Counting "of .project-row"
+     12 cards; add a line per card past that. Counting "of .feature-row"
      means a block between cards never shifts their sides or rows. */
-  .work-index__list {
-    row-gap: var(--work-index-spacing-row-gap);
+  .feature-list__list {
+    row-gap: var(--feature-list-spacing-row-gap);
   }
 
-  .work-index__list > .project-row + .project-row {
+  .feature-list__list > .feature-row + .feature-row {
     margin-block-start: 0;
   }
 
-  .work-index__list > .project-row--lead {
+  .feature-list__list > .feature-row--lead {
     grid-row: 1;
-    margin-block-end: var(--work-index-spacing-lead-clearance);
+    margin-block-end: var(--feature-list-spacing-lead-clearance);
   }
 
-  .work-index__list > .project-row:not(.project-row--lead) {
+  .feature-list__list > .feature-row:not(.feature-row--lead) {
     grid-template-rows: subgrid;
-    row-gap: var(--work-index-spacing-row-gap);
+    row-gap: var(--feature-list-spacing-row-gap);
     align-items: start;
   }
 
   /* The row gap would add 48px under the image; pull it back so the
      image rests one clearance step above the headline. */
-  .work-index__list > .project-row:not(.project-row--lead) > .project-row__media {
-    margin-block-end: calc(var(--project-row-spacing-media-clearance) - var(--work-index-spacing-row-gap));
+  .feature-list__list > .feature-row:not(.feature-row--lead) > .feature-row__media {
+    margin-block-end: calc(var(--feature-row-spacing-media-clearance) - var(--feature-list-spacing-row-gap));
   }
 
-  .work-index__list > .project-row:not(.project-row--lead) > .project-row__body {
+  .feature-list__list > .feature-row:not(.feature-row--lead) > .feature-row__body {
     margin-block-start: 0;
   }
 
-  .work-index__list > .project-row:nth-child(even of .project-row) {
+  .feature-list__list > .feature-row:nth-child(even of .feature-row) {
     grid-column: 7 / span 6;
   }
 
-  .work-index__list > .project-row:nth-child(odd of .project-row):not(.project-row--lead) {
+  .feature-list__list > .feature-row:nth-child(odd of .feature-row):not(.feature-row--lead) {
     grid-column: 1 / span 6;
   }
 
   /* Right-column cards: the third list and the CTA sit under the second
      list, so the card's lower edge reads from the outer module. */
-  .work-index__list > .project-row:nth-child(even of .project-row) .project-row__spec:nth-child(3) {
+  .feature-list__list > .feature-row:nth-child(even of .feature-row) .feature-row__spec:nth-child(3) {
     grid-column: 2;
   }
 
-  .work-index__list > .project-row:nth-child(even of .project-row) .hyperlink--cta {
+  .feature-list__list > .feature-row:nth-child(even of .feature-row) .hyperlink--cta {
     align-self: flex-start;
-    margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
+    margin-inline-start: calc(50% + var(--feature-row-spacing-specs-gap-x) / 2);
   }
 
-  .work-index__list > .project-row:nth-child(2 of .project-row) { grid-row: 2 / span 3; }
-  .work-index__list > .project-row:nth-child(3 of .project-row) { grid-row: 4 / span 3; }
-  .work-index__list > .project-row:nth-child(4 of .project-row) { grid-row: 6 / span 3; }
-  .work-index__list > .project-row:nth-child(5 of .project-row) { grid-row: 8 / span 3; }
-  .work-index__list > .project-row:nth-child(6 of .project-row) { grid-row: 10 / span 3; }
-  .work-index__list > .project-row:nth-child(7 of .project-row) { grid-row: 12 / span 3; }
-  .work-index__list > .project-row:nth-child(8 of .project-row) { grid-row: 14 / span 3; }
-  .work-index__list > .project-row:nth-child(9 of .project-row) { grid-row: 16 / span 3; }
-  .work-index__list > .project-row:nth-child(10 of .project-row) { grid-row: 18 / span 3; }
-  .work-index__list > .project-row:nth-child(11 of .project-row) { grid-row: 20 / span 3; }
-  .work-index__list > .project-row:nth-child(12 of .project-row) { grid-row: 22 / span 3; }
-  .work-index__list > .project-row:nth-child(13 of .project-row) { grid-row: 24 / span 3; }
+  .feature-list__list > .feature-row:nth-child(2 of .feature-row) { grid-row: 2 / span 3; }
+  .feature-list__list > .feature-row:nth-child(3 of .feature-row) { grid-row: 4 / span 3; }
+  .feature-list__list > .feature-row:nth-child(4 of .feature-row) { grid-row: 6 / span 3; }
+  .feature-list__list > .feature-row:nth-child(5 of .feature-row) { grid-row: 8 / span 3; }
+  .feature-list__list > .feature-row:nth-child(6 of .feature-row) { grid-row: 10 / span 3; }
+  .feature-list__list > .feature-row:nth-child(7 of .feature-row) { grid-row: 12 / span 3; }
+  .feature-list__list > .feature-row:nth-child(8 of .feature-row) { grid-row: 14 / span 3; }
+  .feature-list__list > .feature-row:nth-child(9 of .feature-row) { grid-row: 16 / span 3; }
+  .feature-list__list > .feature-row:nth-child(10 of .feature-row) { grid-row: 18 / span 3; }
+  .feature-list__list > .feature-row:nth-child(11 of .feature-row) { grid-row: 20 / span 3; }
+  .feature-list__list > .feature-row:nth-child(12 of .feature-row) { grid-row: 22 / span 3; }
+  .feature-list__list > .feature-row:nth-child(13 of .feature-row) { grid-row: 24 / span 3; }
 }
 
 
-/* ---------- project-row ---------- */
+/* ---------- feature-row ---------- */
 
-.project-row {
+.feature-row {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1024,29 +1024,29 @@ code {
   min-inline-size: 0;
 }
 
-.project-row__media {
+.feature-row__media {
   display: grid;
-  margin-block-end: var(--project-row-spacing-media-clearance);
+  margin-block-end: var(--feature-row-spacing-media-clearance);
 }
 
 /* Images take no width of their own: they stretch to the column. */
-.project-row__media > img {
+.feature-row__media > img {
   grid-area: 1 / 1;
   justify-self: stretch;
-  filter: var(--project-row-elevation-flat);
-  --drift: var(--project-row-motion-drift);
+  filter: var(--feature-row-elevation-flat);
+  --drift: var(--feature-row-motion-drift);
 }
 
 /* Layered device composites, back to front. Each layer sits on the
    shared baseline; its lift, width, side and drift come from depth. */
-.project-row__media--devices > .project-row__layer {
+.feature-row__media--devices > .feature-row__layer {
   align-self: end;
   inline-size: var(--layer-width);
   margin-block-end: var(--layer-lift, 0);
   margin-inline-start: var(--layer-start, 0);
   margin-inline-end: var(--layer-end, 0);
   justify-self: var(--layer-justify, start);
-  filter: var(--layer-blur, ) var(--layer-elevation, var(--project-row-elevation-flat));
+  filter: var(--layer-blur, ) var(--layer-elevation, var(--feature-row-elevation-flat));
 }
 
 /* Device presets (Mark, 2026-11-02). A product picks a preset, not a
@@ -1058,79 +1058,79 @@ code {
    Lifts are % of the box width too, so they scale with it. */
 
 /* Laptop plus: one laptop at full width with smaller devices in front. */
-:is(.project-row__media--laptop-plus-tablet, .project-row__media--laptop-plus-phones) > .project-row__layer:nth-child(1) {
+:is(.feature-row__media--laptop-plus-tablet, .feature-row__media--laptop-plus-phones) > .feature-row__layer:nth-child(1) {
   --layer-width: calc(80% / 0.8); --layer-lift: calc(4.8% / 0.8); --drift: 1rem;
 }
-.project-row__media--laptop-plus-tablet > .project-row__layer:nth-child(2) {
+.feature-row__media--laptop-plus-tablet > .feature-row__layer:nth-child(2) {
   --layer-width: calc(33.6% / 0.8); --layer-justify: end; --layer-end: 0%; --drift: 2rem;
 }
-.project-row__media--laptop-plus-tablet > .project-row__layer:nth-child(3) {
+.feature-row__media--laptop-plus-tablet > .feature-row__layer:nth-child(3) {
   --layer-width: calc(16% / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --drift: 3rem;
 }
-.project-row__media--laptop-plus-phones > .project-row__layer:nth-child(2) {
-  --layer-width: calc(13.6% / 0.8); --layer-justify: end; --layer-end: 0%; --layer-elevation: var(--project-row-elevation-phone); --drift: 2rem;
+.feature-row__media--laptop-plus-phones > .feature-row__layer:nth-child(2) {
+  --layer-width: calc(13.6% / 0.8); --layer-justify: end; --layer-end: 0%; --layer-elevation: var(--feature-row-elevation-phone); --drift: 2rem;
 }
-.project-row__media--laptop-plus-phones > .project-row__layer:nth-child(3) {
-  --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
+.feature-row__media--laptop-plus-phones > .feature-row__layer:nth-child(3) {
+  --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--feature-row-elevation-phone); --drift: 3rem;
 }
 
 /* Laptop pair: two overlapping laptops, the back one raised and soft. */
-.project-row__media--laptop-pair > .project-row__layer:nth-child(1) {
+.feature-row__media--laptop-pair > .feature-row__layer:nth-child(1) {
   --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
-.project-row__media--laptop-pair > .project-row__layer:nth-child(2) {
+.feature-row__media--laptop-pair > .feature-row__layer:nth-child(2) {
   --layer-width: calc(58% / 0.8); --layer-start: calc(22% / 0.8); --drift: 3rem;
 }
 
 /* Phone fan: phones alternate sides and grow toward the front, losing
    lift and blur as they come forward. Three phones take the first set of
    slots; a fourth switches the fan to the four-phone set. */
-.project-row__media--phone-fan > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
-.project-row__media--phone-fan > .project-row__layer:nth-child(1) {
+.feature-row__media--phone-fan > .feature-row__layer { --layer-elevation: var(--feature-row-elevation-phone); }
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(1) {
   --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
-.project-row__media--phone-fan > .project-row__layer:nth-child(2) {
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(2) {
   --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.015rem); --drift: 2rem;
 }
-.project-row__media--phone-fan > .project-row__layer:nth-child(3) {
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(3) {
   --layer-width: calc(25.6% / 0.76); --layer-start: calc((26.4% - 4%) / 0.76); --drift: 3rem;
 }
-.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(1) {
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(1) {
   --layer-width: calc(17.6% / 0.76); --layer-lift: calc(10.4% / 0.76);
 }
-.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(2) {
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(2) {
   --layer-width: calc(20% / 0.76); --layer-lift: calc(5.6% / 0.76); --drift: 1.5rem;
 }
-.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(3) {
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(3) {
   --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.01rem); --drift: 2.5rem;
 }
-.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(4) {
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(4) {
   --layer-width: calc(24.8% / 0.76); --layer-justify: end; --layer-end: calc((39.2% - 21.6%) / 0.76); --drift: 3rem;
 }
 
-.project-row__content {
+.feature-row__content {
   display: flex;
   flex-direction: column;
 }
 
-.project-row__meta {
+.feature-row__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
+  gap: var(--feature-row-spacing-meta-gap-y) var(--feature-row-spacing-meta-gap-x);
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
   line-height: var(--typography-eyebrow-lg-line-height);
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
   text-transform: uppercase;
-  color: var(--project-row-color-content-meta);
+  color: var(--feature-row-color-content-meta);
 }
 
-.project-row__number {
-  color: var(--project-row-color-content-number);
+.feature-row__number {
+  color: var(--feature-row-color-content-number);
 }
 
-.project-row__title {
+.feature-row__title {
   font-family: var(--typography-headline-default-font-family);
   font-size: var(--typography-headline-default-font-size);
   line-height: var(--typography-line-height-40);
@@ -1138,146 +1138,146 @@ code {
   letter-spacing: var(--typography-headline-default-letter-spacing);
   text-transform: uppercase;
   text-wrap: balance;
-  margin-block: var(--project-row-spacing-title-margin-y);
-  color: var(--project-row-color-content-title);
+  margin-block: var(--feature-row-spacing-title-margin-y);
+  color: var(--feature-row-color-content-title);
   transition: color var(--motion-duration-sm) ease;
 }
 
-.project-row__body {
+.feature-row__body {
   display: flex;
   flex-direction: column;
-  margin-block-start: var(--project-row-spacing-specs-margin-top);
+  margin-block-start: var(--feature-row-spacing-specs-margin-top);
 }
 
-.project-row__lead {
+.feature-row__lead {
   font-family: var(--typography-title-default-font-family);
   font-size: var(--typography-title-default-font-size);
   line-height: var(--typography-title-default-line-height);
   font-weight: var(--typography-title-default-font-weight);
   letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--project-row-color-content-lead);
+  color: var(--feature-row-color-content-lead);
   text-wrap: balance;
 }
 
-.project-row__detail {
-  margin-block-start: var(--project-row-spacing-detail-margin-top);
+.feature-row__detail {
+  margin-block-start: var(--feature-row-spacing-detail-margin-top);
   font-size: var(--typography-body-sm-font-size);
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-sm-font-weight);
-  color: var(--project-row-color-content-detail);
+  color: var(--feature-row-color-content-detail);
   text-wrap: pretty;
 }
 
 /* Two lists per row with the page gutter between them, so in a 6-column
    card each list sits exactly on one 3-column module; the third wraps
    under the first. The lead study overrides to three across. */
-.project-row__specs {
+.feature-row__specs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--project-row-spacing-specs-gap-y) var(--project-row-spacing-specs-gap-x);
+  gap: var(--feature-row-spacing-specs-gap-y) var(--feature-row-spacing-specs-gap-x);
 }
 
-.project-row__spec {
+.feature-row__spec {
   display: flex;
   flex-direction: column;
-  gap: var(--project-row-spacing-spec-gap);
+  gap: var(--feature-row-spacing-spec-gap);
   min-inline-size: 0;
 }
 
-.project-row__spec dt {
+.feature-row__spec dt {
   font-family: var(--typography-eyebrow-default-font-family);
   font-size: var(--typography-eyebrow-default-font-size);
   line-height: var(--typography-eyebrow-default-line-height);
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--project-row-color-content-spec-label);
+  color: var(--feature-row-color-content-spec-label);
 }
 
-.project-row__spec ul {
+.feature-row__spec ul {
   display: flex;
   flex-direction: column;
-  gap: var(--project-row-spacing-list-gap);
+  gap: var(--feature-row-spacing-list-gap);
   padding: 0;
   list-style: none;
   font-size: var(--typography-body-list-font-size);
   line-height: var(--typography-body-list-line-height);
-  color: var(--project-row-color-content-spec);
+  color: var(--feature-row-color-content-spec);
 }
 
-.project-row__spec li {
+.feature-row__spec li {
   display: flex;
   align-items: baseline;
-  gap: var(--project-row-spacing-item-gap);
+  gap: var(--feature-row-spacing-item-gap);
 }
 
-.project-row__spec li::before {
+.feature-row__spec li::before {
   content: "";
   flex: none;
   inline-size: var(--feature-row-spacing-bullet-width);
   aspect-ratio: 1;
-  background: var(--project-row-color-background-bullet);
-  translate: 0 var(--project-row-spacing-bullet-offset);
+  background: var(--feature-row-color-background-bullet);
+  translate: 0 var(--feature-row-spacing-bullet-offset);
 }
 
-.project-row :is(.hyperlink--cta, .project-row__cta) {
+.feature-row :is(.hyperlink--cta, .feature-row__cta) {
   align-self: flex-start;
-  margin-block-start: var(--project-row-spacing-cta-margin-top);
+  margin-block-start: var(--feature-row-spacing-cta-margin-top);
 }
 
 /* On card hover the arrow nudges up and right, as if the CTA were hovered. */
-:is(.project-row:hover, .project-row:focus-within) .hyperlink--cta .icon {
+:is(.feature-row:hover, .feature-row:focus-within) .hyperlink--cta .icon {
   translate: var(--hyperlink-spacing-cta-icon-offset) calc(var(--hyperlink-spacing-cta-icon-offset) * -1);
 }
 
 /* The whole card is one link: the CTA's hit area stretches over it. */
-.project-row :is(.hyperlink--cta, .project-row__cta)::after {
+.feature-row :is(.hyperlink--cta, .feature-row__cta)::after {
   content: "";
   position: absolute;
   inset: 0;
 }
 
-.project-row:is(:hover, :focus-within) .project-row__title {
-  color: var(--project-row-color-content-title-hover);
+.feature-row:is(:hover, :focus-within) .feature-row__title {
+  color: var(--feature-row-color-content-title-hover);
 }
 
 @media (min-width: 60em) {
   /* Lead study: image across nine columns from the left edge, text in
      columns 4–9 below it. */
-  .project-row--lead {
+  .feature-row--lead {
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
 
-  .project-row--lead > .project-row__media {
+  .feature-row--lead > .feature-row__media {
     grid-column: 1 / span 9;
   }
 
-  .project-row--lead > .project-row__content {
+  .feature-row--lead > .feature-row__content {
     grid-column: 4 / span 6;
   }
 
   /* The lead's three lists run across columns 4–12, one per 3-column
      module, so each starts on a visible grid line. */
-  .project-row--lead > .project-row__body {
+  .feature-row--lead > .feature-row__body {
     grid-column: 4 / -1;
   }
 
-  .project-row--lead .project-row__lead {
+  .feature-row--lead .feature-row__lead {
     font-size: var(--typography-title-lg-font-size);
     line-height: var(--typography-title-lg-line-height);
   }
 
-  .project-row--lead .project-row__specs {
+  .feature-row--lead .feature-row__specs {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .project-row--lead > .project-row__body {
-    margin-block-start: var(--project-row-spacing-lead-specs-margin-top);
+  .feature-row--lead > .feature-row__body {
+    margin-block-start: var(--feature-row-spacing-lead-specs-margin-top);
   }
 
-  .project-row--lead .hyperlink--cta {
-    margin-block-start: var(--project-row-spacing-lead-cta-margin-top);
+  .feature-row--lead .hyperlink--cta {
+    margin-block-start: var(--feature-row-spacing-lead-cta-margin-top);
   }
 }
 
@@ -1299,7 +1299,7 @@ code {
   transition: translate var(--motion-duration-md) var(--motion-easing-standard);
 }
 
-:is(.project-row:hover, .project-row:focus-within) .hyperlink--cta {
+:is(.feature-row:hover, .feature-row:focus-within) .hyperlink--cta {
   color: var(--hyperlink-color-cta-content-hover);
 }
 
@@ -1395,121 +1395,121 @@ code {
 }
 
 
-/* ---------- case-hero ---------- */
+/* ---------- page-hero ---------- */
 
-.case-hero {
-  padding-block-start: var(--case-hero-spacing-padding-top);
+.page-hero {
+  padding-block-start: var(--page-hero-spacing-padding-top);
 }
 
-.case-hero__bar {
-  row-gap: var(--case-hero-spacing-row-gap);
+.page-hero__bar {
+  row-gap: var(--page-hero-spacing-row-gap);
   align-items: center;
 }
 
-.case-hero__brief-text {
+.page-hero__brief-text {
   font-family: var(--typography-body-default-font-family);
   font-size: var(--typography-body-default-font-size);
   line-height: var(--typography-body-default-line-height);
   font-weight: var(--typography-body-default-font-weight);
   letter-spacing: var(--typography-body-default-letter-spacing);
-  color: var(--case-hero-color-content-brief);
+  color: var(--page-hero-color-content-brief);
   text-wrap: pretty;
 }
 
 
-/* ---------- case-section ---------- */
+/* ---------- content-section ---------- */
 
 /* Blocks stack on the gap. A hidden block takes no gap, so the parked
    "before and after" figure needs no rule of its own. */
-.case-section {
+.content-section {
   display: flex;
   flex-direction: column;
-  row-gap: var(--case-section-spacing-block-sm);
-  padding-block-start: var(--case-section-spacing-padding-top);
+  row-gap: var(--content-section-spacing-block-sm);
+  padding-block-start: var(--content-section-spacing-padding-top);
 }
 
-.case-section--compare {
-  padding-block-start: var(--case-section-spacing-first-padding-top);
+.content-section--compare {
+  padding-block-start: var(--content-section-spacing-first-padding-top);
 }
 
-.case-section .grid {
-  row-gap: var(--case-section-spacing-row-gap);
+.content-section .grid {
+  row-gap: var(--content-section-spacing-row-gap);
   align-items: baseline;
 }
 
-.case-section__head {
-  padding-block-start: var(--case-section-spacing-head-padding-top);
+.content-section__head {
+  padding-block-start: var(--content-section-spacing-head-padding-top);
 }
 
-.case-section__label {
-  color: var(--case-section-color-content-label);
+.content-section__label {
+  color: var(--content-section-color-content-label);
 }
 
-.case-section h2 {
+.content-section h2 {
   font-family: var(--typography-headline-sm-font-family);
   font-size: var(--typography-headline-sm-font-size);
   line-height: var(--typography-headline-sm-line-height);
   font-weight: var(--typography-headline-sm-font-weight);
   letter-spacing: var(--typography-headline-sm-letter-spacing);
-  color: var(--case-section-color-content-heading);
+  color: var(--content-section-color-content-heading);
   text-wrap: balance;
 }
 
-.case-section :is(h3, h4):not(.project-row__title) {
+.content-section :is(h3, h4):not(.feature-row__title) {
   font-family: var(--typography-title-default-font-family);
   font-size: var(--typography-title-default-font-size);
   line-height: var(--typography-title-default-line-height);
   font-weight: var(--typography-title-default-font-weight);
   letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--case-section-color-content-heading);
+  color: var(--content-section-color-content-heading);
   text-wrap: balance;
 }
 
-.case-section__support p,
-.case-section__text p {
+.content-section__support p,
+.content-section__text p {
   text-wrap: pretty;
 }
 
-.case-section__number {
+.content-section__number {
   font-size: var(--typography-eyebrow-default-font-size);
   line-height: var(--typography-eyebrow-default-line-height);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
-  color: var(--case-section-color-content-number);
+  color: var(--content-section-color-content-number);
 }
 
-.case-section__sub > h3 {
-  padding-block-start: var(--case-section-spacing-heading-offset);
+.content-section__sub > h3 {
+  padding-block-start: var(--content-section-spacing-heading-offset);
 }
 
-.case-section__text {
+.content-section__text {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-row-gap);
-  padding-block-start: var(--case-section-spacing-body-offset);
-  color: var(--case-section-color-content-body);
+  gap: var(--content-section-spacing-row-gap);
+  padding-block-start: var(--content-section-spacing-body-offset);
+  color: var(--content-section-color-content-body);
 }
 
 .case-figure {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-figcaption-gap);
+  gap: var(--content-section-spacing-figcaption-gap);
 }
 
 .case-figure__caption {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-figure-gap);
+  gap: var(--content-section-spacing-figure-gap);
   font-family: var(--typography-body-sm-font-family);
   font-size: var(--typography-body-sm-font-size);
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-sm-font-weight);
   letter-spacing: var(--typography-body-sm-letter-spacing);
-  color: var(--case-section-color-content-caption);
+  color: var(--content-section-color-content-caption);
 }
 
 .case-figure__caption--inline {
   flex-direction: row;
-  gap: var(--case-section-spacing-figcaption-inline-gap);
+  gap: var(--content-section-spacing-figcaption-inline-gap);
 }
 
 .case-figure__number {
@@ -1519,14 +1519,14 @@ code {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--case-section-color-content-figure-label);
+  color: var(--content-section-color-content-figure-label);
 }
 
-.case-section__row--end {
+.content-section__row--end {
   align-items: end;
 }
 
-.case-section__row--start {
+.content-section__row--start {
   align-items: start;
 }
 
@@ -1599,41 +1599,41 @@ code {
   border-inline-end: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
 }
 
-.case-notes__item .case-section__number {
-  color: var(--case-section-color-content-label);
+.case-notes__item .content-section__number {
+  color: var(--content-section-color-content-label);
 }
 
 .case-notes__item p,
 .case-open__item p {
-  color: var(--case-section-color-content-body);
+  color: var(--content-section-color-content-body);
   text-wrap: pretty;
 }
 
 .case-open {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-open-gap);
+  gap: var(--content-section-spacing-open-gap);
 }
 
 .case-open__item {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-open-item-gap);
-  padding-block-start: var(--case-section-spacing-open-item-padding-top);
+  gap: var(--content-section-spacing-open-item-gap);
+  padding-block-start: var(--content-section-spacing-open-item-padding-top);
 }
 
 .case-open__item .section-label {
-  color: var(--case-section-color-content-open);
+  color: var(--content-section-color-content-open);
 }
 
-.case-section__closing {
-  margin-block-start: var(--case-section-spacing-closing-margin-top);
+.content-section__closing {
+  margin-block-start: var(--content-section-spacing-closing-margin-top);
   font-family: var(--typography-title-lg-font-family);
   font-size: var(--typography-title-lg-font-size);
   line-height: var(--typography-title-lg-line-height);
   font-weight: var(--typography-title-lg-font-weight);
   letter-spacing: var(--typography-title-lg-letter-spacing);
-  color: var(--case-section-color-content-closing);
+  color: var(--content-section-color-content-closing);
   text-wrap: pretty;
 }
 
@@ -1670,7 +1670,7 @@ code {
   }
 }
 
-.sheet--case .case-hero {
+.sheet--case .page-hero {
   border-block-end: 0;
 }
 
@@ -1724,26 +1724,26 @@ code {
 }
 
 
-/* ---------- project-row--next ---------- */
+/* ---------- feature-row--next ---------- */
 
-.project-row--next {
+.feature-row--next {
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
   column-gap: var(--page-spacing-gutter);
-  row-gap: var(--case-section-spacing-row-gap);
-  padding-block-start: var(--case-section-spacing-head-padding-top);
+  row-gap: var(--content-section-spacing-row-gap);
+  padding-block-start: var(--content-section-spacing-head-padding-top);
 }
 
-.project-row--next .project-row__body {
+.feature-row--next .feature-row__body {
   gap: var(--next-spacing-gap);
 }
 
 
 
-.project-row--next .project-row__media {
+.feature-row--next .feature-row__media {
   margin-block-end: 0;
 }
 
-.project-row--next .project-row__media > img {
+.feature-row--next .feature-row__media > img {
   filter: none;
 }
 
@@ -1754,26 +1754,26 @@ code {
    number in accent, the card fact list for the brief details, and stat
    numerals for the readout. */
 
-.case-section__label,
-.case-section .grid > .section-label {
+.content-section__label,
+.content-section .grid > .section-label {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--project-row-spacing-meta-gap-y) var(--project-row-spacing-meta-gap-x);
+  gap: var(--feature-row-spacing-meta-gap-y) var(--feature-row-spacing-meta-gap-x);
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
   line-height: var(--typography-eyebrow-lg-line-height);
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  color: var(--project-row-color-content-meta);
+  color: var(--feature-row-color-content-meta);
 }
 
-.case-section__label-number,
-.case-section__number,
+.content-section__label-number,
+.content-section__number,
 .case-figure__number {
-  color: var(--project-row-color-content-number);
+  color: var(--feature-row-color-content-number);
 }
 
-.case-section__number {
+.content-section__number {
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
   line-height: var(--typography-eyebrow-lg-line-height);
@@ -1781,46 +1781,46 @@ code {
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
 }
 
-.case-notes__item .case-section__number {
-  color: var(--project-row-color-content-number);
+.case-notes__item .content-section__number {
+  color: var(--feature-row-color-content-number);
 }
 
 /* Brief details read like the card fact list. */
-.case-hero__meta > div {
+.page-hero__meta > div {
   display: flex;
   flex-direction: column;
-  gap: var(--project-row-spacing-spec-gap);
+  gap: var(--feature-row-spacing-spec-gap);
   min-inline-size: 0;
 }
 
-.case-hero__meta dt {
+.page-hero__meta dt {
   font-family: var(--typography-eyebrow-default-font-family);
   font-size: var(--typography-eyebrow-default-font-size);
   line-height: var(--typography-eyebrow-default-line-height);
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--project-row-color-content-spec-label);
+  color: var(--feature-row-color-content-spec-label);
 }
 
-.case-hero__meta dd {
+.page-hero__meta dd {
   display: flex;
   align-items: baseline;
-  gap: var(--project-row-spacing-item-gap);
+  gap: var(--feature-row-spacing-item-gap);
   font-family: var(--typography-body-list-font-family);
   font-size: var(--typography-body-list-font-size);
   line-height: var(--typography-body-list-line-height);
   font-weight: var(--typography-body-list-font-weight);
-  color: var(--project-row-color-content-spec);
+  color: var(--feature-row-color-content-spec);
 }
 
-.case-hero__meta dd::before {
+.page-hero__meta dd::before {
   content: "";
   flex: none;
   inline-size: var(--feature-row-spacing-bullet-width);
   aspect-ratio: 1;
-  background: var(--project-row-color-background-bullet);
-  translate: 0 var(--project-row-spacing-bullet-offset);
+  background: var(--feature-row-color-background-bullet);
+  translate: 0 var(--feature-row-spacing-bullet-offset);
 }
 
 /* Readout numbers match the stat band. */
@@ -1830,61 +1830,61 @@ code {
 
 
 /* ---------- case study: production template ----------
-   bullhorn.html keeps the live page's structure (.case-hero__inner grid,
+   bullhorn.html keeps the live page's structure (.page-hero__inner grid,
    .align subgrids, span spacers, .stack--tight figures, .text-caption).
    These rules dress that structure in the index styles. */
 
-.case-hero__inner {
+.page-hero__inner {
   max-inline-size: none;
   padding-inline: var(--page-spacing-padding-x);
   column-gap: var(--page-spacing-gutter);
   row-gap: 0;
 }
 
-.case-hero__title {
+.page-hero__title {
   font-family: var(--typography-display-sm-font-family);
   font-size: var(--typography-display-sm-font-size);
   line-height: var(--typography-display-sm-line-height);
   font-weight: var(--typography-display-sm-font-weight);
   letter-spacing: var(--typography-display-sm-letter-spacing);
-  color: var(--case-hero-color-content-title);
+  color: var(--page-hero-color-content-title);
   text-wrap: balance;
 }
 
-.case-hero__lead {
-  margin-block-start: var(--case-hero-spacing-row-gap);
+.page-hero__lead {
+  margin-block-start: var(--page-hero-spacing-row-gap);
   font-family: var(--typography-title-default-font-family);
   font-size: var(--typography-title-default-font-size);
   line-height: var(--typography-title-default-line-height);
   font-weight: var(--typography-title-default-font-weight);
   letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--project-row-color-content-lead);
+  color: var(--feature-row-color-content-lead);
   text-wrap: pretty;
 }
 
-.case-hero__meta {
-  row-gap: var(--project-row-spacing-specs-gap-y);
-  margin-block-start: var(--project-row-spacing-lead-specs-margin-top);
+.page-hero__meta {
+  row-gap: var(--feature-row-spacing-specs-gap-y);
+  margin-block-start: var(--feature-row-spacing-lead-specs-margin-top);
   padding: 0;
 }
 
-.case-hero__media {
+.page-hero__media {
   /* All columns at every width (Mark, 2026-10-27). "span 9" on the
      2-column phone grid added seven implicit zero-width tracks, each
      keeping its gutter, which narrowed every full-width row in the hero. */
   grid-column: 1 / -1;
-  margin-block-start: var(--work-index-spacing-list-margin-top);
-  filter: var(--project-row-elevation-flat);
+  margin-block-start: var(--feature-list-spacing-list-margin-top);
+  filter: var(--feature-row-elevation-flat);
 }
 
-.case-section__support {
-  margin-block-start: var(--case-section-spacing-support-margin-top);
-  color: var(--case-section-color-content-body);
+.content-section__support {
+  margin-block-start: var(--content-section-spacing-support-margin-top);
+  color: var(--content-section-color-content-body);
 }
 
-.case-section .grid > p,
-.case-section__support p {
-  color: var(--case-section-color-content-body);
+.content-section .grid > p,
+.content-section__support p {
+  color: var(--content-section-color-content-body);
   text-wrap: pretty;
 }
 
@@ -1899,33 +1899,33 @@ main {
   font-size: var(--typography-body-sm-font-size);
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-default-font-weight);
-  color: var(--case-section-color-content-caption);
+  color: var(--content-section-color-content-caption);
   text-wrap: pretty;
 }
 
 .text-caption::before {
   content: counter(site-figure) ".0" "\00a0\00a0";
-  color: var(--project-row-color-content-number);
+  color: var(--feature-row-color-content-number);
 }
 
-.case-section .grid {
-  row-gap: var(--case-section-spacing-row-gap);
+.content-section .grid {
+  row-gap: var(--content-section-spacing-row-gap);
 }
 
 /* Hero follows the index lead study: kicker and section-style title,
    image across columns 1–9, then lead, brief and fact list in 4–9. */
 /* The study's true h1: the one display-lg moment on the site. Sized to
    the hero's width (cqi) so the name fills the row without overflowing. */
-.case-hero__inner {
+.page-hero__inner {
   container-type: inline-size;
 }
 
-.case-hero__title {
-  margin-block-start: var(--case-hero-spacing-title-top);
-  margin-inline-start: var(--case-hero-spacing-title-optical);
+.page-hero__title {
+  margin-block-start: var(--page-hero-spacing-title-top);
+  margin-inline-start: var(--page-hero-spacing-title-optical);
   font-family: var(--typography-display-lg-font-family);
-  font-size: var(--case-hero-font-size-title);
-  line-height: var(--case-hero-line-height-title);
+  font-size: var(--page-hero-font-size-title);
+  line-height: var(--page-hero-line-height-title);
   font-weight: var(--typography-display-lg-font-weight);
   letter-spacing: var(--typography-display-lg-letter-spacing);
   text-transform: uppercase;
@@ -1933,59 +1933,59 @@ main {
      so a name too long for one line carries &shy; at its break point.
      From 60em the title ignores them (see below), so a multi-word name
      breaks between words, not inside one. */
-  color: var(--case-hero-color-content-title);
+  color: var(--page-hero-color-content-title);
 }
 
 @media (min-width: 60em) {
-  .case-hero__title {
+  .page-hero__title {
     hyphens: none;
   }
 
   /* A single-word name too long for the row at 136px (Groundwork) keeps
      its soft hyphens on wide screens too. */
-  .case-hero__title--hyphenate {
+  .page-hero__title--hyphenate {
     hyphens: manual;
   }
 }
 
-.case-hero__inner > .case-hero__lead {
+.page-hero__inner > .page-hero__lead {
   inline-size: 100%;
   max-inline-size: none;
-  margin-block-start: var(--case-hero-spacing-title-row-gap);
+  margin-block-start: var(--page-hero-spacing-title-row-gap);
   font-family: var(--typography-headline-default-font-family);
   font-size: var(--typography-headline-default-font-size);
   line-height: var(--typography-headline-default-line-height);
   font-weight: var(--typography-display-sm-font-weight);
   letter-spacing: var(--typography-headline-default-letter-spacing);
-  color: var(--case-hero-color-content-lead);
+  color: var(--page-hero-color-content-lead);
   text-wrap: balance;
 }
 
 /* Info band: four cells on the four 3-column modules, each hung from a
    default-width ink rule. The study number is the one red mark. */
-.case-hero__band {
+.page-hero__band {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-24) var(--page-spacing-gutter);
   margin: 0;
 }
 
-.case-hero__band > div {
+.page-hero__band > div {
   display: flex;
   flex-direction: column;
-  gap: var(--case-hero-spacing-band-gap);
-  padding-block-start: var(--case-hero-spacing-band-padding-top);
-  border-block-start: var(--case-hero-border-width-band) solid var(--case-hero-color-border-band);
+  gap: var(--page-hero-spacing-band-gap);
+  padding-block-start: var(--page-hero-spacing-band-padding-top);
+  border-block-start: var(--page-hero-border-width-band) solid var(--page-hero-color-border-band);
 }
 
 @media (min-width: 60em) {
-  .case-hero__band {
+  .page-hero__band {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 /* Labels stay for assistive tech only; values read as the card meta line. */
-.case-hero__band dt {
+.page-hero__band dt {
   position: absolute;
   inline-size: 1px;
   block-size: 1px;
@@ -1994,7 +1994,7 @@ main {
   white-space: nowrap;
 }
 
-.case-hero__band dd {
+.page-hero__band dd {
   margin: 0;
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
@@ -2002,16 +2002,16 @@ main {
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
   text-transform: uppercase;
-  color: var(--project-row-color-content-meta);
+  color: var(--feature-row-color-content-meta);
 }
 
-.case-hero__band .case-hero__number {
-  color: var(--project-row-color-content-number);
+.page-hero__band .page-hero__number {
+  color: var(--feature-row-color-content-number);
 }
 
 
-.case-hero__media {
-  margin-block-start: var(--case-hero-spacing-media-margin-top);
+.page-hero__media {
+  margin-block-start: var(--page-hero-spacing-media-margin-top);
 }
 
 /* The hero shows the project's index media, from the same partial as its
@@ -2019,7 +2019,7 @@ main {
    whose layers are sized as percentages of this box. The images carry
    their own elevation, so the wrapper doesn't add a second shadow, and
    the row's clearance under the media doesn't apply here. */
-.case-hero__media.project-row__media {
+.page-hero__media.feature-row__media {
   margin-block-end: 0;
   filter: none;
   /* The hero drifts like the index rows (Mark, 2026-10-28), at half the
@@ -2031,79 +2031,79 @@ main {
 
 /* Lead (columns 1–6) and body (7–12) share one row above the image,
    top-aligned with the same offset under the title. */
-.case-hero__body {
+.page-hero__body {
   display: flex;
   flex-direction: column;
-  margin-block-start: var(--case-hero-spacing-lead-top);
+  margin-block-start: var(--page-hero-spacing-lead-top);
 }
 
 /* First lines of the lead and the brief share one baseline. */
-.case-hero__inner > .case-hero__lead,
-.case-hero__inner > .case-hero__body {
+.page-hero__inner > .page-hero__lead,
+.page-hero__inner > .page-hero__body {
   align-self: first baseline;
 }
 
-.case-hero__body > .case-hero__specs {
-  margin-block-start: var(--project-row-spacing-specs-margin-top);
+.page-hero__body > .page-hero__specs {
+  margin-block-start: var(--feature-row-spacing-specs-margin-top);
 }
 
 /* All three lists stacked in one column, spaced wider. */
-.case-hero__body > .case-hero__specs {
+.page-hero__body > .page-hero__specs {
   grid-template-columns: minmax(0, 1fr);
-  row-gap: var(--case-hero-spacing-specs-gap-y);
+  row-gap: var(--page-hero-spacing-specs-gap-y);
 }
 
 /* From 60em the brief column splits in half on the page grid (one
    gutter between halves = columns 7–9 and 10–12): the tall list on the
    left, the others stacked on the right by auto-placement. */
 @media (min-width: 60em) {
-  .case-hero__body > .case-hero__specs {
+  .page-hero__body > .page-hero__specs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--page-spacing-gutter);
   }
 
-  .case-hero__specs > .project-row__spec--tall {
+  .page-hero__specs > .feature-row__spec--tall {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
 }
 
-.case-hero__body > .case-hero__brief-text {
+.page-hero__body > .page-hero__brief-text {
   margin-block-start: 0;
   font-family: var(--typography-body-sm-font-family);
   font-size: var(--typography-body-sm-font-size);
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-sm-font-weight);
-  color: var(--project-row-color-content-detail);
+  color: var(--feature-row-color-content-detail);
 }
 
-.case-hero__body > .case-hero__meta {
+.page-hero__body > .page-hero__meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--project-row-size-spec-min), 1fr));
-  gap: var(--project-row-spacing-specs-gap-y) var(--project-row-spacing-specs-gap-x);
+  grid-template-columns: repeat(auto-fit, minmax(var(--feature-row-size-spec-min), 1fr));
+  gap: var(--feature-row-spacing-specs-gap-y) var(--feature-row-spacing-specs-gap-x);
 }
 
 /* Medium screens: production's spans assume a 12-column grid that pairs
    narrow spans into halves and widens the rest. software's grid gives 8
    columns here, so the case study maps spans the same way production does. */
 @media (min-width: 35em) and (max-width: 59.9375em) {
-  :is(.case-hero__inner, .case-section) :is(.span-1, .span-2, .span-3, .span-4) {
+  :is(.page-hero__inner, .content-section) :is(.span-1, .span-2, .span-3, .span-4) {
     grid-column: span 4;
   }
 
-  :is(.case-hero__inner, .case-section) :is(.span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11),
-  :is(.case-hero__inner, .case-section) .align {
+  :is(.page-hero__inner, .content-section) :is(.span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11),
+  :is(.page-hero__inner, .content-section) .align {
     grid-column: 1 / -1;
   }
 
-  .case-hero__media {
+  .page-hero__media {
     grid-column: 1 / -1;
   }
 }
 
 /* Case study h2: uppercase, 40px, weight 800. Visually hidden h2s are
    unaffected. */
-.case-section h2:not(.visually-hidden) {
+.content-section h2:not(.visually-hidden) {
   font-size: var(--typography-headline-default-font-size);
   font-weight: var(--typography-font-weight-800);
   text-transform: uppercase;
@@ -2111,7 +2111,7 @@ main {
 
 
 /* ---------- case-flow: study sections as index cards ----------
-   Each h2 section is built like a .project-row: media, head (h2 + support),
+   Each h2 section is built like a .feature-row: media, head (h2 + support),
    body (subsections, figures, notes). From 60em the sections alternate
    right, left, right… on six columns, each on three subgrid rows of the
    flow and starting on the previous section's body row, so every
@@ -2120,7 +2120,7 @@ main {
 .case-flow {
   row-gap: var(--case-flow-spacing-row-gap);
   align-items: start;
-  margin-block-start: var(--case-section-spacing-rule);
+  margin-block-start: var(--content-section-spacing-rule);
   position: relative;
 }
 
@@ -2128,14 +2128,14 @@ main {
    below), whatever columns the section sits in. Equal space above
    (to the image or hero before it) and below (to the h2). The rule is
    positioned against .case-flow, so nothing between them is positioned. */
-.case-section__head:has(> h2:not(.visually-hidden)) {
-  padding-block-start: var(--case-section-spacing-rule);
+.content-section__head:has(> h2:not(.visually-hidden)) {
+  padding-block-start: var(--content-section-spacing-rule);
 }
 
 /* Every section reads copy first at every width: head (h2 + support),
    then media, then body, whatever the markup order. From 60em the
    desktop block below restates this for its flex layout. */
-.case-section--card > .case-section__head {
+.content-section--card > .content-section__head {
   order: -1;
 }
 
@@ -2148,13 +2148,13 @@ main {
   container-type: inline-size;
 }
 
-.case-section__head:has(> h2:not(.visually-hidden))::before {
+.content-section__head:has(> h2:not(.visually-hidden))::before {
   content: "";
   position: absolute;
   inset-inline: calc(50% - 50cqi);
-  block-size: var(--case-section-border-width-rule);
-  background: var(--case-section-color-border-rule);
-  translate: 0 calc(var(--case-section-spacing-rule) * -1);
+  block-size: var(--content-section-border-width-rule);
+  background: var(--content-section-color-border-rule);
+  translate: 0 calc(var(--content-section-spacing-rule) * -1);
 }
 
 /* A second rule closes the h2, inside the grid, with the same space
@@ -2162,22 +2162,22 @@ main {
    (Mark, 2026-10-29): the head's gap to the support copy is the rule
    spacing, and a head with no support copy pads out what the section's
    row gap is short of it. */
-.case-section__head > h2:not(.visually-hidden) {
-  padding-block-end: var(--case-section-spacing-rule);
-  border-block-end: var(--case-section-border-width-title) solid var(--case-section-color-border-title);
+.content-section__head > h2:not(.visually-hidden) {
+  padding-block-end: var(--content-section-spacing-rule);
+  border-block-end: var(--content-section-border-width-title) solid var(--content-section-color-border-title);
 }
 
-.case-section__head:has(> h2:not(.visually-hidden)) {
-  gap: var(--case-section-spacing-rule);
+.content-section__head:has(> h2:not(.visually-hidden)) {
+  gap: var(--content-section-spacing-rule);
 }
 
 /* Padding, not margin: the desktop card resets its children's block
    margins. */
-.case-section__head:has(> h2:not(.visually-hidden)):not(:has(> .case-section__support)) {
-  padding-block-end: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
+.content-section__head:has(> h2:not(.visually-hidden)):not(:has(> .content-section__support)) {
+  padding-block-end: calc(var(--content-section-spacing-rule) - var(--case-flow-spacing-row-gap));
 }
 
-.case-flow > .case-section--card {
+.case-flow > .content-section--card {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -2186,62 +2186,62 @@ main {
   padding-block-start: 0;
 }
 
-.case-section--card > .case-section__media:not(:has(> :not([hidden]))) {
+.content-section--card > .content-section__media:not(:has(> :not([hidden]))) {
   display: none;
 }
 
-.case-section--card > .case-section__body:not(:has(> *)) {
+.content-section--card > .content-section__body:not(:has(> *)) {
   display: none;
 }
 
-.case-section__head {
+.content-section__head {
   display: flex;
   flex-direction: column;
-  gap: var(--case-section-spacing-lead-row-gap);
+  gap: var(--content-section-spacing-lead-row-gap);
 }
 
-.case-section--card .case-section__support {
+.content-section--card .content-section__support {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
-  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
+  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
   margin-block-start: 0;
 }
 
 /* Media and body stack their blocks (parts, figures, notes) on the same
    48px rhythm below 60em; from 60em both become 12-column grids with the
    same row gap. */
-:is(.case-section__media, .case-section__body) {
+:is(.content-section__media, .content-section__body) {
   display: flex;
   flex-direction: column;
   gap: var(--case-flow-spacing-row-gap);
 }
 
-.case-section__part {
+.content-section__part {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
-  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
-  color: var(--case-section-color-content-body);
+  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
+  color: var(--content-section-color-content-body);
 }
 
-.case-section__part > h3 {
+.content-section__part > h3 {
   grid-column: 1 / -1;
 }
 
-.case-section__part > p,
-.case-section__notes p {
+.content-section__part > p,
+.content-section__notes p {
   text-wrap: pretty;
 }
 
-.case-section__notes {
+.content-section__notes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--case-section-spacing-row-gap) var(--page-spacing-gutter);
+  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
 }
 
 /* Phones: one column. Two 136px columns at 320 wrapped the 20px note
    headings word by word. */
 @media (max-width: 34.9375em) {
-  .case-section__notes {
+  .content-section__notes {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -2253,7 +2253,7 @@ figcaption.text-caption {
 }
 
 /* The first section's screen pair stacks vertically. */
-.case-flow > .case-section--card:first-child .media-frame {
+.case-flow > .content-section--card:first-child .media-frame {
   grid-template-columns: minmax(0, 1fr);
 }
 
@@ -2261,16 +2261,16 @@ figcaption.text-caption {
    stroke) at cap height, sitting on the last line's baseline and pushed
    to the end of the grid. The title steps down just enough that word + arrow (with at
    least the 48px gap) still fit one line. */
-.case-hero__title:has(.case-hero__title-icon) {
+.page-hero__title:has(.page-hero__title-icon) {
   /* Title row closes on a default-width ink rule, with section-step
      space above and the lead's gap below. */
   /* Optical offset moves to the text (text-indent) so the rule starts on
      the grid line like the band rules above. */
-  margin-block: var(--case-hero-spacing-title-row-top) 0;
+  margin-block: var(--page-hero-spacing-title-row-top) 0;
   margin-inline-start: 0;
-  text-indent: var(--case-hero-spacing-title-optical);
-  padding-block-end: var(--case-hero-spacing-title-row-bottom);
-  border-block-end: var(--case-hero-border-width-title-row) solid var(--case-hero-color-border-band);
+  text-indent: var(--page-hero-spacing-title-optical);
+  padding-block-end: var(--page-hero-spacing-title-row-bottom);
+  border-block-end: var(--page-hero-border-width-title-row) solid var(--page-hero-color-border-band);
   grid-column: 1 / -1;
   justify-self: stretch;
   inline-size: auto;
@@ -2278,14 +2278,14 @@ figcaption.text-caption {
   /* The arrow sits on the last line's baseline, so a wrapped name ends
      on it (Mark, 2026-10-28). */
   align-items: last baseline;
-  gap: var(--case-hero-spacing-title-icon-gap);
-  font-size: calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon));
+  gap: var(--page-hero-spacing-title-icon-gap);
+  font-size: calc(var(--page-hero-font-size-title) * var(--page-hero-scale-title-with-icon));
   /* Snap to the 8px scale (136px at the 160px display size). */
-  font-size: round(down, calc(var(--case-hero-font-size-title) * var(--case-hero-scale-title-with-icon)), var(--spacing-8));
-  line-height: var(--case-hero-line-height-title);
+  font-size: round(down, calc(var(--page-hero-font-size-title) * var(--page-hero-scale-title-with-icon)), var(--spacing-8));
+  line-height: var(--page-hero-line-height-title);
 }
 
-.case-hero__title-icon {
+.page-hero__title-icon {
   display: inline-block;
   /* Inter's cap height is 0.727em; 1cap where supported. */
   inline-size: 0.727em;
@@ -2301,19 +2301,19 @@ figcaption.text-caption {
    title's down-left arrow at the h2's cap height, on the heading's last
    line's baseline. Below 60em the h2 already spans the grid, so the
    arrow is pushed to its end here; from 60em see the case-flow rules. */
-.case-section h2:has(> .case-section__title-icon) {
+.content-section h2:has(> .content-section__title-icon) {
   display: flex;
   align-items: last baseline;
-  gap: var(--case-section-spacing-title-icon-gap);
+  gap: var(--content-section-spacing-title-icon-gap);
 }
 
 /* A flex item won't shrink below its longest word without this, so a long
    word would push the page sideways instead of wrapping. */
-.case-section__title-text {
+.content-section__title-text {
   min-inline-size: 0;
 }
 
-.case-section__title-icon {
+.content-section__title-icon {
   flex: none;
   /* Inter's cap height is 0.727em; 1cap where supported. */
   inline-size: 0.727em;
@@ -2328,78 +2328,78 @@ figcaption.text-caption {
    margin (8px gap, Mark 2026-10-28; 16px clipped the arrow at the case
    sheet's edge on smaller screens) so the text starts on the grid line;
    arrow sits on the text baseline. Body text below. */
-.case-section__note {
+.content-section__note {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
 }
 
-.case-section .case-section__note > h4 {
+.content-section .content-section__note > h4 {
   /* 20/28 primitives; the swiss theme remaps label-lg to 18/24. */
   font-size: var(--typography-font-size-20);
   line-height: var(--typography-line-height-28);
   font-weight: var(--typography-font-weight-500);
   display: flex;
   align-items: first baseline;
-  gap: var(--case-section-spacing-note-icon-gap);
+  gap: var(--content-section-spacing-note-icon-gap);
 }
 
-.case-section__note-icon {
+.content-section__note-icon {
   flex: none;
-  inline-size: var(--case-section-size-note-icon);
+  inline-size: var(--content-section-size-note-icon);
   aspect-ratio: 1;
   color: var(--color-content-headline-brand);
   align-self: baseline;
 }
 
 @media (min-width: 35em) {
-  .case-section__note-icon {
-    margin-inline-start: calc(-1 * (var(--case-section-size-note-icon) + var(--case-section-spacing-note-icon-gap)));
+  .content-section__note-icon {
+    margin-inline-start: calc(-1 * (var(--content-section-size-note-icon) + var(--content-section-spacing-note-icon-gap)));
   }
 }
 
-.case-section__note > p {
+.content-section__note > p {
   font-family: var(--typography-body-default-font-family);
   font-size: var(--typography-body-default-font-size);
   line-height: var(--typography-body-default-line-height);
   font-weight: var(--typography-body-default-font-weight);
-  color: var(--case-section-color-content-body);
+  color: var(--content-section-color-content-body);
   text-wrap: pretty;
 }
 
 @media (min-width: 60em) {
-  .case-flow > .case-section--card {
+  .case-flow > .content-section--card {
     grid-template-rows: subgrid;
   }
 
   /* Text blocks inside a six-column section split into two three-column
      tracks with one gutter between, so every paragraph sits on the page
      grid lines. */
-  .case-section--card .case-section__support,
-  .case-section__part,
-  .case-section__notes {
+  .content-section--card .content-section__support,
+  .content-section__part,
+  .content-section__notes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--page-spacing-gutter);
   }
 
-  .case-flow > .case-section--card:nth-child(odd) {
+  .case-flow > .content-section--card:nth-child(odd) {
     grid-column: 7 / span 6;
   }
 
-  .case-flow > .case-section--card:nth-child(even) {
+  .case-flow > .content-section--card:nth-child(even) {
     grid-column: 1 / span 6;
   }
 
   /* Media hugs the bottom of its row, one clearance step above its own
      h2, mirroring the index cards. */
-  .case-section--card > .case-section__media {
+  .content-section--card > .content-section__media {
     align-self: end;
-    margin-block-end: calc(var(--case-section-spacing-rule) - var(--case-flow-spacing-row-gap));
+    margin-block-end: calc(var(--content-section-spacing-rule) - var(--case-flow-spacing-row-gap));
   }
 
   /* Sections without media drop the subgrid: head and body stack from the
      top of their slot, beside the neighbour's body, with no dead column. */
-  .case-section--card:not(:has(> .case-section__media > :not([hidden]))) {
+  .content-section--card:not(:has(> .content-section__media > :not([hidden]))) {
     grid-template-rows: none;
     align-content: start;
   }
@@ -2407,18 +2407,18 @@ figcaption.text-caption {
   /* First section opens the flow across the full width: head on the
      left, its screens stacked in the left half starting one row lower,
      beside the body. Later sections shift down one row to clear it. */
-  .case-flow > .case-section--card:nth-child(1) {
+  .case-flow > .content-section--card:nth-child(1) {
     grid-column: 1 / -1;
     grid-row: 1 / span 3;
     grid-template-columns: subgrid;
   }
 
-  .case-flow > .case-section--card:nth-child(1) > .case-section__head {
+  .case-flow > .content-section--card:nth-child(1) > .content-section__head {
     grid-column: 4 / span 6;
     grid-row: 1;
   }
 
-  .case-flow > .case-section--card:nth-child(1) > .case-section__media {
+  .case-flow > .content-section--card:nth-child(1) > .content-section__media {
     grid-column: 1 / -1;
     grid-row: 2;
     align-self: start;
@@ -2428,28 +2428,28 @@ figcaption.text-caption {
   /* First section's copy is centred in columns 4–9 (three empty columns
      each side); the screens run full width. Subsections: h3 in 4–9,
      paragraphs in 4–6 and 7–9. */
-  .case-flow > .case-section--card:nth-child(1) > .case-section__body {
+  .case-flow > .content-section--card:nth-child(1) > .content-section__body {
     grid-column: 1 / -1;
     grid-row: 3;
   }
 
-  .case-flow > .case-section--card:nth-child(1) .case-section__part {
+  .case-flow > .content-section--card:nth-child(1) .content-section__part {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
-  .case-flow > .case-section--card:nth-child(1) .case-section__part > h3 { grid-column: 4 / span 6; }
-  .case-flow > .case-section--card:nth-child(1) .case-section__part > p:nth-of-type(1) { grid-column: 4 / span 3; }
-  .case-flow > .case-section--card:nth-child(1) .case-section__part > p:nth-of-type(2) { grid-column: 7 / span 3; }
+  .case-flow > .content-section--card:nth-child(1) .content-section__part > h3 { grid-column: 4 / span 6; }
+  .case-flow > .content-section--card:nth-child(1) .content-section__part > p:nth-of-type(1) { grid-column: 4 / span 3; }
+  .case-flow > .content-section--card:nth-child(1) .content-section__part > p:nth-of-type(2) { grid-column: 7 / span 3; }
 
   /* Study image treatment: every figure sits on columns 4–9, the frame
      pushed out one gutter each side onto the neighbouring column lines.
      Sections with figures span the full grid; their media and body become
      12-column grids so text keeps its own columns. */
-  .case-flow > .case-section--card:nth-child(n) {
+  .case-flow > .content-section--card:nth-child(n) {
     grid-column: 1 / -1;
   }
 
-  .case-flow > .case-section--card:nth-child(n) > :is(.case-section__media, .case-section__body) {
+  .case-flow > .content-section--card:nth-child(n) > :is(.content-section__media, .content-section__body) {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -2458,15 +2458,15 @@ figcaption.text-caption {
     align-content: start;
   }
 
-  .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > figure {
+  .case-flow > .content-section--card > :is(.content-section__media, .content-section__body) > figure {
     grid-column: 4 / span 6;
   }
 
-  .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > figure[hidden] {
+  .case-flow > .content-section--card > :is(.content-section__media, .content-section__body) > figure[hidden] {
     display: none;
   }
 
-  .case-flow > .case-section--card figure > .media-frame {
+  .case-flow > .content-section--card figure > .media-frame {
     margin-inline: calc(-1 * var(--page-spacing-gutter));
     inline-size: calc(100% + 2 * var(--page-spacing-gutter));
     max-inline-size: none;
@@ -2475,33 +2475,33 @@ figcaption.text-caption {
 
   /* Every section follows section 1's pattern: h2 on columns 1–6, all
      other copy (support, subsections, notes) on columns 4–9. */
-  .case-flow > .case-section--card > :is(.case-section__media, .case-section__body) > :not(figure),
-  .case-flow > .case-section--card > .case-section__head > :not(h2) {
+  .case-flow > .content-section--card > :is(.content-section__media, .content-section__body) > :not(figure),
+  .case-flow > .content-section--card > .content-section__head > :not(h2) {
     grid-column: 4 / span 6;
   }
 
-  .case-flow > .case-section--card:nth-child(n) .case-section__part {
+  .case-flow > .content-section--card:nth-child(n) .content-section__part {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .case-flow > .case-section--card:nth-child(n) .case-section__part > h3 { grid-column: 1 / -1; }
-  .case-flow > .case-section--card:nth-child(n) .case-section__part > p:nth-of-type(n) { grid-column: auto; }
+  .case-flow > .content-section--card:nth-child(n) .content-section__part > h3 { grid-column: 1 / -1; }
+  .case-flow > .content-section--card:nth-child(n) .content-section__part > p:nth-of-type(n) { grid-column: auto; }
 
   /* Every h2 starts on column 1 at six columns wide; the rest of the head
      keeps its slot. */
-  .case-flow > .case-section--card:nth-child(n) > .case-section__head {
+  .case-flow > .content-section--card:nth-child(n) > .content-section__head {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: var(--page-spacing-gutter);
-    row-gap: var(--case-section-spacing-rule);
+    row-gap: var(--content-section-spacing-rule);
     align-content: start;
   }
 
   /* The h2 spans the grid so its closing rule does; the text keeps six
      columns. The end padding is half the grid plus half a gutter, which
      leaves exactly columns 1-6 for the text. */
-  .case-flow > .case-section--card > .case-section__head > h2 {
+  .case-flow > .content-section--card > .content-section__head > h2 {
     grid-column: 1 / -1;
     padding-inline-end: calc(50% + var(--page-spacing-gutter) / 2);
   }
@@ -2510,7 +2510,7 @@ figcaption.text-caption {
      keeps columns 1-6 and the arrow sits on the grid's end, like the hero
      title's, so every section's arrow lands on the same line (Mark,
      2026-10-29). normal gap = the head grid's gutter. */
-  .case-flow > .case-section--card > .case-section__head > h2:has(> .case-section__title-icon) {
+  .case-flow > .content-section--card > .content-section__head > h2:has(> .content-section__title-icon) {
     grid-column: 1 / -1;
     padding-inline-end: 0;
     display: grid;
@@ -2519,7 +2519,7 @@ figcaption.text-caption {
     align-items: last baseline;
   }
 
-  .case-flow .case-section__head > h2 > .case-section__title-text {
+  .case-flow .content-section__head > h2 > .content-section__title-text {
     grid-column: 1 / span 6;
     grid-row: 1;
   }
@@ -2527,7 +2527,7 @@ figcaption.text-caption {
   /* The arrow's area is the half the text doesn't use. At 1024 the
      arrow (1cap of 48px) is wider than one column, so a single-column
      area pushed it past the grid end. */
-  .case-flow .case-section__head > h2 > .case-section__title-icon {
+  .case-flow .content-section__head > h2 > .content-section__title-icon {
     grid-column: 7 / -1;
     grid-row: 1;
     justify-self: end;
@@ -2536,54 +2536,54 @@ figcaption.text-caption {
 
 
   /* At nine columns the legacy pair sits side by side. */
-  .case-flow > .case-section--card:nth-child(1) .media-frame:has(> img + img) {
+  .case-flow > .content-section--card:nth-child(1) .media-frame:has(> img + img) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   /* Second section runs the full grid: its opener stacks down the centre
      (image, then "Atomic elements…", both in columns 4–9); head and body stay in 1–6 so the
      next section bricks in beside the body. */
-  .case-flow > .case-section--card:nth-child(2) {
+  .case-flow > .content-section--card:nth-child(2) {
     grid-row: 4 / span 3;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
 
-  .case-flow > .case-section--card:nth-child(2) > .case-section__head,
-  .case-flow > .case-section--card:nth-child(2) > .case-section__body {
+  .case-flow > .content-section--card:nth-child(2) > .content-section__head,
+  .case-flow > .content-section--card:nth-child(2) > .content-section__body {
     grid-column: 1 / span 6;
   }
 
   /* Every section follows section 1's flow: head (h2 + support), then
      media, then body, stacked in its own row so nothing overlaps. */
-  .case-flow > .case-section.case-section--card:nth-child(n) {
+  .case-flow > .content-section.content-section--card:nth-child(n) {
     grid-row: auto;
     display: flex;
     flex-direction: column;
     gap: var(--case-flow-spacing-row-gap);
   }
 
-  .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__head { order: -1; }
+  .case-flow > .content-section.content-section--card:nth-child(n) > .content-section__head { order: -1; }
 
-  .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__media:not(:has(> :not([hidden]))),
-  .case-flow > .case-section.case-section--card:nth-child(n) > .case-section__body:not(:has(> *)) {
+  .case-flow > .content-section.content-section--card:nth-child(n) > .content-section__media:not(:has(> :not([hidden]))),
+  .case-flow > .content-section.content-section--card:nth-child(n) > .content-section__body:not(:has(> *)) {
     display: none;
   }
 
-  .case-flow > .case-section.case-section--card:nth-child(n) > * {
+  .case-flow > .content-section.content-section--card:nth-child(n) > * {
     align-self: stretch;
     margin-block: 0;
   }
-  .case-flow > .case-section--card:nth-child(4) { grid-row: 8 / span 3; }
-  .case-flow > .case-section--card:nth-child(5) { grid-row: 10 / span 3; }
-  .case-flow > .case-section--card:nth-child(6) { grid-row: 12 / span 3; }
-  .case-flow > .case-section--card:nth-child(7) { grid-row: 14 / span 3; }
-  .case-flow > .case-section--card:nth-child(8) { grid-row: 16 / span 3; }
+  .case-flow > .content-section--card:nth-child(4) { grid-row: 8 / span 3; }
+  .case-flow > .content-section--card:nth-child(5) { grid-row: 10 / span 3; }
+  .case-flow > .content-section--card:nth-child(6) { grid-row: 12 / span 3; }
+  .case-flow > .content-section--card:nth-child(7) { grid-row: 14 / span 3; }
+  .case-flow > .content-section--card:nth-child(8) { grid-row: 16 / span 3; }
 }
 
 
 /* Case study h3: bold (the headline-sm weight, 700). Matches the
    specificity of the shared h3/h4 rule so it wins by order. */
-.case-section h3:not(.project-row__title) {
+.content-section h3:not(.feature-row__title) {
   font-weight: var(--typography-headline-sm-font-weight);
 }
 
@@ -2655,7 +2655,7 @@ figcaption.text-caption {
 
     /* Case-study images drift down toward their text as they cross the
        viewport; device layers drift by depth. */
-    .project-row__media > img {
+    .feature-row__media > img {
       animation: site-media-drift linear both;
       animation-timeline: view();
       animation-range: cover 0% exit 0%;
@@ -2700,7 +2700,7 @@ figcaption.text-caption {
 
 /* Images start high and settle at their resting position (1rem above the
    headline) as the card's top leaves the viewport, so the drift never
-   brings them closer than --project-row-spacing-media-clearance. */
+   brings them closer than --feature-row-spacing-media-clearance. */
 @keyframes site-media-drift {
   from {
     translate: 0 calc(var(--drift) * var(--drift-travel, -2));
@@ -2711,14 +2711,14 @@ figcaption.text-caption {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(.hyperlink--cta, .project-row__title) .icon,
+  :is(.hyperlink--cta, .feature-row__title) .icon,
   .hyperlink--cta {
     transition-duration: 0s;
   }
 }
 
 /* Static media: no scroll drift (used for the next-study card). */
-.project-row__media--static > img {
+.feature-row__media--static > img {
   animation: none;
   translate: none;
 }
@@ -2726,13 +2726,13 @@ figcaption.text-caption {
 
 /* Case study headings: every section h2 is 48/48 uppercase; every
    subsection h3 is 32/40 at medium weight. */
-.case-flow .case-section__head > h2 {
+.case-flow .content-section__head > h2 {
   font-size: var(--typography-font-size-48);
   line-height: var(--typography-line-height-48);
   text-transform: uppercase;
 }
 
-.case-flow .case-section h3:not(.project-row__title) {
+.case-flow .content-section h3:not(.feature-row__title) {
   font-size: var(--typography-headline-sm-font-size);
   line-height: var(--typography-headline-sm-line-height);
   font-weight: var(--typography-font-weight-500);
@@ -2743,20 +2743,20 @@ figcaption.text-caption {
    (medium), which is also where the hero lead already sits on tablets.
    The row title keeps its 40 line height. */
 @media (max-width: 59.9375em) {
-  .case-flow .case-section__head > h2,
-  .case-hero__inner > .case-hero__lead {
+  .case-flow .content-section__head > h2,
+  .page-hero__inner > .page-hero__lead {
     font-size: var(--typography-headline-lg-font-size);
     line-height: var(--typography-headline-lg-line-height);
   }
 
-  .project-row__title {
+  .feature-row__title {
     font-size: var(--typography-headline-lg-font-size);
   }
 }
 
 /* Phones: subsection h3 steps to title-default (24/32). */
 @media (max-width: 34.9375em) {
-  .case-flow .case-section h3:not(.project-row__title) {
+  .case-flow .content-section h3:not(.feature-row__title) {
     font-size: var(--typography-title-default-font-size);
     line-height: var(--typography-title-default-line-height);
   }
@@ -2772,10 +2772,10 @@ figcaption.text-caption {
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .case-hero__inner > *,
-    .case-flow .case-section__head > *,
-    .case-flow :is(.case-section__media, .case-section__body) > :not(.case-section__notes),
-    .case-flow .case-section__notes > * {
+    .page-hero__inner > *,
+    .case-flow .content-section__head > *,
+    .case-flow :is(.content-section__media, .content-section__body) > :not(.content-section__notes),
+    .case-flow .content-section__notes > * {
       animation: site-row-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 60%;
@@ -2784,17 +2784,17 @@ figcaption.text-caption {
 }
 
 /* Work index lead: an h2 in markup, styled for the index only, at the
-   display-sm role, the h1's (56/64, weight 200). Restates the .work-index__lead
+   display-sm role, the h1's (56/64, weight 200). Restates the .feature-list__lead
    type so global h2 styles don't leak in. */
-.work-index__header > h2.work-index__lead {
-  margin-block-start: var(--work-index-spacing-lead-gap);
+.feature-list__header > h2.feature-list__lead {
+  margin-block-start: var(--feature-list-spacing-lead-gap);
   font-family: var(--typography-display-sm-font-family);
   font-size: var(--typography-display-sm-font-size);
   line-height: var(--typography-display-sm-line-height);
   font-weight: var(--typography-display-sm-font-weight);
   letter-spacing: var(--typography-display-sm-letter-spacing);
   text-transform: none;
-  color: var(--work-index-color-content-lead);
+  color: var(--feature-list-color-content-lead);
   text-wrap: balance;
 }
 
@@ -2805,7 +2805,7 @@ figcaption.text-caption {
    is unchanged. */
 @media (max-width: 59.9375em) {
   .index-hero__title,
-  .work-index__header > h2.work-index__lead,
+  .feature-list__header > h2.feature-list__lead,
   .contact__title {
     font-size: var(--typography-headline-lg-font-size);
     line-height: var(--typography-headline-lg-line-height);
@@ -2814,7 +2814,7 @@ figcaption.text-caption {
   /* Full width, so the h1 stacks under the eyebrow as on phones and the
      lead doesn't run 6–8 lines in half the grid. */
   .index-hero__statement,
-  .work-index__header > h2.work-index__lead {
+  .feature-list__header > h2.feature-list__lead {
     grid-column: 1 / -1;
   }
 }

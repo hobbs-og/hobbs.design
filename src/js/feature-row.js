@@ -1,5 +1,5 @@
 /* ============================================================
-   project-row.js — whole-row click target for the work index
+   feature-row.js — whole-row click target for the work index
 
    The row keeps a single real, keyboard-focusable <a> (the "View
    project" CTA) rather than nesting a second link around content
@@ -10,7 +10,7 @@
    ============================================================ */
 (function () {
   document.addEventListener('click', function (e) {
-    var row = e.target.closest && e.target.closest('.project-row--index');
+    var row = e.target.closest && e.target.closest('.feature-row--index');
     if (!row) return;
     if (e.target.closest('a, button')) return;
 

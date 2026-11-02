@@ -82,7 +82,7 @@ this repo.
 | `src/styles/organisms/` | nav, sheet, footer, index-hero, how-i-work, case-hero, case-study, work-index, contact |
 | `src/styles/molecules/` | project-row (the one bespoke molecule) |
 | `src/styles/utilities/` | xray overlay |
-| `src/js/` | nav, sheet, sheet-reload, project-row, xray |
+| `src/js/` | nav, sheet, sheet-reload, feature-row, xray |
 | `src/public/icons.svg` | generated sprite — do not hand-edit |
 | `src/icons/` | this site's own icons (the swiss arrows), appended to the sprite by `tools/custom-icons.mjs` |
 | `tools/` | vendor scripts, component-token build, local server |
@@ -127,7 +127,7 @@ left out.
 | `site-nav.html`, `nav-links.html`, `switches.html` | skip link, header and the phone menu. The menu sits inside the header so it opens from the header's bottom edge. Links and switches are shared by both |
 | `site-footer.html` | footer and the x-ray legend |
 | `next-project.html` | the closing row on a case study. Takes `project` (a slug) |
-| `projects/<slug>-row.html` | a project's row. Takes `class` (span, `project-row--lead`) and `media?` |
+| `projects/<slug>-row.html` | a project's row. Takes `class` (span, `feature-row--lead`) and `media?` |
 | `projects/<slug>-specs.html` | its Focus / Scope / Context list. Takes `class?` |
 | `projects/<slug>-media.html` | its image or device combo. The index row and the case-study hero both use it, so they always match. Takes `class?` |
 
@@ -138,12 +138,12 @@ bullhorn, terafina, software, fabrication, proof, rumi, frictionless.
 **The case-study template is `pages/bullhorn.html`.** To convert a page, copy
 it and keep the blocks in this order:
 
-1. `.case-hero` with its band, title, lead, body and specs include
-2. `.case-flow`: one `section.case-section.case-section--card` per chapter,
+1. `.page-hero` with its band, title, lead, body and specs include
+2. `.case-flow`: one `section.content-section.content-section--card` per chapter,
    each with `__media`, `__head` (h2 + `__support`) and `__body`. A slot with
    no content stays as an empty element; the grid relies on it. Every h2 is
-   `<h2 id="…"><span class="case-section__title-text">…</span>` followed by the
-   `case-section__title-icon` svg (`#swiss-arrow-down-left`). The span keeps
+   `<h2 id="…"><span class="content-section__title-text">…</span>` followed by the
+   `content-section__title-icon` svg (`#swiss-arrow-down-left`). The span keeps
    the text on columns 1–6 while the arrow sits at the grid's end
 3. `__body` holds `__part` (h3 + paragraphs), `figure.stack--tight` with an
    `.media-frame` and a `.text-caption`, or `__notes` of `__note`
@@ -170,9 +170,9 @@ h2s don't need them: at 32px on a phone, the longest word fits a 320px
 screen. The hero title uses soft hyphens below 60em. From 60em a multi-word name breaks between words,
 because Chrome otherwise splits a word that would fit on the next line. A
 single-word name too long for the row at 136px adds
-`case-hero__title--hyphenate` to keep its hyphens there (Groundwork does).
+`page-hero__title--hyphenate` to keep its hyphens there (Groundwork does).
 
-The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
+The index h1 (`.index-hero__title`) and its h2s (`.feature-list__lead`,
 `.contact-section__title`) belong to the index only. Don't reuse them on
 other pages.
 
@@ -197,11 +197,11 @@ Inter.
 
 - **No inline styles, anywhere, ever.** If a rule is needed it gets a class.
   `src/styles/organisms/case-study.css` exists because of this rule
-  (`.case-section`, `.case-section__support`).
+  (`.content-section`, `.content-section__support`).
 - **Type comes from software's typography tokens**, unless Mark says
   otherwise: a role (`--typography-headline-lg-*`) where one fits, else a core
   step (`--typography-font-size-48`). Never a raw `rem` or `px`. The one
-  exception is the case-hero title's fill-width formula, which Mark chose.
+  exception is the page-hero title's fill-width formula, which Mark chose.
 - **Images declare no width** (Mark, 2026-10-27). The column sizes them:
   they stretch to their grid or flex column, capped by `max-inline-size:
   100%` in `base.css`. The only image widths are the device-combo
@@ -218,7 +218,7 @@ Inter.
 - **360px is the narrowest supported width** (Mark, 2026-10-29). Test
   layouts, reflow and horizontal scroll at 360, not 320. Nothing has to fit
   a narrower screen.
-- **Components are classes on semantic HTML** (`article.project-row`), not
+- **Components are classes on semantic HTML** (`article.feature-row`), not
   custom elements. Decided explicitly.
 - **The `.navbar` header is locked in** — byte-identical on every page:
   structure, `data-xray` hooks, logo markup, the X-ray toggle, and the links

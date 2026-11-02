@@ -3,29 +3,29 @@
 
   <main id="main" data-xray="template · case-study">
 
-    <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner grid">
-        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
-          <div><dt>Study</dt><dd class="case-hero__number">Case Study 02</dd></div>
+    <div class="page-hero" data-xray="organism · page-hero">
+      <div class="page-hero__inner grid">
+        <dl class="page-hero__band span-12" data-xray="molecule · page-hero__band">
+          <div><dt>Study</dt><dd class="page-hero__number">Case Study 02</dd></div>
           <div><dt>Client</dt><dd>Terafina, Inc.</dd></div>
           <div><dt>Discipline</dt><dd>Fintech</dd></div>
           <div><dt>Discipline</dt><dd>Systems</dd></div>
         </dl>
-        <h1 class="case-hero__title span-12">Tera&shy;fina<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
-        <p class="case-hero__lead span-6">Applicants weren't finishing Terafina's account-opening flow.</p>
-        <div class="case-hero__body span-6">
-          <p class="case-hero__brief-text">Terafina makes account-opening software for banks and credit unions, used online, in call centers and in branches. It handled a wide range of financial products, but growth had stalled. The product didn't feel trustworthy, and it was hard to use.</p>
-          <!-- @include projects/terafina-specs.html class="case-hero__specs" -->
+        <h1 class="page-hero__title span-12">Tera&shy;fina<svg class="page-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="page-hero__lead span-6">Applicants weren't finishing Terafina's account-opening flow.</p>
+        <div class="page-hero__body span-6">
+          <p class="page-hero__brief-text">Terafina makes account-opening software for banks and credit unions, used online, in call centers and in branches. It handled a wide range of financial products, but growth had stalled. The product didn't feel trustworthy, and it was hard to use.</p>
+          <!-- @include projects/terafina-specs.html class="page-hero__specs" -->
         </div>
-        <!-- @include projects/terafina-media.html class="case-hero__media span-12" -->
+        <!-- @include projects/terafina-media.html class="page-hero__media span-12" -->
       </div>
     </div>
 
     <div class="container">
 
       <div class="grid case-flow">
-        <section class="case-section case-section--card" aria-labelledby="terafina-problem">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="terafina-problem">
+          <div class="content-section__media">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
                 <img data-xray="atom · media" src="images/Terafina/before-new.png" width="2400" height="1350" alt="The Terafina platform before the redesign, on a phone, a tablet, and a desktop. The interface looks cluttered and hard to use." loading="lazy">
@@ -33,15 +33,15 @@
               <figcaption class="text-caption">The platform before the redesign.</figcaption>
             </figure>
           </div>
-          <div class="case-section__head">
-          <h2 id="terafina-problem"><span class="case-section__title-text">Applicants couldn't tell what they were looking at.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="terafina-problem"><span class="content-section__title-text">Applicants couldn't tell what they were looking at.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>The platform was built to be flexible and customizable, but the presentation layer hadn't kept up. Screens were cluttered and inconsistent. Applicants struggled to understand what they were looking at, let alone finish an application.</p>
             <p>It also made the product harder for banks to buy and roll out.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>The goal was a product clients could adopt and applicants could trust.</h3>
               <p>I set out to make the platform clearer and more trustworthy, and easier for clients to brand and roll out.</p>
               <p>That meant rebuilding the presentation layer and simplifying the application flows. Branding and configuration needed a more flexible system too.</p>
@@ -49,18 +49,18 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="terafina-approach">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="terafina-approach">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="terafina-approach"><span class="case-section__title-text">We started at the foundation and let the system scale from there.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="terafina-approach"><span class="content-section__title-text">We started at the foundation and let the system scale from there.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>I rebuilt the system from its atomic elements up, so each decision carried across the whole product instead of living on one screen.</p>
             <p>That made the front end consistent without touching the Salesforce platform underneath it.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>A progress stepper told applicants where they were and how much was left.</h3>
               <p>I added a progress stepper on every device, so applicants could see where they were and what was left. I reworked the hierarchy and content so important information came first instead of getting buried.</p>
               <p>A white-label system let clients apply their own branding without much development work. That made the product simpler to implement and easier for new clients to adopt.</p>
@@ -98,14 +98,14 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="terafina-outcome">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="terafina-outcome">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="terafina-outcome"><span class="case-section__title-text">Abandonment dropped 12% after the rebuild.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__head">
+          <h2 id="terafina-outcome"><span class="content-section__title-text">Abandonment dropped 12% after the rebuild.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <p>The platform got easier to understand, and both applicants and clients trusted it more.</p>
               <p>Fewer applicants gave up partway through, because the flow was easier to follow and every screen behaved the same way.</p>
               <p>The branding system made it easier for new clients to adopt the product without adding implementation work.</p>
@@ -119,13 +119,13 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-label="Closing thought">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-label="Closing thought">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2><span class="case-section__title-text">Clarity that lives in the system holds up when the product changes.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__head">
+          <h2><span class="content-section__title-text">Clarity that lives in the system holds up when the product changes.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
           </div>
         </section>
       </div>

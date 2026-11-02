@@ -3,17 +3,17 @@
 
   <main id="main" data-xray="template · case-study">
 
-    <div class="case-hero" data-xray="organism · case-hero">
-      <div class="case-hero__inner grid">
-        <dl class="case-hero__band span-12" data-xray="molecule · case-hero__band">
-          <div><dt>Study</dt><dd class="case-hero__number">Case Study</dd></div>
+    <div class="page-hero" data-xray="organism · page-hero">
+      <div class="page-hero__inner grid">
+        <dl class="page-hero__band span-12" data-xray="molecule · page-hero__band">
+          <div><dt>Study</dt><dd class="page-hero__number">Case Study</dd></div>
           <div><dt>Client</dt><dd>hobbs.design</dd></div>
         </dl>
-        <h1 class="case-hero__title case-hero__title--hyphenate span-12">Ground&shy;work<svg class="case-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
-        <p class="case-hero__lead span-6">A portfolio that argues for systems should be built like one.</p>
-        <div class="case-hero__body span-6">
-          <p class="case-hero__brief-text">I'd spent years telling people I work in systems and build what I design. The site making that case was five years of accumulated markup with the values typed in by hand. So I rebuilt it from the token layer up, in public, and left the commit history where anyone can read it.</p>
-          <!-- @include projects/groundwork-specs.html class="case-hero__specs" -->
+        <h1 class="page-hero__title page-hero__title--hyphenate span-12">Ground&shy;work<svg class="page-hero__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h1>
+        <p class="page-hero__lead span-6">A portfolio that argues for systems should be built like one.</p>
+        <div class="page-hero__body span-6">
+          <p class="page-hero__brief-text">I'd spent years telling people I work in systems and build what I design. The site making that case was five years of accumulated markup with the values typed in by hand. So I rebuilt it from the token layer up, in public, and left the commit history where anyone can read it.</p>
+          <!-- @include projects/groundwork-specs.html class="page-hero__specs" -->
         </div>
       </div>
     </div>
@@ -21,24 +21,24 @@
     <div class="container">
 
       <div class="grid case-flow">
-        <section class="case-section case-section--card" aria-labelledby="site-problem">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-problem">
+          <div class="content-section__media">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
-                <img data-xray="atom · media" src="images/site/page-anatomy.svg" width="1200" height="680" alt="Wireframe of a case study page, annotated with the atomic layer and class name of each region: site-nav, case-hero, the twelve-column grid, project-row, and site-footer." loading="lazy">
+                <img data-xray="atom · media" src="images/site/page-anatomy.svg" width="1200" height="680" alt="Wireframe of a case study page, annotated with the atomic layer and class name of each region: site-nav, page-hero, the twelve-column grid, feature-row, and site-footer." loading="lazy">
               </div>
               <figcaption class="text-caption">Where the rebuild ended up. Every region is a named component, and every label on this drawing is a real class in src/styles, filed at the layer it lives in.</figcaption>
             </figure>
           </div>
-          <div class="case-section__head">
-          <h2 id="site-problem"><span class="case-section__title-text">The old site worked but didn't back up anything I was saying.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-problem"><span class="content-section__title-text">The old site worked but didn't back up anything I was saying.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>Every page rendered. Nothing was broken in a way a visitor would notice. Underneath, the presentation layer was five years of decisions nobody had written down: a red in a Sass variable here, the same red typed as a hex there, a style attribute on a heading that needed to be slightly bigger one afternoon in 2021.</p>
             <p>None of that is visible from the front. It is extremely visible to someone who opens DevTools, which is exactly the person this site exists for. I was applying for roles where the work is the system underneath the interface, and handing over an interface with no system underneath it.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>The work I wanted to be hired for was the work the site had never had done to it.</h3>
               <p>A portfolio is usually treated as a container for the work. For design systems and design engineering roles it's also a sample of it, because the thing being hired for is the layer the visitor never sees.</p>
               <p>That reframed the whole project. The rebuild was a working proof that I structure decisions the way I say I do.</p>
@@ -52,59 +52,59 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-tokens">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-tokens">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-tokens"><span class="case-section__title-text">Step one was deciding where a value is allowed to live.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-tokens"><span class="content-section__title-text">Step one was deciding where a value is allowed to live.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>Before a single page was touched, every value moved into JSON in <code>tokens/</code>, split across three layers. Base holds raw hex and pixel values and is the only layer permitted to have them. Semantic gives those values roles, named element-property-role, so <code>--text-color-link</code> reads as what it styles, which property, in what job.</p>
             <p>Component tokens come last, and only once a component has earned one. Style Dictionary compiles the layers into the CSS custom properties every page links before the stylesheet. The compiled file is generated, so it is never edited by hand. The base and semantic layers have since moved into their own repo, so other products can build on them without copying them.</p>
           </div>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
                 <img data-xray="atom · media" src="images/site/token-pipeline.svg" width="1200" height="480" alt="The three token layers, base to semantic to component, compiling into dist/tokens.css, with one red traced across all four and a crossed-out return path from component back to base." loading="lazy">
               </div>
               <figcaption class="text-caption">Dependency runs one direction only. The crossed path is the move the architecture forbids.</figcaption>
             </figure>
-            <div class="case-section__part">
+            <div class="content-section__part">
               <h3>A design system is an agreement about where decisions live.</h3>
               <p>The most useful thing the layering does is turn a matter of taste into a rule you can check. A raw hex outside <code>tokens/base/</code> is a bug, and anyone can grep for it. Nobody has to remember the convention or be senior enough to enforce it.</p>
               <p>The alias chain also survives compilation. Open DevTools on any page here and <code>--text-color-link</code> resolves through <code>--color-brand-primary-600</code> back to a hex, so the reasoning is readable from the browser without reading the source.</p>
             </div>
-            <div class="case-section__notes">
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The layer is the constraint</h4>
+            <div class="content-section__notes">
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The layer is the constraint</h4>
                 <p>If a rule needs a value the semantic layer doesn't have, that means a role is missing. A raw value doesn't get in just this once.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Dark mode stopped being a redesign</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Dark mode stopped being a redesign</h4>
                 <p>Because every color is a role, a second set of base values generates the whole dark theme. No stylesheet was edited to add it.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-css">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-css">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-css"><span class="case-section__title-text">Step two gave the stylesheet the same shape as the design.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-css"><span class="content-section__title-text">Step two gave the stylesheet the same shape as the design.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>The CSS follows Atomic Design, and <code>main.css</code> is nothing but imports in dependency order. Base, then atoms, then molecules, then organisms, then layout, then utilities. Every rule below the base layer consumes semantic tokens and nothing else.</p>
             <p>That order is doing real work. The sheet is imported before the nav because the navigation panel is a sheet variant, and an override has to come after the thing it modifies. Getting the sequence right means the cascade never needs to be fought with a higher-specificity selector.</p>
           </div>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
                 <img data-xray="atom · media" src="images/site/css-layers.svg" width="1200" height="520" alt="The layers of main.css listed in import order with their files: tokens, base, atoms, molecules, organisms, layout, utilities, with an arrow showing dependency running one way." loading="lazy">
               </div>
               <figcaption class="text-caption">The whole stylesheet, in the order it loads. Nothing in a lower layer knows anything about a higher one.</figcaption>
             </figure>
-            <div class="case-section__part">
+            <div class="content-section__part">
               <h3>Import order is dependency order, so the cascade never has to be argued with.</h3>
               <p>The practical payoff is that everything has one obvious address. A button problem is in <code>atoms/button.css</code>, and there is nowhere else it could be hiding. Deleting a component means deleting a file and an import line.</p>
               <p>Specificity stays flat as a result. Almost every selector in this site is a single class, which is what makes the whole thing safe to change quickly.</p>
@@ -112,24 +112,24 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-pages">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-pages">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-pages"><span class="case-section__title-text">Step three rebuilt the pages out of the parts, instead of the other way around.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-pages"><span class="content-section__title-text">Step three rebuilt the pages out of the parts, instead of the other way around.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>With tokens and components in place, the pages were rebuilt as assemblies. A case study is a case hero, a series of sections on the twelve-column grid, and a project row at the end. The markup describes structure, and the stylesheet owns every measurement.</p>
             <p>Spacing is a strict 8px scale, no 4s and no 12s. If a gap isn't divisible by eight it isn't in the system, which sounds arbitrary until you stop having the conversation about whether something should be 12 or 14.</p>
           </div>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
                 <img data-xray="atom · media" src="images/site/case-grid.svg" width="1200" height="560" alt="A case study section drawn on twelve columns: a heading spanning the first eight, supporting paragraphs on a subgrid, a bold statement hung across columns five to twelve, and dashed empty spacer spans." loading="lazy">
               </div>
               <figcaption class="text-caption">One section of this page, drawn on its own grid. The dashed blocks are empty spans that push a block into a later column.</figcaption>
             </figure>
-            <div class="case-section__part">
+            <div class="content-section__part">
               <h3>A page should be assembled from parts, or every page becomes a fresh set of decisions.</h3>
               <p>The asymmetric measure was carried over from the old site deliberately, because it was the one thing about it worth keeping. Headings hang left, the argument hangs right, and CSS subgrid makes a column inside a block line up with the real grid instead of an even split of whatever width that block happens to have.</p>
               <p>This page is the strictest test of that, and the reason a new stylesheet layer exists. Every case study before it carried its vertical rhythm as a style attribute on each block. Here the rhythm lives in <code>organisms/case-study.css</code>, so the page contains no inline styles at all.</p>
@@ -137,18 +137,18 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-nav-lock">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-nav-lock">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-nav-lock"><span class="case-section__title-text">Step four locked one component down and found bugs I couldn't otherwise see.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-nav-lock"><span class="content-section__title-text">Step four locked one component down and found bugs I couldn't otherwise see.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>The header is on every page, so it was the obvious component to lock first. My first pass made the markup identical everywhere but left the links alone, on the reasoning that links are content and content varies by page.</p>
             <p>That reasoning was wrong, and it took someone saying so to see it. A global navigation that changes from page to page isn't global. The one variation I'd have defended was <code>aria-current</code>, which says which page you're on. That was the thread worth pulling.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>Treated as a test, consistency finds bugs, because whatever refuses to be identical is usually wrong.</h3>
               <p>Forcing the links to match immediately turned up two real defects. The homepage used bare fragment links that only worked when you were already on the homepage. And it pointed Resume straight at the PDF while eleven other pages pointed at <code>resume.html</code>. That was one question with two answers, and no single page could tell me which one was right.</p>
               <p>Neither was findable by looking at any single page, because each page was internally consistent. They only surfaced when twelve pages had to agree on one answer. The PDF won, signposted so the new tab is announced rather than sprung, and the web resume kept its link from Contact.</p>
@@ -156,24 +156,24 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-a11y">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-a11y">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-a11y"><span class="case-section__title-text">Step five found two accessibility failures I'd been shipping for years.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-a11y"><span class="content-section__title-text">Step five found two accessibility failures I'd been shipping for years.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>Auditing the palette against WCAG 2.2 turned up two colors that had been on the live site the whole time. The brand red measures 4.36:1 on the page background, just under the 4.5:1 needed for body text. Muted text sat at 40% black, which measures 2.6:1 and isn't close.</p>
             <p>Both were fixed at the value rather than the usage. Body links now take the 600 step of the ramp at 5.9:1, and muted text sits at 60% black. Neither original value was deleted, because both are still correct in the places WCAG allows them.</p>
           </div>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
             <figure class="stack--tight">
               <div class="media-frame" data-xray="molecule · media-frame">
                 <img data-xray="atom · media" src="images/site/contrast-decisions.svg" width="1200" height="440" alt="A contrast spec sheet: the 500 red at 4.36 to 1 failing at body size, the 600 red at 5.9 to 1 passing, 40 percent black at 2.6 to 1 failing, and 60 percent black at 5 to 1 passing." loading="lazy">
               </div>
               <figcaption class="text-caption">The four measurements that changed the palette. The failing values survive in the roles where they still pass.</figcaption>
             </figure>
-            <div class="case-section__part">
+            <div class="content-section__part">
               <h3>Fix it in the value and it can't quietly come back.</h3>
               <p>This is the argument for tokens that I find most convincing. A contrast fix applied page by page is a fix with a shelf life, because the next person to need a red will reach for the one that looks right. Encoded as <code>--text-color-link</code>, the accessible answer is also the convenient one.</p>
               <p>Focus is a token pair for the same reason, a 2px near-black ring on <code>:focus-visible</code> defined once and applied globally. Every page opens with a skip link, and form errors are wired through <code>aria-describedby</code> and spell out the word Error, because color on its own isn't an affordance.</p>
@@ -181,18 +181,18 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-xray">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-xray">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-xray"><span class="case-section__title-text">Step six made the site show its own work.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-xray"><span class="content-section__title-text">Step six made the site show its own work.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>There's a Design/Code toggle in the header of every page. Switching it to Code outlines each element that carries a <code>data-xray</code> attribute and labels it with its layer and component name, which is how the annotations on the drawings above were derived.</p>
             <p>The labels are attached to the components themselves, so they can't drift into a diagram of how I wish it worked. If the structure ever drifts from what the labels claim, the labels start lying in public, which is a good reason to keep them true.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>Claiming a system and showing one are different jobs.</h3>
               <p>Every portfolio in this field says the same words about systems thinking, and almost none of them let you look. The toggle costs one stylesheet and a few lines of JavaScript, and it replaces a claim with something checkable in about two seconds.</p>
               <p>It's also genuinely useful to me. Turning it on is the fastest way to spot a region that has quietly stopped being a component.</p>
@@ -200,18 +200,18 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-ship">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-ship">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-ship"><span class="case-section__title-text">Step seven was the least interesting and the most overdue.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-ship"><span class="content-section__title-text">Step seven was the least interesting and the most overdue.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>The rebuild lived in a <code>v5/</code> folder while the old pages stayed at the domain root. For a while that was sensible, and then it stopped being sensible, because an outside audit pointed out that none of the new work had ever been deployed. Real visitors were still getting the old build.</p>
             <p>So <code>v5/</code> was promoted to the root, the legacy pages were archived out of the working tree, and a deploy config now copies only the paths that should be served. The icon sprite is generated from the official library by a script that fails loudly on a typo rather than shipping a blank square.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__part">
+          <div class="content-section__body">
+            <div class="content-section__part">
               <h3>Work that hasn't shipped is work nobody has seen, however good the repo looks.</h3>
               <p>I'm including this because it's the most common way a rebuild like this fails, and because leaving it out would make the story tidier than it was. The system was sound for a week before anyone outside the repo could see any of it.</p>
               <p>The fix was boring and it was the whole difference between a nice local project and a live site.</p>
@@ -219,88 +219,88 @@
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-outcome">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-outcome">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-outcome"><span class="case-section__title-text">What the rebuild actually bought.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-outcome"><span class="content-section__title-text">What the rebuild actually bought.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>Sixty-five commits over nine days, and the site is now the same kind of artifact as the work it describes. The visible design changed less than the amount of effort suggests, which is the correct outcome for a structural rebuild.</p>
             <p>What changed is the cost of the next change.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__notes">
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>One place to change a decision</h4>
+          <div class="content-section__body">
+            <div class="content-section__notes">
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>One place to change a decision</h4>
                 <p>A color, a spacing step, or a type size is edited in one JSON file and rebuilt. Nothing has to be found first.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Pages got cheap</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Pages got cheap</h4>
                 <p>This page is new markup and one small stylesheet. Every other part of it already existed and was reused as-is.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Accessibility is structural</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Accessibility is structural</h4>
                 <p>Contrast, focus, and skip links are defaults in the token and base layers, so passing is what happens when nobody does anything special.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The repo is part of the portfolio</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The repo is part of the portfolio</h4>
                 <p>The source is public, the commit messages explain the reasoning, and the migration from the old build is readable in the history.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-labelledby="site-next-steps">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-labelledby="site-next-steps">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2 id="site-next-steps"><span class="case-section__title-text">What this sets up, and what it doesn't.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2 id="site-next-steps"><span class="content-section__title-text">What this sets up, and what it doesn't.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>The point of building it this way is that the next few things become small. Some of them are already obvious, and a couple of them are still open problems I'd rather name than hide.</p>
             <p>They're in the order I expect to get to them.</p>
           </div>
           </div>
-          <div class="case-section__body">
-            <div class="case-section__notes">
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>React without a rewrite</h4>
+          <div class="content-section__body">
+            <div class="content-section__notes">
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>React without a rewrite</h4>
                 <p>Every page already carries the same DOM shape for a given component, with content as the only variable. Converting the locked components into real React components is a translation job.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Deployment is still the weak link</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Deployment is still the weak link</h4>
                 <p>Publishing is a manual step, which is precisely how the built work went unseen for a week. Until it runs on merge, the same failure can happen again.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>A script should check the rules</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>A script should check the rules</h4>
                 <p>Contrast ratios and the no-raw-values rule are both checkable by a script. Right now they're checked by me noticing, which is the least reliable option available.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Nobody has designed the dark mode yet</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>Nobody has designed the dark mode yet</h4>
                 <p>A full set of dark tokens compiles today, but nobody has sat with the result and made judgments about it. Generated is not the same as considered.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The older pages are off inline styles</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The older pages are off inline styles</h4>
                 <p>The five case studies written before this one held their spacing in style attributes. They use the case-study classes now, and no page on the site has a style attribute left.</p>
               </div>
-              <div class="case-section__note">
-                <h4><svg class="case-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The real test is month six</h4>
+              <div class="content-section__note">
+                <h4><svg class="content-section__note-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-right"></use></svg>The real test is month six</h4>
                 <p>Any system is easy to keep clean in the week you build it. Whether this one still has one source of truth after a year of small edits is the only result that counts.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="case-section case-section--card" aria-label="Closing thought">
-          <div class="case-section__media">
+        <section class="content-section content-section--card" aria-label="Closing thought">
+          <div class="content-section__media">
           </div>
-          <div class="case-section__head">
-          <h2><span class="case-section__title-text">The commit history makes the argument better than the site does.</span><svg class="case-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
-          <div class="case-section__support">
+          <div class="content-section__head">
+          <h2><span class="content-section__title-text">The commit history makes the argument better than the site does.</span><svg class="content-section__title-icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-down-left"></use></svg></h2>
+          <div class="content-section__support">
             <p>A finished page only shows that something was made. The sequence of decisions behind it, why a value moved layers, why a component was locked, why an accessible color replaced a prettier one, is the part of this work that transfers to a team. That's why the source is public and why this page describes the reasoning instead of the result.</p>
           </div>
           </div>
-          <div class="case-section__body">
+          <div class="content-section__body">
           </div>
         </section>
       </div>
