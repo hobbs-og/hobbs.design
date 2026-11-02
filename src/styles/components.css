@@ -221,20 +221,8 @@
   --feature-list-color-content-lead: var(--color-content-subtitle);
   --feature-list-spacing-lead-gap: var(--spacing-8);
   --feature-list-spacing-list-margin-top: var(--spacing-120);
-  --feature-list-spacing-card-gap: var(--spacing-240);
-  --feature-list-spacing-row-gap: var(--spacing-48);
-  --feature-list-spacing-lead-clearance: var(--spacing-120);
 
   /* feature-row */
-  --feature-row-color-content-meta: var(--color-content-subtle);
-  --feature-row-color-content-number: var(--color-content-eyebrow);
-  --feature-row-color-content-title: var(--color-content-headline);
-  --feature-row-color-content-title-hover: var(--color-content-headline-brand);
-  --feature-row-color-content-lead: var(--color-content-subtitle);
-  --feature-row-color-content-detail: var(--color-content-default);
-  --feature-row-color-content-spec-label: var(--color-content-subtle);
-  --feature-row-color-content-spec: var(--color-content-emphasized);
-  --feature-row-color-background-bullet: var(--color-background-brand);
   --feature-row-elevation-flat:
     drop-shadow(0 0.0625rem 0.0625rem color-mix(in srgb, var(--color-elevation-shadow) 16.5%, transparent))
     drop-shadow(0 0.375rem 0.625rem color-mix(in srgb, var(--color-elevation-shadow) 19.25%, transparent))
@@ -243,24 +231,9 @@
     drop-shadow(0 0.125rem 0.1875rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent))
     drop-shadow(0 1.25rem 2.5rem color-mix(in srgb, var(--color-elevation-shadow) 33%, transparent))
     drop-shadow(0 3rem 5rem color-mix(in srgb, var(--color-elevation-shadow) 27.5%, transparent));
-  --feature-row-spacing-bullet-offset: -0.125rem;
-  --feature-row-spacing-gap: var(--spacing-24);
-  --feature-row-spacing-meta-gap-x: var(--spacing-24);
-  --feature-row-spacing-meta-gap-y: var(--spacing-4);
-  --feature-row-spacing-title-margin-y: var(--spacing-8);
-  --feature-row-spacing-media-clearance: var(--spacing-16);
-  --feature-row-spacing-body-gap: var(--spacing-8);
-  --feature-row-spacing-detail-margin-top: var(--spacing-8);
   --feature-row-spacing-specs-margin-top: var(--spacing-24);
   --feature-row-spacing-lead-specs-margin-top: var(--spacing-32);
-  --feature-row-spacing-lead-cta-margin-top: var(--spacing-24);
-  --feature-row-spacing-specs-gap-x: var(--page-spacing-gutter);
-  --feature-row-spacing-specs-gap-y: var(--spacing-24);
   --feature-row-size-spec-min: 9.375rem;
-  --feature-row-spacing-spec-gap: var(--spacing-8);
-  --feature-row-spacing-list-gap: var(--spacing-2);
-  --feature-row-spacing-item-gap: var(--spacing-8);
-  --feature-row-spacing-cta-margin-top: var(--spacing-24);
   --feature-row-motion-drift: 1.5rem;
 
   /* index-hero actions */
@@ -901,7 +874,11 @@ code {
 
 
 
-/* ---------- feature-list ---------- */
+/* ---------- feature-list, feature-row ----------
+   Both come from software. Here a row takes the Swiss look: uppercase
+   type, the heavier title, device shadows, depth blur, scroll drift and
+   motion. A preset sets where each layer sits; these rules set how it
+   looks, slot by slot. The list's header is the site's own. */
 
 .feature-list__header {
   align-items: baseline;
@@ -929,259 +906,25 @@ code {
   text-wrap: balance;
 }
 
-.feature-list__list {
-  margin-block-start: var(--feature-list-spacing-list-margin-top);
-  align-items: start;
-}
-
-.feature-list__list > .feature-row + .feature-row {
-  margin-block-start: var(--feature-list-spacing-card-gap);
-}
-
-/* Below 60em every card runs full width, one under the other. */
-.feature-list__list > .feature-row {
-  grid-column: 1 / -1;
+/* Fact lists sit on the page grid's gutter, which is wider than the
+   container gutter software uses. */
+.feature-row__specs {
+  column-gap: var(--page-spacing-gutter);
 }
 
 @media (min-width: 60em) {
-  /* Cards alternate right, left, right… after the lead study. Each card
-     is three rows (media, content, body) on the list's own row tracks via
-     subgrid, and starts on the previous card's body row, so every card's
-     top lines up with its neighbor's fact list. One row gap spaces
-     everything, inside and between cards. Rows are written out for up to
-     12 cards; add a line per card past that. Counting "of .feature-row"
-     means a block between cards never shifts their sides or rows. */
-  .feature-list__list {
-    row-gap: var(--feature-list-spacing-row-gap);
+  .feature-list__list > .feature-row:nth-child(odd of .feature-row) .hyperlink--cta {
+    margin-inline-start: calc(50% + var(--page-spacing-gutter) / 2);
   }
-
-  .feature-list__list > .feature-row + .feature-row {
-    margin-block-start: 0;
-  }
-
-  .feature-list__list > .feature-row--lead {
-    grid-row: 1;
-    margin-block-end: var(--feature-list-spacing-lead-clearance);
-  }
-
-  .feature-list__list > .feature-row:not(.feature-row--lead) {
-    grid-template-rows: subgrid;
-    row-gap: var(--feature-list-spacing-row-gap);
-    align-items: start;
-  }
-
-  /* The row gap would add 48px under the image; pull it back so the
-     image rests one clearance step above the headline. */
-  .feature-list__list > .feature-row:not(.feature-row--lead) > .feature-row__media {
-    margin-block-end: calc(var(--feature-row-spacing-media-clearance) - var(--feature-list-spacing-row-gap));
-  }
-
-  .feature-list__list > .feature-row:not(.feature-row--lead) > .feature-row__body {
-    margin-block-start: 0;
-  }
-
-  .feature-list__list > .feature-row:nth-child(even of .feature-row) {
-    grid-column: 7 / span 6;
-  }
-
-  .feature-list__list > .feature-row:nth-child(odd of .feature-row):not(.feature-row--lead) {
-    grid-column: 1 / span 6;
-  }
-
-  /* Right-column cards: the third list and the CTA sit under the second
-     list, so the card's lower edge reads from the outer module. */
-  .feature-list__list > .feature-row:nth-child(even of .feature-row) .feature-row__spec:nth-child(3) {
-    grid-column: 2;
-  }
-
-  .feature-list__list > .feature-row:nth-child(even of .feature-row) .hyperlink--cta {
-    align-self: flex-start;
-    margin-inline-start: calc(50% + var(--feature-row-spacing-specs-gap-x) / 2);
-  }
-
-  .feature-list__list > .feature-row:nth-child(2 of .feature-row) { grid-row: 2 / span 3; }
-  .feature-list__list > .feature-row:nth-child(3 of .feature-row) { grid-row: 4 / span 3; }
-  .feature-list__list > .feature-row:nth-child(4 of .feature-row) { grid-row: 6 / span 3; }
-  .feature-list__list > .feature-row:nth-child(5 of .feature-row) { grid-row: 8 / span 3; }
-  .feature-list__list > .feature-row:nth-child(6 of .feature-row) { grid-row: 10 / span 3; }
-  .feature-list__list > .feature-row:nth-child(7 of .feature-row) { grid-row: 12 / span 3; }
-  .feature-list__list > .feature-row:nth-child(8 of .feature-row) { grid-row: 14 / span 3; }
-  .feature-list__list > .feature-row:nth-child(9 of .feature-row) { grid-row: 16 / span 3; }
-  .feature-list__list > .feature-row:nth-child(10 of .feature-row) { grid-row: 18 / span 3; }
-  .feature-list__list > .feature-row:nth-child(11 of .feature-row) { grid-row: 20 / span 3; }
-  .feature-list__list > .feature-row:nth-child(12 of .feature-row) { grid-row: 22 / span 3; }
-  .feature-list__list > .feature-row:nth-child(13 of .feature-row) { grid-row: 24 / span 3; }
-}
-
-
-/* ---------- feature-row ---------- */
-
-.feature-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  row-gap: 0;
-  min-inline-size: 0;
-}
-
-.feature-row__media {
-  display: grid;
-  margin-block-end: var(--feature-row-spacing-media-clearance);
-}
-
-/* Images take no width of their own: they stretch to the column. */
-.feature-row__media > img {
-  grid-area: 1 / 1;
-  justify-self: stretch;
-  filter: var(--feature-row-elevation-flat);
-  --drift: var(--feature-row-motion-drift);
-}
-
-/* Layered device composites, back to front. Each layer sits on the
-   shared baseline; its lift, width, side and drift come from depth. */
-.feature-row__media--devices > .feature-row__layer {
-  align-self: end;
-  inline-size: var(--layer-width);
-  margin-block-end: var(--layer-lift, 0);
-  margin-inline-start: var(--layer-start, 0);
-  margin-inline-end: var(--layer-end, 0);
-  justify-self: var(--layer-justify, start);
-  filter: var(--layer-blur, ) var(--layer-elevation, var(--feature-row-elevation-flat));
-}
-
-/* Device presets (Mark, 2026-11-02). A product picks a preset, not a
-   layout: laptop-plus-tablet, laptop-plus-phones, laptop-pair or
-   phone-fan. Layer order is depth, so nth-child picks a layer's slot on
-   purpose. Each composite runs edge to edge of its box (Mark,
-   2026-10-27): the design filled 76-80% of the box, so every width, offset
-   and lift is the design's value divided by that span (0.8 or 0.76).
-   Lifts are % of the box width too, so they scale with it. */
-
-/* Laptop plus: one laptop at full width with smaller devices in front. */
-:is(.feature-row__media--laptop-plus-tablet, .feature-row__media--laptop-plus-phones) > .feature-row__layer:nth-child(1) {
-  --layer-width: calc(80% / 0.8); --layer-lift: calc(4.8% / 0.8); --drift: 1rem;
-}
-.feature-row__media--laptop-plus-tablet > .feature-row__layer:nth-child(2) {
-  --layer-width: calc(33.6% / 0.8); --layer-justify: end; --layer-end: 0%; --drift: 2rem;
-}
-.feature-row__media--laptop-plus-tablet > .feature-row__layer:nth-child(3) {
-  --layer-width: calc(16% / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --drift: 3rem;
-}
-.feature-row__media--laptop-plus-phones > .feature-row__layer:nth-child(2) {
-  --layer-width: calc(13.6% / 0.8); --layer-justify: end; --layer-end: 0%; --layer-elevation: var(--feature-row-elevation-phone); --drift: 2rem;
-}
-.feature-row__media--laptop-plus-phones > .feature-row__layer:nth-child(3) {
-  --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--feature-row-elevation-phone); --drift: 3rem;
-}
-
-/* Laptop pair: two overlapping laptops, the back one raised and soft. */
-.feature-row__media--laptop-pair > .feature-row__layer:nth-child(1) {
-  --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.03rem); --drift: 1rem;
-}
-.feature-row__media--laptop-pair > .feature-row__layer:nth-child(2) {
-  --layer-width: calc(58% / 0.8); --layer-start: calc(22% / 0.8); --drift: 3rem;
-}
-
-/* Phone fan: phones alternate sides and grow toward the front, losing
-   lift and blur as they come forward. Three phones take the first set of
-   slots; a fourth switches the fan to the four-phone set. */
-.feature-row__media--phone-fan > .feature-row__layer { --layer-elevation: var(--feature-row-elevation-phone); }
-.feature-row__media--phone-fan > .feature-row__layer:nth-child(1) {
-  --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
-}
-.feature-row__media--phone-fan > .feature-row__layer:nth-child(2) {
-  --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.015rem); --drift: 2rem;
-}
-.feature-row__media--phone-fan > .feature-row__layer:nth-child(3) {
-  --layer-width: calc(25.6% / 0.76); --layer-start: calc((26.4% - 4%) / 0.76); --drift: 3rem;
-}
-.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(1) {
-  --layer-width: calc(17.6% / 0.76); --layer-lift: calc(10.4% / 0.76);
-}
-.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(2) {
-  --layer-width: calc(20% / 0.76); --layer-lift: calc(5.6% / 0.76); --drift: 1.5rem;
-}
-.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(3) {
-  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.01rem); --drift: 2.5rem;
-}
-.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(4) {
-  --layer-width: calc(24.8% / 0.76); --layer-justify: end; --layer-end: calc((39.2% - 21.6%) / 0.76); --drift: 3rem;
-}
-
-.feature-row__content {
-  display: flex;
-  flex-direction: column;
 }
 
 .feature-row__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--feature-row-spacing-meta-gap-y) var(--feature-row-spacing-meta-gap-x);
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
   line-height: var(--typography-eyebrow-lg-line-height);
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
   text-transform: uppercase;
-  color: var(--feature-row-color-content-meta);
-}
-
-.feature-row__number {
-  color: var(--feature-row-color-content-number);
-}
-
-.feature-row__title {
-  font-family: var(--typography-headline-default-font-family);
-  font-size: var(--typography-headline-default-font-size);
-  line-height: var(--typography-line-height-40);
-  font-weight: var(--typography-font-weight-900);
-  letter-spacing: var(--typography-headline-default-letter-spacing);
-  text-transform: uppercase;
-  text-wrap: balance;
-  margin-block: var(--feature-row-spacing-title-margin-y);
-  color: var(--feature-row-color-content-title);
-  transition: color var(--motion-duration-sm) ease;
-}
-
-.feature-row__body {
-  display: flex;
-  flex-direction: column;
-  margin-block-start: var(--feature-row-spacing-specs-margin-top);
-}
-
-.feature-row__lead {
-  font-family: var(--typography-title-default-font-family);
-  font-size: var(--typography-title-default-font-size);
-  line-height: var(--typography-title-default-line-height);
-  font-weight: var(--typography-title-default-font-weight);
-  letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--feature-row-color-content-lead);
-  text-wrap: balance;
-}
-
-.feature-row__detail {
-  margin-block-start: var(--feature-row-spacing-detail-margin-top);
-  font-size: var(--typography-body-sm-font-size);
-  line-height: var(--typography-body-sm-line-height);
-  font-weight: var(--typography-body-sm-font-weight);
-  color: var(--feature-row-color-content-detail);
-  text-wrap: pretty;
-}
-
-/* Two lists per row with the page gutter between them, so in a 6-column
-   card each list sits exactly on one 3-column module; the third wraps
-   under the first. The lead study overrides to three across. */
-.feature-row__specs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--feature-row-spacing-specs-gap-y) var(--feature-row-spacing-specs-gap-x);
-}
-
-.feature-row__spec {
-  display: flex;
-  flex-direction: column;
-  gap: var(--feature-row-spacing-spec-gap);
-  min-inline-size: 0;
 }
 
 .feature-row__spec dt {
@@ -1191,95 +934,44 @@ code {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--feature-row-color-content-spec-label);
 }
 
 .feature-row__spec ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--feature-row-spacing-list-gap);
-  padding: 0;
-  list-style: none;
   font-size: var(--typography-body-list-font-size);
   line-height: var(--typography-body-list-line-height);
-  color: var(--feature-row-color-content-spec);
 }
 
-.feature-row__spec li {
-  display: flex;
-  align-items: baseline;
-  gap: var(--feature-row-spacing-item-gap);
+.feature-row__title {
+  line-height: var(--typography-line-height-40);
+  font-weight: var(--typography-font-weight-900);
+  text-transform: uppercase;
+  transition: color var(--motion-duration-sm) ease;
 }
 
-.feature-row__spec li::before {
-  content: "";
-  flex: none;
-  inline-size: var(--feature-row-spacing-bullet-width);
-  aspect-ratio: 1;
-  background: var(--feature-row-color-background-bullet);
-  translate: 0 var(--feature-row-spacing-bullet-offset);
+.feature-row__media > img {
+  filter: var(--feature-row-elevation-flat);
+  --drift: var(--feature-row-motion-drift);
 }
 
-.feature-row :is(.hyperlink--cta, .feature-row__cta) {
-  align-self: flex-start;
-  margin-block-start: var(--feature-row-spacing-cta-margin-top);
+.feature-row__media--devices > .feature-row__layer {
+  filter: var(--layer-blur, ) var(--layer-elevation, var(--feature-row-elevation-flat));
 }
 
-/* On card hover the arrow nudges up and right, as if the CTA were hovered. */
-:is(.feature-row:hover, .feature-row:focus-within) .hyperlink--cta .icon {
-  translate: var(--hyperlink-spacing-cta-icon-offset) calc(var(--hyperlink-spacing-cta-icon-offset) * -1);
-}
+:is(.feature-row__media--laptop-plus-tablet, .feature-row__media--laptop-plus-phones) > .feature-row__layer:nth-child(1) { --drift: 1rem; }
+:is(.feature-row__media--laptop-plus-tablet, .feature-row__media--laptop-plus-phones) > .feature-row__layer:nth-child(2) { --drift: 2rem; }
+:is(.feature-row__media--laptop-plus-tablet, .feature-row__media--laptop-plus-phones) > .feature-row__layer:nth-child(3) { --drift: 3rem; }
+.feature-row__media--laptop-plus-phones > .feature-row__layer:nth-child(n + 2) { --layer-elevation: var(--feature-row-elevation-phone); }
 
-/* The whole card is one link: the CTA's hit area stretches over it. */
-.feature-row :is(.hyperlink--cta, .feature-row__cta)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
+.feature-row__media--laptop-pair > .feature-row__layer:nth-child(1) { --layer-blur: blur(0.03rem); --drift: 1rem; }
+.feature-row__media--laptop-pair > .feature-row__layer:nth-child(2) { --drift: 3rem; }
 
-.feature-row:is(:hover, :focus-within) .feature-row__title {
-  color: var(--feature-row-color-content-title-hover);
-}
-
-@media (min-width: 60em) {
-  /* Lead study: image across nine columns from the left edge, text in
-     columns 4–9 below it. */
-  .feature-row--lead {
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-  }
-
-  .feature-row--lead > .feature-row__media {
-    grid-column: 1 / span 9;
-  }
-
-  .feature-row--lead > .feature-row__content {
-    grid-column: 4 / span 6;
-  }
-
-  /* The lead's three lists run across columns 4–12, one per 3-column
-     module, so each starts on a visible grid line. */
-  .feature-row--lead > .feature-row__body {
-    grid-column: 4 / -1;
-  }
-
-  .feature-row--lead .feature-row__lead {
-    font-size: var(--typography-title-lg-font-size);
-    line-height: var(--typography-title-lg-line-height);
-  }
-
-  .feature-row--lead .feature-row__specs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .feature-row--lead > .feature-row__body {
-    margin-block-start: var(--feature-row-spacing-lead-specs-margin-top);
-  }
-
-  .feature-row--lead .hyperlink--cta {
-    margin-block-start: var(--feature-row-spacing-lead-cta-margin-top);
-  }
-}
+.feature-row__media--phone-fan > .feature-row__layer { --layer-elevation: var(--feature-row-elevation-phone); }
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(1) { --layer-blur: blur(0.03rem); --drift: 1rem; }
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(2) { --layer-blur: blur(0.015rem); --drift: 2rem; }
+.feature-row__media--phone-fan > .feature-row__layer:nth-child(3) { --drift: 3rem; }
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(2) { --drift: 1.5rem; }
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(3) { --layer-blur: blur(0.01rem); --drift: 2.5rem; }
+.feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(4) { --drift: 3rem; }
 
 
 /* ---------- cta ---------- */
@@ -1297,10 +989,6 @@ code {
 
 .hyperlink--cta .icon {
   transition: translate var(--motion-duration-md) var(--motion-easing-standard);
-}
-
-:is(.feature-row:hover, .feature-row:focus-within) .hyperlink--cta {
-  color: var(--hyperlink-color-cta-content-hover);
 }
 
 .index-hero__actions {
@@ -1740,7 +1428,7 @@ code {
 
 
 .feature-row--next .feature-row__media {
-  margin-block-end: 0;
+  padding-block-end: 0;
 }
 
 .feature-row--next .feature-row__media > img {
@@ -1764,13 +1452,13 @@ code {
   line-height: var(--typography-eyebrow-lg-line-height);
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  color: var(--feature-row-color-content-meta);
+  color: var(--feature-row-color-meta-content-default);
 }
 
 .content-section__label-number,
 .content-section__number,
 .case-figure__number {
-  color: var(--feature-row-color-content-number);
+  color: var(--feature-row-color-number-content-default);
 }
 
 .content-section__number {
@@ -1782,7 +1470,7 @@ code {
 }
 
 .case-notes__item .content-section__number {
-  color: var(--feature-row-color-content-number);
+  color: var(--feature-row-color-number-content-default);
 }
 
 /* Brief details read like the card fact list. */
@@ -1800,18 +1488,18 @@ code {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--feature-row-color-content-spec-label);
+  color: var(--feature-row-color-spec-label-content-default);
 }
 
 .page-hero__meta dd {
   display: flex;
   align-items: baseline;
-  gap: var(--feature-row-spacing-item-gap);
+  gap: var(--feature-row-spacing-spec-item-gap);
   font-family: var(--typography-body-list-font-family);
   font-size: var(--typography-body-list-font-size);
   line-height: var(--typography-body-list-line-height);
   font-weight: var(--typography-body-list-font-weight);
-  color: var(--feature-row-color-content-spec);
+  color: var(--feature-row-color-spec-content-default);
 }
 
 .page-hero__meta dd::before {
@@ -1819,8 +1507,8 @@ code {
   flex: none;
   inline-size: var(--feature-row-spacing-bullet-width);
   aspect-ratio: 1;
-  background: var(--feature-row-color-background-bullet);
-  translate: 0 var(--feature-row-spacing-bullet-offset);
+  background: var(--feature-row-color-bullet-background-default);
+  translate: 0 calc(var(--feature-row-spacing-bullet-offset) * -1);
 }
 
 /* Readout numbers match the stat band. */
@@ -1858,7 +1546,7 @@ code {
   line-height: var(--typography-title-default-line-height);
   font-weight: var(--typography-title-default-font-weight);
   letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--feature-row-color-content-lead);
+  color: var(--feature-row-color-lead-content-default);
   text-wrap: pretty;
 }
 
@@ -1905,7 +1593,7 @@ main {
 
 .text-caption::before {
   content: counter(site-figure) ".0" "\00a0\00a0";
-  color: var(--feature-row-color-content-number);
+  color: var(--feature-row-color-number-content-default);
 }
 
 .content-section .grid {
@@ -2002,11 +1690,11 @@ main {
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
   text-transform: uppercase;
-  color: var(--feature-row-color-content-meta);
+  color: var(--feature-row-color-meta-content-default);
 }
 
 .page-hero__band .page-hero__number {
-  color: var(--feature-row-color-content-number);
+  color: var(--feature-row-color-number-content-default);
 }
 
 
@@ -2020,7 +1708,7 @@ main {
    their own elevation, so the wrapper doesn't add a second shadow, and
    the row's clearance under the media doesn't apply here. */
 .page-hero__media.feature-row__media {
-  margin-block-end: 0;
+  padding-block-end: 0;
   filter: none;
   /* The hero drifts like the index rows (Mark, 2026-10-28), at half the
      travel. Its text sits above the media, 96px away, and the deepest
@@ -2074,13 +1762,13 @@ main {
   font-size: var(--typography-body-sm-font-size);
   line-height: var(--typography-body-sm-line-height);
   font-weight: var(--typography-body-sm-font-weight);
-  color: var(--feature-row-color-content-detail);
+  color: var(--feature-row-color-detail-content-default);
 }
 
 .page-hero__body > .page-hero__meta {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--feature-row-size-spec-min), 1fr));
-  gap: var(--feature-row-spacing-specs-gap-y) var(--feature-row-spacing-specs-gap-x);
+  gap: var(--feature-row-spacing-specs-gap-y) var(--page-spacing-gutter);
 }
 
 /* Medium screens: production's spans assume a 12-column grid that pairs
