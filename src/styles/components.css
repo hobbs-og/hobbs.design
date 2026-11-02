@@ -1049,55 +1049,62 @@ code {
   filter: var(--layer-blur, ) var(--layer-elevation, var(--project-row-elevation-flat));
 }
 
-/* Each composite runs edge to edge of its box (Mark, 2026-10-27). The
-   design's layouts filled 76-80% of the box, so every width, offset and
-   lift is the design's value divided by that span (0.8 or 0.76), minus
-   its left inset where the composite didn't start at 0. The composition
-   is unchanged, only scaled to the box. Lifts are % of the box width too,
-   so they scale with it. */
-.project-row__media--terafina > .project-row__layer:nth-child(1),
-.project-row__media--uhm > .project-row__layer:nth-child(1) {
+/* Device presets (Mark, 2026-11-02). A product picks a preset, not a
+   layout: laptop-plus-tablet, laptop-plus-phones, laptop-pair or
+   phone-fan. Layer order is depth, so nth-child picks a layer's slot on
+   purpose. Each composite runs edge to edge of its box (Mark,
+   2026-10-27): the design filled 76-80% of the box, so every width, offset
+   and lift is the design's value divided by that span (0.8 or 0.76).
+   Lifts are % of the box width too, so they scale with it. */
+
+/* Laptop plus: one laptop at full width with smaller devices in front. */
+:is(.project-row__media--laptop-plus-tablet, .project-row__media--laptop-plus-phones) > .project-row__layer:nth-child(1) {
   --layer-width: calc(80% / 0.8); --layer-lift: calc(4.8% / 0.8); --drift: 1rem;
 }
-.project-row__media--terafina > .project-row__layer:nth-child(2) {
+.project-row__media--laptop-plus-tablet > .project-row__layer:nth-child(2) {
   --layer-width: calc(33.6% / 0.8); --layer-justify: end; --layer-end: 0%; --drift: 2rem;
 }
-.project-row__media--terafina > .project-row__layer:nth-child(3) {
+.project-row__media--laptop-plus-tablet > .project-row__layer:nth-child(3) {
   --layer-width: calc(16% / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --drift: 3rem;
 }
-.project-row__media--uhm > .project-row__layer:nth-child(2) {
+.project-row__media--laptop-plus-phones > .project-row__layer:nth-child(2) {
   --layer-width: calc(13.6% / 0.8); --layer-justify: end; --layer-end: 0%; --layer-elevation: var(--project-row-elevation-phone); --drift: 2rem;
 }
-.project-row__media--uhm > .project-row__layer:nth-child(3) {
+.project-row__media--laptop-plus-phones > .project-row__layer:nth-child(3) {
   --layer-width: calc(16% / 0.8); --layer-justify: end; --layer-end: calc((39.2% - 20%) / 0.8); --layer-lift: calc((4.8% - 1.2rem) / 0.8); --layer-elevation: var(--project-row-elevation-phone); --drift: 3rem;
 }
-.project-row__media--mhe > .project-row__layer:nth-child(1) {
+
+/* Laptop pair: two overlapping laptops, the back one raised and soft. */
+.project-row__media--laptop-pair > .project-row__layer:nth-child(1) {
   --layer-width: calc(52% / 0.8); --layer-lift: calc(17.6% / 0.8); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
-.project-row__media--mhe > .project-row__layer:nth-child(2) {
+.project-row__media--laptop-pair > .project-row__layer:nth-child(2) {
   --layer-width: calc(58% / 0.8); --layer-start: calc(22% / 0.8); --drift: 3rem;
 }
-.project-row__media--rumi > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
-.project-row__media--rumi > .project-row__layer:nth-child(1) {
+
+/* Phone fan: phones alternate sides and grow toward the front, losing
+   lift and blur as they come forward. Three phones take the first set of
+   slots; a fourth switches the fan to the four-phone set. */
+.project-row__media--phone-fan > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
+.project-row__media--phone-fan > .project-row__layer:nth-child(1) {
   --layer-width: calc(20% / 0.76); --layer-start: 0%; --layer-lift: calc(9.6% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
 }
-.project-row__media--rumi > .project-row__layer:nth-child(2) {
+.project-row__media--phone-fan > .project-row__layer:nth-child(2) {
   --layer-width: calc(22.4% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(4.8% / 0.76); --layer-blur: blur(0.015rem); --drift: 2rem;
 }
-.project-row__media--rumi > .project-row__layer:nth-child(3) {
+.project-row__media--phone-fan > .project-row__layer:nth-child(3) {
   --layer-width: calc(25.6% / 0.76); --layer-start: calc((26.4% - 4%) / 0.76); --drift: 3rem;
 }
-.project-row__media--proof > .project-row__layer { --layer-elevation: var(--project-row-elevation-phone); }
-.project-row__media--proof > .project-row__layer:nth-child(1) {
-  --layer-width: calc(17.6% / 0.76); --layer-start: 0%; --layer-lift: calc(10.4% / 0.76); --layer-blur: blur(0.03rem); --drift: 1rem;
+.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(1) {
+  --layer-width: calc(17.6% / 0.76); --layer-lift: calc(10.4% / 0.76);
 }
-.project-row__media--proof > .project-row__layer:nth-child(2) {
-  --layer-width: calc(20% / 0.76); --layer-justify: end; --layer-end: 0%; --layer-lift: calc(5.6% / 0.76); --layer-blur: blur(0.015rem); --drift: 1.6875rem;
+.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(2) {
+  --layer-width: calc(20% / 0.76); --layer-lift: calc(5.6% / 0.76); --drift: 1.5rem;
 }
-.project-row__media--proof > .project-row__layer:nth-child(3) {
-  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.01rem); --drift: 2.3125rem;
+.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(3) {
+  --layer-width: calc(22.4% / 0.76); --layer-start: calc((16% - 2.4%) / 0.76); --layer-lift: calc(2.4% / 0.76); --layer-blur: blur(0.01rem); --drift: 2.5rem;
 }
-.project-row__media--proof > .project-row__layer:nth-child(4) {
+.project-row__media--phone-fan:has(> .project-row__layer:nth-child(4)) > .project-row__layer:nth-child(4) {
   --layer-width: calc(24.8% / 0.76); --layer-justify: end; --layer-end: calc((39.2% - 21.6%) / 0.76); --drift: 3rem;
 }
 
