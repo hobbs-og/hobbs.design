@@ -209,20 +209,10 @@
   --wordmark-motion-stagger: 2vh;
   --wordmark-motion-length: 70vh;
 
-  /* stat-band */
-  --stat-band-color-border-rule: var(--color-border-strong);
-  --stat-band-color-content-label: var(--color-content-subtle);
-  --stat-band-color-content-value: var(--color-content-headline-brand);
-  --stat-band-color-content-meta: var(--color-content-subtle);
-  --stat-band-border-width: 0.0625rem;
-  --stat-band-spacing-margin-top: var(--spacing-24);
-  --stat-band-spacing-padding-bottom: var(--spacing-64);
-  --stat-band-spacing-row-gap: var(--spacing-48);
+  /* stat-band comes from software. The wide gap, the stagger and the motion
+     are this page's composition. */
   --stat-band-spacing-stat-gap: var(--spacing-240);
-  --stat-band-spacing-stat-padding-x: var(--spacing-16);
-  --stat-band-spacing-stat-padding-bottom: 0;
-  --stat-band-spacing-meta-gap: var(--spacing-8);
-  --stat-band-spacing-stagger: var(--spacing-120);
+  --site-stat-spacing-stagger: var(--spacing-120);
   --stat-band-motion-stagger: 15vh;
   --stat-band-motion-length: 70vh;
 
@@ -286,21 +276,6 @@
   --how-i-work-spacing-body-gap: var(--spacing-24);
   --how-i-work-size-body-column-min: 15rem;
 
-  /* contact */
-  --contact-color-content-title: var(--color-content-headline);
-  --contact-color-content-accent: var(--color-content-headline-brand);
-  --contact-color-content-email: var(--color-content-headline);
-  --contact-color-content-email-hover: var(--color-content-link-hover);
-  --contact-color-content-lead: var(--color-content-default);
-  --contact-color-content-label: var(--color-content-subtle);
-  --contact-spacing-padding-top: var(--spacing-24);
-  --contact-spacing-body-margin-top: var(--spacing-96);
-  --contact-spacing-links-margin-top: var(--spacing-72);
-  --contact-spacing-email-padding-y: var(--spacing-16);
-  --contact-spacing-link-gap: var(--spacing-8);
-  --contact-spacing-link-padding-top: var(--spacing-8);
-  --contact-spacing-row-gap: var(--spacing-24);
-
   /* case-hero */
   --case-hero-color-content-title: var(--color-content-headline);
   --case-hero-color-content-lead: var(--color-content-headline);
@@ -316,7 +291,7 @@
   --case-hero-spacing-lead-top: var(--work-index-spacing-lead-gap);
   --case-hero-spacing-specs-gap-y: var(--spacing-40);
   --case-hero-color-border-band: var(--color-border-strong);
-  --case-hero-border-width-band: var(--stat-band-border-width);
+  --case-hero-border-width-band: var(--stat-band-border-width-default);
   --case-hero-spacing-band-padding-top: var(--spacing-12);
   --case-hero-spacing-band-gap: var(--spacing-4);
   --case-hero-spacing-title-margin-top: var(--spacing-96);
@@ -839,34 +814,15 @@ code {
 
 /* ---------- stat-band ---------- */
 
-.stat-band__grid {
-  row-gap: var(--stat-band-spacing-row-gap);
-  align-items: start;
-  margin-block-start: var(--stat-band-spacing-margin-top);
-  padding-block-end: var(--stat-band-spacing-padding-bottom);
+/* stat-band comes from software. Here it sits close under the hero, and steps
+   down the page. */
+.stat-band .stat-band__grid {
+  margin-block-start: var(--spacing-24);
+  padding-block-start: 0;
 }
 
-.stat {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  gap: var(--stat-band-spacing-stat-gap);
-  padding-inline-start: var(--stat-band-spacing-stat-padding-x);
-  padding-block-end: var(--stat-band-spacing-stat-padding-bottom);
-}
-
-.stat::before {
-  content: "";
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: 0;
-  border-inline-start: var(--stat-band-border-width) solid var(--stat-band-color-border-rule);
-  transform-origin: top;
-}
-
-.stat:nth-of-type(2) { --i: 1; margin-block-start: var(--stat-band-spacing-stagger); }
-.stat:nth-of-type(3) { --i: 2; margin-block-start: calc(var(--stat-band-spacing-stagger) * 2); }
+.stat:nth-of-type(2) { --i: 1; margin-block-start: var(--site-stat-spacing-stagger); }
+.stat:nth-of-type(3) { --i: 2; margin-block-start: calc(var(--site-stat-spacing-stagger) * 2); }
 .stat:nth-of-type(1) { --i: 0; }
 
 /* The stats share one staggered row at every width. Desktop: the spacer
@@ -897,45 +853,14 @@ code {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--stat-band-color-content-label);
-  /* Labels wrap when they need to (Mark, 2026-10-28). One line ran
-     "Unnecessary design variants" off the screen below 60em. A long
-     word overhangs its column rather than breaking in half. */
-  text-wrap: balance;
-  overflow-wrap: normal;
 }
 
-/* The number with its supporting line 8px under it (Mark, 2026-10-28).
-   column-reverse on .stat puts this pair at the bottom and the label at
-   the top. */
-.stat__figure {
-  display: flex;
-  flex-direction: column;
-  gap: var(--stat-band-spacing-meta-gap);
-}
-
-/* Trim the line box to the alphabetic baseline so the 8px gap to the
-   supporting line starts at the number's baseline. Browsers without
-   text-box show a few pixels of descender space below it. */
 .stat__value {
-  text-box: trim-end text alphabetic;
   font-family: var(--typography-numeral-lg-font-family);
   font-size: var(--typography-numeral-lg-font-size);
   line-height: var(--typography-numeral-lg-line-height);
   font-weight: var(--typography-numeral-lg-font-weight);
   letter-spacing: var(--typography-numeral-lg-letter-spacing);
-  color: var(--stat-band-color-content-value);
-}
-
-.stat__meta {
-  font-family: var(--typography-meta-default-font-family);
-  font-size: var(--typography-meta-default-font-size);
-  line-height: var(--typography-meta-default-line-height);
-  font-weight: var(--typography-meta-default-font-weight);
-  letter-spacing: var(--typography-meta-default-letter-spacing);
-  text-transform: var(--typography-meta-default-text-transform);
-  color: var(--stat-band-color-content-meta);
-  text-wrap: pretty;
 }
 
 .stat__reel {
@@ -1434,73 +1359,13 @@ code {
 
 /* ---------- contact ---------- */
 
-.contact__header {
-  align-items: baseline;
-  padding-block-start: var(--contact-spacing-padding-top);
-}
-
+/* .contact comes from software. Here it takes the site's title and label type. */
 .contact__title {
-  display: grid;
-  grid-template-columns: subgrid;
-  font-family: var(--typography-display-default-font-family);
-  font-size: var(--typography-display-default-font-size);
-  line-height: var(--typography-display-default-line-height);
-  font-weight: var(--typography-display-default-font-weight);
-  letter-spacing: var(--typography-display-default-letter-spacing);
-  color: var(--contact-color-content-title);
-  text-wrap: balance;
-}
-
-.contact__title > span {
-  grid-column: 1 / -1;
-}
-
-.contact__title-accent {
-  color: var(--contact-color-content-accent);
-}
-
-.contact__body {
-  row-gap: var(--contact-spacing-row-gap);
-  align-items: baseline;
-  margin-block-start: var(--contact-spacing-body-margin-top);
-}
-
-.contact__email {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--contact-spacing-row-gap);
-  padding-block: var(--contact-spacing-email-padding-y);
-  font-family: var(--typography-headline-lg-font-family);
-  font-size: var(--typography-headline-lg-font-size);
-  line-height: var(--typography-headline-lg-line-height);
-  font-weight: var(--typography-headline-lg-font-weight);
-  letter-spacing: var(--typography-headline-lg-letter-spacing);
-  color: var(--contact-color-content-email);
-}
-
-.contact__email:hover {
-  color: var(--contact-color-content-email-hover);
-}
-
-.contact__lead {
-  color: var(--contact-color-content-lead);
-  text-wrap: pretty;
-}
-
-.contact__links {
-  row-gap: var(--contact-spacing-row-gap);
-  align-items: baseline;
-  margin-block-start: var(--contact-spacing-links-margin-top);
-  padding: 0;
-  list-style: none;
-}
-
-.contact__links a {
-  display: flex;
-  flex-direction: column;
-  gap: var(--contact-spacing-link-gap);
-  padding-block-start: var(--contact-spacing-link-padding-top);
+  font-size: var(--typography-font-size-48);
+  line-height: var(--typography-line-height-48);
+  font-weight: var(--typography-font-weight-800);
+  letter-spacing: var(--typography-headline-sm-letter-spacing);
+  text-transform: uppercase;
 }
 
 .contact__link-label {
@@ -1510,21 +1375,11 @@ code {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--contact-color-content-label);
 }
 
-@media (min-width: 60em) {
-  .contact__title {
-    grid-column: 4 / -1;
-  }
-
-  .contact__title-accent {
-    grid-column: 4 / -1;
-  }
-
-  .contact__links > li:first-child {
-    grid-column-start: 4;
-  }
+.contact__support,
+.contact__links {
+  column-gap: var(--page-spacing-gutter);
 }
 
 
@@ -2028,7 +1883,7 @@ code {
 
 /* Readout numbers match the stat band. */
 .case-readout__cell:not(.case-readout__cell--brand) .case-readout__value {
-  color: var(--stat-band-color-content-value);
+  color: var(--stat-band-color-value-content-default);
 }
 
 
@@ -3124,30 +2979,6 @@ figcaption.text-caption {
   }
 }
 
-/* Contact, built like a case-study section: gridline rule on top, h2 on
-   columns 1–6 (48/48, 800, uppercase), support copy and links in 4–9. */
-.contact-section {
-  row-gap: var(--spacing-24);
-  padding-block-start: var(--case-section-spacing-rule);
-  border-block-start: var(--case-section-border-width-rule) solid var(--case-section-color-border-rule);
-}
-
-.contact-section > * {
-  grid-column: 1 / -1;
-  margin: 0;
-}
-
-.contact-section__title {
-  font-family: var(--typography-headline-sm-font-family);
-  font-size: var(--typography-font-size-48);
-  line-height: var(--typography-line-height-48);
-  font-weight: var(--typography-font-weight-800);
-  letter-spacing: var(--typography-headline-sm-letter-spacing);
-  text-transform: uppercase;
-  color: var(--case-section-color-content-heading);
-  text-wrap: balance;
-}
-
 /* Index headings below 60em: the fixed 48–56px desktop sizes overrun a
    phone, so all three step with the screen on headline-lg (32/40 small,
    40/48 medium, the same 56/64 the h1 and lead use on desktop). Each
@@ -3156,7 +2987,7 @@ figcaption.text-caption {
 @media (max-width: 59.9375em) {
   .index-hero__title,
   .work-index__header > h2.work-index__lead,
-  .contact-section__title {
+  .contact__title {
     font-size: var(--typography-headline-lg-font-size);
     line-height: var(--typography-headline-lg-line-height);
   }
@@ -3187,59 +3018,23 @@ figcaption.text-caption {
   }
 }
 
-:is(.contact-section__support, .contact-section__links) {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-  gap: var(--spacing-24) var(--page-spacing-gutter);
-  padding: 0;
-  list-style: none;
-}
-
-.contact-section__support {
-  align-items: first baseline;
-}
-
-.contact-section__support > .index-hero__actions {
+.contact__support > .index-hero__actions {
   align-items: first baseline;
 }
 
 /* The plain email link sits flat beside its paragraph. Arrow CTAs keep
    the standard CTA padding so they match "View case study" exactly. */
-.contact-section__support > .index-hero__actions > .hyperlink--cta:not(:has(> .icon)) {
+.contact__support > .index-hero__actions > .hyperlink--cta:not(:has(> .icon)) {
   padding-block: 0;
-}
-
-.contact-section__support > * {
-  margin: 0;
-  color: var(--case-section-color-content-body);
-  text-wrap: pretty;
 }
 
 /* A stacked pair of CTAs sits in the support grid's right column, under
    the second paragraph (Mark, 2026-10-29). On phones that's the only
    column. */
-.contact-section__support > .contact-section__actions {
+.contact__support > .contact__actions {
   grid-column: -2 / -1;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.contact-section__links {
-  margin-block-start: var(--case-flow-spacing-row-gap);
-}
-
-.contact-section__links a {
-  display: flex;
-  flex-direction: column;
-  gap: var(--contact-spacing-link-gap);
-}
-
-@media (min-width: 60em) {
-  .contact-section__title { grid-column: 1 / span 6; }
-  :is(.contact-section__support, .contact-section__links) {
-    grid-column: 4 / span 6;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 /* ---------- nav-panel (phone menu) ----------

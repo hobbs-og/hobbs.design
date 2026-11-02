@@ -17,6 +17,7 @@
   --page-grid-color-border: color-mix(in srgb, var(--color-content-emphasized) 10%, transparent);
   --footer-color-default-border-default: var(--page-grid-color-border);
   --media-frame-color-default-border-default: var(--page-grid-color-border);
+  --contact-color-default-border-default: var(--page-grid-color-border);
   --typography-label-lg-letter-spacing: -0.01em;
   --typography-title-default-letter-spacing: -0.015em;
   --typography-title-lg-letter-spacing: -0.015em;
