@@ -23,7 +23,9 @@
   <link rel="stylesheet" href="vendor/software/grid.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="vendor/software/components/footer.css">
+  <link rel="stylesheet" href="vendor/software/components/hyperlink.css">
   <link rel="stylesheet" href="vendor/software/components/media-frame.css">
+  <link rel="stylesheet" href="vendor/software/components/navbar.css">
   <link rel="stylesheet" href="vendor/software/components/skip-link.css">
   <link rel="stylesheet" href="vendor/software/components/switch.css">
   <link rel="stylesheet" href="src/styles/components.css">
@@ -34,23 +36,23 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-nav" data-xray="organism · site-nav">
-    <div class="container site-nav__inner">
-      <a class="site-nav__logo" href="index.html" data-xray="atom · logo"><span class="site-nav__logo-type"><span class="site-nav__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
+  <header class="navbar" data-xray="organism · navbar">
+    <div class="container navbar__inner">
+      <a class="navbar__logo" href="index.html" data-xray="atom · logo"><span class="navbar__logo-type"><span class="navbar__logo-mark">hobbs.</span>design</span><span class="visually-hidden">, home</span></a>
 
-      <nav class="site-nav__links" aria-label="Primary" data-xray="molecule · nav-links">
+      <nav class="navbar__links" aria-label="Primary" data-xray="molecule · nav-links">
         <a href="index.html#work">Work</a>
         <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
         <a href="Mark-Hobbs_Resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-arrow-up-right-square"></use></svg><span class="visually-hidden">(PDF, opens in a new tab)</span></a>
       </nav>
 
-      <div class="site-nav__switches">
+      <div class="navbar__switches">
         <label class="switch xray-toggle" data-xray="atom · switch" hidden><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#bi-code-slash"></use></svg><span class="visually-hidden">Code view</span> <input type="checkbox" role="switch" data-xray-switch></label>
         <label class="switch theme-toggle" data-xray="atom · switch"><svg class="icon switch__icon--off" aria-hidden="true"><use href="src/public/icons.svg#bi-brightness-high"></use></svg><svg class="icon switch__icon--on" aria-hidden="true"><use href="src/public/icons.svg#bi-moon"></use></svg><span class="visually-hidden">Dark mode</span> <input type="checkbox" role="switch" data-theme-switch></label>
       </div>
 
-      <button class="site-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+      <button class="navbar__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -293,7 +295,7 @@
                   <dd><ul><li>Three-month contract</li><li>Via Mondo</li></ul></dd>
                 </div>
               </dl>
-              <a class="cta" href="bullhorn.html" data-sheet="case">View case study<span class="visually-hidden">: Bullhorn</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
+              <a class="hyperlink hyperlink--cta" href="bullhorn.html" data-sheet="case">View case study<span class="visually-hidden">: Bullhorn</span><svg class="icon" aria-hidden="true"><use href="src/public/icons.svg#swiss-arrow-up-right"></use></svg></a>
             </div>
           </article>
         </div>

@@ -16,7 +16,7 @@
    destination is still reachable from the page itself.
    ============================================================ */
 (function () {
-  var toggle = document.querySelector('.site-nav__toggle');
+  var toggle = document.querySelector('.navbar__toggle');
   var panel = document.querySelector('.sheet--nav');
   if (!toggle || !panel || typeof panel.show !== 'function') return;
 

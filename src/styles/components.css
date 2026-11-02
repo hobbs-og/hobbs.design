@@ -151,20 +151,17 @@
   --section-label-color-content-brand: var(--color-content-eyebrow);
 
   /* site-nav */
-  --site-nav-color-background-default: color-mix(in srgb, var(--color-background-default) 72%, transparent);
-  --site-nav-color-border-default: var(--color-border-subtle);
-  --site-nav-color-content-default: var(--color-content-emphasized);
-  --site-nav-color-content-hover: var(--color-content-link-hover);
-  --site-nav-color-content-current: var(--color-content-brand);
-  --site-nav-border-width: 0.0625rem;
+  /* navbar comes from software. These are the site's values for it. */
+  --navbar-color-background-default: color-mix(in srgb, var(--color-background-default) 72%, transparent);
+  --navbar-color-content-default: var(--color-content-emphasized);
+  --navbar-color-content-hover: var(--color-content-link-hover);
+  --navbar-color-content-active: var(--color-content-brand);
+  --navbar-spacing-nav-links-gap: var(--spacing-24);
   --site-nav-size-blur: 1rem;
   --site-nav-size-icon: 1rem;
-  --site-nav-spacing-padding-y: var(--spacing-16);
   /* One row of logo plus the padding and border around it, so the height
      follows those tokens and is never typed in. */
-  --site-nav-size-height: calc(var(--site-nav-spacing-padding-y) * 2 + var(--typography-line-height-32) + var(--site-nav-border-width));
-  --site-nav-spacing-links-gap-x: var(--spacing-24);
-  --site-nav-spacing-link-gap: var(--spacing-24);
+  --site-nav-size-height: calc(var(--navbar-spacing-padding-y) * 2 + var(--typography-line-height-32) + var(--navbar-border-width-default));
   --site-nav-spacing-links-gap-y: var(--spacing-8);
   --site-nav-spacing-toggle-gap: var(--spacing-2);
   --page-spacing-icon-gap: var(--spacing-8);
@@ -182,8 +179,8 @@
   --nav-panel-spacing-links-gap: var(--spacing-16);
   --nav-panel-spacing-switches-margin-top: var(--spacing-48);
   --nav-panel-spacing-switches-gap: var(--spacing-24);
-  --nav-panel-color-content-link: var(--site-nav-color-content-default);
-  --nav-panel-color-content-link-hover: var(--site-nav-color-content-hover);
+  --nav-panel-color-content-link: var(--navbar-color-content-default);
+  --nav-panel-color-content-link-hover: var(--navbar-color-content-hover);
 
   /* index-hero */
   --index-hero-color-content-eyebrow: var(--color-content-subtle);
@@ -282,30 +279,9 @@
   --project-row-spacing-cta-margin-top: var(--spacing-24);
   --project-row-motion-drift: 1.5rem;
 
-  /* cta, button */
-  --cta-color-content-default: var(--color-content-emphasized);
-  --cta-color-content-hover: var(--color-content-brand);
-  --cta-size-underline: 0.125rem;
-  --cta-size-icon: 0.75rem;
-  --cta-spacing-gap: var(--spacing-12);
-  --cta-spacing-padding-y: var(--spacing-16);
-  --cta-spacing-icon-offset: 0.375rem;
-
-  --button-color-solid-content-default: var(--color-content-emphasized);
-  --button-color-solid-border-default: var(--color-border-strong);
-  --button-color-solid-background-hover: var(--color-background-brand);
-  --button-color-solid-content-hover: var(--color-content-knockout);
-  --button-color-solid-border-hover: var(--color-border-brand);
-  --button-color-quiet-content-default: var(--color-content-emphasized);
-  --button-color-quiet-content-hover: var(--color-content-brand);
-  --button-border-width: 0.125rem;
-  --button-spacing-padding-x: var(--spacing-24);
-  --button-spacing-padding-y: var(--spacing-16);
-  --button-spacing-gap: var(--spacing-16);
-  --button-spacing-icon-shift: 0.375rem;
+  /* index-hero actions */
   --button-spacing-actions-gap-x: var(--spacing-32);
   --button-spacing-actions-gap-y: var(--spacing-16);
-  --button-scale-active: 0.98;
 
   /* how-i-work */
   --how-i-work-color-content-title: var(--color-content-headline);
@@ -584,30 +560,24 @@ code {
 }
 
 
-/* ---------- site-nav ---------- */
+/* ---------- navbar ---------- */
 
-.site-nav {
+.navbar {
   position: sticky;
   inset-block-start: 0;
   z-index: 40;
-  background-color: var(--site-nav-color-background-default);
   -webkit-backdrop-filter: blur(var(--site-nav-size-blur));
   backdrop-filter: blur(var(--site-nav-size-blur));
-  border-block-end: var(--site-nav-border-width) solid var(--site-nav-color-border-default);
 }
 
-.site-nav__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--site-nav-spacing-links-gap-y) var(--site-nav-spacing-links-gap-x);
-  padding-block: var(--site-nav-spacing-padding-y);
+.navbar__inner {
+  gap: var(--site-nav-spacing-links-gap-y) var(--navbar-spacing-nav-links-gap);
 }
 
-.site-nav__logo {
+.navbar__logo {
   margin-inline-end: auto;
   flex: none;
-  color: var(--site-nav-color-content-default);
+  color: var(--navbar-color-content-default);
   font-size: var(--typography-logo-default-font-size);
   line-height: var(--typography-logo-default-line-height);
   font-weight: var(--typography-logo-default-font-weight);
@@ -619,7 +589,7 @@ code {
    shadow rising 0.5em from the bottom of the line box. Highlight is the
    portfolio brand's #E12A0966 (brand red at 40%). The inner span keeps
    the highlight on the word while the link flexes to centre the nav. */
-.site-nav__logo-type {
+.navbar__logo-type {
   display: inline-block;
   font-size: var(--typography-font-size-24);
   line-height: var(--typography-line-height-32);
@@ -629,11 +599,11 @@ code {
   transition: color var(--motion-duration-sm) ease;
 }
 
-.site-nav__logo-mark {
+.navbar__logo-mark {
   font-weight: var(--typography-font-weight-700);
 }
 
-.site-nav__logo:hover .site-nav__logo-type {
+.navbar__logo:hover .navbar__logo-type {
   color: var(--color-content-link-hover);
 }
 
@@ -645,7 +615,7 @@ code {
    the icon's bottom edge, and the icon and track share one center, so
    it's raised half the cap height (Inter caps are 0.727em) less half
    the icon's height. */
-.site-nav__switches {
+.navbar__switches {
   flex: none;
   display: block;
   text-align: end;
@@ -653,19 +623,18 @@ code {
   line-height: var(--typography-meta-sm-line-height);
 }
 
-.site-nav__switches .switch {
+.navbar__switches .switch {
   vertical-align: calc(var(--typography-meta-sm-font-size) * 0.727 / 2 - var(--site-nav-size-icon) / 2);
 }
 
 /* The links center in the space between the logo and the toggle, not
    on the page (Mark, 2026-10-28): the logo and switch group take their
    own widths and the links take the rest. */
-.site-nav__links {
+.navbar__links {
   flex: 1 1 auto;
   display: none;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: var(--site-nav-spacing-links-gap-y) var(--site-nav-spacing-link-gap);
+  gap: var(--site-nav-spacing-links-gap-y) var(--navbar-spacing-nav-links-gap);
   font-family: var(--typography-meta-sm-font-family);
   font-size: var(--typography-meta-sm-font-size);
   line-height: var(--typography-meta-sm-line-height);
@@ -675,22 +644,11 @@ code {
   text-transform: uppercase;
 }
 
-.site-nav__links a {
-  display: inline-flex;
-  align-items: center;
+.navbar__links a {
   gap: var(--page-spacing-icon-gap);
-  color: var(--site-nav-color-content-default);
 }
 
-.site-nav__links a:hover {
-  color: var(--site-nav-color-content-hover);
-}
-
-.site-nav__links a[aria-current] {
-  color: var(--site-nav-color-content-current);
-}
-
-.site-nav .icon {
+.navbar .icon {
   inline-size: var(--site-nav-size-icon);
   aspect-ratio: 1;
 }
@@ -703,7 +661,7 @@ code {
   font-size: var(--typography-nav-default-font-size);
   line-height: var(--typography-nav-default-line-height);
   font-weight: inherit;
-  color: var(--site-nav-color-content-default);
+  color: var(--navbar-color-content-default);
 }
 
 .switch input {
@@ -721,7 +679,7 @@ code {
   }
 }
 
-.site-nav__toggle {
+.navbar__toggle {
   appearance: none;
   cursor: pointer;
   display: inline-flex;
@@ -734,23 +692,23 @@ code {
   align-self: center;
 }
 
-.site-nav__toggle span {
+.navbar__toggle span {
   display: block;
   inline-size: var(--site-nav-size-toggle-bar-width);
-  border-block-start: var(--site-nav-size-toggle-bar-thickness) solid var(--site-nav-color-content-default);
+  border-block-start: var(--site-nav-size-toggle-bar-thickness) solid var(--navbar-color-content-default);
 }
 
 @media (min-width: 35em) {
-  .site-nav__links,
+  .navbar__links,
   .switch {
     display: flex;
   }
 
-  .site-nav__switches .switch {
+  .navbar__switches .switch {
     display: inline-flex;
   }
 
-  .site-nav__toggle {
+  .navbar__toggle {
     display: none;
   }
 }
@@ -1147,7 +1105,7 @@ code {
     grid-column: 2;
   }
 
-  .work-index__list > .project-row:nth-child(even) .cta {
+  .work-index__list > .project-row:nth-child(even) .hyperlink--cta {
     align-self: flex-start;
     margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
   }
@@ -1366,24 +1324,18 @@ code {
   translate: 0 var(--project-row-spacing-bullet-offset);
 }
 
-.project-row :is(.cta, .project-row__cta) {
+.project-row :is(.hyperlink--cta, .project-row__cta) {
   align-self: flex-start;
   margin-block-start: var(--project-row-spacing-cta-margin-top);
-  background-size: 100% var(--cta-size-underline);
 }
 
-/* Card CTA arrow is always shown; on card hover it nudges up and right. */
-.project-row .cta .icon {
-  opacity: 1;
-  translate: 0 0;
-}
-
-:is(.project-row:hover, .project-row:focus-within) .cta .icon {
-  translate: var(--cta-spacing-icon-offset) calc(var(--cta-spacing-icon-offset) * -1);
+/* On card hover the arrow nudges up and right, as if the CTA were hovered. */
+:is(.project-row:hover, .project-row:focus-within) .hyperlink--cta .icon {
+  translate: var(--hyperlink-spacing-cta-icon-offset) calc(var(--hyperlink-spacing-cta-icon-offset) * -1);
 }
 
 /* The whole card is one link: the CTA's hit area stretches over it. */
-.project-row :is(.cta, .project-row__cta)::after {
+.project-row :is(.hyperlink--cta, .project-row__cta)::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1428,123 +1380,31 @@ code {
     margin-block-start: var(--project-row-spacing-lead-specs-margin-top);
   }
 
-  .project-row--lead .cta {
+  .project-row--lead .hyperlink--cta {
     margin-block-start: var(--project-row-spacing-lead-cta-margin-top);
   }
 }
 
 
-/* ---------- cta + button ---------- */
+/* ---------- cta ---------- */
 
-.cta,
-.button--quiet {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: center;
-  gap: var(--cta-spacing-gap);
-  padding-block: var(--cta-spacing-padding-y);
-  font-family: var(--typography-label-lg-font-family);
-  font-size: var(--typography-label-lg-font-size);
-  line-height: var(--typography-label-lg-line-height);
-  font-weight: var(--typography-label-lg-font-weight);
-  letter-spacing: var(--typography-label-lg-letter-spacing);
-  color: var(--cta-color-content-default);
-  background: linear-gradient(currentColor, currentColor) left bottom / 0% var(--cta-size-underline) no-repeat;
-  transition:
-    color var(--motion-duration-sm) ease,
-    background-size var(--motion-duration-lg) var(--motion-easing-standard);
+/* .hyperlink--cta comes from software. Here it takes motion and the site's
+   capitalized arrow CTAs (Mark, 2026-10-28). The plain email link has no
+   arrow and stays as typed. */
+.hyperlink--cta {
+  transition: color var(--motion-duration-sm) ease;
 }
 
-/* The arrow CTA ("View case study", "More about me", the About page
-   links) is set in capitalized words (Mark, 2026-10-28). The plain email
-   link has no arrow and stays as typed. */
-.cta:has(> .icon) {
+.hyperlink--cta:has(> .icon) {
   text-transform: capitalize;
 }
 
-.cta .icon,
-.button--quiet .icon {
-  inline-size: var(--cta-size-icon);
-  aspect-ratio: 1;
-  opacity: 0;
-  translate: calc(var(--cta-spacing-icon-offset) * -1) var(--cta-spacing-icon-offset);
-  transition:
-    opacity var(--motion-duration-sm) ease,
-    translate var(--motion-duration-md) var(--motion-easing-standard);
-}
-
-:is(.project-row:hover, .project-row:focus-within) .cta,
-.button--quiet:is(:hover, :focus-visible) {
-  color: var(--cta-color-content-hover);
-  background-size: 100% var(--cta-size-underline);
-}
-
-.button--quiet:is(:hover, :focus-visible) .icon {
-  opacity: 1;
-  translate: 0 0;
-}
-
-/* Standalone CTAs (hero actions) match the card CTA: arrow always shown,
-   underline draws and the arrow nudges up-right on hover. */
-.index-hero__actions .cta {
-  background-size: 100% var(--cta-size-underline);
-}
-
-.index-hero__actions .cta .icon {
-  opacity: 1;
-  translate: 0 0;
-}
-
-.index-hero__actions .cta:is(:hover, :focus-visible) {
-  color: var(--cta-color-content-hover);
-  background-size: 100% var(--cta-size-underline);
-}
-
-.index-hero__actions .cta:is(:hover, :focus-visible) .icon {
-  translate: var(--cta-spacing-icon-offset) calc(var(--cta-spacing-icon-offset) * -1);
-}
-
-.button--solid {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--button-spacing-gap);
-  padding: var(--button-spacing-padding-y) var(--button-spacing-padding-x);
-  border: var(--button-border-width) solid var(--button-color-solid-border-default);
-  font-family: var(--typography-label-lg-font-family);
-  font-size: var(--typography-label-lg-font-size);
-  line-height: var(--typography-label-lg-line-height);
-  font-weight: var(--typography-label-lg-font-weight);
-  letter-spacing: var(--typography-label-lg-letter-spacing);
-  color: var(--button-color-solid-content-default);
-  background: linear-gradient(var(--button-color-solid-background-hover), var(--button-color-solid-background-hover)) left / 0% 100% no-repeat;
-  transition:
-    color var(--motion-duration-sm) ease,
-    border-color var(--motion-duration-sm) ease,
-    background-size var(--motion-duration-lg) var(--motion-easing-standard);
-}
-
-.button--solid .icon {
-  inline-size: var(--cta-size-icon);
-  aspect-ratio: 1;
+.hyperlink--cta .icon {
   transition: translate var(--motion-duration-md) var(--motion-easing-standard);
 }
 
-.button--solid:is(:hover, :focus-visible) {
-  color: var(--button-color-solid-content-hover);
-  border-color: var(--button-color-solid-border-hover);
-  background-size: 100% 100%;
-}
-
-.button--solid:is(:hover, :focus-visible) .icon {
-  translate: var(--button-spacing-icon-shift) 0;
-}
-
-.button--back:is(:hover, :focus-visible) .icon {
-  translate: calc(var(--button-spacing-icon-shift) * -1) 0;
-}
-
-.button--solid:active {
-  scale: var(--button-scale-active);
+:is(.project-row:hover, .project-row:focus-within) .hyperlink--cta {
+  color: var(--hyperlink-color-cta-content-hover);
 }
 
 .index-hero__actions {
@@ -3189,7 +3049,7 @@ figcaption.text-caption {
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
     /* Header surface fades in over the first stretch of scroll. */
-    .site-nav {
+    .navbar {
       animation: site-nav-surface linear both;
       animation-timeline: scroll(root);
       animation-range: 0 var(--site-nav-motion-range);
@@ -3307,8 +3167,8 @@ figcaption.text-caption {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(.cta, .button--quiet, .button--solid, .project-row__title) .icon,
-  :is(.cta, .button--quiet, .button--solid) {
+  :is(.hyperlink--cta, .project-row__title) .icon,
+  .hyperlink--cta {
     transition-duration: 0s;
   }
 }
@@ -3450,9 +3310,9 @@ figcaption.text-caption {
   .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) { grid-column: 7 / span 6; }
 
   .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .project-row__spec:nth-child(3) { grid-column: auto; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .cta { margin-inline-start: 0; }
+  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(even) .hyperlink--cta { margin-inline-start: 0; }
   .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .project-row__spec:nth-child(3) { grid-column: 2; }
-  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .cta {
+  .work-index__list > .work-interstitial ~ .project-row:not(:first-child):nth-child(odd) .hyperlink--cta {
     align-self: flex-start;
     margin-inline-start: calc(50% + var(--project-row-spacing-specs-gap-x) / 2);
   }
@@ -3539,7 +3399,7 @@ figcaption.text-caption {
 
 /* The plain email link sits flat beside its paragraph. Arrow CTAs keep
    the standard CTA padding so they match "View case study" exactly. */
-.contact-section__support > .index-hero__actions > .cta:not(:has(> .icon)) {
+.contact-section__support > .index-hero__actions > .hyperlink--cta:not(:has(> .icon)) {
   padding-block: 0;
 }
 
@@ -3584,7 +3444,7 @@ figcaption.text-caption {
 .sheet--nav {
   position: absolute;
   /* Below the header's bottom border, which top: 100% would cover. */
-  inset-block: calc(100% + var(--site-nav-border-width)) auto;
+  inset-block: calc(100% + var(--navbar-border-width-default)) auto;
   inset-inline: 0;
   block-size: 100dvh;
   border-radius: 0;
@@ -3654,21 +3514,21 @@ figcaption.text-caption {
 
 /* Open: the hamburger becomes the X that closes the panel. Outer bars
    meet on the middle one (one gap plus one bar) and turn 45°. */
-.site-nav__toggle span {
+.navbar__toggle span {
   transition:
     transform var(--motion-duration-sm) var(--motion-easing-standard),
     opacity var(--motion-duration-sm) var(--motion-easing-standard);
 }
 
-.site-nav__toggle[aria-expanded="true"] span:first-child {
+.navbar__toggle[aria-expanded="true"] span:first-child {
   transform: translateY(calc(var(--site-nav-spacing-toggle-bar-gap) + var(--site-nav-size-toggle-bar-thickness))) rotate(45deg);
 }
 
-.site-nav__toggle[aria-expanded="true"] span:nth-child(2) {
+.navbar__toggle[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
 }
 
-.site-nav__toggle[aria-expanded="true"] span:last-child {
+.navbar__toggle[aria-expanded="true"] span:last-child {
   transform: translateY(calc(-1 * (var(--site-nav-spacing-toggle-bar-gap) + var(--site-nav-size-toggle-bar-thickness)))) rotate(-45deg);
 }
 
@@ -3682,7 +3542,7 @@ figcaption.text-caption {
 
 @media (prefers-reduced-motion: reduce) {
   .sheet--nav,
-  .site-nav__toggle span {
+  .navbar__toggle span {
     transition: none;
   }
 }
@@ -3742,11 +3602,11 @@ html.xray [data-xray^="organism"]::before {
 
 /* At the top of the viewport, the nav's parts label below; the nav's
    own label sits inside its bottom edge, centred under the links. */
-html.xray .site-nav [data-xray]::before {
+html.xray .navbar [data-xray]::before {
   inset-block: 100% auto;
 }
 
-html.xray .site-nav[data-xray]::before {
+html.xray .navbar[data-xray]::before {
   inset-block: auto 0;
   inset-inline: 50% auto;
   translate: -50% 0;
@@ -3754,11 +3614,11 @@ html.xray .site-nav[data-xray]::before {
 
 /* The two switches sit close together: anchor their labels to the
    right edge and stack the second one a line lower. */
-html.xray .site-nav__switches > [data-xray]::before {
+html.xray .navbar__switches > [data-xray]::before {
   inset-inline: auto 0;
 }
 
-html.xray .site-nav__switches > [data-xray] + [data-xray]::before {
+html.xray .navbar__switches > [data-xray] + [data-xray]::before {
   inset-block-start: calc(100% + var(--typography-eyebrow-default-line-height));
 }
 

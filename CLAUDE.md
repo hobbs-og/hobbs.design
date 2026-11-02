@@ -220,7 +220,7 @@ Inter.
   a narrower screen.
 - **Components are classes on semantic HTML** (`article.project-row`), not
   custom elements. Decided explicitly.
-- **The `.site-nav` header is locked in** — byte-identical on every page:
+- **The `.navbar` header is locked in** — byte-identical on every page:
   structure, `data-xray` hooks, logo markup, the X-ray toggle, and the links
   themselves. A global nav does not change per page; only `aria-current` varies.
   Canonical links: About → `about.html`, Work → `index.html#work`, Contact →
