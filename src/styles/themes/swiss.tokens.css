@@ -5,15 +5,18 @@
    colors and most of its type come from vendor/software/tokens.css
    (Mark, 2026-11-01). Change those in Figma, never here.
 
-   This file holds only what Figma can't carry: em letter spacing
-   and sizes that step at the grid breakpoints. Site-only type roles
-   are defaults in components.css.
+   This file holds only what Figma can't carry: em letter spacing,
+   sizes that step at the grid breakpoints, and Swiss's 10% grid rule.
+   Site-only type roles are defaults in components.css.
 
    A theme loads last, so it can override any component token too.
    Copy this file to start a new theme.
    ============================================================ */
 
 [data-brand="swiss"] {
+  --page-grid-color-border: color-mix(in srgb, var(--color-content-emphasized) 10%, transparent);
+  --footer-color-default-border-default: var(--page-grid-color-border);
+  --media-frame-color-default-border-default: var(--page-grid-color-border);
   --typography-label-lg-letter-spacing: -0.01em;
   --typography-title-default-letter-spacing: -0.015em;
   --typography-title-lg-letter-spacing: -0.015em;

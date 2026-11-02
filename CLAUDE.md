@@ -146,7 +146,7 @@ it and keep the blocks in this order:
    `case-section__title-icon` svg (`#swiss-arrow-down-left`). The span keeps
    the text on columns 1–6 while the arrow sits at the grid's end
 3. `__body` holds `__part` (h3 + paragraphs), `figure.stack--tight` with an
-   `.img-frame.media-pair` and a `.text-caption`, or `__notes` of `__note`
+   `.media-frame` and a `.text-caption`, or `__notes` of `__note`
 4. `<!-- @include next-project.html project="…" -->`
 
 **Type steps with the screen.** Every heading has a phone, tablet and
@@ -177,8 +177,9 @@ The index h1 (`.index-hero__title`) and its h2s (`.work-index__lead`,
 other pages.
 
 **Stylesheets.** Swiss pages load software's `fonts.css`, `tokens.css` and
-`grid.css`, then `src/styles/base.css`, `src/styles/components.css` and last
-the theme, `src/styles/themes/swiss.tokens.css`. They don't load `system.css`
+`grid.css`, then `src/styles/base.css`, software's components from
+`vendor/software/components/`, `src/styles/components.css` and last the theme,
+`src/styles/themes/swiss.tokens.css`. They don't load `system.css`
 or `main.css`. The old stack leaks its paddings, borders and type into the
 components. Pages not yet converted still use the old stack.
 
