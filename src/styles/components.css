@@ -243,55 +243,35 @@
   --how-i-work-size-body-column-min: 15rem;
 
   /* page-hero */
-  --page-hero-color-content-title: var(--color-content-headline);
-  --page-hero-color-content-lead: var(--color-content-headline);
-  --page-hero-color-content-brief: var(--color-content-default);
-  --page-hero-spacing-padding-top: var(--spacing-48);
-  --page-hero-spacing-media-margin-top: var(--spacing-96);
-  --page-hero-spacing-title-top: var(--spacing-120);
-  --page-hero-spacing-lead-top: var(--feature-list-spacing-lead-gap);
-  --page-hero-spacing-specs-gap-y: var(--spacing-40);
-  --page-hero-color-border-band: var(--color-border-strong);
   --page-hero-border-width-band: var(--stat-band-border-width-default);
-  --page-hero-spacing-band-padding-top: var(--spacing-12);
-  --page-hero-spacing-band-gap: var(--spacing-4);
   --page-hero-spacing-title-optical: -0.039em;
-  --page-hero-spacing-row-gap: var(--spacing-24);
 
   /* content-section */
   --content-section-color-content-heading: var(--color-content-headline);
-  --content-section-color-content-body: var(--color-content-default);
   --content-section-color-content-caption: var(--color-content-default);
-  --content-section-spacing-padding-top: var(--spacing-168);
   --case-flow-spacing-row-gap: var(--spacing-48);
   --content-section-spacing-rule: var(--spacing-64);
   --content-section-border-width-rule: 0.0625rem;
   /* The rule under each h2 matches the hero title row's 4px rule. */
-  --content-section-border-width-title: var(--page-hero-border-width-title-row);
-  --content-section-color-border-title: var(--page-hero-color-border-band);
   --content-section-color-border-rule: var(--page-grid-color-border);
   /* Scales with the title: 48px (--spacing-48) at the 136px desktop
      title, as a share of the title size. A fixed 48px crowds the arrow off the
      row once the title shrinks on phones. */
-  --page-hero-spacing-title-icon-gap: calc(1em * 48 / 136);
-  --page-hero-spacing-title-row-top: calc(var(--spacing-48) * 4);
-  --page-hero-spacing-title-row-bottom: var(--spacing-40);
-  --page-hero-spacing-title-row-gap: var(--spacing-48);
-  --page-hero-border-width-title-row: 0.25rem;
   --page-hero-scale-title-with-icon: 0.86;
+  /* software page-hero and content-section tokens, set for this site: the
+     title row opens 192px under the band, and both arrows sit a gap away
+     that scales with the type (48px at the 136px desktop title). */
+  --page-hero-spacing-heading-gap: calc(var(--spacing-48) * 4);
+  --page-hero-spacing-title-gap: calc(1em * 48 / 136);
+  --content-section-spacing-title-gap: calc(1em * 48 / 136);
   /* Title size: fills the hero (20cqi sets an 8-letter name edge to edge)
      and stops at display-lg (10rem) on wide screens. Line height stays at
      display-lg's 1:1 ratio, so it scales with the size. */
   --page-hero-font-size-title: min(var(--typography-display-lg-font-size), 20cqi);
   --page-hero-line-height-title: 1;
-  --content-section-size-note-icon: 0.75rem;
-  --content-section-spacing-note-icon-gap: var(--spacing-8);
   /* Same ratio as the hero title arrow: 48px at 136px type. */
-  --content-section-spacing-title-icon-gap: calc(1em * 48 / 136);
   --content-section-spacing-head-padding-top: var(--spacing-24);
   --content-section-spacing-row-gap: var(--spacing-24);
-  --content-section-spacing-support-margin-top: var(--spacing-24);
-  --content-section-spacing-block-sm: var(--spacing-72);
 
   --content-section-spacing-lead-row-gap: var(--spacing-16);
 
@@ -1036,35 +1016,10 @@ code {
 
 /* ---------- page-hero ---------- */
 
-.page-hero {
-  padding-block-start: var(--page-hero-spacing-padding-top);
-}
-
-.page-hero__brief-text {
-  font-family: var(--typography-body-default-font-family);
-  font-size: var(--typography-body-default-font-size);
-  line-height: var(--typography-body-default-line-height);
-  font-weight: var(--typography-body-default-font-weight);
-  letter-spacing: var(--typography-body-default-letter-spacing);
-  color: var(--page-hero-color-content-brief);
-  text-wrap: pretty;
-}
-
 /* ---------- content-section ---------- */
 
 /* Blocks stack on the gap. A hidden block takes no gap, so the parked
    "before and after" figure needs no rule of its own. */
-.content-section {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--content-section-spacing-block-sm);
-  padding-block-start: var(--content-section-spacing-padding-top);
-}
-
-.content-section__head {
-  padding-block-start: var(--content-section-spacing-head-padding-top);
-}
-
 .content-section h2 {
   font-family: var(--typography-headline-sm-font-family);
   font-size: var(--typography-headline-sm-font-size);
@@ -1083,10 +1038,6 @@ code {
   letter-spacing: var(--typography-title-default-letter-spacing);
   color: var(--content-section-color-content-heading);
   text-wrap: balance;
-}
-
-.content-section__support p{
-  text-wrap: pretty;
 }
 
 /* Readout: four ruled cells, the last one filled with the brand. */
@@ -1258,65 +1209,19 @@ code {
    .align subgrids, span spacers, .stack--tight figures, .text-caption).
    These rules dress that structure in the index styles. */
 
+/* page-hero comes from software. Here: the page gutter, a flat media
+   filter, the fluid display-lg title, the eyebrow band and the lead's
+   display weight. */
+/* .grid here sets row-gap: 0, so the hero takes its own gap back. */
 .page-hero__inner {
   max-inline-size: none;
   padding-inline: var(--page-spacing-padding-x);
   column-gap: var(--page-spacing-gutter);
-  row-gap: var(--page-hero-spacing-media-margin-top);
-}
-
-/* Heading and summary, then the summary's lead and body, each spaced by
-   their group's gap. */
-.page-hero__intro {
-  row-gap: var(--page-hero-spacing-title-row-gap);
-}
-
-.page-hero__heading {
-  display: flex;
-  flex-direction: column;
-  gap: var(--page-hero-spacing-title-row-top);
-}
-
-.page-hero__summary {
-  row-gap: var(--page-hero-spacing-lead-top);
-}
-
-.page-hero__title {
-  font-family: var(--typography-display-sm-font-family);
-  font-size: var(--typography-display-sm-font-size);
-  line-height: var(--typography-display-sm-line-height);
-  font-weight: var(--typography-display-sm-font-weight);
-  letter-spacing: var(--typography-display-sm-letter-spacing);
-  color: var(--page-hero-color-content-title);
-  text-wrap: balance;
-}
-
-.page-hero__lead {
-  font-family: var(--typography-title-default-font-family);
-  font-size: var(--typography-title-default-font-size);
-  line-height: var(--typography-title-default-line-height);
-  font-weight: var(--typography-title-default-font-weight);
-  letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--feature-row-color-lead-content-default);
-  text-wrap: pretty;
+  row-gap: var(--page-hero-spacing-gap);
 }
 
 .page-hero__media {
-  /* All columns at every width (Mark, 2026-10-27). "span 9" on the
-     2-column phone grid added seven implicit zero-width tracks, each
-     keeping its gutter, which narrowed every full-width row in the hero. */
-  grid-column: 1 / -1;
   filter: var(--feature-row-elevation-flat);
-}
-
-.content-section__support {
-  margin-block-start: var(--content-section-spacing-support-margin-top);
-  color: var(--content-section-color-content-body);
-}
-
-.content-section__support p {
-  color: var(--content-section-color-content-body);
-  text-wrap: pretty;
 }
 
 /* Captions: monospace, numbered 1.0, 2.0… down the page. */
@@ -1339,28 +1244,19 @@ main {
   color: var(--feature-row-color-number-content-default);
 }
 
-/* Hero follows the index lead study: kicker and section-style title,
-   image across columns 1–9, then lead, brief and fact list in 4–9. */
 /* The study's true h1: the one display-lg moment on the site. Sized to
-   the hero's width (cqi) so the name fills the row without overflowing. */
-.page-hero__inner {
-  container-type: inline-size;
-}
-
+   the hero's width (cqi) so the name fills the row without overflowing.
+   Names wrap at spaces. Chrome won't auto-hyphenate a capitalized word,
+   so a name too long for one line carries &shy; at its break point.
+   From 60em the title ignores them (see below), so a multi-word name
+   breaks between words, not inside one. */
 .page-hero__title {
-  margin-block-start: var(--page-hero-spacing-title-top);
-  margin-inline-start: var(--page-hero-spacing-title-optical);
   font-family: var(--typography-display-lg-font-family);
   font-size: var(--page-hero-font-size-title);
   line-height: var(--page-hero-line-height-title);
   font-weight: var(--typography-display-lg-font-weight);
   letter-spacing: var(--typography-display-lg-letter-spacing);
   text-transform: uppercase;
-  /* Names wrap at spaces. Chrome won't auto-hyphenate a capitalized word,
-     so a name too long for one line carries &shy; at its break point.
-     From 60em the title ignores them (see below), so a multi-word name
-     breaks between words, not inside one. */
-  color: var(--page-hero-color-content-title);
 }
 
 @media (min-width: 60em) {
@@ -1378,61 +1274,22 @@ main {
 .page-hero__summary > .page-hero__lead {
   inline-size: 100%;
   max-inline-size: none;
-  font-family: var(--typography-headline-default-font-family);
-  font-size: var(--typography-headline-default-font-size);
-  line-height: var(--typography-headline-default-line-height);
   font-weight: var(--typography-display-sm-font-weight);
-  letter-spacing: var(--typography-headline-default-letter-spacing);
-  color: var(--page-hero-color-content-lead);
-  text-wrap: balance;
 }
 
 /* Info band: four cells on the four 3-column modules, each hung from a
    default-width ink rule. The study number is the one red mark. */
 .page-hero__band {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--spacing-24) var(--page-spacing-gutter);
-  margin: 0;
-}
-
-.page-hero__band > div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--page-hero-spacing-band-gap);
-  padding-block-start: var(--page-hero-spacing-band-padding-top);
-  border-block-start: var(--page-hero-border-width-band) solid var(--page-hero-color-border-band);
-}
-
-@media (min-width: 60em) {
-  .page-hero__band {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-/* Labels stay for assistive tech only; values read as the card meta line. */
-.page-hero__band dt {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  column-gap: var(--page-spacing-gutter);
 }
 
 .page-hero__band dd {
-  margin: 0;
   font-family: var(--typography-eyebrow-lg-font-family);
   font-size: var(--typography-eyebrow-lg-font-size);
   line-height: var(--typography-eyebrow-lg-line-height);
   font-weight: var(--typography-eyebrow-lg-font-weight);
   letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
   text-transform: uppercase;
-  color: var(--feature-row-color-meta-content-default);
-}
-
-.page-hero__band .page-hero__number {
-  color: var(--feature-row-color-number-content-default);
 }
 
 /* The hero shows the project's index media, from the same partial as its
@@ -1450,50 +1307,12 @@ main {
   --drift-travel: -1;
 }
 
-/* Lead (columns 1–6) and body (7–12) share the summary row. */
-.page-hero__body {
-  display: flex;
-  flex-direction: column;
-}
-
-/* First lines of the lead and the brief share one baseline. */
-.page-hero__summary > .page-hero__lead,
-.page-hero__summary > .page-hero__body {
-  align-self: first baseline;
-}
-
-.page-hero__body > .page-hero__specs {
-  margin-block-start: var(--feature-row-spacing-specs-margin-top);
-}
-
-/* All three lists stacked in one column, spaced wider. */
-.page-hero__body > .page-hero__specs {
-  grid-template-columns: minmax(0, 1fr);
-  row-gap: var(--page-hero-spacing-specs-gap-y);
-}
-
 /* From 60em the brief column splits in half on the page grid (one
-   gutter between halves = columns 7–9 and 10–12): the tall list on the
-   left, the others stacked on the right by auto-placement. */
+   gutter between halves = columns 7–9 and 10–12). */
 @media (min-width: 60em) {
-  .page-hero__body > .page-hero__specs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .page-hero__specs {
     column-gap: var(--page-spacing-gutter);
   }
-
-  .page-hero__specs > .feature-row__spec--tall {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-}
-
-.page-hero__body > .page-hero__brief-text {
-  margin-block-start: 0;
-  font-family: var(--typography-body-sm-font-family);
-  font-size: var(--typography-body-sm-font-size);
-  line-height: var(--typography-body-sm-line-height);
-  font-weight: var(--typography-body-sm-font-weight);
-  color: var(--feature-row-color-detail-content-default);
 }
 
 /* Medium screens: production's spans assume a 12-column grid that pairs
@@ -1536,10 +1355,6 @@ main {
    below), whatever columns the section sits in. Equal space above
    (to the image or hero before it) and below (to the h2). The rule is
    positioned against .case-flow, so nothing between them is positioned. */
-.content-section__head:has(> h2:not(.visually-hidden)) {
-  padding-block-start: var(--content-section-spacing-rule);
-}
-
 /* Every section reads copy first at every width: head (h2 + support),
    then media, then body, whatever the markup order. From 60em the
    desktop block below restates this for its flex layout. */
@@ -1556,6 +1371,21 @@ main {
   container-type: inline-size;
 }
 
+/* The rule above each heading is a full-bleed page line here, drawn by
+   ::before, so the head's own top border is off. */
+.content-section__head {
+  border-block-start: 0;
+}
+
+/* A heading hidden for assistive tech stays hidden: the shared heading
+   rule outranks the utility. */
+.content-section__head > h2.visually-hidden {
+  display: block;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
 .content-section__head:has(> h2:not(.visually-hidden))::before {
   content: "";
   position: absolute;
@@ -1570,15 +1400,6 @@ main {
    (Mark, 2026-10-29): the head's gap to the support copy is the rule
    spacing, and a head with no support copy pads out what the section's
    row gap is short of it. */
-.content-section__head > h2:not(.visually-hidden) {
-  padding-block-end: var(--content-section-spacing-rule);
-  border-block-end: var(--content-section-border-width-title) solid var(--content-section-color-border-title);
-}
-
-.content-section__head:has(> h2:not(.visually-hidden)) {
-  gap: var(--content-section-spacing-rule);
-}
-
 /* Padding, not margin: the desktop card resets its children's block
    margins. */
 .content-section__head:has(> h2:not(.visually-hidden)):not(:has(> .content-section__support)) {
@@ -1594,66 +1415,19 @@ main {
   padding-block-start: 0;
 }
 
-.content-section--card > .content-section__media:not(:has(> :not([hidden]))) {
-  display: none;
-}
-
-.content-section--card > .content-section__body:not(:has(> *)) {
-  display: none;
-}
-
-.content-section__head {
-  display: flex;
-  flex-direction: column;
+/* A head whose heading is hidden has no rules, so it sits closer. */
+.content-section__head:has(> h2.visually-hidden) {
+  padding-block-start: var(--content-section-spacing-head-padding-top);
   gap: var(--content-section-spacing-lead-row-gap);
 }
 
-.content-section--card .content-section__support {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
-  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
-  margin-block-start: 0;
+:is(.content-section__support, .content-section__part, .content-section__notes) {
+  column-gap: var(--page-spacing-gutter);
 }
 
 /* Media and body stack their blocks (parts, figures, notes) on the same
    48px rhythm below 60em; from 60em both become 12-column grids with the
    same row gap. */
-:is(.content-section__media, .content-section__body) {
-  display: flex;
-  flex-direction: column;
-  gap: var(--case-flow-spacing-row-gap);
-}
-
-.content-section__part {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--how-i-work-size-body-column-min)), 1fr));
-  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
-  color: var(--content-section-color-content-body);
-}
-
-.content-section__part > h3 {
-  grid-column: 1 / -1;
-}
-
-.content-section__part > p,
-.content-section__notes p {
-  text-wrap: pretty;
-}
-
-.content-section__notes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--content-section-spacing-row-gap) var(--page-spacing-gutter);
-}
-
-/* Phones: one column. Two 136px columns at 320 wrapped the 20px note
-   headings word by word. */
-@media (max-width: 34.9375em) {
-  .content-section__notes {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 /* Figure captions at the meta size (12/16). */
 figcaption.text-caption {
   font-size: var(--typography-eyebrow-default-font-size);
@@ -1665,114 +1439,25 @@ figcaption.text-caption {
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* Hero title arrow: a tight down-left glyph (viewBox trimmed to the drawn
-   stroke) at cap height, sitting on the last line's baseline and pushed
-   to the end of the grid. The title steps down just enough that word + arrow (with at
-   least the 48px gap) still fit one line. */
+/* With the arrow, the optical offset moves to the text (text-indent) so
+   the rule starts on the grid line like the band rules above, and the
+   size steps down so the name and arrow share the row. */
 .page-hero__title:has(.page-hero__title-icon) {
-  /* Title row closes on a default-width ink rule, with section-step
-     space above and the lead's gap below. */
-  /* Optical offset moves to the text (text-indent) so the rule starts on
-     the grid line like the band rules above. */
-  margin-block: 0;
-  margin-inline-start: 0;
   text-indent: var(--page-hero-spacing-title-optical);
-  padding-block-end: var(--page-hero-spacing-title-row-bottom);
-  border-block-end: var(--page-hero-border-width-title-row) solid var(--page-hero-color-border-band);
-  grid-column: 1 / -1;
-  justify-self: stretch;
-  inline-size: auto;
-  display: flex;
-  /* The arrow sits on the last line's baseline, so a wrapped name ends
-     on it (Mark, 2026-10-28). */
-  align-items: last baseline;
-  gap: var(--page-hero-spacing-title-icon-gap);
   font-size: calc(var(--page-hero-font-size-title) * var(--page-hero-scale-title-with-icon));
   /* Snap to the 8px scale (136px at the 160px display size). */
   font-size: round(down, calc(var(--page-hero-font-size-title) * var(--page-hero-scale-title-with-icon)), var(--spacing-8));
-  line-height: var(--page-hero-line-height-title);
-}
-
-.page-hero__title-icon {
-  display: inline-block;
-  /* Inter's cap height is 0.727em; 1cap where supported. */
-  inline-size: 0.727em;
-  inline-size: 1cap;
-  block-size: auto;
-  aspect-ratio: 1;
-  flex: none;
-  margin-inline-start: auto;
-  color: var(--color-content-headline-brand);
-}
-
-/* Section h2 arrow, on every case study (Mark, 2026-10-29): the hero
-   title's down-left arrow at the h2's cap height, on the heading's last
-   line's baseline. Below 60em the h2 already spans the grid, so the
-   arrow is pushed to its end here; from 60em see the case-flow rules. */
-.content-section h2:has(> .content-section__title-icon) {
-  display: flex;
-  align-items: last baseline;
-  gap: var(--content-section-spacing-title-icon-gap);
-}
-
-/* A flex item won't shrink below its longest word without this, so a long
-   word would push the page sideways instead of wrapping. */
-.content-section__title-text {
-  min-inline-size: 0;
-}
-
-.content-section__title-icon {
-  flex: none;
-  /* Inter's cap height is 0.727em; 1cap where supported. */
-  inline-size: 0.727em;
-  inline-size: 1cap;
-  block-size: auto;
-  aspect-ratio: 1;
-  margin-inline-start: auto;
-  color: var(--color-content-headline-brand);
 }
 
 /* Results: heading led by a hard-edged down-right arrow hung in the
    margin (8px gap, Mark 2026-10-28; 16px clipped the arrow at the case
    sheet's edge on smaller screens) so the text starts on the grid line;
    arrow sits on the text baseline. Body text below. */
-.content-section__note {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-8);
-}
-
 .content-section .content-section__note > h4 {
   /* 20/28 primitives; the swiss theme remaps label-lg to 18/24. */
   font-size: var(--typography-font-size-20);
   line-height: var(--typography-line-height-28);
   font-weight: var(--typography-font-weight-500);
-  display: flex;
-  align-items: first baseline;
-  gap: var(--content-section-spacing-note-icon-gap);
-}
-
-.content-section__note-icon {
-  flex: none;
-  inline-size: var(--content-section-size-note-icon);
-  aspect-ratio: 1;
-  color: var(--color-content-headline-brand);
-  align-self: baseline;
-}
-
-@media (min-width: 35em) {
-  .content-section__note-icon {
-    margin-inline-start: calc(-1 * (var(--content-section-size-note-icon) + var(--content-section-spacing-note-icon-gap)));
-  }
-}
-
-.content-section__note > p {
-  font-family: var(--typography-body-default-font-family);
-  font-size: var(--typography-body-default-font-size);
-  line-height: var(--typography-body-default-line-height);
-  font-weight: var(--typography-body-default-font-weight);
-  color: var(--content-section-color-content-body);
-  text-wrap: pretty;
 }
 
 @media (min-width: 60em) {
