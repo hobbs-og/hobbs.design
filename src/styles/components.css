@@ -243,7 +243,6 @@
     drop-shadow(0 0.125rem 0.1875rem color-mix(in srgb, var(--color-elevation-shadow) 22%, transparent))
     drop-shadow(0 1.25rem 2.5rem color-mix(in srgb, var(--color-elevation-shadow) 33%, transparent))
     drop-shadow(0 3rem 5rem color-mix(in srgb, var(--color-elevation-shadow) 27.5%, transparent));
-  --project-row-size-bullet: var(--spacing-4);
   --project-row-spacing-bullet-offset: -0.125rem;
   --project-row-spacing-gap: var(--spacing-24);
   --project-row-spacing-meta-gap-x: var(--spacing-24);
@@ -1208,7 +1207,7 @@ code {
 .project-row__spec li::before {
   content: "";
   flex: none;
-  inline-size: var(--project-row-size-bullet);
+  inline-size: var(--feature-row-spacing-bullet-width);
   aspect-ratio: 1;
   background: var(--project-row-color-background-bullet);
   translate: 0 var(--project-row-spacing-bullet-offset);
@@ -1811,7 +1810,7 @@ code {
 .case-hero__meta dd::before {
   content: "";
   flex: none;
-  inline-size: var(--project-row-size-bullet);
+  inline-size: var(--feature-row-spacing-bullet-width);
   aspect-ratio: 1;
   background: var(--project-row-color-background-bullet);
   translate: 0 var(--project-row-spacing-bullet-offset);
