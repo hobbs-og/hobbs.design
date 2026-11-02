@@ -22,7 +22,6 @@
       support and users who reduce motion see a static page.
    ============================================================ */
 
-
 /* ---------- Tokens ---------- */
 
 /* Below the large grid, roles use their -mobile tokens, so every theme steps
@@ -246,10 +245,7 @@
   /* page-hero */
   --page-hero-color-content-title: var(--color-content-headline);
   --page-hero-color-content-lead: var(--color-content-headline);
-  --page-hero-color-content-kicker: var(--color-content-emphasized);
-  --page-hero-color-content-kicker-brand: var(--color-content-eyebrow);
   --page-hero-color-content-brief: var(--color-content-default);
-  --page-hero-color-content-meta-label: var(--color-content-subtle);
   --page-hero-spacing-padding-top: var(--spacing-48);
   --page-hero-spacing-media-margin-top: var(--spacing-96);
   --page-hero-spacing-title-top: var(--spacing-120);
@@ -259,22 +255,13 @@
   --page-hero-border-width-band: var(--stat-band-border-width-default);
   --page-hero-spacing-band-padding-top: var(--spacing-12);
   --page-hero-spacing-band-gap: var(--spacing-4);
-  --page-hero-spacing-title-margin-top: var(--spacing-96);
   --page-hero-spacing-title-optical: -0.039em;
   --page-hero-spacing-row-gap: var(--spacing-24);
-  --page-hero-spacing-meta-padding-y: var(--spacing-8);
-  --page-hero-spacing-meta-padding-x: var(--spacing-12);
 
   /* content-section */
-  --content-section-color-content-label: var(--color-content-subtle);
   --content-section-color-content-heading: var(--color-content-headline);
   --content-section-color-content-body: var(--color-content-default);
-  --content-section-color-content-number: var(--color-content-emphasized);
-  --content-section-color-content-figure-label: var(--color-content-subtle);
-  --content-section-color-content-figure-label-brand: var(--color-content-eyebrow);
   --content-section-color-content-caption: var(--color-content-default);
-  --content-section-color-content-closing: var(--color-content-headline);
-  --content-section-color-content-open: var(--color-content-eyebrow);
   --content-section-spacing-padding-top: var(--spacing-168);
   --case-flow-spacing-row-gap: var(--spacing-48);
   --content-section-spacing-rule: var(--spacing-64);
@@ -301,20 +288,10 @@
   --content-section-spacing-note-icon-gap: var(--spacing-8);
   /* Same ratio as the hero title arrow: 48px at 136px type. */
   --content-section-spacing-title-icon-gap: calc(1em * 48 / 136);
-  --content-section-spacing-first-padding-top: var(--spacing-120);
   --content-section-spacing-head-padding-top: var(--spacing-24);
   --content-section-spacing-row-gap: var(--spacing-24);
   --content-section-spacing-support-margin-top: var(--spacing-24);
   --content-section-spacing-block-sm: var(--spacing-72);
-  --content-section-spacing-heading-offset: var(--spacing-12);
-  --content-section-spacing-body-offset: var(--spacing-16);
-  --content-section-spacing-figure-gap: var(--spacing-8);
-  --content-section-spacing-figcaption-gap: var(--spacing-12);
-  --content-section-spacing-figcaption-inline-gap: var(--spacing-16);
-  --content-section-spacing-closing-margin-top: var(--spacing-48);
-  --content-section-spacing-open-gap: var(--spacing-32);
-  --content-section-spacing-open-item-gap: var(--spacing-8);
-  --content-section-spacing-open-item-padding-top: var(--spacing-12);
 
   --content-section-spacing-lead-row-gap: var(--spacing-16);
 
@@ -327,10 +304,6 @@
   --case-readout-spacing-padding: var(--spacing-16);
   --case-readout-spacing-gap: var(--spacing-40);
   --case-readout-spacing-desc-margin-top: var(--spacing-8);
-  --case-notes-spacing-padding-x: var(--spacing-16);
-  --case-notes-spacing-padding-top: var(--spacing-16);
-  --case-notes-spacing-padding-bottom: var(--spacing-32);
-  --case-notes-spacing-gap: var(--spacing-12);
 
   /* sheet comes from software. Width and motion are the site's. */
   --sheet-size-container-max: 100rem;
@@ -381,7 +354,6 @@
     --wordmark-opacity: var(--wordmark-opacity-dark);
 }
 
-
 /* ---------- Page ---------- */
 
 body {
@@ -425,7 +397,6 @@ a:hover {
   outline-offset: var(--page-spacing-focus-offset);
 }
 
-
 :is(h1, h2, h3, h4, p, dl, dd, figure, ul) {
   margin: 0;
 }
@@ -464,7 +435,6 @@ a:hover {
 code {
   font-family: inherit;
 }
-
 
 /* ---------- navbar ---------- */
 
@@ -619,7 +589,6 @@ code {
   }
 }
 
-
 /* ---------- index-hero + wordmark ---------- */
 
 /* One-screen grid so the wordmark baseline always lands on the bottom
@@ -770,7 +739,6 @@ code {
 .index-hero__word--secondary .index-hero__letter:nth-child(6) { --i: 10; --dir: -1; --k: 1.15; }
 .index-hero__word--secondary .index-hero__letter:nth-child(7) { --i: 11; --dir: 1; --k: 1.5; }
 
-
 /* ---------- stat-band ---------- */
 
 /* stat-band comes from software. Here it sits close under the hero, and steps
@@ -867,8 +835,6 @@ code {
 .stat__digit:nth-child(2) { --spin: 30; }
 .stat__digit:nth-child(3) { --spin: 20; }
 
-
-
 /* ---------- feature-list, feature-row ----------
    Both come from software. Here a row takes the Swiss look: uppercase
    type, the heavier title, device shadows, depth blur, scroll drift and
@@ -963,7 +929,6 @@ code {
 .feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(3) { --layer-blur: blur(0.01rem); --drift: 2.5rem; }
 .feature-row__media--phone-fan:has(> .feature-row__layer:nth-child(4)) > .feature-row__layer:nth-child(4) { --drift: 3rem; }
 
-
 /* ---------- cta ---------- */
 
 /* .hyperlink--cta comes from software. Here it takes motion and the site's
@@ -987,7 +952,6 @@ code {
   align-items: center;
   gap: var(--button-spacing-actions-gap-y) var(--button-spacing-actions-gap-x);
 }
-
 
 /* ---------- how-i-work ---------- */
 
@@ -1033,7 +997,6 @@ code {
   text-wrap: balance;
 }
 
-
 /* ---------- contact ---------- */
 
 /* .contact comes from software. Here it takes the site's title and label type. */
@@ -1059,7 +1022,6 @@ code {
   column-gap: var(--page-spacing-gutter);
 }
 
-
 /* ---------- footer ---------- */
 
 /* .footer comes from software. Here it takes the site's eyebrow type. */
@@ -1072,16 +1034,10 @@ code {
   text-transform: uppercase;
 }
 
-
 /* ---------- page-hero ---------- */
 
 .page-hero {
   padding-block-start: var(--page-hero-spacing-padding-top);
-}
-
-.page-hero__bar {
-  row-gap: var(--page-hero-spacing-row-gap);
-  align-items: center;
 }
 
 .page-hero__brief-text {
@@ -1094,7 +1050,6 @@ code {
   text-wrap: pretty;
 }
 
-
 /* ---------- content-section ---------- */
 
 /* Blocks stack on the gap. A hidden block takes no gap, so the parked
@@ -1106,21 +1061,8 @@ code {
   padding-block-start: var(--content-section-spacing-padding-top);
 }
 
-.content-section--compare {
-  padding-block-start: var(--content-section-spacing-first-padding-top);
-}
-
-.content-section .grid {
-  row-gap: var(--content-section-spacing-row-gap);
-  align-items: baseline;
-}
-
 .content-section__head {
   padding-block-start: var(--content-section-spacing-head-padding-top);
-}
-
-.content-section__label {
-  color: var(--content-section-color-content-label);
 }
 
 .content-section h2 {
@@ -1143,69 +1085,8 @@ code {
   text-wrap: balance;
 }
 
-.content-section__support p,
-.content-section__text p {
+.content-section__support p{
   text-wrap: pretty;
-}
-
-.content-section__number {
-  font-size: var(--typography-eyebrow-default-font-size);
-  line-height: var(--typography-eyebrow-default-line-height);
-  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
-  color: var(--content-section-color-content-number);
-}
-
-.content-section__sub > h3 {
-  padding-block-start: var(--content-section-spacing-heading-offset);
-}
-
-.content-section__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-section-spacing-row-gap);
-  padding-block-start: var(--content-section-spacing-body-offset);
-  color: var(--content-section-color-content-body);
-}
-
-.case-figure {
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-section-spacing-figcaption-gap);
-}
-
-.case-figure__caption {
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-section-spacing-figure-gap);
-  font-family: var(--typography-body-sm-font-family);
-  font-size: var(--typography-body-sm-font-size);
-  line-height: var(--typography-body-sm-line-height);
-  font-weight: var(--typography-body-sm-font-weight);
-  letter-spacing: var(--typography-body-sm-letter-spacing);
-  color: var(--content-section-color-content-caption);
-}
-
-.case-figure__caption--inline {
-  flex-direction: row;
-  gap: var(--content-section-spacing-figcaption-inline-gap);
-}
-
-.case-figure__number {
-  font-family: var(--typography-eyebrow-default-font-family);
-  font-size: var(--typography-eyebrow-default-font-size);
-  line-height: var(--typography-eyebrow-default-line-height);
-  font-weight: var(--typography-eyebrow-default-font-weight);
-  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
-  text-transform: uppercase;
-  color: var(--content-section-color-content-figure-label);
-}
-
-.content-section__row--end {
-  align-items: end;
-}
-
-.content-section__row--start {
-  align-items: start;
 }
 
 /* Readout: four ruled cells, the last one filled with the brand. */
@@ -1262,62 +1143,8 @@ code {
   color: var(--case-readout-color-content-brand);
 }
 
-/* Notes: what the engineers said, in ruled columns. */
-.case-notes {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  border-inline-start: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
-}
-
-.case-notes__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--case-notes-spacing-gap);
-  padding: var(--case-notes-spacing-padding-top) var(--case-notes-spacing-padding-x) var(--case-notes-spacing-padding-bottom);
-  border-inline-end: var(--case-readout-border-width) solid var(--case-readout-color-border-default);
-}
-
-.case-notes__item .content-section__number {
-  color: var(--content-section-color-content-label);
-}
-
-.case-notes__item p,
-.case-open__item p {
-  color: var(--content-section-color-content-body);
-  text-wrap: pretty;
-}
-
-.case-open {
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-section-spacing-open-gap);
-}
-
-.case-open__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-section-spacing-open-item-gap);
-  padding-block-start: var(--content-section-spacing-open-item-padding-top);
-}
-
-.case-open__item .section-label {
-  color: var(--content-section-color-content-open);
-}
-
-.content-section__closing {
-  margin-block-start: var(--content-section-spacing-closing-margin-top);
-  font-family: var(--typography-title-lg-font-family);
-  font-size: var(--typography-title-lg-font-size);
-  line-height: var(--typography-title-lg-line-height);
-  font-weight: var(--typography-title-lg-font-weight);
-  letter-spacing: var(--typography-title-lg-letter-spacing);
-  color: var(--content-section-color-content-closing);
-  text-wrap: pretty;
-}
-
 @media (min-width: 35em) {
-  .case-readout,
-  .case-notes {
+  .case-readout{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1328,7 +1155,6 @@ code {
   }
 
 }
-
 
 /* ---------- sheet ----------
    .sheet comes from software. Here it takes motion, the case study width,
@@ -1401,7 +1227,6 @@ code {
   }
 }
 
-
 /* ---------- feature-row--next ---------- */
 
 .feature-row--next {
@@ -1415,8 +1240,6 @@ code {
   gap: var(--next-spacing-gap);
 }
 
-
-
 .feature-row--next .feature-row__media {
   padding-block-end: 0;
 }
@@ -1425,87 +1248,10 @@ code {
   filter: none;
 }
 
-
-
-/* ---------- case study: index alignment ----------
-   The study borrows the index card language: meta-style labels with the
-   number in accent, the card fact list for the brief details, and stat
-   numerals for the readout. */
-
-.content-section__label,
-.content-section .grid > .section-label {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--feature-row-spacing-meta-gap-y) var(--feature-row-spacing-meta-gap-x);
-  font-family: var(--typography-eyebrow-lg-font-family);
-  font-size: var(--typography-eyebrow-lg-font-size);
-  line-height: var(--typography-eyebrow-lg-line-height);
-  font-weight: var(--typography-eyebrow-lg-font-weight);
-  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  color: var(--feature-row-color-meta-content-default);
-}
-
-.content-section__label-number,
-.content-section__number,
-.case-figure__number {
-  color: var(--feature-row-color-number-content-default);
-}
-
-.content-section__number {
-  font-family: var(--typography-eyebrow-lg-font-family);
-  font-size: var(--typography-eyebrow-lg-font-size);
-  line-height: var(--typography-eyebrow-lg-line-height);
-  font-weight: var(--typography-eyebrow-lg-font-weight);
-  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-}
-
-.case-notes__item .content-section__number {
-  color: var(--feature-row-color-number-content-default);
-}
-
-/* Brief details read like the card fact list. */
-.page-hero__meta > div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--feature-row-spacing-spec-gap);
-  min-inline-size: 0;
-}
-
-.page-hero__meta dt {
-  font-family: var(--typography-eyebrow-default-font-family);
-  font-size: var(--typography-eyebrow-default-font-size);
-  line-height: var(--typography-eyebrow-default-line-height);
-  font-weight: var(--typography-eyebrow-default-font-weight);
-  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
-  text-transform: uppercase;
-  color: var(--feature-row-color-spec-label-content-default);
-}
-
-.page-hero__meta dd {
-  display: flex;
-  align-items: baseline;
-  gap: var(--feature-row-spacing-spec-item-gap);
-  font-family: var(--typography-body-sm-font-family);
-  font-size: var(--typography-body-sm-font-size);
-  line-height: var(--typography-body-sm-line-height);
-  font-weight: var(--typography-body-sm-font-weight);
-  color: var(--feature-row-color-spec-content-default);
-}
-
-.page-hero__meta dd::before {
-  content: "";
-  flex: none;
-  inline-size: var(--feature-row-spacing-bullet-width);
-  aspect-ratio: 1;
-  background: var(--feature-row-color-bullet-background-default);
-  translate: 0 calc(var(--feature-row-spacing-bullet-offset) * -1);
-}
-
 /* Readout numbers match the stat band. */
 .case-readout__cell:not(.case-readout__cell--brand) .case-readout__value {
   color: var(--stat-band-color-value-content-default);
 }
-
 
 /* ---------- case study: production template ----------
    bullhorn.html keeps the live page's structure (.page-hero__inner grid,
@@ -1540,12 +1286,6 @@ code {
   text-wrap: pretty;
 }
 
-.page-hero__meta {
-  row-gap: var(--feature-row-spacing-specs-gap-y);
-  margin-block-start: var(--feature-row-spacing-lead-specs-margin-top);
-  padding: 0;
-}
-
 .page-hero__media {
   /* All columns at every width (Mark, 2026-10-27). "span 9" on the
      2-column phone grid added seven implicit zero-width tracks, each
@@ -1560,7 +1300,6 @@ code {
   color: var(--content-section-color-content-body);
 }
 
-.content-section .grid > p,
 .content-section__support p {
   color: var(--content-section-color-content-body);
   text-wrap: pretty;
@@ -1584,10 +1323,6 @@ main {
 .text-caption::before {
   content: counter(site-figure) ".0" "\00a0\00a0";
   color: var(--feature-row-color-number-content-default);
-}
-
-.content-section .grid {
-  row-gap: var(--content-section-spacing-row-gap);
 }
 
 /* Hero follows the index lead study: kicker and section-style title,
@@ -1687,7 +1422,6 @@ main {
   color: var(--feature-row-color-number-content-default);
 }
 
-
 .page-hero__media {
   margin-block-start: var(--page-hero-spacing-media-margin-top);
 }
@@ -1755,22 +1489,12 @@ main {
   color: var(--feature-row-color-detail-content-default);
 }
 
-.page-hero__body > .page-hero__meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--feature-row-size-spec-min), 1fr));
-  gap: var(--feature-row-spacing-specs-gap-y) var(--page-spacing-gutter);
-}
-
 /* Medium screens: production's spans assume a 12-column grid that pairs
    narrow spans into halves and widens the rest. software's grid gives 8
    columns here, so the case study maps spans the same way production does. */
 @media (min-width: 35em) and (max-width: 59.9375em) {
-  :is(.page-hero__inner, .content-section) :is(.span-1, .span-2, .span-3, .span-4) {
-    grid-column: span 4;
-  }
 
-  :is(.page-hero__inner, .content-section) :is(.span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11),
-  :is(.page-hero__inner, .content-section) .align {
+  :is(.page-hero__inner, .content-section) :is(.span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11){
     grid-column: 1 / -1;
   }
 
@@ -1786,7 +1510,6 @@ main {
   font-weight: var(--typography-font-weight-800);
   text-transform: uppercase;
 }
-
 
 /* ---------- case-flow: study sections as index cards ----------
    Each h2 section is built like a .feature-row: media, head (h2 + support),
@@ -2211,8 +1934,6 @@ figcaption.text-caption {
     justify-self: end;
   }
 
-
-
   /* At nine columns the legacy pair sits side by side. */
   .case-flow > .content-section--card:nth-child(1) .media-frame:has(> img + img) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2258,13 +1979,11 @@ figcaption.text-caption {
   .case-flow > .content-section--card:nth-child(8) { grid-row: 16 / span 3; }
 }
 
-
 /* Case study h3: bold (the headline-sm weight, 700). Matches the
    specificity of the shared h3/h4 rule so it wins by order. */
 .content-section h3:not(.feature-row__title) {
   font-weight: var(--typography-headline-sm-font-weight);
 }
-
 
 /* ---------- Motion (CSS only) ---------- */
 
@@ -2400,7 +2119,6 @@ figcaption.text-caption {
   animation: none;
   translate: none;
 }
-
 
 /* Case study headings: every section h2 is 48/48 uppercase; every
    subsection h3 is 32/40 at medium weight. */
@@ -2644,7 +2362,6 @@ figcaption.text-caption {
     transition: none;
   }
 }
-
 
 /* X-ray view (html.xray, toggled by the Code switch via xray.js).
    Production's behaviour (utilities/xray.css) in this design's language:
