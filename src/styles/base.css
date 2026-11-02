@@ -6,6 +6,7 @@
    the old stack underneath leaks its paddings, borders and type
    into the components, so these pages load only:
 
+     vendor/software/components/reset.css  sizing and images
      vendor/software/fonts.css, tokens.css, grid.css
      src/styles/base.css          this file
      src/styles/components.css    the components
@@ -15,20 +16,8 @@
    .visually-hidden, which is the standard technique.
    ============================================================ */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-}
-
-img {
-  display: block;
-  max-inline-size: 100%;
-  block-size: auto;
 }
 
 .text-nowrap {
