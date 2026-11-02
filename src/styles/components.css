@@ -143,14 +143,9 @@
   --motion-easing-out: cubic-bezier(0.5, 1, 0.89, 1);
 
   /* section rhythm */
-  --section-spacing-padding-top: var(--spacing-168);
-  --section-spacing-header-gap: var(--spacing-8);
+  --section-spacing-padding-y: var(--spacing-168);
+  --section-spacing-padding-x: var(--spacing-0);
 
-  /* eyebrow / section-label */
-  --section-label-color-content-default: var(--color-content-subtle);
-  --section-label-color-content-brand: var(--color-content-eyebrow);
-
-  /* site-nav */
   /* navbar comes from software. These are the site's values for it. */
   --navbar-color-background-default: color-mix(in srgb, var(--color-background-default) 72%, transparent);
   --navbar-color-content-default: var(--color-content-emphasized);
@@ -403,33 +398,8 @@
   --case-notes-spacing-padding-bottom: var(--spacing-32);
   --case-notes-spacing-gap: var(--spacing-12);
 
-  /* sheet: values match production (organisms/sheet.css + tokens/component/sheet.json) */
-  --sheet-color-surface: var(--color-background-default);
-  --sheet-color-elevate: color-mix(in srgb, white 5%, transparent);
-  /* The system's overlay color behind an open sheet (Mark, 2026-10-27:
-     darker than the design's 16% knockout mix). */
-  --sheet-color-scrim: var(--color-background-knockout-translucent);
-  --sheet-color-chrome: var(--color-background-subtle);
-  --sheet-color-handle: var(--color-border-default);
-  --sheet-color-hairline: var(--color-border-subtle);
-  --sheet-color-control: var(--color-content-default);
-  --sheet-color-control-hover: var(--color-content-headline);
-  --sheet-size-peek: var(--spacing-64);
+  /* sheet comes from software. Width and motion are the site's. */
   --sheet-size-container-max: 100rem;
-  --sheet-size-handle-inline: var(--spacing-40);
-  --sheet-size-handle-block: var(--spacing-4);
-  --sheet-size-control: 2.75rem;
-  --sheet-border-width: 0.0625rem;
-  --sheet-radius-default: var(--spacing-8);
-  --sheet-radius-round: 624.9375rem;
-  --sheet-blur-backdrop: var(--spacing-8);
-  --sheet-spacing-inset: var(--spacing-24);
-  --sheet-spacing-chrome-x: var(--spacing-48);
-  --sheet-spacing-chrome-gap: var(--spacing-16);
-  --sheet-spacing-control-gap: var(--spacing-8);
-  --sheet-spacing-icon-shift: var(--spacing-8);
-  --sheet-spacing-mobile-start: var(--spacing-24);
-  --sheet-spacing-mobile-end: var(--spacing-8);
   --sheet-motion-duration: var(--motion-duration-lg);
   --sheet-motion-easing: cubic-bezier(0.32, 0.72, 0, 1);
   --sheet-motion-duration-ui: var(--motion-duration-sm);
@@ -541,8 +511,11 @@ a:hover {
   row-gap: 0;
 }
 
+/* .section comes from software. Here it opens with space above only, and
+   its children don't stack. */
 .section {
-  padding-block-start: var(--section-spacing-padding-top);
+  display: block;
+  padding-block-end: 0;
 }
 
 .section-label {
@@ -552,7 +525,6 @@ a:hover {
   font-weight: var(--typography-eyebrow-default-font-weight);
   letter-spacing: var(--typography-eyebrow-default-letter-spacing);
   text-transform: uppercase;
-  color: var(--section-label-color-content-default);
 }
 
 code {
@@ -1882,54 +1854,22 @@ code {
 }
 
 
-/* ---------- sheet: case study panel ----------
-   Same structure and behavior as production's organisms/sheet.css,
-   re-pointed at component tokens. A native <dialog> opened by sheet.js:
-   slides in from the trailing edge on desktop, rises from the bottom
-   below 48em with a grab handle and close button only. */
+/* ---------- sheet ----------
+   .sheet comes from software. Here it takes motion, the case study width,
+   and the page grid overlay. */
 
 .sheet {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  inline-size: auto;
-  block-size: auto;
-  max-inline-size: none;
-  max-block-size: none;
-  /* Opaque: text contrast can't depend on the scrim behind the panel. */
-  background:
-    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
-    var(--sheet-color-surface);
-  color: inherit;
-  position: fixed;
-  overflow: hidden;
-  overscroll-behavior: contain;
-  will-change: transform;
-  inset-block: 0;
-  inset-inline-start: var(--sheet-size-peek);
-  inset-inline-end: 0;
-  transform: translateX(100%);
   transition:
     transform var(--sheet-motion-duration) var(--sheet-motion-easing),
     display var(--sheet-motion-duration) allow-discrete,
     overlay var(--sheet-motion-duration) allow-discrete;
 }
 
-.sheet[open] {
-  display: flex;
-  flex-direction: column;
-  transform: none;
-}
-
-@starting-style {
-  .sheet[open] {
-    transform: translateX(100%);
+@media (min-width: 48em) {
+  .sheet--case {
+    inset-inline-start: auto;
+    inline-size: min(100% - var(--sheet-spacing-peek), var(--sheet-size-container-max));
   }
-}
-
-.sheet--case {
-  inset-inline-start: auto;
-  inline-size: min(100% - var(--sheet-size-peek), var(--sheet-size-container-max));
 }
 
 .sheet--case .case-hero {
@@ -1954,162 +1894,28 @@ code {
   background-repeat: repeat-x;
 }
 
-.sheet--case > * {
+.sheet--case > .sheet__body {
   position: relative;
   z-index: 1;
 }
 
 .sheet::backdrop {
-  background: var(--sheet-color-scrim);
-  backdrop-filter: blur(var(--sheet-blur-backdrop));
-  -webkit-backdrop-filter: blur(var(--sheet-blur-backdrop));
-  opacity: 0;
   transition:
     opacity var(--sheet-motion-duration) var(--sheet-motion-easing),
     display var(--sheet-motion-duration) allow-discrete,
     overlay var(--sheet-motion-duration) allow-discrete;
 }
 
-.sheet[open]::backdrop {
-  opacity: 1;
-}
-
-@starting-style {
-  .sheet[open]::backdrop {
-    opacity: 0;
-  }
-}
-
-.sheet__chrome {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sheet-spacing-chrome-gap);
-  padding: var(--sheet-spacing-inset) var(--sheet-spacing-chrome-x);
-  /* Opaque so the sheet's grid overlay stops under the header. */
-  background:
-    linear-gradient(var(--sheet-color-elevate), var(--sheet-color-elevate)),
-    var(--sheet-color-surface);
-  border-block-end: var(--sheet-border-width) solid var(--sheet-color-hairline);
-}
-
-.sheet__handle {
-  display: none;
-}
-
-.sheet__body {
-  flex: 1;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-.sheet__body:focus {
-  outline: none;
-}
-
-/* .button--bare as production draws it: no fill, border or inset. */
-.sheet .button--bare {
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sheet-spacing-control-gap);
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--sheet-color-control);
-  font: inherit;
-  font-size: var(--typography-body-default-font-size);
-  line-height: var(--typography-body-default-line-height);
-  text-transform: capitalize;
-  cursor: pointer;
+.sheet__control {
   transition: color var(--sheet-motion-duration-ui) ease;
 }
 
-.sheet .button--bare:is(:hover, :active) {
-  color: var(--sheet-color-control-hover);
-}
-
-.sheet .button--bare .icon {
-  transition: transform var(--sheet-motion-duration-ui) ease;
-}
-
-.sheet .button--bare:hover .icon {
-  transform: translateX(var(--sheet-spacing-icon-shift));
-}
-
-/* Back: the arrow holds still and the label slides 8px right, like the
-   sheet starting to close. */
-.sheet .sheet__back:hover .icon,
-.sheet .sheet__close:hover .icon {
-  transform: none;
-}
-
 .sheet__back-label {
-  display: inline-block;
   transition: transform var(--sheet-motion-duration-ui) ease;
-}
-
-.sheet .sheet__back:is(:hover, :focus-visible) .sheet__back-label {
-  transform: translateX(var(--spacing-8));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sheet__back-label { transition: none; }
-}
-
-@media (max-width: 47.9375rem) {
-  .sheet {
-    inset-block-start: var(--sheet-size-peek);
-    inset-block-end: 0;
-    inset-inline: 0;
-    inline-size: auto;
-    transform: translateY(100%);
-    border-start-start-radius: var(--sheet-radius-default);
-    border-start-end-radius: var(--sheet-radius-default);
-  }
-
-  @starting-style {
-    .sheet[open] {
-      transform: translateY(100%);
-    }
-  }
-
-  .sheet__chrome {
-    position: relative;
-    justify-content: flex-end;
-    padding-inline-start: var(--sheet-spacing-mobile-start);
-    padding-inline-end: var(--sheet-spacing-mobile-end);
-    padding-block: var(--sheet-spacing-mobile-end);
-    touch-action: none;
-  }
-
-  .sheet__handle {
-    display: block;
-    position: absolute;
-    inset-inline-start: 50%;
-    inset-block-start: 50%;
-    transform: translate(-50%, -50%);
-    inline-size: var(--sheet-size-handle-inline);
-    border-block-start: var(--sheet-size-handle-block) solid var(--sheet-color-handle);
-    border-radius: var(--sheet-radius-round);
-  }
-
-  .sheet__close {
-    justify-content: center;
-    min-inline-size: var(--sheet-size-control);
-    min-block-size: var(--sheet-size-control);
-  }
-
-  /* Phones close by the X or a swipe down, so Back goes. Same
-     specificity as .sheet .button--bare, which sets display and would
-     otherwise win. */
-  .sheet .sheet__back {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
