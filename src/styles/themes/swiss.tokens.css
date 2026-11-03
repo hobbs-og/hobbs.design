@@ -20,6 +20,8 @@
   --contact-color-default-border-default: var(--page-grid-color-border);
   --typography-label-lg-letter-spacing: -0.01em;
   --typography-title-default-letter-spacing: -0.015em;
+  --typography-title-sm-letter-spacing: -0.015em;
+  --typography-subheading-letter-spacing: -0.015em;
   --typography-title-lg-letter-spacing: -0.015em;
   --typography-headline-sm-letter-spacing: -0.02em;
   --typography-headline-default-letter-spacing: -0.02em;

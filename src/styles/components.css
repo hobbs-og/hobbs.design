@@ -54,12 +54,14 @@
     --typography-title-emphasized-line-height: var(--typography-title-emphasized-mobile-line-height);
     --typography-lead-font-size: var(--typography-lead-mobile-font-size);
     --typography-lead-line-height: var(--typography-lead-mobile-line-height);
+    --typography-subheading-font-size: var(--typography-subheading-mobile-font-size);
+    --typography-subheading-line-height: var(--typography-subheading-mobile-line-height);
   }
 }
 
 /* Medium screens: the section heading, card title and hero lead step to
-   headline-lg's size, not to their phone size. The card title keeps its
-   40 line height. */
+   headline-lg's size, and the subheading to headline-sm's, not to their
+   phone size. The card title keeps its 40 line height. */
 @media (min-width: 35em) and (max-width: 59.9375em) {
   :root {
     --typography-headline-emphasized-font-size: var(--typography-headline-lg-font-size);
@@ -67,6 +69,8 @@
     --typography-lead-font-size: var(--typography-headline-lg-font-size);
     --typography-lead-line-height: var(--typography-headline-lg-line-height);
     --typography-title-emphasized-font-size: var(--typography-headline-lg-font-size);
+    --typography-subheading-font-size: var(--typography-headline-sm-font-size);
+    --typography-subheading-line-height: var(--typography-headline-sm-line-height);
   }
 }
 
@@ -515,9 +519,10 @@ code {
   font-family: var(--typography-meta-sm-font-family);
   font-size: var(--typography-meta-sm-font-size);
   line-height: var(--typography-meta-sm-line-height);
-  font-weight: var(--typography-meta-sm-font-weight);
+  font-weight: var(--typography-font-weight-400);
   letter-spacing: var(--typography-letter-spacing-half);
-  /* Nav only: meta-sm set in uppercase; the token itself is unchanged. */
+  /* Nav only: meta-sm at regular weight with half tracking, in uppercase.
+     Swiss meta-sm is the heavier eyebrow label. */
   text-transform: uppercase;
 }
 
@@ -880,24 +885,6 @@ code {
   }
 }
 
-.feature-row__meta {
-  font-family: var(--typography-eyebrow-lg-font-family);
-  font-size: var(--typography-eyebrow-lg-font-size);
-  line-height: var(--typography-eyebrow-lg-line-height);
-  font-weight: var(--typography-eyebrow-lg-font-weight);
-  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  text-transform: uppercase;
-}
-
-.feature-row__spec dt {
-  font-family: var(--typography-eyebrow-default-font-family);
-  font-size: var(--typography-eyebrow-default-font-size);
-  line-height: var(--typography-eyebrow-default-line-height);
-  font-weight: var(--typography-eyebrow-default-font-weight);
-  letter-spacing: var(--typography-eyebrow-default-letter-spacing);
-  text-transform: uppercase;
-}
-
 .feature-row__title {
   transition: color var(--motion-duration-sm) ease;
 }
@@ -1038,16 +1025,6 @@ code {
 
 /* Blocks stack on the gap. A hidden block takes no gap, so the parked
    "before and after" figure needs no rule of its own. */
-.content-section :is(h3, h4):not(.feature-row__title) {
-  font-family: var(--typography-title-default-font-family);
-  font-size: var(--typography-title-default-font-size);
-  line-height: var(--typography-title-default-line-height);
-  font-weight: var(--typography-title-default-font-weight);
-  letter-spacing: var(--typography-title-default-letter-spacing);
-  color: var(--content-section-color-content-heading);
-  text-wrap: balance;
-}
-
 /* Readout: four ruled cells, the last one filled with the brand. */
 .case-readout {
   display: grid;
@@ -1288,15 +1265,6 @@ main {
   column-gap: var(--page-spacing-gutter);
 }
 
-.page-hero__band dd {
-  font-family: var(--typography-eyebrow-lg-font-family);
-  font-size: var(--typography-eyebrow-lg-font-size);
-  line-height: var(--typography-eyebrow-lg-line-height);
-  font-weight: var(--typography-eyebrow-lg-font-weight);
-  letter-spacing: var(--typography-eyebrow-lg-letter-spacing);
-  text-transform: uppercase;
-}
-
 /* The hero shows the project's index media, from the same partial as its
    index row (projects/<slug>-media.html): one image, or a device combo
    whose layers are sized as percentages of this box. The images carry
@@ -1374,6 +1342,7 @@ main {
 /* The rule above each heading is a full-bleed page line here, drawn by
    ::before, so the head's own top border is off. */
 .content-section__head {
+  padding-block-start: var(--content-section-spacing-head-padding-y);
   border-block-start: 0;
 }
 
@@ -1453,13 +1422,6 @@ figcaption.text-caption {
    margin (8px gap, Mark 2026-10-28; 16px clipped the arrow at the case
    sheet's edge on smaller screens) so the text starts on the grid line;
    arrow sits on the text baseline. Body text below. */
-.content-section .content-section__note > h4 {
-  /* 20/28 primitives; the swiss theme remaps label-lg to 18/24. */
-  font-size: var(--typography-font-size-20);
-  line-height: var(--typography-line-height-28);
-  font-weight: var(--typography-font-weight-500);
-}
-
 @media (min-width: 60em) {
   .case-flow > .content-section--card {
     grid-template-rows: subgrid;
@@ -1673,10 +1635,6 @@ figcaption.text-caption {
 
 /* Case study h3: bold (the headline-sm weight, 700). Matches the
    specificity of the shared h3/h4 rule so it wins by order. */
-.content-section h3:not(.feature-row__title) {
-  font-weight: var(--typography-headline-sm-font-weight);
-}
-
 /* ---------- Motion (CSS only) ---------- */
 
 @supports (animation-timeline: scroll()) {
@@ -1810,22 +1768,6 @@ figcaption.text-caption {
 .feature-row__media--static > img {
   animation: none;
   translate: none;
-}
-
-/* Case study headings: every section h2 is 48/48 uppercase; every
-   subsection h3 is 32/40 at medium weight. */
-.case-flow .content-section h3:not(.feature-row__title) {
-  font-size: var(--typography-headline-sm-font-size);
-  line-height: var(--typography-headline-sm-line-height);
-  font-weight: var(--typography-font-weight-500);
-}
-
-/* Phones: subsection h3 steps to title-default (24/32). */
-@media (max-width: 34.9375em) {
-  .case-flow .content-section h3:not(.feature-row__title) {
-    font-size: var(--typography-title-default-font-size);
-    line-height: var(--typography-title-default-line-height);
-  }
 }
 
 /* Study motion: each row rises 24px and fades in as it enters the
