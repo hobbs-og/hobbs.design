@@ -36,8 +36,6 @@ deployment:
     - export DEPLOYPATH=$HOME/public_html/
     - /bin/cp -R index.html $DEPLOYPATH
     - /bin/cp -R about.html $DEPLOYPATH
-    - /bin/cp -R resume.html $DEPLOYPATH
-    - /bin/cp -R contact.html $DEPLOYPATH
     - /bin/cp -R terafina.html $DEPLOYPATH
     - /bin/cp -R fabrication.html $DEPLOYPATH
     - /bin/cp -R proof.html $DEPLOYPATH
@@ -46,8 +44,6 @@ deployment:
     - /bin/cp -R groundwork.html $DEPLOYPATH
     - /bin/cp -R software.html $DEPLOYPATH
     - /bin/cp -R bullhorn.html $DEPLOYPATH
-    - /bin/cp -R foundations.html $DEPLOYPATH
-    - /bin/cp -R components.html $DEPLOYPATH
     - /bin/cp -R favicon.svg $DEPLOYPATH
     - /bin/cp -R robots.txt $DEPLOYPATH
     - /bin/cp -R sitemap.xml $DEPLOYPATH
