@@ -95,7 +95,7 @@
   --space-4xl: var(--spacing-128);
   --space-section-x: var(--spacing-48);
   --space-section-y: var(--spacing-48);
-  --space-grid-column-gap: var(--spacing-gap-xlg);
+  --space-grid-column-gap: var(--spacing-gap-3xlg);
   --space-grid-row-gap: var(--spacing-gap-lg);
   --space-stack-tight: var(--spacing-8);
   --space-stack-default: var(--spacing-24);
