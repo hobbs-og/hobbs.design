@@ -23,6 +23,9 @@
   --typography-title-lg-letter-spacing: -0.015em;
   --typography-headline-sm-letter-spacing: -0.02em;
   --typography-headline-default-letter-spacing: -0.02em;
+  --typography-headline-emphasized-letter-spacing: -0.02em;
+  --typography-title-emphasized-letter-spacing: -0.02em;
+  --typography-lead-letter-spacing: -0.02em;
   --typography-headline-lg-font-size: 2rem;
   --typography-headline-lg-line-height: 2.5rem;
   --typography-headline-lg-letter-spacing: -0.03em;

@@ -46,6 +46,27 @@
     --typography-title-lg-font-size: var(--typography-title-lg-mobile-font-size);
     --typography-title-lg-line-height: var(--typography-title-lg-mobile-line-height);
     --typography-title-lg-letter-spacing: var(--typography-title-lg-mobile-letter-spacing);
+    --typography-display-emphasized-font-size: var(--typography-display-emphasized-mobile-font-size);
+    --typography-display-emphasized-line-height: var(--typography-display-emphasized-mobile-line-height);
+    --typography-headline-emphasized-font-size: var(--typography-headline-emphasized-mobile-font-size);
+    --typography-headline-emphasized-line-height: var(--typography-headline-emphasized-mobile-line-height);
+    --typography-title-emphasized-font-size: var(--typography-title-emphasized-mobile-font-size);
+    --typography-title-emphasized-line-height: var(--typography-title-emphasized-mobile-line-height);
+    --typography-lead-font-size: var(--typography-lead-mobile-font-size);
+    --typography-lead-line-height: var(--typography-lead-mobile-line-height);
+  }
+}
+
+/* Medium screens: the section heading, card title and hero lead step to
+   headline-lg's size, not to their phone size. The card title keeps its
+   40 line height. */
+@media (min-width: 35em) and (max-width: 59.9375em) {
+  :root {
+    --typography-headline-emphasized-font-size: var(--typography-headline-lg-font-size);
+    --typography-headline-emphasized-line-height: var(--typography-headline-lg-line-height);
+    --typography-lead-font-size: var(--typography-headline-lg-font-size);
+    --typography-lead-line-height: var(--typography-headline-lg-line-height);
+    --typography-title-emphasized-font-size: var(--typography-headline-lg-font-size);
   }
 }
 
@@ -878,9 +899,6 @@ code {
 }
 
 .feature-row__title {
-  line-height: var(--typography-line-height-40);
-  font-weight: var(--typography-font-weight-900);
-  text-transform: uppercase;
   transition: color var(--motion-duration-sm) ease;
 }
 
@@ -1020,16 +1038,6 @@ code {
 
 /* Blocks stack on the gap. A hidden block takes no gap, so the parked
    "before and after" figure needs no rule of its own. */
-.content-section h2 {
-  font-family: var(--typography-headline-sm-font-family);
-  font-size: var(--typography-headline-sm-font-size);
-  line-height: var(--typography-headline-sm-line-height);
-  font-weight: var(--typography-headline-sm-font-weight);
-  letter-spacing: var(--typography-headline-sm-letter-spacing);
-  color: var(--content-section-color-content-heading);
-  text-wrap: balance;
-}
-
 .content-section :is(h3, h4):not(.feature-row__title) {
   font-family: var(--typography-title-default-font-family);
   font-size: var(--typography-title-default-font-size);
@@ -1254,9 +1262,7 @@ main {
   font-family: var(--typography-display-lg-font-family);
   font-size: var(--page-hero-font-size-title);
   line-height: var(--page-hero-line-height-title);
-  font-weight: var(--typography-display-lg-font-weight);
   letter-spacing: var(--typography-display-lg-letter-spacing);
-  text-transform: uppercase;
 }
 
 @media (min-width: 60em) {
@@ -1274,7 +1280,6 @@ main {
 .page-hero__summary > .page-hero__lead {
   inline-size: 100%;
   max-inline-size: none;
-  font-weight: var(--typography-display-sm-font-weight);
 }
 
 /* Info band: four cells on the four 3-column modules, each hung from a
@@ -1331,11 +1336,6 @@ main {
 
 /* Case study h2: uppercase, 40px, weight 800. Visually hidden h2s are
    unaffected. */
-.content-section h2:not(.visually-hidden) {
-  font-size: var(--typography-headline-default-font-size);
-  font-weight: var(--typography-font-weight-800);
-  text-transform: uppercase;
-}
 
 /* ---------- case-flow: study sections as index cards ----------
    Each h2 section is built like a .feature-row: media, head (h2 + support),
@@ -1814,32 +1814,10 @@ figcaption.text-caption {
 
 /* Case study headings: every section h2 is 48/48 uppercase; every
    subsection h3 is 32/40 at medium weight. */
-.case-flow .content-section__head > h2 {
-  font-size: var(--typography-font-size-48);
-  line-height: var(--typography-line-height-48);
-  text-transform: uppercase;
-}
-
 .case-flow .content-section h3:not(.feature-row__title) {
   font-size: var(--typography-headline-sm-font-size);
   line-height: var(--typography-headline-sm-line-height);
   font-weight: var(--typography-font-weight-500);
-}
-
-/* Headings below 60em. Desktop keeps its sizes; smaller screens step
-   down on system roles. headline-lg steps 32/40 (small) and 40/48
-   (medium), which is also where the hero lead already sits on tablets.
-   The row title keeps its 40 line height. */
-@media (max-width: 59.9375em) {
-  .case-flow .content-section__head > h2,
-  .page-hero__summary > .page-hero__lead {
-    font-size: var(--typography-headline-lg-font-size);
-    line-height: var(--typography-headline-lg-line-height);
-  }
-
-  .feature-row__title {
-    font-size: var(--typography-headline-lg-font-size);
-  }
 }
 
 /* Phones: subsection h3 steps to title-default (24/32). */
