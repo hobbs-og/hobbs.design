@@ -28,8 +28,6 @@
   --typography-headline-emphasized-letter-spacing: -0.02em;
   --typography-title-emphasized-letter-spacing: -0.02em;
   --typography-lead-letter-spacing: -0.02em;
-  --typography-headline-lg-font-size: 2rem;
-  --typography-headline-lg-line-height: 2.5rem;
   --typography-headline-lg-letter-spacing: -0.03em;
   --typography-display-sm-letter-spacing: -0.03em;
   --typography-display-default-font-size: 2.5rem;
@@ -40,17 +38,22 @@
 @media (min-width: 35em) {
   [data-brand="swiss"] {
     --container-gutter: var(--spacing-gap-lg);
-    --typography-headline-lg-font-size: 2.5rem;
-    --typography-headline-lg-line-height: 3rem;
     --typography-display-default-font-size: 4rem;
     --typography-display-default-line-height: 4.5rem;
   }
 }
 
+/* Tablet only: headline-lg steps up from its phone size. Phone and desktop
+   take their values from Figma. */
+@media (min-width: 35em) and (max-width: 59.9375em) {
+  [data-brand="swiss"] {
+    --typography-headline-lg-font-size: 2.5rem;
+    --typography-headline-lg-line-height: 3rem;
+  }
+}
+
 @media (min-width: 60em) {
   [data-brand="swiss"] {
-    --typography-headline-lg-font-size: 3.5rem;
-    --typography-headline-lg-line-height: 4rem;
     --typography-display-default-font-size: 6rem;
     --typography-display-default-line-height: 6.5rem;
   }

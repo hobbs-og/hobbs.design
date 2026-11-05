@@ -48,8 +48,6 @@
     --typography-title-lg-letter-spacing: var(--typography-title-lg-mobile-letter-spacing);
     --typography-display-emphasized-font-size: var(--typography-display-emphasized-mobile-font-size);
     --typography-display-emphasized-line-height: var(--typography-display-emphasized-mobile-line-height);
-    --typography-headline-emphasized-font-size: var(--typography-headline-emphasized-mobile-font-size);
-    --typography-headline-emphasized-line-height: var(--typography-headline-emphasized-mobile-line-height);
     --typography-title-emphasized-font-size: var(--typography-title-emphasized-mobile-font-size);
     --typography-title-emphasized-line-height: var(--typography-title-emphasized-mobile-line-height);
     --typography-lead-font-size: var(--typography-lead-mobile-font-size);
@@ -59,13 +57,11 @@
   }
 }
 
-/* Medium screens: the section heading, card title and hero lead step to
+/* Medium screens: the card title and hero lead step to
    headline-lg's size, and the subheading to headline-sm's, not to their
    phone size. The card title keeps its 40 line height. */
 @media (min-width: 35em) and (max-width: 59.9375em) {
   :root {
-    --typography-headline-emphasized-font-size: var(--typography-headline-lg-font-size);
-    --typography-headline-emphasized-line-height: var(--typography-headline-lg-line-height);
     --typography-lead-font-size: var(--typography-headline-lg-font-size);
     --typography-lead-line-height: var(--typography-headline-lg-line-height);
     --typography-title-emphasized-font-size: var(--typography-headline-lg-font-size);
