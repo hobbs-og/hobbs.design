@@ -1296,6 +1296,13 @@ main {
   .page-hero__media {
     grid-column: 1 / -1;
   }
+
+  /* Fact lists pair up two across, the third wrapping under the first,
+     on the same gutter they use from 60em. */
+  .page-hero__specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--page-spacing-gutter);
+  }
 }
 
 /* Case study h2: uppercase, 40px, weight 800. Visually hidden h2s are

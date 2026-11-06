@@ -222,10 +222,12 @@ Inter.
   custom elements. Decided explicitly.
 - **The `.navbar` header is locked in** — byte-identical on every page:
   structure, `data-xray` hooks, logo markup, the X-ray toggle, and the links
-  themselves. A global nav does not change per page; only `aria-current` varies.
-  Canonical links: About → `about.html`, Work → `index.html#work`, Contact →
-  `index.html#contact`, Resume → the PDF. On swiss pages, `nav-links.html` is the
-  only copy. Do not "improve" one page's nav in isolation.
+  themselves. A global nav does not change per page.
+  Canonical links: Work goes to `index.html#work`, About to `index.html#about`,
+  Contact to `index.html#contact`, and Resume to the PDF. Every page link points
+  at a spot on the index, so About does too, even though `about.html` exists
+  (Mark, 2026-11-05). On swiss pages, `nav-links.html` is the only copy. Do not
+  "improve" one page's nav in isolation.
 - **The footer is one component**, byte-identical on all pages.
 - Links that leave the site carry the external-link icon and open in a new tab
   with `rel="noopener"`.
